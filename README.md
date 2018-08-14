@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ff49a1ed83ad4756bd96ca997b66c54f)](https://app.codacy.com/app/MeghnaW19/capgemini-w1-juggler?utm_source=github.com&utm_medium=referral&utm_content=stackroute/capgemini-w1-juggler&utm_campaign=badger)
 [![CircleCI](https://circleci.com/gh/stackroute/capgemini-w1-juggler.svg?style=svg)](https://circleci.com/gh/stackroute/capgemini-w1-juggler)
 
 **Spring Boot Cloud Native Microservices Architecture**
