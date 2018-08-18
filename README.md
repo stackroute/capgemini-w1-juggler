@@ -1,7 +1,6 @@
+[![CircleCI](https://circleci.com/gh/stackroute/capgemini-w1-juggler.svg?style=svg)](https://circleci.com/gh/stackroute/capgemini-w1-juggler)
 
-[![CircleCI](https://circleci.com/gh/MeghnaW19/capgemini-w1-juggler.svg?style=svg)](https://circleci.com/gh/MeghnaW19/capgemini-w1-juggler)
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/65e20a1dc7714f4b82c544845f99dfdb)](https://www.codacy.com/app/MeghnaW19/capgemini-w1-juggler_2?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=stackroute/capgemini-w1-juggler&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bc2f3c79f3ad494ea03ee8b5ee54a38e)](https://www.codacy.com/app/MeghnaW19/capgemini-w1-juggler?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=stackroute/capgemini-w1-juggler&amp;utm_campaign=Badge_Grade)
 
 **Spring Boot Cloud Native Microservices Architecture**
 [![N|Solid](https://spring.io/img/homepage/icon-spring-cloud-data-flow.svg)](https://spring.io/img/homepage/icon-spring-cloud-data-flow.svg)
