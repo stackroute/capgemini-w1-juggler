@@ -1,5 +1,4 @@
-
-[![CircleCI](https://circleci.com/gh/stackroute/capgemini-w1-juggler.svg?style=svg)](https://circleci.com/gh/stackroute/capgemini-w1-juggler)
+[![CircleCI](https://circleci.com/gh/stackroute/capgemini-w1-juggler.svg?style=svg)](https://circleci.com/gh/stackroute/capgemini-w1-juggler))
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/bc2f3c79f3ad494ea03ee8b5ee54a38e)](https://www.codacy.com/app/MeghnaW19/capgemini-w1-juggler?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=stackroute/capgemini-w1-juggler&amp;utm_campaign=Badge_Grade)
 
