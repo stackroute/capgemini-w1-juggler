@@ -11,6 +11,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//these are the annotations for lambok so that we wont use setters and getters
+
 @Document
 @Data
 @NoArgsConstructor
@@ -18,6 +20,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class User {
 	
+	//this user_id is set as id
 	@Id
 	private int user_id;
 	private String user_name;
