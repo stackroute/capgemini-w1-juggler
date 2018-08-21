@@ -1,5 +1,7 @@
 package com.stackroute.juggler.userprofile.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.stackroute.juggler.userprofile.domain.User;
@@ -26,9 +28,9 @@ public class UserServiceImpl implements UserService {
 	
 	//this method is to view user from databases
 	@Override
-	public User viewUser(int userid) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<User>  viewUser(int userid) {
+		Optional<User> findMovie=userRepository.findById(userid);
+		return findMovie;
 	}
 
 }
