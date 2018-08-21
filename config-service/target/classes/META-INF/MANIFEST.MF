@@ -3,6 +3,10 @@ Built-By: user
 Build-Jdk: 10.0.1
 Implementation-Title: configuration-service
 Implementation-Version: 1.0.0
+<<<<<<< HEAD
+=======
+Built-By: user
+>>>>>>> 310feced3d86fca5602cd170c3a8367cf0f7742e
 Implementation-Vendor-Id: com.stackroute
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/capgemini-w1-juggler-test/configuration-service

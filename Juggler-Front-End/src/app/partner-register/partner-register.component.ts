@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-// import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-partner-register',
   templateUrl: './partner-register.component.html',
-  styleUrls: ['./partner-register.component.css']
+  styleUrls: ['./partner-register.component.scss']
 })
 export class PartnerRegisterComponent implements OnInit {
 
