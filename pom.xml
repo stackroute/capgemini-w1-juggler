@@ -27,6 +27,11 @@
 		<module>config-service</module>
 		<module>eureka-server</module>
 		<module>zuul-apigateway</module>
+<<<<<<< HEAD
 		<module>movie-schedule</module>
+=======
+		<module>distributor</module>
+
+>>>>>>> c666c3269c22c36c19e8bd820097ba6cd1b8aab8
 	</modules>
 </project>
