@@ -1,3 +1,38 @@
-<p>
-  header works!
-</p>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="col-md-4">
+    <a class="navbar-brand" href="#">
+      <h2 class="name">
+        <i>Juggler</i>
+      </h2>
+    </a>
+  </div>
+
+  <div class="collapse navbar-collapse col-md-8" id="collapsibleNavbar">
+
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/movie-list">Movies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#Contact">Contact Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#" routerLink="/register-user">Login/Sign Up</a>
+      </li>
+    </ul>
+    <!-- Search form -->
+    <form class="form-inline mr-auto">
+
+      <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
+
+    </form>
+  </div>
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
