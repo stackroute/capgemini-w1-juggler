@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.stackroute.juggler.userprofile.domain.User;
+import com.stackroute.juggler.userprofile.exceptions.KafkaConnectionFailed;
+import com.stackroute.juggler.userprofile.exceptions.ProfileAlreadyExits;
+import com.stackroute.juggler.userprofile.exceptions.UpdateFailed;
+import com.stackroute.juggler.userprofile.exceptions.UserDoesNotExists;
 import com.stackroute.juggler.userprofile.service.UserService;
 
 @RestController
@@ -23,29 +27,47 @@ public class UserController {
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
-	 @Autowired
-	    private KafkaTemplate<String, User> kafkaTemplate;
 
-	    private static final String TOPIC = "user_profile";
+	@Autowired
+	private KafkaTemplate<String, User> kafkaTemplate;
+
+	private static final String TOPIC = "user_profile";
 
 	@RequestMapping(value = "/user/save", method = RequestMethod.POST)
-	public ResponseEntity<?> saveUser(@RequestBody User user) {
+	public ResponseEntity<?> saveUser(@RequestBody User user) throws ProfileAlreadyExits, KafkaConnectionFailed {
 		User userobj = null;
-		 kafkaTemplate.send(TOPIC, user);
-		userobj = userService.saveUser(user);
+		// try {
+		kafkaTemplate.send(TOPIC, user);
+		// }catch(KafkaConnectionFailed m){
+		// String result = m.getMessage();
+		// return new ResponseEntity<String>(result, HttpStatus.OK);
+		// }
+		try {
+			userobj = userService.saveUser(user);
+		} catch (ProfileAlreadyExits m) {
+			String result = m.getMessage();
+			return new ResponseEntity<String>(result, HttpStatus.OK);
+		}
 		return new ResponseEntity<User>(userobj, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/user/{userid}", method = RequestMethod.GET)
-	public ResponseEntity<User> viewuser(@PathVariable int userid) {
-		User userobj = userService.viewUser(userid);
-		return new ResponseEntity<User>(userobj, HttpStatus.OK);
+	public ResponseEntity<?> viewuser(@PathVariable int userid) throws UserDoesNotExists {
+		try {
+			User userobj = userService.viewUser(userid);
+			return new ResponseEntity<User>(userobj, HttpStatus.OK);
+		} catch (UserDoesNotExists m) {
+			String result = m.getMessage();
+			return new ResponseEntity<String>(result, HttpStatus.OK);
+		}
+
 	}
 
 	@RequestMapping(value = "/user/{userid}", method = RequestMethod.PUT)
-	public ResponseEntity<User> updateuser(@PathVariable int userid,@RequestBody User user) {
-		User userobj = userService.updateUser(userid,user);
+	public ResponseEntity<User> updateuser(@PathVariable int userid, @RequestBody User user) throws UpdateFailed {
+		User userobj = userService.updateUser(userid, user);
 		return new ResponseEntity<User>(userobj, HttpStatus.OK);
 
 	}
+
 }
