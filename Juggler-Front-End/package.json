@@ -11,31 +11,13 @@
   },
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@angular/animations": "github:angular/animations-builds",
     "@angular/cdk": "github:angular/cdk-builds",
-=======
-<<<<<<< HEAD
-    "@angular/animations": "^6.1.0",
-=======
-    "@angular/animations": "github:angular/animations-builds",
-    "@angular/cdk": "github:angular/cdk-builds",
->>>>>>> 5982038d65e576e1e833306c2294636a2478ce34
->>>>>>> 63ce83ece91d925925a048a33402f1329815819d
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
     "@angular/core": "^6.1.0",
     "@angular/forms": "^6.1.0",
     "@angular/http": "^6.1.0",
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    "@angular/platform-browser": "^6.1.0",
-    "@angular/platform-browser-dynamic": "^6.1.0",
-    "@angular/router": "^6.1.0",
-    "core-js": "^2.5.4",
-=======
->>>>>>> 63ce83ece91d925925a048a33402f1329815819d
     "@angular/material": "github:angular/material2-builds",
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
@@ -46,10 +28,6 @@
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
-<<<<<<< HEAD
-=======
->>>>>>> 5982038d65e576e1e833306c2294636a2478ce34
->>>>>>> 63ce83ece91d925925a048a33402f1329815819d
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },

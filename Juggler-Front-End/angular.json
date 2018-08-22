@@ -8,21 +8,11 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-      "schematics": {},
-=======
->>>>>>> 63ce83ece91d925925a048a33402f1329815819d
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss"
         }
       },
-<<<<<<< HEAD
-=======
->>>>>>> 5982038d65e576e1e833306c2294636a2478ce34
->>>>>>> 63ce83ece91d925925a048a33402f1329815819d
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -37,33 +27,12 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-=======
-<<<<<<< HEAD
-              "src/styles.css"
-            ],
-            "scripts": []
-=======
->>>>>>> 4ee02a397863b2e86c1e3d41f29ff832aa50d87a
->>>>>>> 63ce83ece91d925925a048a33402f1329815819d
               "node_modules/font-awesome/scss/font-awesome.scss",
               "node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
               "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
               "src/styles.scss"
             ],
-<<<<<<< HEAD
             "scripts": [ ]
-=======
-<<<<<<< HEAD
-            "scripts": []
-=======
-            "scripts": [ ]
->>>>>>> 5982038d65e576e1e833306c2294636a2478ce34
->>>>>>> 4ee02a397863b2e86c1e3d41f29ff832aa50d87a
->>>>>>> 63ce83ece91d925925a048a33402f1329815819d
           },
           "configurations": {
             "production": {
@@ -110,19 +79,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-<<<<<<< HEAD
               "src/styles.scss"
-=======
-<<<<<<< HEAD
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-=======
-<<<<<<< HEAD
-              "src/styles.css"
-=======
->>>>>>> 4ee02a397863b2e86c1e3d41f29ff832aa50d87a
-              "src/styles.scss"
->>>>>>> 5982038d65e576e1e833306c2294636a2478ce34
->>>>>>> 63ce83ece91d925925a048a33402f1329815819d
             ],
             "scripts": [],
             "assets": [
