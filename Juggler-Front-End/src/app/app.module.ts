@@ -8,21 +8,28 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 
+// import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     routingComponents,
+    UserLoginComponent,
+    MoviedetailsFormComponent
+    
   ],
+  
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
-    MDBBootstrapModule.forRoot(),
+    HttpClientModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    MDBBootstrapModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],

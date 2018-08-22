@@ -1,3 +1,4 @@
+import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -10,12 +11,14 @@ const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'home', component: HomePageComponent } ,
 { path: 'register-user', component: UserRegisterComponent } ,
 { path: 'login-user', component: UserLoginComponent } ,
-{ path: 'register-partner', component: PartnerRegisterComponent }];
+{ path: 'register-partner', component: PartnerRegisterComponent },
+{path: 'moviedetail', component: MoviedetailsFormComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
 
 export const routingComponents = [ LandingPageComponent, UserRegisterComponent ,
