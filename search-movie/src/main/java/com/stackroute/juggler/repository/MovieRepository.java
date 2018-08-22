@@ -9,8 +9,8 @@ import com.stackroute.juggler.domain.City;
 import com.stackroute.juggler.domain.Movie;
 
 @Repository     //declaring it as repository
-public interface MovieRepository extends CrudRepository<City,String> {
-	
+public interface MovieRepository extends CrudRepository<Movie,Integer> {
+	public List<Movie> getBymovieName(String movieName);
 }
 
 
