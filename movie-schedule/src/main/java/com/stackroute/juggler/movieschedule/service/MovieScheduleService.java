@@ -6,8 +6,10 @@ import com.stackroute.juggler.movieschedule.domain.MovieSchedule;
 
 public interface MovieScheduleService {
 	
-	public MovieSchedule addMovie(MovieSchedule movieShow);
+	public MovieSchedule addMovieSchedule(MovieSchedule movieShow);
 	
-	public List<MovieSchedule> getAllMovies();
+	public List<MovieSchedule> getMoviesSchedule();
+	
+	public MovieSchedule updateMovieSchedule(MovieSchedule updateMovie);
 
 }
