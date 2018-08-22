@@ -30,9 +30,11 @@ public class UserServiceImpl implements UserService {
 	
 	//this method is to view user from databases
 	@Override
-	public Optional<User>  viewUser(int userid) {
-		Optional<User> findMovie=userRepository.findById(userid);
-		return findMovie;
+	public User viewUser(int userid) {
+		Optional<User> finduser;
+		 finduser=userRepository.findById(userid);
+		return finduser.get();
 	}
 
 }
+
