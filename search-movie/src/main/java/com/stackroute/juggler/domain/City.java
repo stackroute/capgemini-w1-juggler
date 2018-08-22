@@ -7,7 +7,9 @@ import org.springframework.data.annotation.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 //pojo for city
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
