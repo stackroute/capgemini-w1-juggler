@@ -48,13 +48,4 @@ public class UserController {
 		return new ResponseEntity<User>(userobj, HttpStatus.OK);
 
 	}
-
-
-	// @GetMapping("/publish/{name}")
-	// public String post(@PathVariable("name") final String name) {
-	//
-	// kafkaTemplate.send(TOPIC, new User(name, "Technology", 12000L));
-	//
-	// return "Published successfully";
-	// }
 }

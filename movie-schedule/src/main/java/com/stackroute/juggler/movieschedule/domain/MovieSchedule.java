@@ -1,6 +1,8 @@
 package com.stackroute.juggler.movieschedule.domain;
 
+
 import java.time.LocalDate;
+
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,7 +16,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 public class MovieSchedule {
 	
 //	private int movie_Id;
@@ -27,6 +28,7 @@ public class MovieSchedule {
 	private int[] showTimings;
 	private TicketPrices ticketPrices;
 	private LocalDate bookingEndDate;
+
 	
 
 }

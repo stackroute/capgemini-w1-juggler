@@ -1,7 +1,6 @@
 package com.stackroute.juggler.movieschedule.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,7 +42,6 @@ public class MovieScheduleController {
 		return new ResponseEntity<List<MovieSchedule>>(movieObj, HttpStatus.OK);
 
 	}
-	
 	
 
 }
