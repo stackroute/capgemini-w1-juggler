@@ -8,6 +8,6 @@ import com.stackroute.juggler.userprofile.domain.User;
 public interface UserService {
 	
 	public User saveUser(User user) ;
-	public Optional<User> viewUser(int userid);
+	public User viewUser(int userid);
 
 }
