@@ -3,10 +3,12 @@ package com.stackroute.juggler.userprofile.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.userprofile.domain.User;
 import com.stackroute.juggler.userprofile.repository.UserRepository;
 
+@Service
 public class UserServiceImpl implements UserService {
 	
 	//Creating a object of user repository

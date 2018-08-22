@@ -6,6 +6,9 @@ import javax.annotation.Generated;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,7 +31,8 @@ public class User {
 	private double mobile_no;
 	private String password;
 	private String gender;
-	private Date date_of_birth;
+	//@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
+	private String date_of_birth;
 	private String[] Languages_known;
 	private String[] genre;
 	private String location;
