@@ -28,7 +28,7 @@ public class MovieScheduleController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> saveMovieHandler(@RequestBody MovieSchedule movie) {
 		
-			MovieSchedule movieObj = movieScheduleService.addMovie(movie);
+			MovieSchedule movieObj = movieScheduleService.addMovieSchedule(movie);
 
 			return new ResponseEntity<MovieSchedule>(movieObj, HttpStatus.OK);
 
