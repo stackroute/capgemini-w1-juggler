@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +22,16 @@ public class UserController {
 	@Autowired
 	public UserController(UserService userService) {
 		this.userService = userService;
-
 	}
+	 @Autowired
+	    private KafkaTemplate<String, User> kafkaTemplate;
+
+	    private static final String TOPIC = "user_profile";
 
 	@RequestMapping(value = "/user/save", method = RequestMethod.POST)
 	public ResponseEntity<?> saveUser(@RequestBody User user) {
 		User userobj = null;
+		 kafkaTemplate.send(TOPIC, user);
 		userobj = userService.saveUser(user);
 		return new ResponseEntity<User>(userobj, HttpStatus.OK);
 	}
@@ -43,4 +48,13 @@ public class UserController {
 		return new ResponseEntity<User>(userobj, HttpStatus.OK);
 
 	}
+
+
+	// @GetMapping("/publish/{name}")
+	// public String post(@PathVariable("name") final String name) {
+	//
+	// kafkaTemplate.send(TOPIC, new User(name, "Technology", 12000L));
+	//
+	// return "Published successfully";
+	// }
 }
