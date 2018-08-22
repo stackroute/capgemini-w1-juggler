@@ -1,10 +1,14 @@
 Manifest-Version: 1.0
-Implementation-Title: configuration-service
+Implementation-Title: config-service
 Implementation-Version: 1.0.0
 Built-By: user
 Implementation-Vendor-Id: com.stackroute
 Build-Jdk: 1.8.0_171
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+<<<<<<< HEAD
  ot-starter-parent/capgemini-w1-juggler-test/configuration-service
+=======
+ ot-starter-parent/capgemini-w1-juggler-test/config-service
+>>>>>>> 5982038d65e576e1e833306c2294636a2478ce34
 Created-By: Maven Integration for Eclipse
 
