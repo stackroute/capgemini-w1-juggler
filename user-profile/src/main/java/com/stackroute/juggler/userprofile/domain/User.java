@@ -4,12 +4,7 @@ package com.stackroute.juggler.userprofile.domain;
 //import javax.annotation.Generated;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-<<<<<<< HEAD
-=======
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
->>>>>>> 63ce83ece91d925925a048a33402f1329815819d
 //import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
