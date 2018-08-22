@@ -1,6 +1,6 @@
 export class Movie {
-    id: number;
-    title: string;
+    movieId: number;
+    movieTitle: string;
     poster: string;
     description: string;
     language: string;
