@@ -23,9 +23,9 @@ public class MovieDetails {
 	private String moviePoster;
 	private String movieReleaseDate;
 	private String movieDuration;
-	private String Hero;
-	private String Heroine;
-	private String Director;
+	private String hero;
+	private String heroine;
+	private String director;
 	private String[] movieGenre;
 	private String synopsis;
 	private String format;
