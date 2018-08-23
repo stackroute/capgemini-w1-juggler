@@ -17,10 +17,12 @@ import lombok.NoArgsConstructor;
 
 @Document
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Movie {
+	
 	@Id
 	private int id;
 	private String movieName;
@@ -36,6 +38,9 @@ public class Movie {
 	private String director;
 	private List<Theatre> theatres;
 	
+	
+	
+
 	/* Default Constructor sets 
 	 the initial value*/
 //	public Movie() {

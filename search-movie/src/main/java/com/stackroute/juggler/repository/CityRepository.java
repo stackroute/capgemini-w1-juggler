@@ -16,4 +16,3 @@ import com.stackroute.juggler.domain.Movie;
 	public List<Movie> getAllMoviesByCity(String city);
 		
 	}
-

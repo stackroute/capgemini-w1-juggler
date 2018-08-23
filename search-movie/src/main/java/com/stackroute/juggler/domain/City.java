@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 //pojo for city
-//@Document(collection = "city")
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
