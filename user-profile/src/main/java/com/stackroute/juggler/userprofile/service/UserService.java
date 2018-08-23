@@ -13,8 +13,7 @@ public interface UserService {
 	
 	public User saveUser(User user) throws ProfileAlreadyExits ;
 	public User viewUser(int userid) throws UserDoesNotExists;
-
-	public User updateUser(int userid, User user) throws UpdateFailed ;
+	public User updateUser(int userid, UserProfile user) throws UpdateFailed,UserDoesNotExists;
 
 
 }

@@ -2,9 +2,7 @@ package com.stackroute.juggler.movieschedule.service;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import com.stackroute.juggler.movieschedule.domain.MovieSchedule;
 import com.stackroute.juggler.movieschedule.repository.MovieScheduleRepository;
@@ -37,15 +35,15 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 		return update;
 	}
 	
-	RestTemplate restTemplate = new RestTemplate();
-	String url = "http://localhost:8090/api/v1/movieservice/movies";
-
-	@Override
-	public ResponseEntity<String> hello() {
-		ResponseEntity<String> list;
-		list = restTemplate.getForEntity(url, String.class);
-		return list;
-	}
+	// RestTemplate restTemplate = new RestTemplate();
+	// String url = "http://localhost:8010/api/v1/movies";
+	//
+	// @Override
+	// public ResponseEntity<String> hello() {
+	// ResponseEntity<String> list;
+	// list = restTemplate.getForEntity(url, String.class);
+	// return list;
+	// }
 	
 	
 

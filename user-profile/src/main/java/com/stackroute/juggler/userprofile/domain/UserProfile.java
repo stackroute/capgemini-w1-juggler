@@ -18,18 +18,8 @@ import lombok.NoArgsConstructor;
 public class UserProfile {
 
 	@Id
-	@JsonIgnore
+//	@JsonIgnore
 	private int userid;
-	@JsonIgnore
-	private String user_name;
-	@JsonIgnore
-	private String email_id;
-	@JsonIgnore
-	private double mobile_no;
-	@JsonIgnore
-	private String password;
-	@JsonIgnore
-	private String gender;
 	// @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
 	private String date_of_birth;
 	private String[] Languages_known;

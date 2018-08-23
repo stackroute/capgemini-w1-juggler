@@ -51,10 +51,10 @@ public class MovieScheduleController {
 
 	}
 
-	@RequestMapping(value = "/getmovie", method = RequestMethod.GET)
-	public ResponseEntity<String> helloHandler() {
-		System.out.println("hi controller is called");
-		return movieScheduleService.hello();
-	}
+	// @RequestMapping(value = "/getmovie", method = RequestMethod.GET)
+	// public ResponseEntity<String> helloHandler() {
+	// // System.out.println("hi controller is called");
+	// return movieScheduleService.hello();
+	// }
 
 }
