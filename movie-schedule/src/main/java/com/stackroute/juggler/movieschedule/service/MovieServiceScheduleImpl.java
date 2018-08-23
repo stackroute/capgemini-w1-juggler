@@ -17,16 +17,22 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 	}
 
 	@Override
-	public MovieSchedule addMovie(MovieSchedule movieShow) {
+	public MovieSchedule addMovieSchedule(MovieSchedule movieShow) {
 		MovieSchedule addMovie = movieScheduleRepo.save(movieShow);
 		return addMovie;	
 	}
 
 	@Override
-	public List<MovieSchedule> getAllMovies() {
+	public List<MovieSchedule> getMoviesSchedule() {
 		List<MovieSchedule> getMovies = (List<MovieSchedule>) movieScheduleRepo.findAll();
 		return getMovies;
 		
+	}
+
+	@Override
+	public MovieSchedule updateMovieSchedule(MovieSchedule updateMovie) {
+		MovieSchedule update =  movieScheduleRepo.save(updateMovie);
+		return update;
 	}
 	
 	
