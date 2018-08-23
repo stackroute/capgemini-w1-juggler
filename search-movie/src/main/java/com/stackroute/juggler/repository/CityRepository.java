@@ -13,6 +13,6 @@ import com.stackroute.juggler.domain.Movie;
 @Repository   
 	public interface CityRepository extends CrudRepository<City,String> {
 	
-	public List<Movie> getAllMoviesByCity(String city);
+	public List<City> getBycityName(String cityName);
 		
 	}

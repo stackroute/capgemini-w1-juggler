@@ -23,31 +23,45 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		this.cityRepository = cityrepository;
 	}
 
-	@Override
-	public List<Movie> getByTitle(String movieName) {
+//	@Override
+//	public List<Movie> getByTitle(String movieName) {
+//
+//		List<Movie> list = movieRepository.getBymovieName(movieName);
+//		return list;
+//	}
 
-		List<Movie> list = movieRepository.getBymovieName(movieName);
-		return list;
-	}
+//	@Override
+//	public Movie saveMovie(Movie movie)  {
+//
+//			Movie movieSaved = movieRepository.save(movie);
+//			return movieSaved;
+//		
+//	}
 
-	@Override
-	public Movie saveMovie(Movie movie)  {
-
-			Movie movieSaved = movieRepository.save(movie);
-			return movieSaved;
-		
-	}
-
-	@Override
-	public Iterable<Movie> getByCity(String city) {
-
-		Iterable<Movie> list = cityRepository.getAllMoviesByCity(city);
-		return list;
-	}
+//	@Override
+//	public List<City> getByCity(String city) {
+//
+//		List<City> list = cityRepository.getBycityName(city);
+//		return list;
+//	}
 
 	@Override
 	public City saveCity(City city) {
 		City cityToBeSave = cityRepository.save(city);
 		return cityToBeSave;
 	}
+
+//	@Override
+//	public List<Movie> getAllMovies() {
+//		List<Movie> allmovies=(List<Movie>) movieRepository.findAll();
+//		return allmovies;
+//	}
+//
+	@Override
+	public Movie saveMovie(Movie movie) {
+		Movie movieSave= movieRepository.save(movie);
+		return movieSave;
+	}
+	
+	
 }
