@@ -1,6 +1,5 @@
 package com.stackroute.juggler.userprofile.service;
 
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.stackroute.juggler.userprofile.domain.User;
@@ -48,23 +47,24 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User updateUser(int userid, UserProfile user) throws UpdateFailed, UserDoesNotExists {
+		// initilization of user domain object
 		User finduser = null;
 		if (userRepository.findByUserid(userid) != null) {
-			finduser=userRepository.findByUserid(userid);
+			// This is to set the data in persistant model
+			finduser = userRepository.findByUserid(userid);
 			finduser.setDate_of_birth(user.getDate_of_birth());
 			finduser.setGenre(user.getGenre());
 			finduser.setLanguages_known(user.getLanguages_known());
 			finduser.setLikes(user.getLikes());
 			finduser.setLocation(user.getLocation());
 			finduser.setPayment_methods(user.getPayment_methods());
-//			 finduser = userRepository.findByUserid(userid);
-//			 finduser = userRepository.save(user);
-				return finduser;
+			// finduser = userRepository.findByUserid(userid);
+			// finduser = userRepository.save(user);
+			return finduser;
 		} else {
 			throw new UserDoesNotExists("User Does Not Exist");
 		}
 
-		
 	}
 
 }

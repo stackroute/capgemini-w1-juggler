@@ -17,6 +17,7 @@ import com.stackroute.juggler.userprofile.domain.User;
 @Configuration
 public class KafkaConfiguration {
 	
+	//This is producer factory of kafka which will hold the configuration details
 	 @Bean
 	    public ProducerFactory<String, User> producerFactory() {
 	        Map<String, Object> config = new HashMap<>();
@@ -29,6 +30,7 @@ public class KafkaConfiguration {
 	    }
 
 
+	 //This template imports the configuration from producerfactory
 	    @Bean
 	    public KafkaTemplate<String, User> kafkaTemplate() {
 	        return new KafkaTemplate<>(producerFactory());

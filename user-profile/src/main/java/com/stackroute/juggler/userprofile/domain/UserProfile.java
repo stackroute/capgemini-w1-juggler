@@ -10,6 +10,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*This domain object is used to update the profile fields which are not 
+allowed to change does not exist in it to be safe*/
+
 @Document
 @Data
 @NoArgsConstructor
@@ -18,7 +21,6 @@ import lombok.NoArgsConstructor;
 public class UserProfile {
 
 	@Id
-//	@JsonIgnore
 	private int userid;
 	// @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
 	private String date_of_birth;
