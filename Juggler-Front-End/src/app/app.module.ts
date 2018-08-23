@@ -8,15 +8,21 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 
-
+// import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    routingComponents
+    routingComponents,
+    UserLoginComponent,
+    MoviedetailsFormComponent
+    
   ],
+  
   imports: [
     BrowserModule,
     FormsModule,
