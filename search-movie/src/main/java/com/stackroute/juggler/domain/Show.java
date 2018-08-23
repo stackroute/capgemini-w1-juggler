@@ -16,10 +16,7 @@ import lombok.NoArgsConstructor;
 public class Show {
 private String[] showTimings;
 
-//@Override
-//public String toString() {
-//	return "Show [showTimings=" + Arrays.toString(showTimings) + "]";
-//}
+
 
 
 
