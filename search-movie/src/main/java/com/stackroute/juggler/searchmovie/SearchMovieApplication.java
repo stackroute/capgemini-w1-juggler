@@ -2,9 +2,9 @@ package com.stackroute.juggler.searchmovie;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
 import org.springframework.context.ApplicationContext;
-@EnableDiscoveryClient  //declaring this micro service as a client
+//@EnableDiscoveryClient  //declaring this micro service as a client
 @SpringBootApplication
 public class SearchMovieApplication {
 
