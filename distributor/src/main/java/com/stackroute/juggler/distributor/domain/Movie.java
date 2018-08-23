@@ -2,19 +2,11 @@ package com.stackroute.juggler.distributor.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 
 //Domain object for movie details given by the distributor
 @Document
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Movie {
 	@Id
 	public String id;
