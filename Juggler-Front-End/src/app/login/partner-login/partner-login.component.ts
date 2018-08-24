@@ -16,6 +16,7 @@ export class PartnerLoginComponent implements OnInit {
     loading = false;
     submitted = false;
     // returnUrl: string;
+    role: string;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -50,7 +51,7 @@ export class PartnerLoginComponent implements OnInit {
         }
         console.log(this.f.email.value);
         this.loading = true;
-        this.authenticationService.login(this.f.email.value, this.f.password.value)
+        this.authenticationService.loginPartner(this.f.email.value, this.f.password.value, this.role)
             .pipe(first())
             .subscribe(
                 data => {
