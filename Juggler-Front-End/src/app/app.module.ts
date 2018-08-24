@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { AuthenticationService } from './authentication.service';
 import { AlertService } from './alert.service';
 import { MatCardModule, MatButtonModule } from '@angular/material';
@@ -22,8 +21,7 @@ import { MatCardModule, MatButtonModule } from '@angular/material';
     HeaderComponent,
     FooterComponent,
     routingComponents,
-    UserLoginComponent,
-    MoviedetailsFormComponent
+    UserLoginComponent
   ],
 
   imports: [
