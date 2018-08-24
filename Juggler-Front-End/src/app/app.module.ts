@@ -9,11 +9,15 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { UserLoginComponent } from './user-login/user-login.component';
+import { UserLoginComponent } from './login/user-login/user-login.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { AuthenticationService } from './authentication.service';
 import { AlertService } from './alert.service';
-import { MatCardModule, MatButtonModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatStepperModule } from '@angular/material';
+import { MaterialsModule } from './materials';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { PartnerLoginComponent } from './login/partner-login/partner-login.component';
 
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
@@ -24,7 +28,9 @@ import { MatCardModule, MatButtonModule } from '@angular/material';
     FooterComponent,
     routingComponents,
     UserLoginComponent,
-    MoviedetailsFormComponent
+    MoviedetailsFormComponent,
+    DistributionRegisterformComponent,
+    PartnerLoginComponent
   ],
 
   imports: [
@@ -35,8 +41,12 @@ import { MatCardModule, MatButtonModule } from '@angular/material';
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     ReactiveFormsModule,
+    MaterialsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatStepperModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [AuthenticationService, AlertService],
   bootstrap: [AppComponent],

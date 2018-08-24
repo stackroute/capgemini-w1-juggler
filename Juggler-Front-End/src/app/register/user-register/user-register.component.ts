@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-register.component.scss']
 })
 export class UserRegisterComponent implements OnInit {
+  // isLinear = false;
+  // firstFormGroup: FormGroup;
+  // secondFormGroup: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

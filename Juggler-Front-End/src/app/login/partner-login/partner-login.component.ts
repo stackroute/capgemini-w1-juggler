@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from '../authentication.service';
-import { AlertService } from '../alert.service';
+import { AuthenticationService } from '../user-login/../../authentication.service';
+import { AlertService } from '../user-login/../../alert.service';
 import { first } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-partner-login',
+  templateUrl: './partner-login.component.html',
+  styleUrls: ['./partner-login.component.scss']
 })
-export class LoginComponent implements OnInit {
-    loginForm: FormGroup;
+export class PartnerLoginComponent implements OnInit {
+
+  loginForm: FormGroup;
     loading = false;
     submitted = false;
     // returnUrl: string;
@@ -60,4 +61,5 @@ export class LoginComponent implements OnInit {
                     this.loading = false;
                 });
     }
+
 }
