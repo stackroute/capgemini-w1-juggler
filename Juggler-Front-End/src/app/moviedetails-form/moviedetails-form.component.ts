@@ -14,7 +14,7 @@ export class MoviedetailsFormComponent {
   //     // console.log(this.search_result);
   //   });
   // }
-  
+
   // email = new FormControl('', [Validators.required, Validators.email]);
 
   // getErrorMessage() {

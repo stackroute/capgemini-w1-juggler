@@ -1,7 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
+import { AuthenticationService } from './authentication.service';
+import { AlertService } from './alert.service';
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
@@ -20,18 +22,18 @@ import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form
     routingComponents,
     UserLoginComponent,
     MoviedetailsFormComponent
-    
   ],
-  
+
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthenticationService, AlertService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
