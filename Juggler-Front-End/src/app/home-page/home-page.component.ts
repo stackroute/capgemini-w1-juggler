@@ -11,5 +11,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  // goMoviePage(movie) {
+  //   console.log(movie);
+  // }
 }

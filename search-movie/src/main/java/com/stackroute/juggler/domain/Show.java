@@ -1,20 +1,22 @@
 package com.stackroute.juggler.domain;
 //pojo for show
 
-import java.util.Arrays;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-//@Document(collection = "show")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+
+@Document
+
 public class Show {
 private String[] showTimings;
+
+public String[] getShowTimings() {
+	return showTimings;
+}
+
+public void setShowTimings(String[] showTimings) {
+	this.showTimings = showTimings;
+}
 
 
 
