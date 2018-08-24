@@ -4,8 +4,6 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-
-//Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
@@ -22,7 +20,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatCardModule} from '@angular/material/card';
+import {MatCardModule} from '@angular/material';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -44,7 +42,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     AppComponent
   ],
   imports: [
-  
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatCheckboxModule,
@@ -77,10 +74,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 
-export class appmaterialmodule { }
+export class AppMaterialModule { }

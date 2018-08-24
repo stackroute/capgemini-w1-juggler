@@ -8,8 +8,9 @@ import { Observable } from 'rxjs';
 export class MovieDataService {
 private url2='http://123.12.12.12.:8010/api/v1/movie/'
   constructor(private http: HttpClient) { }
-  getMovieById(id) {
-    return this.http.get('http://123.12.12.12.:8010/api/v1/movie/' + id);
+
+  setDistributorMovies(id) {
+    return this.http.get('http://localhost.:8010/api/v1/movie/' + id);
   }
   addMovie(movie: Movie): Observable<Movie> {
     return this.http.post<Movie>(this.url2 , movie);

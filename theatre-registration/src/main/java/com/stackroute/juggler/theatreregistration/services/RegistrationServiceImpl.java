@@ -1,10 +1,11 @@
 package com.stackroute.juggler.theatreregistration.services;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.theatreregistration.domain.Registration;
+import com.stackroute.juggler.theatreregistration.exceptions.TheatreAlreadyExists;
 import com.stackroute.juggler.theatreregistration.repository.RegistrationRepository;
-
 
 @Service
 public class RegistrationServiceImpl implements RegistrationService {
@@ -18,11 +19,15 @@ public class RegistrationServiceImpl implements RegistrationService {
 	}
 
 	@Override
-	public Registration saveTheatre(Registration theatre) {
+	public Registration saveTheatre(Registration theatre) throws TheatreAlreadyExists{
 		// TODO Auto-generated method stub
+		if(!registrationRepository.existsByTheatreName(theatre.getTheatreName())){
 		Registration theatreSaved = registrationRepository.save(theatre);
 		return theatreSaved;
 	}
+		else throw new TheatreAlreadyExists("movie already exists");	
+	}
+	
 
 	@Override
 	public Registration updateTheatre(Registration theatre) {
@@ -40,4 +45,6 @@ public class RegistrationServiceImpl implements RegistrationService {
 		return list;
 	}
 
+	
+	
 }

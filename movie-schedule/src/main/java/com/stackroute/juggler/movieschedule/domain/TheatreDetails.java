@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+
 @Document
 @Data
 @NoArgsConstructor
@@ -16,10 +18,11 @@ import lombok.NoArgsConstructor;
 public class TheatreDetails {
 	
 	@Id
-	private int theatreId;
-	private String theatreName;
-	private String theatreLocation;
-	private String theatreCity;
-	private MovieSchedule showSchedule;
+	private String theatreId;
+    private String theatreLocation;
+    private String theatreCity;
+    private String theatreName;
+    private String theatreLicenseNo;
+    private String numberOfSeats;
 
 }

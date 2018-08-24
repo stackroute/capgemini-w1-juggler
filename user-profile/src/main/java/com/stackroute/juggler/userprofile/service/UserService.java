@@ -1,17 +1,22 @@
 package com.stackroute.juggler.userprofile.service;
 
-import java.util.Optional;
 import com.stackroute.juggler.userprofile.domain.User;
+import com.stackroute.juggler.userprofile.domain.UserLikes;
 import com.stackroute.juggler.userprofile.domain.UserProfile;
+import com.stackroute.juggler.userprofile.exceptions.ProfileAlreadyExitsException;
+import com.stackroute.juggler.userprofile.exceptions.UpdateFailedException;
+import com.stackroute.juggler.userprofile.exceptions.UserDoesNotExistsException;
 
 
 //user service class should implement these methods for sure
 public interface UserService {
 	
-	public User saveUser(User user) ;
-	public User viewUser(int userid);
-
-	public User updateUser(int userid, User user);
-
-
+	//Saves the user
+	public User saveUser(User user) throws ProfileAlreadyExitsException ;
+	//Views the user
+	public User viewUser(int userId) throws UserDoesNotExistsException;
+	//Updates the user
+	public User updateUser(int userId, UserProfile user) throws UpdateFailedException,UserDoesNotExistsException;
+	//Consumes the message from kafka
+	public void consumeKafka(UserLikes userLikes);
 }
