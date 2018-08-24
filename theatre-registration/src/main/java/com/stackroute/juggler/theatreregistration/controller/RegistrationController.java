@@ -37,7 +37,7 @@ public class RegistrationController {
 
 		Registration theatreobj = null;
 	
-		 kafkaTemplate.send(TOPIC, theatre);
+		 kafkaTemplate.send(TOPIC,theatre);
 		 // This is to save 
 		try {
 			 theatreobj=registrationService.saveTheatre(theatre);

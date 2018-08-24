@@ -1,15 +1,15 @@
-import { DistributionRegisterformComponent } from './distribution-registerform/distribution-registerform.component';
-import { MovieCardComponent } from './movie-card/movie-card.component';
+
 
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { UserRegisterComponent } from './user-register/user-register.component';
-import { UserLoginComponent } from './user-login/user-login.component';
-import { PartnerRegisterComponent } from './partner-register/partner-register.component';
-import { LoginComponent } from './login/login.component';
+import { UserRegisterComponent } from './register/user-register/user-register.component';
+import { PartnerRegisterComponent } from './register/partner-register/partner-register.component';
+import { DistributionRegisterformComponent } from './distribution-registerform/distribution-registerform.component';
+import { UserLoginComponent } from './login/user-login/user-login.component';
+import { PartnerLoginComponent } from './login/partner-login/partner-login.component';
 
 const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'home', component: HomePageComponent } ,
@@ -17,12 +17,8 @@ const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'login-user', component: UserLoginComponent } ,
 { path: 'register-partner', component: PartnerRegisterComponent },
 { path: 'moviedetail', component: MoviedetailsFormComponent },
-{ path: 'login', component: LoginComponent }];
-
-{ path: 'login', component: LoginComponent },
-
-
-{ path: 'distributer',component:DistributionRegisterformComponent}];
+{ path: 'login-partner', component: PartnerLoginComponent },
+{ path: 'distributor', component: DistributionRegisterformComponent} ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -31,6 +27,6 @@ const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 
 export class AppRoutingModule { }
 
-export const routingComponents = [ LandingPageComponent, UserRegisterComponent , LoginComponent,
+export const routingComponents = [ LandingPageComponent, UserRegisterComponent , PartnerLoginComponent,
   UserLoginComponent, PartnerRegisterComponent, HomePageComponent];
 
