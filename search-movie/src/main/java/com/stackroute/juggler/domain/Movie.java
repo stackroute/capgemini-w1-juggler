@@ -7,20 +7,13 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 /*
  * pojo for movie
  */
 
 @Document
-@Data
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Movie {
 	
 	@Id
@@ -41,30 +34,6 @@ public class Movie {
 	
 	
 
-	/* Default Constructor sets 
-	 the initial value*/
-//	public Movie() {
-//
-//	}
-//	
-//	public Movie(int id, String movieName, String moviePoster, String synopsis, LocalDate movieReleasedate,
-//			String movieDuration, String[] language, String[] movieGenre, String format, String hero, String heroine,
-//			String director, List<Theatre> theatres) {
-//		super();
-//		this.id = id;
-//		this.movieName = movieName;
-//		this.moviePoster = moviePoster;
-//		this.synopsis = synopsis;
-//		this.movieReleasedate = movieReleasedate;
-//		this.movieDuration = movieDuration;
-//		this.language = language;
-//		this.movieGenre = movieGenre;
-//		this.format = format;
-//		this.hero = hero;
-//		this.heroine = heroine;
-//		this.director = director;
-//		this.theatres = theatres;
-//	}
 
 	public int getId() {
 		return id;
