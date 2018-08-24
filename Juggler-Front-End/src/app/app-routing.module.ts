@@ -1,4 +1,6 @@
-import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
+import { DistributionRegisterformComponent } from './distribution-registerform/distribution-registerform.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -12,7 +14,8 @@ const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'register-user', component: UserRegisterComponent } ,
 { path: 'login-user', component: UserLoginComponent } ,
 { path: 'register-partner', component: PartnerRegisterComponent },
-{path: 'moviedetail', component: MoviedetailsFormComponent}];
+{ path: 'home/city',component:MovieCardComponent},
+{ path: 'distributer',component:DistributionRegisterformComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

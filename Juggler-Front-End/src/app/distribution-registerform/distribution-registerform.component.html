@@ -1,0 +1,87 @@
+<!-- <form>
+  <div class="">
+<label for="firstname">Movie-Name:</label><br />
+    <input type="text" name="Movie-Name" [(ngModel)]="input.moviename" /><br />
+    <label for="lastname">Synopsis:</label><br />
+    <input type="text" name="Synopsis" [(ngModel)]="input.Synopsis" /><br />
+    <label for="formal">format:</label><br />
+    <input type="text" name="format" [(ngModel)]="input.format" /><br />
+    <label for="Movie-poster">Movie-poster:</label><br />
+    <input type="text" name="Movie-poster" [(ngModel)]="input.Movie-poster" /><br />
+    <select name="Country" multiple size="5">
+        <option value="USA">USA</option>
+        <option value="Russia">Russia</option>
+        <option value="India">India</option>
+        <option value="Britain">Britain</option>
+      </select>
+  <!-- <input  
+    type="file" (change)="onFileChanged($event)" 
+    #fileInput>
+  <button (click)="fileInput.click()">Select File</button>
+  <button (click)="onUpload()">Upload!</button> -->
+<!-- <button type="button" (click)="register()">Register</button>
+    <a (click)="addMovie(input)" href="#" class="btn btn-block btn-danger">Add Movie Details</a>
+    
+  </div>
+</form> -->
+<h1>Movie Registration Form</h1>
+<div class="container col-8">
+  <form>
+    <div class="form-group">
+      <label for="exampleInput" class="bmd-label-floating">MOVIE-NAME</label>
+      <input type="text" class="form-control" id="exampleInput">
+      </div>
+      <div class="form-group">
+          <label for="exampleInput" class="bmd-label-floating">MOVIE-POSTER</label>
+          <input type="text" class="form-control" id="exampleInput">
+          </div>
+      <div class="form-group">
+      <label for="exampleTextarea" class="bmd-label-floating">Movie Synopsis</label>
+      <textarea class="form-control" id="exampleTextarea" rows="2"></textarea>
+
+    </div>
+    <div class="form-group">
+      <label for="exampleSelect1" class="bmd-label-floating">Example select</label>
+      <select class="form-control" id="exampleSelect1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleSelect2" class="bmd-label-floating">Example multiple select</label>
+      <select multiple class="form-control" id="exampleSelect2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+    <label class="bmd-label-floating">MOVIE-FORMAT</label>
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" > 
+        2D
+      </label>
+      </div>
+      <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 
+        3D
+      </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 
+          4D
+        </label>
+      </div>
+    </div>
+    <button class="btn btn-default">Cancel</button>
+    <button type="submit" class="btn btn-primary btn-raised">Submit</button>
+  </form>
+</div>
