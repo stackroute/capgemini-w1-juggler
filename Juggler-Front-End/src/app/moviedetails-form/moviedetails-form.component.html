@@ -1,20 +1,21 @@
-<mat-card class="example-card">
-  <div class="col-sm-4" *ngFor="let movie of movies; let i = index">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
-        very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
+<h2>
+  Movie Details</h2>
+<mat-card class="example-card m-5">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>
+      <h3>Movie title</h3>
+    </mat-card-title>
+    <mat-card-subtitle>City Name</mat-card-subtitle>
+  </mat-card-header>
+  <div class="container">
+    <div class="col-6">
+      <img mat-card-image src="https://assetscdn.paytm.com/images/cinema/MovieIcons/Gold-web-poster-updated.jpg" alt="Movie Poster">
+    </div>
+    <div class="col-4">
+      <mat-card-content>
+        Movie Description
+      </mat-card-content>
+    </div>
   </div>
 </mat-card>

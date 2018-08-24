@@ -13,7 +13,7 @@ const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'register-user', component: UserRegisterComponent } ,
 { path: 'login-user', component: UserLoginComponent } ,
 { path: 'register-partner', component: PartnerRegisterComponent },
-{path: 'moviedetail', component: MoviedetailsFormComponent},
+{ path: 'moviedetail', component: MoviedetailsFormComponent },
 { path: 'login', component: LoginComponent }];
 
 
