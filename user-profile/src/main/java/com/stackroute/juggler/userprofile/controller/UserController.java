@@ -30,8 +30,8 @@ public class UserController {
 	}
 
 	// This is to use the kafka template defined in the configuration
-	@Autowired
-	private KafkaTemplate<String, User> kafkaTemplate;
+	//@Autowired
+	//private KafkaTemplate<String, User> kafkaTemplate;
 
 	// This is the topic name it wont be changed so "final static"
 	private static final String TOPIC = "user_profile";
@@ -43,7 +43,7 @@ public class UserController {
 		User userobj = null;
 		// try {
 		// This is to post the user json in the message bus
-		kafkaTemplate.send(TOPIC, user);
+		//kafkaTemplate.send(TOPIC, user);
 		// This is because we dont want to save the password in the userprofile database
 		user.setPassword(null);
 		// }catch(KafkaConnectionFailed m){
