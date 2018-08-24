@@ -1,5 +1,7 @@
 package com.stackroute.juggler.userprofile.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.validation.constraints.Size;
 
@@ -40,6 +42,6 @@ public class User {
 	private String[] genre;
 	private String location;
 	private String[] payment_methods;
-	private String[] likes;
+	private String likes;
 
 }

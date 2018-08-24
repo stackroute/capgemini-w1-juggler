@@ -1,6 +1,7 @@
 package com.stackroute.juggler.userprofile.service;
 
 import com.stackroute.juggler.userprofile.domain.User;
+import com.stackroute.juggler.userprofile.domain.UserLikes;
 import com.stackroute.juggler.userprofile.domain.UserProfile;
 import com.stackroute.juggler.userprofile.exceptions.ProfileAlreadyExits;
 import com.stackroute.juggler.userprofile.exceptions.UpdateFailed;
@@ -17,5 +18,6 @@ public interface UserService {
 	//This is to update the user
 	public User updateUser(int userid, UserProfile user) throws UpdateFailed,UserDoesNotExists;
 
-
+	//public void consumeKafka(String message);
+	public void consumeKafka(UserLikes UserLikes);
 }

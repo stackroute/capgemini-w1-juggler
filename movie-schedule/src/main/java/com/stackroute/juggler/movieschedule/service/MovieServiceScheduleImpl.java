@@ -35,6 +35,16 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 		return update;
 	}
 	
+	// RestTemplate restTemplate = new RestTemplate();
+	// String url = "http://localhost:8010/api/v1/movies";
+	//
+	// @Override
+	// public ResponseEntity<String> hello() {
+	// ResponseEntity<String> list;
+	// list = restTemplate.getForEntity(url, String.class);
+	// return list;
+	// }
+	
 	
 
 }

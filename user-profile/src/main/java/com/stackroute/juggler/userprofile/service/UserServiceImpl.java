@@ -1,8 +1,10 @@
 package com.stackroute.juggler.userprofile.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import com.stackroute.juggler.userprofile.domain.User;
+import com.stackroute.juggler.userprofile.domain.UserLikes;
 import com.stackroute.juggler.userprofile.domain.UserProfile;
 import com.stackroute.juggler.userprofile.exceptions.ProfileAlreadyExits;
 import com.stackroute.juggler.userprofile.exceptions.UpdateFailed;
@@ -50,16 +52,12 @@ public class UserServiceImpl implements UserService {
 		// initilization of user domain object
 		User finduser = null;
 		if (userRepository.findByUserid(userid) != null) {
-			// This is to set the data in persistant model
 			finduser = userRepository.findByUserid(userid);
 			finduser.setDate_of_birth(user.getDate_of_birth());
 			finduser.setGenre(user.getGenre());
 			finduser.setLanguages_known(user.getLanguages_known());
-			finduser.setLikes(user.getLikes());
 			finduser.setLocation(user.getLocation());
 			finduser.setPayment_methods(user.getPayment_methods());
-			// finduser = userRepository.findByUserid(userid);
-			// finduser = userRepository.save(user);
 			return finduser;
 		} else {
 			throw new UserDoesNotExists("User Does Not Exist");
@@ -67,4 +65,17 @@ public class UserServiceImpl implements UserService {
 
 	}
 
+	@Override
+	@KafkaListener(topics = "movielikeszzz", groupId = "user")
+	public void consumeKafka(UserLikes userLikes) {
+		User finduser = null;
+		
+		if (userRepository.findByUserid(userLikes.getUserid()) != null) {
+			finduser = userRepository.findByUserid(userLikes.getUserid());
+			String moviename=userLikes.getMovie();
+			finduser.setLikes(moviename);
+		 userRepository.save(finduser);
+		}
+	
+	}
 }
