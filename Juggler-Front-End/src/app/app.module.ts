@@ -1,3 +1,4 @@
+import { DistributionRegisterformComponent } from './distribution-registerform/distribution-registerform.component';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserModule } from '@angular/platform-browser';
