@@ -12,6 +12,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { AuthenticationService } from './authentication.service';
 import { AlertService } from './alert.service';
+import { MatCardModule, MatButtonModule } from '@angular/material';
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
@@ -31,7 +32,9 @@ import { AlertService } from './alert.service';
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [AuthenticationService, AlertService],
   bootstrap: [AppComponent],
