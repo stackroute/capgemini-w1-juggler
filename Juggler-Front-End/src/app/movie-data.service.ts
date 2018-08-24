@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class MovieDataService {
 
   constructor(private http: HttpClient) { }
-  getMovieById(id) {
-    return this.http.get('http://123.12.12.12.:8010/api/v1/movie/' + id);
+
+  setDistributorMovies(id) {
+    return this.http.get('http://localhost.:8010/api/v1/movie/' + id);
   }
 }
