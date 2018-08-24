@@ -17,7 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 //@Builder
 public class Registration {
 	@Id
-	private String theatreId;
+	private int theatreId;
 	private String theatreLocation;
 	private String theatreCity;
 	private String theatreName;
@@ -30,7 +30,7 @@ public class Registration {
 	// private int numberOfShows;
 	// private File seatLayout;
 	
-	public Registration(String theatreId, String theatreLocation, String theatreCity, String theatreName,
+	public Registration(int theatreId, String theatreLocation, String theatreCity, String theatreName,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
 			String[] runningmovies) {
 		super();
@@ -45,11 +45,11 @@ public class Registration {
 		this.runningmovies = runningmovies;
 	}
 
-	public String getTheatreId() {	
+	public int getTheatreId() {	
 		return theatreId;
 	}
 
-	public void setTheatreId(String theatreId) {
+	public void setTheatreId(int theatreId) {
 		this.theatreId = theatreId;
 	}
 

@@ -6,15 +6,9 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-//@Document(collection = "Theatre")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+
+@Document
+
 
 //pojo for theater
 public class Theatre {
@@ -31,6 +25,42 @@ public class Theatre {
 //				+ theatreLocation + ", theatreCity=" + theatreCity + ", seatLayout=" + seatLayout + ", shows=" + shows
 //				+ "]";
 //	}
+	public int getTheatreId() {
+		return theatreId;
+	}
+	public void setTheatreId(int theatreId) {
+		this.theatreId = theatreId;
+	}
+	public String getTheatreName() {
+		return theatreName;
+	}
+	public void setTheatreName(String theatreName) {
+		this.theatreName = theatreName;
+	}
+	public String getTheatreLocation() {
+		return theatreLocation;
+	}
+	public void setTheatreLocation(String theatreLocation) {
+		this.theatreLocation = theatreLocation;
+	}
+	public String getTheatreCity() {
+		return theatreCity;
+	}
+	public void setTheatreCity(String theatreCity) {
+		this.theatreCity = theatreCity;
+	}
+	public File getSeatLayout() {
+		return seatLayout;
+	}
+	public void setSeatLayout(File seatLayout) {
+		this.seatLayout = seatLayout;
+	}
+	public List<Show> getShows() {
+		return shows;
+	}
+	public void setShows(List<Show> shows) {
+		this.shows = shows;
+	}
 	
 	
 	

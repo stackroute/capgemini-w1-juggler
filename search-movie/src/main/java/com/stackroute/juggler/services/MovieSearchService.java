@@ -7,9 +7,9 @@ import com.stackroute.juggler.domain.Movie;
 
 public interface MovieSearchService {
 	
-//	public List<Movie> getByTitle(String movieName);
+	public List<Movie> getByTitle(String movieName);
 	public Movie saveMovie(Movie movie);
 	public City saveCity(City city);
-//	public List<City> getByCity(String city);
-//	public List<Movie> getAllMovies();
+	public List<City> getByCity(String city);
+	public List<Movie> getAllMovies();
 }
