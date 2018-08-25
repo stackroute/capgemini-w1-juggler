@@ -53,12 +53,12 @@
                     </small>
                 </div>
                 <!-- Group of material radios - option 1 -->
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" id="materialGroup1" name="optionsForPartners">
-                    <label class="form-check-label" for="materialGroupExample1">Distributor</label>
-                    <input type="radio" class="form-check-input" id="materialGroup2" name="optionsForPartners" checked>
-                    <label class="form-check-label" for="materialGroupExample2">Theatre Owner</label>
-                </div>
+                <mat-form-field>
+                    <mat-select [(value)]="role">
+                        <mat-option value="Distributor">Distributor</mat-option>
+                        <mat-option value="Theatre Owner">Theatre Owner</mat-option>
+                    </mat-select>
+                </mat-form-field>
                 <!-- Newsletter -->
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">

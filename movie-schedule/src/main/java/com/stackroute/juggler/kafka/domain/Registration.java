@@ -1,43 +1,41 @@
-package com.stackroute.juggler.theatreregistration.domain;
-
+package com.stackroute.juggler.kafka.domain;
 
 import java.util.Map;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-//import lombok.AllArgsConstructor;
-//import lombok.Builder;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Document
-//@Data
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Builder
+// @Data
+// @NoArgsConstructor
+// @AllArgsConstructor
+// @Builder
 public class Registration {
+
 	@Id
 	private int theatreId;
+	private String theatreName;
 	private String theatreLocation;
 	private String theatreCity;
-	private String theatreName;
 	private String theatreLicenseNo;
 	private String numberOfSeats;
-	//private String[] typesOfSeats;
-	private Map<String,Integer> seats;
+	private Map<String, Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
-	// private int numberOfShows;
-	// private File seatLayout;
-	
-	public Registration(int theatreId, String theatreLocation, String theatreCity, String theatreName,
+
+	public Registration(int theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
 			String[] runningmovies) {
 		super();
 		this.theatreId = theatreId;
+		this.theatreName = theatreName;
 		this.theatreLocation = theatreLocation;
 		this.theatreCity = theatreCity;
-		this.theatreName = theatreName;
 		this.theatreLicenseNo = theatreLicenseNo;
 		this.numberOfSeats = numberOfSeats;
 		this.seats = seats;
@@ -45,12 +43,20 @@ public class Registration {
 		this.runningmovies = runningmovies;
 	}
 
-	public int getTheatreId() {	
+	public int getTheatreId() {
 		return theatreId;
 	}
 
 	public void setTheatreId(int theatreId) {
 		this.theatreId = theatreId;
+	}
+
+	public String getTheatreName() {
+		return theatreName;
+	}
+
+	public void setTheatreName(String theatreName) {
+		this.theatreName = theatreName;
 	}
 
 	public String getTheatreLocation() {
@@ -67,14 +73,6 @@ public class Registration {
 
 	public void setTheatreCity(String theatreCity) {
 		this.theatreCity = theatreCity;
-	}
-
-	public String getTheatreName() {
-		return theatreName;
-	}
-
-	public void setTheatreName(String theatreName) {
-		this.theatreName = theatreName;
 	}
 
 	public String getTheatreLicenseNo() {
@@ -116,11 +114,8 @@ public class Registration {
 	public void setRunningmovies(String[] runningmovies) {
 		this.runningmovies = runningmovies;
 	}
-
 	public Registration() {
-		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	
 }

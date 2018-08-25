@@ -1,6 +1,6 @@
 package com.stackroute.juggler.theatreregistration.services;
 
-import com.stackroute.juggler.theatreregistration.domain.Registration;
+import com.stackroute.juggler.kafka.domain.Registration;
 import com.stackroute.juggler.theatreregistration.exceptions.TheatreAlreadyExists;
 
 public interface RegistrationService {

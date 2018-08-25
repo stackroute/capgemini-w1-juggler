@@ -1,4 +1,4 @@
-package com.stackroute.juggler.movieschedule.domain;
+package com.stackroute.juggler.kafka.domain;
 
 import java.util.Map;
 
@@ -15,7 +15,8 @@ import lombok.NoArgsConstructor;
 // @NoArgsConstructor
 // @AllArgsConstructor
 // @Builder
-public class TheatreDetails {
+
+public class MovieSchedule {
 
 	@Id
 	private int theatreId;
@@ -28,9 +29,17 @@ public class TheatreDetails {
 	private String[] screenedmovies;
 	private String[] runningmovies;
 
-	public TheatreDetails(int theatreId, String theatreName, String theatreLocation, String theatreCity,
+	// private TheatreDetails theatreDetails;
+	private MovieDetails movieDetails;
+	private int showNumbers;
+	private int[] showTimings;
+	private TicketPrices ticketPrices;
+
+	// private String bookingEndDate;
+	public MovieSchedule(int theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
-			String[] runningmovies) {
+			String[] runningmovies, MovieDetails movieDetails, int showNumbers, int[] showTimings,
+			TicketPrices ticketPrices) {
 		super();
 		this.theatreId = theatreId;
 		this.theatreName = theatreName;
@@ -41,6 +50,13 @@ public class TheatreDetails {
 		this.seats = seats;
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
+		this.movieDetails = movieDetails;
+		this.showNumbers = showNumbers;
+		this.showTimings = showTimings;
+		this.ticketPrices = ticketPrices;
+	}
+	public MovieSchedule() {
+		
 	}
 
 	public int getTheatreId() {
@@ -113,6 +129,38 @@ public class TheatreDetails {
 
 	public void setRunningmovies(String[] runningmovies) {
 		this.runningmovies = runningmovies;
+	}
+
+	public MovieDetails getMovieDetails() {
+		return movieDetails;
+	}
+
+	public void setMovieDetails(MovieDetails movieDetails) {
+		this.movieDetails = movieDetails;
+	}
+
+	public int getShowNumbers() {
+		return showNumbers;
+	}
+
+	public void setShowNumbers(int showNumbers) {
+		this.showNumbers = showNumbers;
+	}
+
+	public int[] getShowTimings() {
+		return showTimings;
+	}
+
+	public void setShowTimings(int[] showTimings) {
+		this.showTimings = showTimings;
+	}
+
+	public TicketPrices getTicketPrices() {
+		return ticketPrices;
+	}
+
+	public void setTicketPrices(TicketPrices ticketPrices) {
+		this.ticketPrices = ticketPrices;
 	}
 
 }
