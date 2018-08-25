@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.juggler.movieschedule.domain.MovieSchedule;
+import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.movieschedule.service.MovieScheduleService;
 
 @RestController
@@ -24,7 +24,7 @@ public class MovieScheduleController {
 		// super();
 		this.movieScheduleService = movieScheduleService;
 	}
-
+	
 	@RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<?> saveMovieHandler(@RequestBody MovieSchedule movie) {
 

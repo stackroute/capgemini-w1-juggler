@@ -1,6 +1,4 @@
 Manifest-Version: 1.0
-
-
 Implementation-Title: config-service
 Implementation-Version: 1.0.0
 Built-By: user
