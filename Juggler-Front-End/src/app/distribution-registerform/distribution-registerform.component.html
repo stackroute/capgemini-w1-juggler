@@ -1,31 +1,6 @@
-<!-- <form>
-  <div class="">
-<label for="firstname">Movie-Name:</label><br />
-    <input type="text" name="Movie-Name" [(ngModel)]="input.moviename" /><br />
-    <label for="lastname">Synopsis:</label><br />
-    <input type="text" name="Synopsis" [(ngModel)]="input.Synopsis" /><br />
-    <label for="formal">format:</label><br />
-    <input type="text" name="format" [(ngModel)]="input.format" /><br />
-    <label for="Movie-poster">Movie-poster:</label><br />
-    <input type="text" name="Movie-poster" [(ngModel)]="input.Movie-poster" /><br />
-    <select name="Country" multiple size="5">
-        <option value="USA">USA</option>
-        <option value="Russia">Russia</option>
-        <option value="India">India</option>
-        <option value="Britain">Britain</option>
-      </select>
-  <!-- <input  
-    type="file" (change)="onFileChanged($event)" 
-    #fileInput>
-  <button (click)="fileInput.click()">Select File</button>
-  <button (click)="onUpload()">Upload!</button> -->
-<!-- <button type="button" (click)="register()">Register</button>
-    <a (click)="addMovie(input)" href="#" class="btn btn-block btn-danger">Add Movie Details</a>
-    
-  </div>
-</form> -->
-<h1>Movie Registration Form</h1>
-<div class="container col-8">
+
+ <h1>Movie Registration Form</h1> 
+<!-- <div class="container col-8">
   <form>
     <div class="form-group">
       <label for="exampleInput" class="bmd-label-floating">MOVIE-NAME</label>
@@ -84,4 +59,59 @@
     <button class="btn btn-default">Cancel</button>
     <button type="submit" class="btn btn-primary btn-raised">Submit</button>
   </form>
+</div> -->
+
+<div class="container">
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie Name" [(ngModel)]="movie.movieName">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie synopsis" [(ngModel)]="movie.synopsis">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie format" [(ngModel)]="movie.format">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie Poster" [(ngModel)]="movie.moviePoster">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie releasedate" [(ngModel)]="movie.releasedate">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie durataion" [(ngModel)]="movie.movieDuration">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter actor Name" [(ngModel)]="movie.actor">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter actres Name" [(ngModel)]="movie.actres">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter director Name" [(ngModel)]="movie.distributer">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter movie gener" [(ngModel)]="movie.movieGenres">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter language" [(ngModel)]="movie.languages">
+  </mat-form-field>
+  <br>
+  <section class="example-section">
+    <mat-checkbox class="example-margin" [(ngModel)]="checked">Checked</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
+  </section>
+  <button type="submit" class="example-button" name="button" class="btn btn-success" (click)="onSubmit()">Add Theatre</button>
+ 
+  
 </div>
+  

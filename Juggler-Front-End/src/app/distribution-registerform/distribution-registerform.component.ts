@@ -9,20 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DistributionRegisterformComponent implements OnInit {
 
+   
   constructor(private cardservice:MovieDataService) { }
-
   ngOnInit() {
   }
-  private mov = new Movie();
-  addMovie(input) {
+  movie = new Movie();
+  
+ 
+    onSubmit() {
+  
+      // this.theatre.theatreName = localStorage.getItem('currentUser').replace('\"', '').replace('\"', '');
+      console.log(this.movie.movieName);
+      console.log(this.movie);
+      this.cardservice
+        .addMovie(this.movie)
+        .subscribe(res => console.log('Saved theatre'));
+    } 
    
-   
-    this.mov.movieName= input.moviename;
-this.mov.movieReleaseDate=input.movieReleaseDate;
-    // this.mov.releaseYear = movie.release_date;
+
+
     
-    return this.cardservice.addMovie(this.mov).subscribe(data => (this.mov = data));
+    
   }
-}
+
 
 

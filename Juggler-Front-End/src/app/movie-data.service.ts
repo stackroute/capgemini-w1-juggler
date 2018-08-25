@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Movie } from './movie';
 import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class MovieDataService {
-private url2='http://123.12.12.12.:8010/api/v1/movie/'
+  private url2 = 'http://123.12.12.12.:8010/api/v1/movie/';
   constructor(private http: HttpClient) { }
 
   setDistributorMovies(id) {
