@@ -60,4 +60,18 @@ public class Theatre {
 	public void setShows(List<Show> shows) {
 		this.shows = shows;
 	}
+//	public Theatre(int theatreId, String theatreName, String theatreLocation, String theatreCity, String seatLayout,
+//			List<Show> shows) {
+//		super();
+//		this.theatreId = theatreId;
+//		this.theatreName = theatreName;
+//		this.theatreLocation = theatreLocation;
+//		this.theatreCity = theatreCity;
+//		this.seatLayout = seatLayout;
+//		this.shows = shows;
+//	}
+//	public Theatre() {
+//		super();
+//	}
+	
 }

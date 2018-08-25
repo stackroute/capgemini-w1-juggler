@@ -3,6 +3,7 @@ package com.stackroute.juggler.moviesearch.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.moviesearch.domain.City;
@@ -43,5 +44,14 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		return list;
 		
 	}
+	
+	@Override
+    @KafkaListener(topics = "movieLikes", groupId = "user")
+    public City consumeKafka(City city) {
+       
+		return city;
+
+ 
+        }
 
 }
