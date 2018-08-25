@@ -1,6 +1,6 @@
 
-<h1>Movie Registration Form</h1>
-<div class="container col-8">
+ <h1>Movie Registration Form</h1> 
+<!-- <div class="container col-8">
   <form>
     <div class="form-group">
       <label for="exampleInput" class="bmd-label-floating">MOVIE-NAME</label>
@@ -59,4 +59,59 @@
     <button class="btn btn-default">Cancel</button>
     <button type="submit" class="btn btn-primary btn-raised">Submit</button>
   </form>
+</div> -->
+
+<div class="container">
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie Name" [(ngModel)]="movie.movieName">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie synopsis" [(ngModel)]="movie.synopsis">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie format" [(ngModel)]="movie.format">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie Poster" [(ngModel)]="movie.moviePoster">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie releasedate" [(ngModel)]="movie.releasedate">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie durataion" [(ngModel)]="movie.movieDuration">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter actor Name" [(ngModel)]="movie.actor">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter actres Name" [(ngModel)]="movie.actres">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter director Name" [(ngModel)]="movie.distributer">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter movie gener" [(ngModel)]="movie.movieGenres">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter language" [(ngModel)]="movie.languages">
+  </mat-form-field>
+  <br>
+  <section class="example-section">
+    <mat-checkbox class="example-margin" [(ngModel)]="checked">Checked</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
+  </section>
+  <button type="submit" class="example-button" name="button" class="btn btn-success" (click)="onSubmit()">Add Theatre</button>
+ 
+  
 </div>
+  
