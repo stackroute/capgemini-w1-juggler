@@ -10,6 +10,7 @@ import { PartnerRegisterComponent } from './register/partner-register/partner-re
 import { DistributionRegisterformComponent } from './distribution-registerform/distribution-registerform.component';
 import { UserLoginComponent } from './login/user-login/user-login.component';
 import { PartnerLoginComponent } from './login/partner-login/partner-login.component';
+import { TheatreRegistrationComponent } from './theatre-registration/theatre-registration.component';
 
 const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'home', component: HomePageComponent } ,
@@ -18,7 +19,8 @@ const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'register-partner', component: PartnerRegisterComponent },
 { path: 'moviedetail', component: MoviedetailsFormComponent },
 { path: 'login-partner', component: PartnerLoginComponent },
-{ path: 'distributor', component: DistributionRegisterformComponent} ];
+{ path: 'distributor', component: DistributionRegisterformComponent},
+{ path: 'theatre', component: TheatreRegistrationComponent} ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -28,5 +30,5 @@ const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 export class AppRoutingModule { }
 
 export const routingComponents = [ LandingPageComponent, UserRegisterComponent , PartnerLoginComponent,
-  UserLoginComponent, PartnerRegisterComponent, HomePageComponent];
+  UserLoginComponent, PartnerRegisterComponent, HomePageComponent, TheatreRegistrationComponent];
 

@@ -18,6 +18,9 @@ import { MaterialsModule } from './materials';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PartnerLoginComponent } from './login/partner-login/partner-login.component';
+import { TheatreRegistrationComponent } from './theatre-registration/theatre-registration.component';
+import { SearchDataService } from './search-data.service';
+import { TheatreService } from './theatre.service';
 
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
@@ -30,7 +33,8 @@ import { PartnerLoginComponent } from './login/partner-login/partner-login.compo
     UserLoginComponent,
     MoviedetailsFormComponent,
     DistributionRegisterformComponent,
-    PartnerLoginComponent
+    PartnerLoginComponent,
+    TheatreRegistrationComponent
   ],
 
   imports: [
@@ -48,7 +52,7 @@ import { PartnerLoginComponent } from './login/partner-login/partner-login.compo
     MatInputModule,
     MatFormFieldModule
   ],
-  providers: [AuthenticationService, AlertService],
+  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
