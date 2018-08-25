@@ -28,7 +28,7 @@
 		<module>eureka-server</module>
 		<module>zuul-apigateway</module>
 		<module>theatre-registration</module>
-		<module>search-movie</module>
+		<module>movie-search</module>
 		<module>movie-schedule</module>
 		<module>distributor</module>
 		<module>user-profile</module>	

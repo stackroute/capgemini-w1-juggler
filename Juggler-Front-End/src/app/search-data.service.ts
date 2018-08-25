@@ -8,18 +8,20 @@ import { Router } from '@angular/router';
 })
 
 export class SearchDataService {
-  private city_string: string;
+
+ private city_string: string;
+
  constructor(private http: HttpClient, private router: Router) { }
  getAllMovies() {
     return this.http.get('http://172.00.00.00:8060/api/v1/movies');
  }
 
- getMovieCity(city:string) {
-   this.city_string=city
+ getByMovieCity(city: string) {
+   this.city_string = city;
    return this.http.get('http://172.00.00.00:8060/api/v1/city/' + this.city_string);
  }
 
- getMovieName(name) {
+ getByMovieName(name) {
    return this.http.get('http://172.00.00.00:8060/api/v1/movie/' + name);
  }
 
