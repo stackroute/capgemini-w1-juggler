@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.stackroute.juggler.model.Token;
 import com.stackroute.juggler.model.User;
+
 import com.stackroute.juggler.service.UserService;
 
 import io.jsonwebtoken.Jwts;
@@ -27,8 +28,11 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+//	@Autowired
+//	private KafkaService kafkaService;
     @RequestMapping(value = "/register", method = RequestMethod.POST)
 	public User registerUser(@RequestBody User user) {
+ 
 		return userService.save(user);
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
