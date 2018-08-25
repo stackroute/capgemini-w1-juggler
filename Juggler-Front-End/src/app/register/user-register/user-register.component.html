@@ -7,13 +7,18 @@
         </h5>
 
         <!--Card content-->
-        <div class="card-body px-lg-5 pt-0">
+        <div class="card-body px-lg-5 pt-2">
 
             <!-- Form -->
             <form class="text-center" style="color: #757575;">
+                <!-- User Id -->
+                <div class="md-form mt-2">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter user Id" [(ngModel)]="userid">
+                    </mat-form-field>
+                </div>
 
-
-                <!-- First name -->
+                <!-- User name -->
                 <div class="md-form mt-0">
                     <mat-form-field>
                         <input matInput placeholder="Enter user name" [(ngModel)]="username">
@@ -41,6 +46,41 @@
                 <div class="md-form mt-0">
                     <mat-form-field>
                         <input matInput placeholder="Enter contact number" [(ngModel)]="phoneno">
+                    </mat-form-field>
+                </div>
+
+                <!-- Location -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter location" [(ngModel)]="location">
+                    </mat-form-field>
+                </div>
+
+                <!-- Gender -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter gender" [(ngModel)]="gender">
+                    </mat-form-field>
+                </div>
+
+                <!-- Genre -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter genre" [(ngModel)]="genre">
+                    </mat-form-field>
+                </div>
+
+                <!-- Likes -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Give your likes" [(ngModel)]="likes">
+                    </mat-form-field>
+                </div>
+
+                <!-- Payment methods -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter your payment methods" [(ngModel)]="payment">
                     </mat-form-field>
                 </div>
 
