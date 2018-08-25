@@ -50,7 +50,7 @@ export class UserLoginComponent implements OnInit {
         }
         console.log(this.f.email.value);
         this.loading = true;
-        this.authenticationService.login(this.f.email.value, this.f.password.value)
+        this.authenticationService.loginUser(this.f.email.value, this.f.password.value)
             .pipe(first())
             .subscribe(
                 data => {
