@@ -14,8 +14,6 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDao userDao;
-	
-	
 
 	public User save(User user) {
 		return userDao.save(user);
@@ -34,20 +32,21 @@ public class UserServiceImpl implements UserService {
 	@Override
 	@KafkaListener(topics = "details6", groupId = "user")
 	public void consumeKafka(InputUser inputUser) {
-		
+
 		User user = new User();
-		
-		 if (userDao.findByEmail(inputUser.getEmailId()) == null) {
-		 String email = inputUser.getEmailId();
-		 String password = inputUser.getPassword();
-		 //String role=inputUser.getRole();
-		 user.setEmail(email);
-		 user.setPassword(password);
-		 
-		 userDao.save(user);
-//		System.out.println("" + inputUser);
-//		System.out.println("" + inputUser.getEmailId());
-		 }
+
+		if (userDao.findByEmail(inputUser.getEmailId()) == null) {
+			String email = inputUser.getEmailId();
+			String password = inputUser.getPassword();
+			// String role=inputUser.getRole();
+			user.setEmail(email);
+			user.setPassword(password);
+			user.setRole("user");
+
+			userDao.save(user);
+			// System.out.println("" + inputUser);
+			// System.out.println("" + inputUser.getEmailId());
+		}
 	}
 
 }

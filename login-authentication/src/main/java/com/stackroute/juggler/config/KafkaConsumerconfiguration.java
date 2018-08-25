@@ -17,20 +17,23 @@ import com.stackroute.juggler.model.User;
 
 @EnableKafka
 @Configuration
-public class KafkaConsumerconfiguration {   
+public class KafkaConsumerconfiguration {
 	@Bean
-    public ConsumerFactory<String, InputUser> consumerFactory() {
-        Map<String, Object> config = new HashMap<>();        
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "user");
-        config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);        
-        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-               new JsonDeserializer<>(InputUser.class));
-    }   
+	public ConsumerFactory<String, InputUser> consumerFactory() {
+		Map<String, Object> config = new HashMap<>();
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "user");
+		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+		config.put(JsonDeserializer.TRUSTED_PACKAGES, "com.stackroute.juggler.*");
+		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
+				new JsonDeserializer<>(InputUser.class));
+	}
+
 	@Bean
-    public ConcurrentKafkaListenerContainerFactory<String, InputUser> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, InputUser> factory = new ConcurrentKafkaListenerContainerFactory();
-        factory.setConsumerFactory(consumerFactory());
-        return factory;
-    }}
+	public ConcurrentKafkaListenerContainerFactory<String, InputUser> kafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, InputUser> factory = new ConcurrentKafkaListenerContainerFactory();
+		factory.setConsumerFactory(consumerFactory());
+		return factory;
+	}
+}

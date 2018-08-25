@@ -40,12 +40,13 @@ public class UserController {
 
 			String jwtToken = "";
 
-			if (login.getEmail() == null || login.getPassword() == null) {
+			if (login.getEmail() == null || login.getPassword() == null || login.getRole() == null) {
 				throw new ServletException("Please fill in username and password");
 			}
 
 			String email = login.getEmail();
 			String password = login.getPassword();
+			String role =login.getRole();
 
 			User user = userService.findByEmail(email);
 
@@ -57,6 +58,10 @@ public class UserController {
 
 			if (!password.equals(pwd)) {
 				throw new ServletException("Invalid login. Please check your name and password.");
+			}
+			String roles = user.getRole();
+			if (!role.equals(roles)) {
+				throw new ServletException("Invalid login. Please check your name and passwordand role");
 			}
 
 			jwtToken = Jwts.builder().setSubject(email).claim("roles", "user").setIssuedAt(new Date())

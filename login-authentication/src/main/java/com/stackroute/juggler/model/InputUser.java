@@ -22,11 +22,12 @@ public class InputUser {
 	private String password;
 	private String gender;
 	private String dateOfBirth;
-	private String[] LanguagesKnown;
+	
 	private String[] genre;
 	private String location;
 	private String[] paymentMethods;
 	private String likes;
+	private String[] languagesKnown;
 
 	
 	public InputUser() {
@@ -95,11 +96,11 @@ public class InputUser {
 	}
 
 	public String[] getLanguagesKnown() {
-		return LanguagesKnown;
+		return languagesKnown;
 	}
 
 	public void setLanguagesKnown(String[] languagesKnown) {
-		LanguagesKnown = languagesKnown;
+		languagesKnown = languagesKnown;
 	}
 
 	public String[] getGenre() {
@@ -152,7 +153,7 @@ public class InputUser {
 		this.password = password;
 		this.gender = gender;
 		this.dateOfBirth = dateOfBirth;
-		LanguagesKnown = languagesKnown;
+		languagesKnown = languagesKnown;
 		this.genre = genre;
 		this.location = location;
 		this.paymentMethods = paymentMethods;
