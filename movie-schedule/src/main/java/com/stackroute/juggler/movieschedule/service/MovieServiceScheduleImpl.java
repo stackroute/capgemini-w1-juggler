@@ -1,12 +1,14 @@
 package com.stackroute.juggler.movieschedule.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.juggler.movieschedule.domain.MovieSchedule;
-import com.stackroute.juggler.movieschedule.domain.TheatreDetails;
+import com.stackroute.juggler.kafka.domain.MovieSchedule;
+import com.stackroute.juggler.kafka.domain.Registration;
+import com.stackroute.juggler.movieschedule.config.Consumer;
 import com.stackroute.juggler.movieschedule.repository.MovieScheduleRepository;
 
 @Service
@@ -15,6 +17,7 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 	private MovieScheduleRepository movieScheduleRepo;
 
 	public MovieServiceScheduleImpl(MovieScheduleRepository movieScheduleRepo) {
+
 		this.movieScheduleRepo = movieScheduleRepo;
 	}
 
@@ -37,18 +40,37 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 		return update;
 	}
 
+	// if (userRepository.findByUserId(userLikes.getUserId()) != null) {
+	// findUser = userRepository.findByUserId(userLikes.getUserId());
+	// String movieName = userLikes.getMovie();
+	// findUser.setLikes(movieName);
+	// userRepository.save(findUser);
+	// }
 	@Override
-	@KafkaListener(topics = "theatre_details", groupId = "movieSchedule")
-	public void consumeKafka(TheatreDetails theatreDetails) {
+	@KafkaListener(topics = "testkafka", groupId = "grpid", containerFactory = "kafkaListenerContainerFactory")
+	public void consumeKafka(Registration registration) {
+		// System.out.println("Consumed JSON Message: " + registration);
+		// }
 		MovieSchedule addTheatre = null;
-		if (movieScheduleRepo.findByTheatreId(theatreDetails.getTheatreId()) != null) {
-			addTheatre = movieScheduleRepo.findByTheatreId(theatreDetails.getTheatreId());
-			String theatreName = theatreDetails.getTheatreName();
+
+		if (movieScheduleRepo.findByTheatreId(registration.getTheatreId()) != null) {
+			addTheatre = movieScheduleRepo.findByTheatreId(registration.getTheatreId());
+			String theatreName = registration.getTheatreName();
+			String theatreLocation = registration.getTheatreLocation();
+			String theatreCity = registration.getTheatreCity();
+			String theatreLicenseNo = registration.getTheatreLicenseNo();
+			String noOfSeats = registration.getNumberOfSeats();
+			Map<String, Integer> seats = registration.getSeats();
+			addTheatre.setTheatreLocation(theatreLocation);
 			addTheatre.setTheatreName(theatreName);
+			addTheatre.setTheatreCity(theatreCity);
+			addTheatre.setTheatreLicenseNo(theatreLicenseNo);
+			addTheatre.setNumberOfSeats(noOfSeats);
+			addTheatre.setSeats(seats);
 			movieScheduleRepo.save(addTheatre);
 
 		}
-//		System.out.println(theatreDetails);
+		System.out.println(registration);
 
 	}
 }

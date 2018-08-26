@@ -33,9 +33,20 @@ public class City {
 	public List<Movie> getMovieList() {
 		return movieList;
 	}
+	
 	public void setMovieList(List<Movie> movieList) {
 		this.movieList = movieList;
 	}
 	private String cityName;
 	private List<Movie> movieList;
+	
+//	public City(int cityId, String cityName, List<Movie> movieList) {
+//		super();
+//		this.cityId = cityId;
+//		this.cityName = cityName;
+//		this.movieList = movieList;
+//	}
+////	public City() {
+////		super();
+////	}
 }

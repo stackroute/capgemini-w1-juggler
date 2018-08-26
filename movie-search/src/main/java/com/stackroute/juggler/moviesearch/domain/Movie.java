@@ -110,4 +110,26 @@ public class Movie {
 	public void setTheatres(List<Theatre> theatres) {
 		this.theatres = theatres;
 	}
+//	public Movie(int id, String movieName, String moviePoster, String synopsis, LocalDate movieReleasedate,
+//			String movieDuration, String[] language, String[] movieGenre, String format, String hero, String heroine,
+//			String director, List<Theatre> theatres) {
+//		super();
+//		this.id = id;
+//		this.movieName = movieName;
+//		this.moviePoster = moviePoster;
+//		this.synopsis = synopsis;
+//		this.movieReleasedate = movieReleasedate;
+//		this.movieDuration = movieDuration;
+//		this.language = language;
+//		this.movieGenre = movieGenre;
+//		this.format = format;
+//		this.hero = hero;
+//		this.heroine = heroine;
+//		this.director = director;
+//		this.theatres = theatres;
+//	}
+//	public Movie() {
+//		super();
+//	}
+	
 }
