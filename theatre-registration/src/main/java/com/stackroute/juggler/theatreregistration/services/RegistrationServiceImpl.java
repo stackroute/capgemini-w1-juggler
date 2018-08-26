@@ -1,6 +1,7 @@
 package com.stackroute.juggler.theatreregistration.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.theatreregistration.domain.Registration;
@@ -17,15 +18,20 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 		this.registrationRepository = registrationRepository;
 	}
+	@Autowired
+    private KafkaTemplate<String, Registration> kafkaTemplate;    // This is the topic name it wont be changed so "final static"
+    private static final String TOPIC = "theatre_details";
+
 
 	@Override
 	public Registration saveTheatre(Registration theatre) throws TheatreAlreadyExists{
 		// TODO Auto-generated method stub
+		 kafkaTemplate.send(TOPIC, theatre);
 		if(!registrationRepository.existsByTheatreName(theatre.getTheatreName())){
 		Registration theatreSaved = registrationRepository.save(theatre);
 		return theatreSaved;
 	}
-		else throw new TheatreAlreadyExists("movie already exists");	
+		else throw new TheatreAlreadyExists("theatre already exists");	
 	}
 	
 

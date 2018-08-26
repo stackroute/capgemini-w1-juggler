@@ -122,5 +122,15 @@ public class Registration {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void setComments(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Object getComments() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

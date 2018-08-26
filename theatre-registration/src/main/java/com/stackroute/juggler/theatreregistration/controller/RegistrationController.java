@@ -28,16 +28,10 @@ public class RegistrationController {
 		this.registrationService = registrationService;
 
 	}
-	   @Autowired
-	    private KafkaTemplate<String, Registration> kafkaTemplate;    // This is the topic name it wont be changed so "final static"
-	    private static final String TOPIC = "theatre_details";
-
+	   
 	@RequestMapping(value = "/theatre", method = RequestMethod.POST)
 	public ResponseEntity<?> saveTheatre(@RequestBody Registration theatre) throws TheatreAlreadyExists {
-
 		Registration theatreobj = null;
-	
-		 kafkaTemplate.send(TOPIC, theatre);
 		 // This is to save 
 		try {
 			 theatreobj=registrationService.saveTheatre(theatre);
