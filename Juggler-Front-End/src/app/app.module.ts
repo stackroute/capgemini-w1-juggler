@@ -21,6 +21,7 @@ import { PartnerLoginComponent } from './login/partner-login/partner-login.compo
 import { TheatreRegistrationComponent } from './theatre-registration/theatre-registration.component';
 import { SearchDataService } from './search-data.service';
 import { TheatreService } from './theatre.service';
+import { UserService } from './user.service';
 
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
@@ -53,8 +54,9 @@ import { TheatreService } from './theatre.service';
     MatFormFieldModule,
     MatGridListModule
   ],
-  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService],
+  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }
+

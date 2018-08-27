@@ -27,7 +27,9 @@ public class KafkaConfiguration {
 		// config.put(JsonDeserializer.TRUSTED_PACKAGES,
 		// "com.stackroute.juggler.movieschedule.domain");
 		return new DefaultKafkaProducerFactory<>(config);
-	} // This template imports the configuration from producerfactory
+	}
+
+	// This template imports the configuration from producerfactory
 
 	@Bean
 	public KafkaTemplate<String, Registration> kafkaTemplate() {
