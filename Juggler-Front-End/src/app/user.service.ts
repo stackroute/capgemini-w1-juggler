@@ -7,11 +7,11 @@ import { User } from './user';
   providedIn: 'root'
 })
 
-export class TheatreService {
+export class UserService {
   private _url = 'http://localhost:8040';
   constructor(private http: HttpClient) {}
 
-  saveTheatre(user: User): Observable<User> {
+  saveUser(user: User): Observable<User> {
    return this.http.post<User>(this._url + '/api/v1/user-profile/registration', user);
   }
 }
