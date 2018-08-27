@@ -5,13 +5,14 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthenticationService {
 
     constructor(private http: HttpClient) {
     }
 
     loginUser(email: string, password: string ) {
-        return this.http.post<any>('http://123.12.12.12.:8080/user/login' + '/' + 'user', {email: email, password: password})
+        return this.http.post<any>('http://localhost:8070/user/login', {email: email, password: password})
             // this is just the HTTP call,
             // we still need to handle the reception of the token
             // .shareReplay();

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchDataService } from '../search-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-
-  constructor() { }
+  movies = [];
+  constructor(private cityService: SearchDataService, private router: Router) { }
 
   ngOnInit() {
+    this.cityService.getAllMovies().subscribe(fullList => this.movies = fullList);
   }
-
+  getMovieInfo(movie) {
+    this.router.navigate(['/moviedetail']);
+  }
 }
+

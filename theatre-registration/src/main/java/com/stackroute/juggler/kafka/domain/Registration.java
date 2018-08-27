@@ -1,75 +1,56 @@
-package com.stackroute.juggler.movieschedule.domain;
+package com.stackroute.juggler.kafka.domain;
+
 
 import java.util.Map;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+//import lombok.AllArgsConstructor;
+//import lombok.Builder;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
 
 @Document
-// @Data
-// @NoArgsConstructor
-// @AllArgsConstructor
-// @Builder
-
-public class MovieSchedule {
-
+//@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Builder
+public class Registration {
 	@Id
 	private int theatreId;
-	private String theatreName;
 	private String theatreLocation;
 	private String theatreCity;
+	private String theatreName;
 	private String theatreLicenseNo;
 	private String numberOfSeats;
-	private Map<String, Integer> seats;
+	//private String[] typesOfSeats;
+	private Map<String,Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
-
-	// private TheatreDetails theatreDetails;
-	private MovieDetails movieDetails;
-	private int showNumbers;
-	private int[] showTimings;
-	private TicketPrices ticketPrices;
-
-	// private String bookingEndDate;
-	public MovieSchedule(int theatreId, String theatreName, String theatreLocation, String theatreCity,
+	// private int numberOfShows;
+	// private File seatLayout;
+	
+	public Registration(int theatreId, String theatreLocation, String theatreCity, String theatreName,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
-			String[] runningmovies, MovieDetails movieDetails, int showNumbers, int[] showTimings,
-			TicketPrices ticketPrices) {
+			String[] runningmovies) {
 		super();
 		this.theatreId = theatreId;
-		this.theatreName = theatreName;
 		this.theatreLocation = theatreLocation;
 		this.theatreCity = theatreCity;
+		this.theatreName = theatreName;
 		this.theatreLicenseNo = theatreLicenseNo;
 		this.numberOfSeats = numberOfSeats;
 		this.seats = seats;
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
-		this.movieDetails = movieDetails;
-		this.showNumbers = showNumbers;
-		this.showTimings = showTimings;
-		this.ticketPrices = ticketPrices;
 	}
 
-	public int getTheatreId() {
+	public int getTheatreId() {	
 		return theatreId;
 	}
 
 	public void setTheatreId(int theatreId) {
 		this.theatreId = theatreId;
-	}
-
-	public String getTheatreName() {
-		return theatreName;
-	}
-
-	public void setTheatreName(String theatreName) {
-		this.theatreName = theatreName;
 	}
 
 	public String getTheatreLocation() {
@@ -86,6 +67,14 @@ public class MovieSchedule {
 
 	public void setTheatreCity(String theatreCity) {
 		this.theatreCity = theatreCity;
+	}
+
+	public String getTheatreName() {
+		return theatreName;
+	}
+
+	public void setTheatreName(String theatreName) {
+		this.theatreName = theatreName;
 	}
 
 	public String getTheatreLicenseNo() {
@@ -128,36 +117,10 @@ public class MovieSchedule {
 		this.runningmovies = runningmovies;
 	}
 
-	public MovieDetails getMovieDetails() {
-		return movieDetails;
+	public Registration() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setMovieDetails(MovieDetails movieDetails) {
-		this.movieDetails = movieDetails;
-	}
-
-	public int getShowNumbers() {
-		return showNumbers;
-	}
-
-	public void setShowNumbers(int showNumbers) {
-		this.showNumbers = showNumbers;
-	}
-
-	public int[] getShowTimings() {
-		return showTimings;
-	}
-
-	public void setShowTimings(int[] showTimings) {
-		this.showTimings = showTimings;
-	}
-
-	public TicketPrices getTicketPrices() {
-		return ticketPrices;
-	}
-
-	public void setTicketPrices(TicketPrices ticketPrices) {
-		this.ticketPrices = ticketPrices;
-	}
-
+	
 }

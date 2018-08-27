@@ -1,4 +1,4 @@
-package com.stackroute.juggler.movieschedule.domain;
+package com.stackroute.juggler.kafka.domain;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 // @AllArgsConstructor
 // @Builder
 public class TicketPrices {
+
 
 	private int weekends_Price;
 	private int weekdays_Price;
@@ -39,4 +40,8 @@ public class TicketPrices {
 		this.weekdays_Price = weekdays_Price;
 	}
 
+
+	public TicketPrices() {
+		super();
+	}
 }
