@@ -9,21 +9,21 @@ import com.stackroute.juggler.distributor.domain.Movie;
 import com.stackroute.juggler.distributor.repositary.MovieRepositary;
 
 @Service
-public class MovieServicesImpl implements  MovieServices{
-	
+public class ServicesImpl implements Services {
+
 	@Autowired
 	private MovieRepositary movieRepositary;
 
-//@Autowired
-	public MovieServicesImpl(MovieRepositary movieRepository) {
+	// @Autowired
+	public ServicesImpl(MovieRepositary movieRepository) {
 		this.movieRepositary = movieRepositary;
 	}
-	
+
 	@Override
 	public Movie saveMovie(Movie movie) {
 		Movie savedMovie = movieRepositary.save(movie);
 		return savedMovie;
-		
+
 	}
 
 	@Override
@@ -38,11 +38,4 @@ public class MovieServicesImpl implements  MovieServices{
 		return movies;
 	}
 
-//	@Override
-//	public Movie updateMovie() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//	
-	
 }

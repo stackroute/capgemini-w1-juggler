@@ -2,6 +2,8 @@ package com.stackroute.juggler.distributor.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,17 +15,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stackroute.juggler.distributor.domain.Movie;
-import com.stackroute.juggler.distributor.services.MovieServices;
-import com.stackroute.juggler.distributor.services.MovieServicesImpl;
+import com.stackroute.juggler.distributor.services.Services;
+import com.stackroute.juggler.distributor.services.ServicesImpl;
 
 @Controller
 @RequestMapping("/api/v1/")
 public class MovieController {
 
-	private MovieServices movieServices;
+	private Services movieServices;
+
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
-	public MovieController(MovieServices movieServices) {
+	public MovieController(Services movieServices) {
 		this.movieServices = movieServices;
 	}
 
@@ -32,38 +36,31 @@ public class MovieController {
 	public ResponseEntity<?> saveMovie(@RequestBody Movie movie) {
 		Movie savedMovie;
 		savedMovie = movieServices.saveMovie(movie);
+		logger.info("movie is saved into database");
 		return new ResponseEntity<Movie>(savedMovie, HttpStatus.OK);
 
 	}
 
 	// getall
-	@RequestMapping(value = "/movies", method = RequestMethod.GET, produces = { "application/json" })
+	@RequestMapping(value = "/movies", method = RequestMethod.GET)
 
 	public ResponseEntity<List<Movie>> getAllMovies() {
 		List<Movie> movies = movieServices.getAllMovies();
+		logger.info("retrived all movies from database");
 		return new ResponseEntity<List<Movie>>(movies, HttpStatus.OK);
 	}
 
 	// getbytitle
-	@RequestMapping(value = "/getbytitle/movie", method = RequestMethod.GET, produces = { "application/json" })
+	@RequestMapping(value = "/getbytitle/movie", method = RequestMethod.GET)
 	public ResponseEntity<?> getMovieByTitleFromDB(@RequestParam String movieTitle) {
 		List<Movie> movie = movieServices.getByMovieTitle(movieTitle);
-		if (!movie.isEmpty())
+		if (!movie.isEmpty()) {
+			logger.info("retrived a movies of given titile");
 			return new ResponseEntity<List<Movie>>(movie, HttpStatus.FOUND);
-		else
-			return new ResponseEntity<String>("{ \"message\": \"" + "no movies  with this name" + "\"}", HttpStatus.OK);
+		} else {
+			logger.warn("No movies of given titile in database");
+			return new ResponseEntity<String>("{ \"message\": \"" + "no movies with this name" + "\"}", HttpStatus.OK);
+		}
 	}
-	
-//	// update
-//		@RequestMapping(value = "/movie", method = RequestMethod.PUT, produces = { "application/json" })
-//		public ResponseEntity<?> updateMovieToDB(@RequestBody Movie movie, @RequestParam int movieId) {
-//			Movie movieUpdated;
-//			try {
-//				movieUpdated = movieServices.updateMovie(movie);
-//			} catch (MovieNotFoundException e) {
-//				return new ResponseEntity<String>("{ \"message\": \"" + e.getMessage() + "\"}", HttpStatus.CONFLICT);
-//			}
-//			return new ResponseEntity<Movie>(movieUpdated, HttpStatus.FOUND);
-//		}
 
 }
