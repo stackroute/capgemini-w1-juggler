@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.juggler.model.Token;
-import com.stackroute.juggler.model.User;
-
+import com.stackroute.juggler.exceptions.PasswordNotMatchException;
+import com.stackroute.juggler.exceptions.UserNameNotFoundException;
+import com.stackroute.juggler.exceptions.UserNameOrPasswordOrRoleEmpty;
+import com.stackroute.juggler.kafka.domain.Token;
+import com.stackroute.juggler.kafka.domain.User;
 import com.stackroute.juggler.service.UserService;
 
 import io.jsonwebtoken.Jwts;
@@ -39,10 +41,14 @@ public class UserController {
 		public ResponseEntity<?> login(@RequestBody User login) throws ServletException {
 
 			String jwtToken = "";
-
+       try {
 			if (login.getEmail() == null || login.getPassword() == null || login.getRole() == null) {
-				throw new ServletException("Please fill in username and password");
+				throw  new UserNameOrPasswordOrRoleEmpty("Please fill in username and password");
 			}
+       }
+       catch(UserNameOrPasswordOrRoleEmpty e) {
+    	   return new ResponseEntity<String>(e.toString(), HttpStatus.CONFLICT);
+       }
 
 			String email = login.getEmail();
 			String password = login.getPassword();
@@ -50,15 +56,23 @@ public class UserController {
 
 			User user = userService.findByEmail(email);
 
-			if (user == null) {
-				throw new ServletException("User email not found.");
-			}
+			try {
+				if (user == null) {
+					throw new UserNameNotFoundException("User email not found.");
+				}
+			} catch (UserNameNotFoundException e) {
+				return new ResponseEntity<String>(e.toString(), HttpStatus.CONFLICT);
+	}
 
 			String pwd = user.getPassword();
 
-			if (!password.equals(pwd)) {
-				throw new ServletException("Invalid login. Please check your name and password.");
-			}
+			try {
+				if (!password.equals(pwd)) {
+					throw new PasswordNotMatchException("Invalid login. Please check your name and password.");
+				}
+			} catch (PasswordNotMatchException e) {
+				return new ResponseEntity<String>(e.toString(), HttpStatus.CONFLICT);
+	}
 			String roles = user.getRole();
 			if (!role.equals(roles)) {
 				throw new ServletException("Invalid login. Please check your name and passwordand role");

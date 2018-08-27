@@ -1,4 +1,4 @@
-package com.stackroute.juggler.model;
+package com.stackroute.juggler.kafka.domain;
 
 public class Token {
 private String token;

@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.stackroute.juggler.userprofile.domain.User;
-import com.stackroute.juggler.userprofile.domain.UserProfile;
+
+import com.stackroute.juggler.kafka.domain.User;
+import com.stackroute.juggler.kafka.domain.UserProfile;
 import com.stackroute.juggler.userprofile.exceptions.ProfileAlreadyExitsException;
 import com.stackroute.juggler.userprofile.exceptions.UpdateFailedException;
 import com.stackroute.juggler.userprofile.exceptions.UserDoesNotExistsException;

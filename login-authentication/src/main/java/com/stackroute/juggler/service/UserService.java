@@ -1,7 +1,7 @@
 package com.stackroute.juggler.service;
 
-import com.stackroute.juggler.model.InputUser;
-import com.stackroute.juggler.model.User;
+import com.stackroute.juggler.kafka.domain.InputUser;
+import com.stackroute.juggler.kafka.domain.User;
 
 public interface UserService {
 	User save(User user);

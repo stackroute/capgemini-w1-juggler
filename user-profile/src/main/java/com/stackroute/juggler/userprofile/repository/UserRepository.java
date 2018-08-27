@@ -3,7 +3,7 @@ package com.stackroute.juggler.userprofile.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.stackroute.juggler.userprofile.domain.User;
+import com.stackroute.juggler.kafka.domain.User;
 
 
 //using crudrepo to use in build methods so as to add into database

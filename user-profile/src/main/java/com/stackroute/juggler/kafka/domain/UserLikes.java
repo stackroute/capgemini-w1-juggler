@@ -1,4 +1,4 @@
-package com.stackroute.juggler.userprofile.domain;
+package com.stackroute.juggler.kafka.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

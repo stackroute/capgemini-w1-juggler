@@ -1,8 +1,8 @@
 package com.stackroute.juggler.userprofile.service;
 
-import com.stackroute.juggler.userprofile.domain.User;
-import com.stackroute.juggler.userprofile.domain.UserLikes;
-import com.stackroute.juggler.userprofile.domain.UserProfile;
+import com.stackroute.juggler.kafka.domain.User;
+import com.stackroute.juggler.kafka.domain.UserLikes;
+import com.stackroute.juggler.kafka.domain.UserProfile;
 import com.stackroute.juggler.userprofile.exceptions.ProfileAlreadyExitsException;
 import com.stackroute.juggler.userprofile.exceptions.UpdateFailedException;
 import com.stackroute.juggler.userprofile.exceptions.UserDoesNotExistsException;
