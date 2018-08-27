@@ -1,6 +1,6 @@
 package com.stackroute.juggler.theatreregistration.services;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -13,28 +13,31 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 	private RegistrationRepository registrationRepository;
 
+	// instance of repository
 	@Autowired
 	public RegistrationServiceImpl(RegistrationRepository registrationRepository) {
 
 		this.registrationRepository = registrationRepository;
 	}
+
 	@Autowired
-    private KafkaTemplate<String, Registration> kafkaTemplate;    // This is the topic name it wont be changed so "final static"
-    private static final String TOPIC = "theatre_details";
+	// This is the topic name it wont be changed so "final static"
+	private KafkaTemplate<String, Registration> kafkaTemplate;
+	private static final String TOPIC = "testkafka";
 
-
+	// saves the theatre details to database
 	@Override
-	public Registration saveTheatre(Registration theatre) throws TheatreAlreadyExists{
+	public Registration saveTheatre(Registration theatre) throws TheatreAlreadyExists {
 		// TODO Auto-generated method stub
-		 kafkaTemplate.send(TOPIC, theatre);
-		if(!registrationRepository.existsByTheatreName(theatre.getTheatreName())){
-		Registration theatreSaved = registrationRepository.save(theatre);
-		return theatreSaved;
+		kafkaTemplate.send(TOPIC, theatre);
+		if (!registrationRepository.existsByTheatreName(theatre.getTheatreName())) {
+			Registration theatreSaved = registrationRepository.save(theatre);
+			return theatreSaved;
+		} else
+			throw new TheatreAlreadyExists("theatre already exists");
 	}
-		else throw new TheatreAlreadyExists("theatre already exists");	
-	}
-	
 
+	// to update the theatre details
 	@Override
 	public Registration updateTheatre(Registration theatre) {
 		// TODO Auto-generated method stub
@@ -44,6 +47,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 		return theatreUpdated;
 	}
 
+	// To the theatre by using theatre title from database
 	@Override
 	public Registration getByTitle(String theatre) {
 		// TODO Auto-generated method stub
@@ -51,6 +55,4 @@ public class RegistrationServiceImpl implements RegistrationService {
 		return list;
 	}
 
-	
-	
 }
