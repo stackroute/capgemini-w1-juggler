@@ -13,7 +13,7 @@ import { UserLoginComponent } from './login/user-login/user-login.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { AuthenticationService } from './authentication.service';
 import { AlertService } from './alert.service';
-import { MatCardModule, MatButtonModule, MatStepperModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatStepperModule, MatGridListModule } from '@angular/material';
 import { MaterialsModule } from './materials';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,6 +21,7 @@ import { PartnerLoginComponent } from './login/partner-login/partner-login.compo
 import { TheatreRegistrationComponent } from './theatre-registration/theatre-registration.component';
 import { SearchDataService } from './search-data.service';
 import { TheatreService } from './theatre.service';
+import { UserService } from './user.service';
 
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
@@ -50,10 +51,12 @@ import { TheatreService } from './theatre.service';
     MatButtonModule,
     MatStepperModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatGridListModule
   ],
-  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService],
+  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }
+
