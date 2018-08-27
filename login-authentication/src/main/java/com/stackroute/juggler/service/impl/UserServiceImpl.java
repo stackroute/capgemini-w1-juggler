@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.juggler.model.InputUser;
-import com.stackroute.juggler.model.User;
+import com.stackroute.juggler.kafka.domain.InputUser;
+import com.stackroute.juggler.kafka.domain.User;
 import com.stackroute.juggler.repository.UserDao;
 import com.stackroute.juggler.service.UserService;
 
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	@KafkaListener(topics = "details6", groupId = "user")
+	@KafkaListener(topics = "testtt", groupId = "user")
 	public void consumeKafka(InputUser inputUser) {
 
 		User user = new User();
@@ -48,5 +48,7 @@ public class UserServiceImpl implements UserService {
 			// System.out.println("" + inputUser.getEmailId());
 		}
 	}
+
+	
 
 }

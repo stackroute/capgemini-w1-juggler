@@ -3,7 +3,7 @@ package com.stackroute.juggler.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.stackroute.juggler.model.User;
+import com.stackroute.juggler.kafka.domain.User;
 
 @Repository
 public interface UserDao extends CrudRepository<User, Long> {

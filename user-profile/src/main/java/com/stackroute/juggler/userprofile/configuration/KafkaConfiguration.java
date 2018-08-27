@@ -12,12 +12,12 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.stackroute.juggler.userprofile.domain.User;
+import com.stackroute.juggler.kafka.domain.User;
 
 @Configuration
 public class KafkaConfiguration {
 	
-	 static final String TOPIC = "userProfile";
+	 static final String TOPIC = "UserData";
 	
 	//Producer factory of kafka which will hold the configuration details
 	 @Bean

@@ -1,4 +1,4 @@
-package com.stackroute.juggler.userprofile.domain;
+package com.stackroute.juggler.kafka.domain;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package com.stackroute.juggler.model;
+package com.stackroute.juggler.kafka.domain;
 
 import java.util.Date;
 import javax.persistence.Entity;

@@ -12,8 +12,8 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import com.stackroute.juggler.model.InputUser;
-import com.stackroute.juggler.model.User;
+import com.stackroute.juggler.kafka.domain.InputUser;
+import com.stackroute.juggler.kafka.domain.User;
 
 @EnableKafka
 @Configuration
@@ -25,7 +25,6 @@ public class KafkaConsumerconfiguration {
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "user");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-		config.put(JsonDeserializer.TRUSTED_PACKAGES, "com.stackroute.juggler.*");
 		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
 				new JsonDeserializer<>(InputUser.class));
 	}

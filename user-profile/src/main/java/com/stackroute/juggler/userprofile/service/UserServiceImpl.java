@@ -5,10 +5,10 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import com.stackroute.juggler.kafka.domain.User;
+import com.stackroute.juggler.kafka.domain.UserLikes;
+import com.stackroute.juggler.kafka.domain.UserProfile;
 import com.stackroute.juggler.userprofile.configuration.KafkaConfiguration;
-import com.stackroute.juggler.userprofile.domain.User;
-import com.stackroute.juggler.userprofile.domain.UserLikes;
-import com.stackroute.juggler.userprofile.domain.UserProfile;
 import com.stackroute.juggler.userprofile.exceptions.ProfileAlreadyExitsException;
 import com.stackroute.juggler.userprofile.exceptions.UpdateFailedException;
 import com.stackroute.juggler.userprofile.exceptions.UserDoesNotExistsException;
