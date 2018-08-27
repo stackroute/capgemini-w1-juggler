@@ -13,7 +13,7 @@ import { UserLoginComponent } from './login/user-login/user-login.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { AuthenticationService } from './authentication.service';
 import { AlertService } from './alert.service';
-import { MatCardModule, MatButtonModule, MatStepperModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatStepperModule, MatGridListModule } from '@angular/material';
 import { MaterialsModule } from './materials';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -50,7 +50,8 @@ import { TheatreService } from './theatre.service';
     MatButtonModule,
     MatStepperModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatGridListModule
   ],
   providers: [AuthenticationService, AlertService, SearchDataService, TheatreService],
   bootstrap: [AppComponent],
