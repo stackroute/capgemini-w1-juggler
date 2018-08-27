@@ -50,6 +50,7 @@ export class PartnerLoginComponent implements OnInit {
             return;
         }
         console.log(this.f.email.value);
+        console.log(this.role);
         this.loading = true;
         this.authenticationService.loginPartner(this.f.email.value, this.f.password.value, this.role)
             .pipe(first())

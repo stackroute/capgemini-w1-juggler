@@ -1,9 +1,14 @@
 package com.stackroute.juggler.distributor.domain;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 //Domain object for movie details given by the distributor
 @Document
@@ -12,111 +17,134 @@ public class Movie {
 	public String id;
 	private String movieName;
 	private String moviePoster;
-	private String movieReleaseDate;
-	private String movieDuration;
-	private String hero;
-	private String heroine;
-	private String director;
-	private String[] movieGenre;
+	private String[] actors;
+	private String[] actress;
+	private String[] directors;
+	private String[] movieGenres;
 	private String synopsis;
 	private String format;
-	private String[] language;
-		
-	
-	public Movie(String id, String movieName, String moviePoster, String movieReleaseDate, String movieDuration,
-			String hero, String heroine, String director, String[] movieGenre, String synopsis, String format,
-			String[] language) {
+	private String[] languages;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+	private LocalTime movieDuration;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate movieReleaseDate;
+
+	public Movie() {
+	}
+
+	// All Arguments constructor
+	public Movie(String id, String movieName, String moviePoster, String[] actors, String[] actress, String[] directors,
+			String[] movieGenres, String synopsis, String format, String[] languages, LocalTime movieDuration,
+			LocalDate movieReleaseDate) {
 		this.id = id;
 		this.movieName = movieName;
 		this.moviePoster = moviePoster;
-		this.movieReleaseDate = movieReleaseDate;
-		this.movieDuration = movieDuration;
-		this.hero = hero;
-		this.heroine = heroine;
-		this.director = director;
-		this.movieGenre = movieGenre;
+		this.actors = actors;
+		this.actress = actress;
+		this.directors = directors;
+		this.movieGenres = movieGenres;
 		this.synopsis = synopsis;
 		this.format = format;
-		this.language = language;
-	}
-	
-	public Movie() {
-		
+		this.languages = languages;
+		this.movieDuration = movieDuration;
+		this.movieReleaseDate = movieReleaseDate;
 	}
 
-
+	// List of all getters and setters
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getMovieName() {
 		return movieName;
 	}
+
 	public void setMovieName(String movieName) {
 		this.movieName = movieName;
 	}
+
 	public String getMoviePoster() {
 		return moviePoster;
 	}
+
 	public void setMoviePoster(String moviePoster) {
 		this.moviePoster = moviePoster;
 	}
-	public String getMovieReleaseDate() {
-		return movieReleaseDate;
+
+	public String[] getActors() {
+		return actors;
 	}
-	public void setMovieReleaseDate(String movieReleaseDate) {
-		this.movieReleaseDate = movieReleaseDate;
+
+	public void setActors(String[] actors) {
+		this.actors = actors;
 	}
-	public String getMovieDuration() {
-		return movieDuration;
+
+	public String[] getActress() {
+		return actress;
 	}
-	public void setMovieDuration(String movieDuration) {
-		this.movieDuration = movieDuration;
+
+	public void setActress(String[] actress) {
+		this.actress = actress;
 	}
-	public String getHero() {
-		return hero;
+
+	public String[] getDirectors() {
+		return directors;
 	}
-	public void setHero(String hero) {
-		this.hero = hero;
+
+	public void setDirectors(String[] directors) {
+		this.directors = directors;
 	}
-	public String getHeroine() {
-		return heroine;
+
+	public String[] getMovieGenres() {
+		return movieGenres;
 	}
-	public void setHeroine(String heroine) {
-		this.heroine = heroine;
+
+	public void setMovieGenres(String[] movieGenres) {
+		this.movieGenres = movieGenres;
 	}
-	public String getDirector() {
-		return director;
-	}
-	public void setDirector(String director) {
-		this.director = director;
-	}
-	public String[] getMovieGenre() {
-		return movieGenre;
-	}
-	public void setMovieGenre(String[] movieGenre) {
-		this.movieGenre = movieGenre;
-	}
+
 	public String getSynopsis() {
 		return synopsis;
 	}
+
 	public void setSynopsis(String synopsis) {
 		this.synopsis = synopsis;
 	}
+
 	public String getFormat() {
 		return format;
 	}
+
 	public void setFormat(String format) {
 		this.format = format;
 	}
-	public String[] getLanguage() {
-		return language;
+
+	public String[] getLanguages() {
+		return languages;
 	}
-	public void setLanguage(String[] language) {
-		this.language = language;
+
+	public void setLanguages(String[] languages) {
+		this.languages = languages;
 	}
-	
-	
+
+	public LocalTime getMovieDuration() {
+		return movieDuration;
+	}
+
+	public void setMovieDuration(LocalTime movieDuration) {
+		this.movieDuration = movieDuration;
+	}
+
+	public LocalDate getMovieReleaseDate() {
+		return movieReleaseDate;
+	}
+
+	public void setMovieReleaseDate(LocalDate movieReleaseDate) {
+		this.movieReleaseDate = movieReleaseDate;
+	}
+
 }

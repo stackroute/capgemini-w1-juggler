@@ -30,27 +30,18 @@
         <!--/.Content-->
     </div>
 </div>
-<!-- Card -->
-<!-- <mat-card class="example-card m-4" style="width: 300px">
-    <mat-card-header>
-        <mat-card-title><a>Gold</a></mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="https://assetscdn.paytm.com/images/cinema/MovieIcons/Gold-web-poster-updated.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-    </mat-card-actions>
-</mat-card> -->
-<mat-grid-list cols="12" rowHeight="100px">
+
+<mat-grid-list cols="12" rowHeight="80px">
+    <h3>Trending Movies</h3>
     <div *ngFor="let movie of movies">
-        <mat-grid-tile colspan="4" rowspan="6">
+        <mat-grid-tile colspan="3" rowspan="6">
             <mat-card class="example-card">
                 <mat-card-header>
                     <mat-card-title><a>{{movie.movieTitle}}</a></mat-card-title>
                 </mat-card-header>
-                <img mat-card-image src="{{movie.movieposter}}" alt="Photo of a Shiba Inu">
+                <img mat-card-image src="{{movie.movieposter}}" alt="Poster of movie">
                 <mat-card-actions>
-                    <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">go</button>
+                    <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">Movie Details</button>
                 </mat-card-actions>
             </mat-card>
         </mat-grid-tile>
