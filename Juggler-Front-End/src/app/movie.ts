@@ -1,11 +1,13 @@
 export class Movie {
-    movieId: number;
-    movieTitle: string;
-    poster: string;
-    description: string;
-    language: string;
-    genre: string;
-    cast: string;
-    releaseDate: string;
-    duration: string;
+  movieName: string;
+  movieposter: string;
+  synopsis: string;
+  format: string;
+  movieReleaseDate: Date;
+  movieDuration: Date;
+  actor: string[];
+  actres: string[];
+  directors: string[];
+  movieGenres: string[];
+  languages: string[];
 }
