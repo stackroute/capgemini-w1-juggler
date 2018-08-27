@@ -1,0 +1,117 @@
+
+ <h1>Movie Registration Form</h1> 
+<!-- <div class="container col-8">
+  <form>
+    <div class="form-group">
+      <label for="exampleInput" class="bmd-label-floating">MOVIE-NAME</label>
+      <input type="text" class="form-control" id="exampleInput">
+      </div>
+      <div class="form-group">
+          <label for="exampleInput" class="bmd-label-floating">MOVIE-POSTER</label>
+          <input type="text" class="form-control" id="exampleInput">
+          </div>
+      <div class="form-group">
+      <label for="exampleTextarea" class="bmd-label-floating">Movie Synopsis</label>
+      <textarea class="form-control" id="exampleTextarea" rows="2"></textarea>
+
+    </div>
+    <div class="form-group">
+      <label for="exampleSelect1" class="bmd-label-floating">Example select</label>
+      <select class="form-control" id="exampleSelect1">
+        <option></option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleSelect2" class="bmd-label-floating">Example multiple select</label>
+      <select multiple class="form-control" id="exampleSelect2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+    <label class="bmd-label-floating">MOVIE-FORMAT</label>
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" > 
+        2D
+      </label>
+      </div>
+      <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 
+        3D
+      </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> 
+          4D
+        </label>
+      </div>
+    </div>
+    <button class="btn btn-default">Cancel</button>
+    <button type="submit" class="btn btn-primary btn-raised">Submit</button>
+  </form>
+</div> -->
+
+<div class="container">
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie Name" [(ngModel)]="movie.movieName">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie synopsis" [(ngModel)]="movie.synopsis">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie format" [(ngModel)]="movie.format">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie Poster" [(ngModel)]="movie.moviePoster">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie releasedate" [(ngModel)]="movie.releasedate">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Movie durataion" [(ngModel)]="movie.movieDuration">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter actor Name" [(ngModel)]="movie.actor">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter actres Name" [(ngModel)]="movie.actres">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter director Name" [(ngModel)]="movie.distributer">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter movie gener" [(ngModel)]="movie.movieGenres">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter language" [(ngModel)]="movie.languages">
+  </mat-form-field>
+  <br>
+  <section class="example-section">
+    <mat-checkbox class="example-margin" [(ngModel)]="checked">Checked</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
+  </section>
+  <button type="submit" class="example-button" name="button" class="btn btn-success" (click)="onSubmit()">Add Theatre</button>
+ 
+  
+</div>
+  

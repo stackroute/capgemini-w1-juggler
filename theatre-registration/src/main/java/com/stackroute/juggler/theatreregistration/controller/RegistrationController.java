@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.juggler.theatreregistration.domain.Registration;
+import com.stackroute.juggler.kafka.domain.Registration;
 import com.stackroute.juggler.theatreregistration.exceptions.TheatreAlreadyExists;
 import com.stackroute.juggler.theatreregistration.services.RegistrationService;
 
@@ -28,10 +28,16 @@ public class RegistrationController {
 		this.registrationService = registrationService;
 
 	}
-	   
+	   @Autowired
+	    private KafkaTemplate<String, Registration> kafkaTemplate;    // This is the topic name it wont be changed so "final static"
+	    private static final String TOPIC = "testkafka";
+
 	@RequestMapping(value = "/theatre", method = RequestMethod.POST)
 	public ResponseEntity<?> saveTheatre(@RequestBody Registration theatre) throws TheatreAlreadyExists {
+
 		Registration theatreobj = null;
+	
+		 kafkaTemplate.send(TOPIC,theatre);
 		 // This is to save 
 		try {
 			 theatreobj=registrationService.saveTheatre(theatre);
