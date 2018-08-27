@@ -29,8 +29,9 @@ public class UserServiceImpl implements UserService {
 		return userDao.findByPhoneNumber(phoneNumber);
 	}
 
+	// Listen the details from the kafka
 	@Override
-	@KafkaListener(topics = "testtt", groupId = "user")
+	@KafkaListener(topics = "details8", groupId = "user")
 	public void consumeKafka(InputUser inputUser) {
 
 		User user = new User();
@@ -38,17 +39,13 @@ public class UserServiceImpl implements UserService {
 		if (userDao.findByEmail(inputUser.getEmailId()) == null) {
 			String email = inputUser.getEmailId();
 			String password = inputUser.getPassword();
-			// String role=inputUser.getRole();
 			user.setEmail(email);
 			user.setPassword(password);
 			user.setRole("user");
-
+			// save the details to the database
 			userDao.save(user);
-			// System.out.println("" + inputUser);
-			// System.out.println("" + inputUser.getEmailId());
+
 		}
 	}
-
-	
 
 }

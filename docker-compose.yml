@@ -41,3 +41,25 @@ services:
       - 8092:8092
     healthcheck:
       test: "exit 0"
+
+  spring:
+   image: saishree31/login-authentication:1.0
+   restart: always
+   network_mode: host
+   container_name: login-authentication-docker
+   depends_on:
+    - mysql
+   ports:
+    - 8070:8070
+     
+  mysql:
+   image: mysql:5.5
+   ports:
+    - "3306:3306"
+   container_name: mysql-docker
+   network_mode: host
+   environment:
+    MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+    MYSQL_DATABASE: movieDB
+    MYSQL_USER: root
+  
