@@ -1,7 +1,6 @@
 package com.stackroute.juggler.distributor.controller;
 
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,18 +11,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.stackroute.juggler.distributor.domain.Movie;
 import com.stackroute.juggler.distributor.services.Services;
-import com.stackroute.juggler.distributor.services.ServicesImpl;
 
+//This is controller
 @Controller
+//Class level request mapping
 @RequestMapping("/api/v1/")
 public class MovieController {
 
+	//Creating an instance of service
 	private Services movieServices;
 
+	//logger
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
@@ -31,7 +31,7 @@ public class MovieController {
 		this.movieServices = movieServices;
 	}
 
-	// save
+	// saves the  movie accepted from User
 	@RequestMapping(value = "/movie", method = RequestMethod.POST)
 	public ResponseEntity<?> saveMovie(@RequestBody Movie movie) {
 		Movie savedMovie;
@@ -41,7 +41,7 @@ public class MovieController {
 
 	}
 
-	// getall
+	// Get all the movies the data from database 
 	@RequestMapping(value = "/movies", method = RequestMethod.GET)
 
 	public ResponseEntity<List<Movie>> getAllMovies() {
@@ -50,7 +50,7 @@ public class MovieController {
 		return new ResponseEntity<List<Movie>>(movies, HttpStatus.OK);
 	}
 
-	// getbytitle
+	// To get the movie from the database using title 
 	@RequestMapping(value = "/getbytitle/movie", method = RequestMethod.GET)
 	public ResponseEntity<?> getMovieByTitleFromDB(@RequestParam String movieTitle) {
 		List<Movie> movie = movieServices.getByMovieTitle(movieTitle);

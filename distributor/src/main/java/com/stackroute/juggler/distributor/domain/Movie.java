@@ -32,6 +32,7 @@ public class Movie {
 	public Movie() {
 	}
 
+	// All Arguments constructor
 	public Movie(String id, String movieName, String moviePoster, String[] actors, String[] actress, String[] directors,
 			String[] movieGenres, String synopsis, String format, String[] languages, LocalTime movieDuration,
 			LocalDate movieReleaseDate) {
@@ -48,28 +49,8 @@ public class Movie {
 		this.movieDuration = movieDuration;
 		this.movieReleaseDate = movieReleaseDate;
 	}
-	
-	public Movie(String id, String movieName, String moviePoster, String[] actors, String[] actress, String[] directors,
-			String[] movieGenres, String synopsis, String format, String[] languages, String movieDuration,
-			String movieReleaseDate) {
-		this.id = id;
-		this.movieName = movieName;
-		this.moviePoster = moviePoster;
-		this.actors = actors;
-		this.actress = actress;
-		this.directors = directors;
-		this.movieGenres = movieGenres;
-		this.synopsis = synopsis;
-		this.format = format;
-		this.languages = languages;
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-d");
-		LocalDate localDate = LocalDate.parse(movieReleaseDate, formatter);
-		this.movieReleaseDate = localDate;
-		DateTimeFormatter formattertime = DateTimeFormatter.ofPattern("HH:mm:ss");
-		LocalTime localTime = LocalTime.parse(movieDuration, formattertime);
-		this.movieDuration = localTime;
-	}
 
+	// List of all getters and setters
 	public String getId() {
 		return id;
 	}
