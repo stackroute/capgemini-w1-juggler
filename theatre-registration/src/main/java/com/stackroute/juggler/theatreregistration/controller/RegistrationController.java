@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 //import org.springframework.kafka.core.KafkaTemplate;
 //import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +17,7 @@ import com.stackroute.juggler.kafka.domain.Registration;
 import com.stackroute.juggler.theatreregistration.exceptions.TheatreAlreadyExists;
 import com.stackroute.juggler.theatreregistration.services.RegistrationService;
 
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 
 //class level request mapping

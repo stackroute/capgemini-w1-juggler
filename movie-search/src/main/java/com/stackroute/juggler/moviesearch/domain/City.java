@@ -11,18 +11,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Document
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+
 public class City {
 	@Id
-	private int cityId;
-	public int getCityId() {
-		return cityId;
+	public String id;
+	
+	public String getId() {
+		return id;
 	}
-	public void setCityId(int cityId) {
-		this.cityId = cityId;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getCityName() {
 		return cityName;

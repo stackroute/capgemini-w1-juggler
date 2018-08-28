@@ -22,6 +22,7 @@ import { TheatreRegistrationComponent } from './theatre-registration/theatre-reg
 import { SearchDataService } from './search-data.service';
 import { TheatreService } from './theatre.service';
 import { UserService } from './user.service';
+import { ContactComponent } from './contact/contact.component';
 
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
@@ -35,7 +36,8 @@ import { UserService } from './user.service';
     MoviedetailsFormComponent,
     DistributionRegisterformComponent,
     PartnerLoginComponent,
-    TheatreRegistrationComponent
+    TheatreRegistrationComponent,
+    ContactComponent
   ],
 
   imports: [

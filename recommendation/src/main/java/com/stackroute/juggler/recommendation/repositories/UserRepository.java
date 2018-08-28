@@ -20,7 +20,7 @@ public interface UserRepository extends Neo4jRepository<User, Integer>{
 	@Query("MATCH (u:User)-[:preferredLanguage]->(l:Language) where u.name={userName} return c")
 	public Language getLanguageOfUser(@Param("userName") String userName);
 	@Query("Match (u:User)-[:follows]->(g:Genre)<-[:isTypeOf]-(r:Movie) where u.name={userName}  Match (r)-[:releasedIn]->(c:City)<-[:livesIn]-(u) return (r)")
-	public List<Movie> getGenreBasedMoviesForUser(@Param("userName") String userName);
+	public List<Movie> getGenreBasedMoviesForUser(String userName);
 	@Query("Match (u:User)-[:preferredLanguage]->(l:Language)<-[:languageType]-(r:Movie) where u.name={userName}  Match (r)-[:releasedIn]->(c:City)<-[:livesIn]-(u) return (r)")
 	public List<Movie> getLanguageBasedMoviesForUser(@Param("userName")String userName);
 //	@Query("Match (u:User)-[:preferredLanguage]->(l:Language)<-[:languageType]-(r:Movie) where u.name={userName}  Match (r)-[:releasedIn]->(c:City)<-[:livesIn]-(u) return (r)")
