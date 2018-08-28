@@ -12,7 +12,7 @@ export class AuthenticationService {
     }
 
     loginUser(email: string, password: string ) {
-        return this.http.post<any>('http://localhost:8070/user/login', {email: email, password: password})
+        return this.http.post<any>('http://localhost:8070/user/login', {email: email, password: password, role: 'user'})
             // this is just the HTTP call,
             // we still need to handle the reception of the token
             // .shareReplay();
@@ -26,7 +26,7 @@ export class AuthenticationService {
             }));
     }
     loginPartner(email: string, password: string, role: string) {
-        return this.http.post<any>('http://123.12.12.12.:8080/user/login' + '/' + 'role', {email: email, password: password, role: role})
+        return this.http.post<any>('http://localhost:8070/user/login', {email: email, password: password, role: role})
             // this is just the HTTP call,
             // we still need to handle the reception of the token
             // .shareReplay();

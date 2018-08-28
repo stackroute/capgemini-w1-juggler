@@ -30,58 +30,57 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-//	@Autowired
-//	private KafkaService kafkaService;
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+//registering the data from distributor/owner
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public User registerUser(@RequestBody User user) {
- 
+
 		return userService.save(user);
 	}
+//Generate the token for the first time of login
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-		public ResponseEntity<?> login(@RequestBody User login) throws ServletException {
+	public ResponseEntity<?> login(@RequestBody User login) throws ServletException {
 
-			String jwtToken = "";
-       try {
+		String jwtToken = "";
+		try {
 			if (login.getEmail() == null || login.getPassword() == null || login.getRole() == null) {
-				throw  new UserNameOrPasswordOrRoleEmpty("Please fill in username and password");
+				throw new UserNameOrPasswordOrRoleEmpty("Please fill in username and password");
 			}
-       }
-       catch(UserNameOrPasswordOrRoleEmpty e) {
-    	   return new ResponseEntity<String>(e.toString(), HttpStatus.CONFLICT);
-       }
+		} catch (UserNameOrPasswordOrRoleEmpty e) {
+			return new ResponseEntity<String>(e.toString(), HttpStatus.CONFLICT);
+		}
 
-			String email = login.getEmail();
-			String password = login.getPassword();
-			String role =login.getRole();
+		String email = login.getEmail();
+		String password = login.getPassword();
+		String role = login.getRole();
 
-			User user = userService.findByEmail(email);
+		User user = userService.findByEmail(email);
 
-			try {
-				if (user == null) {
-					throw new UserNameNotFoundException("User email not found.");
-				}
-			} catch (UserNameNotFoundException e) {
-				return new ResponseEntity<String>(e.toString(), HttpStatus.CONFLICT);
-	}
-
-			String pwd = user.getPassword();
-
-			try {
-				if (!password.equals(pwd)) {
-					throw new PasswordNotMatchException("Invalid login. Please check your name and password.");
-				}
-			} catch (PasswordNotMatchException e) {
-				return new ResponseEntity<String>(e.toString(), HttpStatus.CONFLICT);
-	}
-			String roles = user.getRole();
-			if (!role.equals(roles)) {
-				throw new ServletException("Invalid login. Please check your name and passwordand role");
+		try {
+			if (user == null) {
+				throw new UserNameNotFoundException("User email not found.");
 			}
+		} catch (UserNameNotFoundException e) {
+			return new ResponseEntity<String>(e.toString(), HttpStatus.CONFLICT);
+		}
 
-			jwtToken = Jwts.builder().setSubject(email).claim("roles", "user").setIssuedAt(new Date())
-	.signWith(SignatureAlgorithm.HS256, "secretkey").compact();
-        Token t =new Token();
+		String pwd = user.getPassword();
+
+		try {
+			if (!password.equals(pwd)) {
+				throw new PasswordNotMatchException("Invalid login. Please check your name and password.");
+			}
+		} catch (PasswordNotMatchException e) {
+			return new ResponseEntity<String>(e.toString(), HttpStatus.CONFLICT);
+		}
+		String roles = user.getRole();
+		if (!role.equals(roles)) {
+			throw new ServletException("Invalid login. Please check your name and passwordand role");
+		}
+
+		jwtToken = Jwts.builder().setSubject(email).claim("roles", "user").setIssuedAt(new Date())
+				.signWith(SignatureAlgorithm.HS256, "secretkey").compact();
+		Token t = new Token();
 		t.setToken(jwtToken);
-		return new ResponseEntity<>(t,HttpStatus.CREATED);
+		return new ResponseEntity<>(t, HttpStatus.CREATED);
 	}
 }
