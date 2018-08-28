@@ -1,4 +1,4 @@
-package com.stackroute.juggler.recommendation.controllers;
+package com.stackroute.juggler.recommendation.controller;
 
 import java.util.List;
 
@@ -12,17 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.stackroute.juggler.recommendation.domain.Movie;
 import com.stackroute.juggler.recommendation.services.MovieService;
+import com.stackroute.juggler.recommendation.services.UserService;
 
 @RestController
 @RequestMapping("/api/v1")
 public class Controller {
 
 	private MovieService movieService;
+	private UserService userService;
 
-//private CityService cityService;
 	@Autowired
-	public Controller(MovieService movieService) {
+	public Controller(MovieService movieService,UserService userService) {
 		this.movieService = movieService;
+		this.userService=userService;
 	}
 //@RequestMapping(value = "/genrecityage", method = RequestMethod.POST)
 //public ResponseEntity<?> getByGenreAgeCity(@PathVariable String userName,@PathVariable List<String> genreNames,@PathVariable String cityName){
@@ -90,4 +92,14 @@ public class Controller {
 				movieService.getMovieByCityGenreLanguage(cityName, genreName, languageName), HttpStatus.OK);
 	}
 
+	@GetMapping("/getGenreBasedMoviesForUser/{userName}")
+	public ResponseEntity<List<Movie>> getGenreBasedMoviesForUser(@PathVariable String userName) {
+		System.out.println("hello");
+		return new ResponseEntity<List<Movie>>(userService.getGenreBasedMoviesForUser(userName), HttpStatus.OK);
+	}
+	@GetMapping("/getLanguageBasedMoviesForUser/{userName}")
+	public ResponseEntity<List<Movie>> getLanguageBasedMoviesForUser(@PathVariable String userName) {
+		System.out.println("hello");
+		return new ResponseEntity<List<Movie>>(userService.getLanguageBasedMoviesForUser(userName), HttpStatus.OK);
+	}
 }

@@ -22,8 +22,7 @@ import lombok.ToString;
 @NodeEntity
 public class User {
 
-	private int userId;
-	@Id
+	
 	private String userName;
 	private Date date_of_birth;
 	
@@ -40,19 +39,19 @@ public int calculateAge(Date date) {
     }
     return i;
 }
-public User(int userId, String userName, Date date_of_birth, City city) {
+public User(String userName, Date date_of_birth, City city) {
 	super();
-	this.setUserId(userId);
+//	this.setUserId(userId);
 	this.setUserName(userName);
 	this.date_of_birth = date_of_birth;
 	this.city = city;
 }
-public int getUserId() {
-	return userId;
-}
-public void setUserId(int userId) {
-	this.userId = userId;
-}
+//public int getUserId() {
+//	return userId;
+//}
+//public void setUserId(int userId) {
+//	this.userId = userId;
+//}
 public String getUserName() {
 	return userName;
 }

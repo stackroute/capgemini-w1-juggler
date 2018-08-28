@@ -8,7 +8,7 @@ import com.stackroute.juggler.moviesearch.domain.Movie;
 
 
 public interface MovieSearchService {
-	public City saveCity(City city);
+	public String saveCity(City city);
 	public List<City> getByCity(String city);
 	public List<Movie> getByTitle(String movieName);
 	public City consumeKafka(City city);

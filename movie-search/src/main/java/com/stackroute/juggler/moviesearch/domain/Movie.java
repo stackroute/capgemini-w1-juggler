@@ -25,8 +25,8 @@ public class Movie {
 	private String synopsis;
 	private LocalDate movieReleasedate;
 	private String movieDuration;
-	private String[] language;
-	private String[] movieGenre;
+	private String language;
+	private String movieGenre;
 	private String format;
 	private String hero;
 	private String heroine;
@@ -68,16 +68,16 @@ public class Movie {
 	public void setMovieDuration(String movieDuration) {
 		this.movieDuration = movieDuration;
 	}
-	public String[] getLanguage() {
+	public String getLanguage() {
 		return language;
 	}
-	public void setLanguage(String[] language) {
+	public void setLanguage(String language) {
 		this.language = language;
 	}
-	public String[] getMovieGenre() {
+	public String getMovieGenre() {
 		return movieGenre;
 	}
-	public void setMovieGenre(String[] movieGenre) {
+	public void setMovieGenre(String movieGenre) {
 		this.movieGenre = movieGenre;
 	}
 	public String getFormat() {
