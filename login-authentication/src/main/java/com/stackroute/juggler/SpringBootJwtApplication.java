@@ -8,7 +8,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 
 import com.stackroute.juggler.config.JwtFilter;
- @EnableDiscoveryClient
+
+@EnableDiscoveryClient
 @SpringBootApplication
 public class SpringBootJwtApplication {
 
