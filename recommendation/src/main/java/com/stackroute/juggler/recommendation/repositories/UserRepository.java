@@ -6,11 +6,11 @@ import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.stackroute.juggler.recommendation.domain.City;
-import com.stackroute.juggler.recommendation.domain.Genre;
-import com.stackroute.juggler.recommendation.domain.Language;
-import com.stackroute.juggler.recommendation.domain.Movie;
-import com.stackroute.juggler.recommendation.domain.User;
+import com.stackroute.juggler.kafka.domain.City;
+import com.stackroute.juggler.kafka.domain.Genre;
+import com.stackroute.juggler.kafka.domain.Language;
+import com.stackroute.juggler.kafka.domain.Movie;
+import com.stackroute.juggler.kafka.domain.User;
 
 public interface UserRepository extends Neo4jRepository<User, Integer>{
 	@Query("MATCH (u:User)-[:livesIn]->(c:City) where u.name={userName} return c")
