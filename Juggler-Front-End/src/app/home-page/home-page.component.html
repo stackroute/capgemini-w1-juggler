@@ -1,8 +1,5 @@
-<p>
-  home-page works!
-</p>
 <!-- <mat-grid-list cols="12" rowHeight="100px">
-  <div *ngFor="let movie of event$">
+  <div *ngFor="let movie of city">
     <mat-grid-tile colspan="4" rowspan="6">
       <mat-card class="example-card">
         <app-event-card [name]="movie.name" [poster]="movie.poster" [city]="movie.city"></app-event-card>
@@ -13,20 +10,7 @@
     </mat-grid-tile>
   </div>
 
-  <div *ngFor="let movie of rec$">
-    <mat-grid-tile colspan="4" rowspan="6">
-      <mat-card class="example-card">
-        <app-event-card [name]="movie.name" [poster]="movie.poster" [city]="movie.city"></app-event-card>
-        <mat-card-actions>
-          <button mat-button routerLink="/movieinfo" (click)="goMoviePage(movie)">go</button>
-        </mat-card-actions>
-      </mat-card>
-    </mat-grid-tile>
-  </div>
-</mat-grid-list>
-
-<mat-grid-list cols="12" rowHeight="100px">
-  <div *ngFor="let movie of movie$">
+  <div *ngFor="let movie of recs">
     <mat-grid-tile colspan="4" rowspan="6">
       <mat-card class="example-card">
         <app-event-card [name]="movie.name" [poster]="movie.poster" [city]="movie.city"></app-event-card>
@@ -37,3 +21,20 @@
     </mat-grid-tile>
   </div>
 </mat-grid-list> -->
+
+<mat-grid-list cols="12" rowHeight="80px">
+  <h3>Trending Movies</h3>
+  <div *ngFor="let movie of movies">
+      <mat-grid-tile colspan="3" rowspan="6">
+          <mat-card class="example-card">
+              <mat-card-header>
+                  <mat-card-title><a>{{movie.movieTitle}}</a></mat-card-title>
+              </mat-card-header>
+              <img mat-card-image src="{{movie.movieposter}}" alt="Poster of movie">
+              <mat-card-actions>
+                  <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">Movie Details</button>
+              </mat-card-actions>
+          </mat-card>
+      </mat-grid-tile>
+  </div>
+</mat-grid-list>

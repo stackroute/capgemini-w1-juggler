@@ -39,8 +39,8 @@
 //	@InjectMocks
 //	private UserController userController;
 //
-//	private User user;
-//	static List<User> users;
+//	private InputUser user;
+//	static List<InputUser> users;
 //
 //	@Before
 //	public void setUp() throws Exception {
@@ -80,7 +80,7 @@
 //		String location = new String("Hyderabad");
 //		String[] paymentMethods = new String[] { "paytm", "netbanking" };
 //		String likes = new String("hello");
-//		user = new User(1, userName, emailId, 1234567890, password, gender, "01/01/1990", LanguagesKnown, genre,
+//		user = new InputUser(1, userName, emailId, 1234567890, password, gender, "01/01/1990", LanguagesKnown, genre,
 //				location, paymentMethods, likes);
 //		when(userService.saveUser(user)).thenReturn(user);// says what to do when invoked by controller as there are
 //															// no movie service methods as of time while testing
@@ -88,7 +88,7 @@
 //				.perform(post("/api/v1/userProfile/regestration").contentType(MediaType.APPLICATION_JSON)
 //						.content(asJsonString(user)))// sending pojos
 //				.andExpect(status().isOk()).andDo(print());
-//		verify(userService, times(1)).saveUser(Mockito.any(User.class));
+//		verify(userService, times(1)).saveUser(Mockito.any(InputUser.class));
 //	}
 //
 //	public static String asJsonString(final Object obj) {

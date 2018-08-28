@@ -1,0 +1,129 @@
+<!-- Material form register -->
+<div class="container col-md-6 mb-4">
+    <div class="card">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong>Sign up</strong>
+        </h5>
+
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-2">
+
+            <!-- Form -->
+            <form class="text-center" style="color: #757575;">
+                <!-- User Id -->
+                <div class="md-form mt-2">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter user Id" [(ngModel)]="userid">
+                    </mat-form-field>
+                </div>
+
+                <!-- User name -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter user name" [(ngModel)]="username">
+                    </mat-form-field>
+                </div>
+
+                <!-- E-mail -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter Email" [(ngModel)]="email">
+                    </mat-form-field>
+                </div>
+
+                <!-- Password -->
+                <div class="md-form">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter Password" [(ngModel)]="password">
+                    </mat-form-field>
+                    <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                        At least 8 characters and 1 digit
+                    </small>
+                </div>
+
+                <!-- Phone number -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter contact number" [(ngModel)]="phoneno">
+                    </mat-form-field>
+                </div>
+
+                <!-- Location -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter location" [(ngModel)]="location">
+                    </mat-form-field>
+                </div>
+
+                <!-- Gender -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter gender" [(ngModel)]="gender">
+                    </mat-form-field>
+                </div>
+
+                <!-- Genre -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Enter genre" [(ngModel)]="genre">
+                    </mat-form-field>
+                </div>
+
+                <!-- Likes -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Give your likes" [(ngModel)]="likes">
+                    </mat-form-field>
+                </div>
+
+                <!-- Payment methods -->
+                <div class="md-form mt-0">
+                    <mat-form-field>
+                        <input matInput placeholder="Add your payment methods" [(ngModel)]="payment">
+                    </mat-form-field>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
+                    <label class="form-check-label" for="materialRegisterFormNewsletter">Subscribe to our newsletter</label>
+                </div>
+
+                <!-- Sign up button -->
+                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" (onClick)="addUser()">Sign
+                    in
+                </button>
+
+                <!-- Social register -->
+                <p>or sign up with:</p>
+
+                <a type="button" class="btn-floating btn-fb btn-sm">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a type="button" class="btn-floating btn-tw btn-sm">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a type="button" class="btn-floating btn-li btn-sm">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+                <a type="button" class="btn-floating btn-git btn-sm">
+                    <i class="fa fa-github"></i>
+                </a>
+
+                <hr>
+
+                <!-- Terms of service -->
+                <p>By clicking
+                    <em>Sign up</em> you agree to our
+                    <a href="" target="_blank">terms of service</a> and
+                    <a href="" target="_blank">terms of conditions</a>. </p>
+
+            </form>
+            <!-- Form -->
+
+        </div>
+
+    </div>
+</div>
+<!-- Material form register -->

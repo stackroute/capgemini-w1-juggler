@@ -36,14 +36,14 @@
 //	@InjectMocks
 //	private UserServiceImpl userServiceImpl;
 //
-//	private User user;
-//	Optional<User> options;
+//	private InputUser user;
+//	Optional<InputUser> options;
 //
 //	@Before
 //	public void setupMock() {
 //		MockitoAnnotations.initMocks(this);
 //		 userServiceImpl = new UserServiceImpl(userRepo, null);
-//		user = new User(5,"name", null, 0, null, null, null, null, null, null, null, null);
+//		user = new InputUser(5,"name", null, 0, null, null, null, null, null, null, null, null);
 //		options = Optional.of(user);
 //
 //	}
@@ -58,7 +58,7 @@
 //	public void testSaveUserSuccess() throws Exception {
 //		when(userRepo.save(user)).thenReturn(user);
 //		assertNotNull(user);
-//		User flag = new User();
+//		InputUser flag = new InputUser();
 //		 userService.saveUser(user);
 //		//assertNotNull(flag);
 //		assertEquals(user,flag);
@@ -69,8 +69,8 @@
 ////	@Test
 ////	public void testViewUserSuccess() throws Exception {
 ////		when(userRepo.view(user)).thenReturn(user);
-////		User flag = userServiceImpl.viewUser(user.getUserId());
-////		User finduser = userServiceImpl.viewUser(flag.getUserId());
+////		InputUser flag = userServiceImpl.viewUser(user.getUserId());
+////		InputUser finduser = userServiceImpl.viewUser(flag.getUserId());
 ////		assertEquals(finduser,flag);
 ////		verify(userRepo, times(1)).save(user);
 ////		verify(userRepo, times(2)).findByUserId(user.getUserId());

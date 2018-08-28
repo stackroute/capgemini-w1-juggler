@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.juggler.model.User;
+import com.stackroute.juggler.kafka.domain.User;
 import com.stackroute.juggler.service.UserService;
 
 @RestController

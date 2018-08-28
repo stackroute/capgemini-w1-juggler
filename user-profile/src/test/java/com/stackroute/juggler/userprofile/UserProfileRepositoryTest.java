@@ -37,9 +37,9 @@
 //		String location = new String("Hyderabad");
 //		String[] paymentMethods = new String[] { "paytm", "netbanking" };
 //		String likes = new String("hello");
-//		userRepositary.save(new User(1, userName, emailId, 1234567890, password, gender, "01/01/1990", LanguagesKnown,
+//		userRepositary.save(new InputUser(1, userName, emailId, 1234567890, password, gender, "01/01/1990", LanguagesKnown,
 //				genre, location, paymentMethods, likes));
-//		final User movie = userRepositary.findByUserId(1);
+//		final InputUser movie = userRepositary.findByUserId(1);
 //		assertThat(movie.getUserName()).isEqualTo("Basha");
 //	}
 //

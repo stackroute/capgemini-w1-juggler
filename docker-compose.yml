@@ -39,6 +39,7 @@ services:
     ports:
      - 8092:8092
     healthcheck:
+<<<<<<< HEAD
      test: "exit 0"
 
 
@@ -53,3 +54,21 @@ services:
     - 8040:8040
    healthcheck:
     test: "exit 0"
+=======
+      test: "exit 0"
+      
+  spring:
+   image: leelamaithreyi/theatre-registration:1.0
+   restart: always
+   network_mode: host
+   container_name: spring-docker
+   depends_on:
+     - mongo
+   ports:
+     - 8020:8020
+   healthcheck:
+      test: "exit 0"
+      
+      
+      
+>>>>>>> e39df8f856b295670ed0548d0a25100373b08dac
