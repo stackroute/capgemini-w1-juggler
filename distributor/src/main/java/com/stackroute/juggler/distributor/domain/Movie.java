@@ -17,13 +17,13 @@ public class Movie {
 	public String id;
 	private String movieName;
 	private String moviePoster;
-	private String[] actors;
-	private String[] actress;
-	private String[] directors;
-	private String[] movieGenres;
+	private String actors;
+	private String actress;
+	private String directors;
+	private String movieGenres;
 	private String synopsis;
 	private String format;
-	private String[] languages;
+	private String languages;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
 	private LocalTime movieDuration;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -33,8 +33,8 @@ public class Movie {
 	}
 
 	// All Arguments constructor
-	public Movie(String id, String movieName, String moviePoster, String[] actors, String[] actress, String[] directors,
-			String[] movieGenres, String synopsis, String format, String[] languages, LocalTime movieDuration,
+	public Movie(String id, String movieName, String moviePoster, String actors, String actress, String directors,
+			String movieGenres, String synopsis, String format, String languages, LocalTime movieDuration,
 			LocalDate movieReleaseDate) {
 		this.id = id;
 		this.movieName = movieName;
@@ -75,35 +75,35 @@ public class Movie {
 		this.moviePoster = moviePoster;
 	}
 
-	public String[] getActors() {
+	public String getActors() {
 		return actors;
 	}
 
-	public void setActors(String[] actors) {
+	public void setActors(String actors) {
 		this.actors = actors;
 	}
 
-	public String[] getActress() {
+	public String getActress() {
 		return actress;
 	}
 
-	public void setActress(String[] actress) {
+	public void setActress(String actress) {
 		this.actress = actress;
 	}
 
-	public String[] getDirectors() {
+	public String getDirectors() {
 		return directors;
 	}
 
-	public void setDirectors(String[] directors) {
+	public void setDirectors(String directors) {
 		this.directors = directors;
 	}
 
-	public String[] getMovieGenres() {
+	public String getMovieGenres() {
 		return movieGenres;
 	}
 
-	public void setMovieGenres(String[] movieGenres) {
+	public void setMovieGenres(String movieGenres) {
 		this.movieGenres = movieGenres;
 	}
 
@@ -123,11 +123,11 @@ public class Movie {
 		this.format = format;
 	}
 
-	public String[] getLanguages() {
+	public String getLanguages() {
 		return languages;
 	}
 
-	public void setLanguages(String[] languages) {
+	public void setLanguages(String languages) {
 		this.languages = languages;
 	}
 
