@@ -5,20 +5,13 @@ import java.util.Map;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+//POJO of TheatreRegistration details
 
 @Document
-// @Data
-// @NoArgsConstructor
-// @AllArgsConstructor
-// @Builder
 public class Registration {
 
 	@Id
-	private int theatreId;
+	private String theatreId;
 	private String theatreName;
 	private String theatreLocation;
 	private String theatreCity;
@@ -28,7 +21,8 @@ public class Registration {
 	private String[] screenedmovies;
 	private String[] runningmovies;
 
-	public Registration(int theatreId, String theatreName, String theatreLocation, String theatreCity,
+	// All arguments constructors
+	public Registration(String theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
 			String[] runningmovies) {
 		super();
@@ -43,11 +37,12 @@ public class Registration {
 		this.runningmovies = runningmovies;
 	}
 
-	public int getTheatreId() {
+	// List of all getters and setters
+	public String getTheatreId() {
 		return theatreId;
 	}
 
-	public void setTheatreId(int theatreId) {
+	public void setTheatreId(String theatreId) {
 		this.theatreId = theatreId;
 	}
 
@@ -114,8 +109,9 @@ public class Registration {
 	public void setRunningmovies(String[] runningmovies) {
 		this.runningmovies = runningmovies;
 	}
+
 	public Registration() {
-		
+
 	}
 
 }

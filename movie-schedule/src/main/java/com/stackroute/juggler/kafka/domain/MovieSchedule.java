@@ -5,21 +5,13 @@ import java.util.Map;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+//POJO of MovieSchedule
 
 @Document
-// @Data
-// @NoArgsConstructor
-// @AllArgsConstructor
-// @Builder
-
 public class MovieSchedule {
 
 	@Id
-	private int theatreId;
+	private String theatreId;
 	private String theatreName;
 	private String theatreLocation;
 	private String theatreCity;
@@ -28,18 +20,14 @@ public class MovieSchedule {
 	private Map<String, Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
-
-	// private TheatreDetails theatreDetails;
 	private MovieDetails movieDetails;
 	private int showNumbers;
-	private int[] showTimings;
 	private TicketPrices ticketPrices;
 
-	// private String bookingEndDate;
-	public MovieSchedule(int theatreId, String theatreName, String theatreLocation, String theatreCity,
+	// All arguments constructors
+	public MovieSchedule(String theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
-			String[] runningmovies, MovieDetails movieDetails, int showNumbers, int[] showTimings,
-			TicketPrices ticketPrices) {
+			String[] runningmovies, MovieDetails movieDetails, int showNumbers, TicketPrices ticketPrices) {
 		super();
 		this.theatreId = theatreId;
 		this.theatreName = theatreName;
@@ -52,18 +40,15 @@ public class MovieSchedule {
 		this.runningmovies = runningmovies;
 		this.movieDetails = movieDetails;
 		this.showNumbers = showNumbers;
-		this.showTimings = showTimings;
 		this.ticketPrices = ticketPrices;
 	}
-	public MovieSchedule() {
-		
-	}
 
-	public int getTheatreId() {
+	// List of all getters and setters
+	public String getTheatreId() {
 		return theatreId;
 	}
 
-	public void setTheatreId(int theatreId) {
+	public void setTheatreId(String theatreId) {
 		this.theatreId = theatreId;
 	}
 
@@ -145,14 +130,6 @@ public class MovieSchedule {
 
 	public void setShowNumbers(int showNumbers) {
 		this.showNumbers = showNumbers;
-	}
-
-	public int[] getShowTimings() {
-		return showTimings;
-	}
-
-	public void setShowTimings(int[] showTimings) {
-		this.showTimings = showTimings;
 	}
 
 	public TicketPrices getTicketPrices() {
