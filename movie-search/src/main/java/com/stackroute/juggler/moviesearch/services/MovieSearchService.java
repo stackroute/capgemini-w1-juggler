@@ -2,8 +2,8 @@ package com.stackroute.juggler.moviesearch.services;
 
 import java.util.List;
 
-import com.stackroute.juggler.moviesearch.domain.City;
-import com.stackroute.juggler.moviesearch.domain.Movie;
+import com.stackroute.kafka.domain.City;
+import com.stackroute.kafka.domain.Movie;
 
 
 

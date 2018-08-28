@@ -15,6 +15,9 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import com.stackroute.juggler.kafka.domain.Registration;
 
+
+//Kafka Consumer for TheatreRegistration Details
+
 @EnableKafka
 @Configuration
 public class Consumer {
@@ -25,7 +28,7 @@ public class Consumer {
 		public ConsumerFactory<String, Registration> consumerFactory() {
 			Map<String, Object> config = new HashMap<>();
 
-			config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+			config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.190:9092");
 			config.put(ConsumerConfig.GROUP_ID_CONFIG, "user");
 			config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 			config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);

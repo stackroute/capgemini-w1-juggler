@@ -5,7 +5,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.juggler.kafka.domain.User;
+import com.stackroute.juggler.kafka.domain.InputUser;
 import com.stackroute.juggler.kafka.domain.UserLikes;
 import com.stackroute.juggler.kafka.domain.UserProfile;
 import com.stackroute.juggler.userprofile.configuration.KafkaConfiguration;
@@ -17,37 +17,34 @@ import com.stackroute.juggler.userprofile.repository.UserRepository;
 @Service
 public class UserServiceImpl implements UserService {
 
-	
 	// Creating a object of user repository
 	private UserRepository userRepository;
 	private KafkaConfiguration kafkaConfig;
 
 	// using repository in service implementation
 	@Autowired
-	public UserServiceImpl(UserRepository userRepository,KafkaConfiguration kafkaConfig) {
+	public UserServiceImpl(UserRepository userRepository, KafkaConfiguration kafkaConfig) {
 
 		this.userRepository = userRepository;
-		this.kafkaConfig=kafkaConfig;
+		this.kafkaConfig = kafkaConfig;
 	}
-	
+
 	String topic = kafkaConfig.getTopic();
 
 	// Kafka template from configuration and topic
 	@Autowired
-	private KafkaTemplate<String, User> kafkaTemplate;
+	private KafkaTemplate<String, InputUser> kafkaTemplate;
 
-	
-
-	//private static final String TOPIC = "userProfile";
+	// private static final String TOPIC = "userProfile";
 
 	// this method is to save user to databases
 	@Override
-	public User saveUser(User user) throws ProfileAlreadyExitsException {
-		if (userRepository.findByUserId(user.getUserId()) == null) {
-			kafkaTemplate.send(topic, user);
+	public InputUser saveUser(InputUser inputUser) throws ProfileAlreadyExitsException {
+		if (userRepository.findByUserId(inputUser.getUserId()) == null) {
+			kafkaTemplate.send(topic, inputUser);
 			// This is because we dont want to save the password in the userprofile database
-			user.setPassword(null);
-			User userSaved = userRepository.save(user);
+			inputUser.setPassword(null);
+			InputUser userSaved = userRepository.save(inputUser);
 			return userSaved;
 		} else {
 			throw new ProfileAlreadyExitsException("Profile already exists");
@@ -57,19 +54,19 @@ public class UserServiceImpl implements UserService {
 
 	// this method is to view user from databases
 	@Override
-	public User viewUser(int userId) throws UserDoesNotExistsException {
+	public InputUser viewUser(String userId) throws UserDoesNotExistsException {
 		if (userRepository.findByUserId(userId) != null) {
-			User findUser = userRepository.findByUserId(userId);
+			InputUser findUser = userRepository.findByUserId(userId);
 			return findUser;
 		} else {
-			throw new UserDoesNotExistsException("User Does Not Exist");
+			throw new UserDoesNotExistsException("InputUser Does Not Exist");
 		}
 	}
 
 	@Override
-	public User updateUser(int userId, UserProfile user) throws UpdateFailedException, UserDoesNotExistsException {
+	public InputUser updateUser(String userId, UserProfile user) throws UpdateFailedException, UserDoesNotExistsException {
 		// initilization of user domain object
-		User finduser = null;
+		InputUser finduser = null;
 		if (userRepository.findByUserId(userId) != null) {
 			finduser = userRepository.findByUserId(userId);
 			finduser.setDateOfBirth(user.getDateOfBirth());
@@ -79,22 +76,21 @@ public class UserServiceImpl implements UserService {
 			finduser.setPaymentMethods(user.getPaymentMethods());
 			return finduser;
 		} else {
-			throw new UserDoesNotExistsException("User Does Not Exist");
+			throw new UserDoesNotExistsException("InputUser Does Not Exist");
 		}
 
 	}
 
-	@Override
-	@KafkaListener(topics = "movieLikes", groupId = "user")
-	public void consumeKafka(UserLikes userLikes) {
-		User findUser = null;
+	// @Override
+	// @KafkaListener(topics = "movieLikes", groupId = "user")
+	// public void consumeKafka(UserLikes userLikes) {
+	// InputUser findUser = null;
+	//
+	// if (userRepository.findByUserId(userLikes.getUserId()) != null) {
+	// findUser = userRepository.findByUserId(userLikes.getUserId());
+	// String movieName = userLikes.getMovie();
+	// findUser.setLikes(movieName);
+	// userRepository.save(findUser);
+	// }
 
-		if (userRepository.findByUserId(userLikes.getUserId()) != null) {
-			findUser = userRepository.findByUserId(userLikes.getUserId());
-			String movieName = userLikes.getMovie();
-			findUser.setLikes(movieName);
-			userRepository.save(findUser);
-		}
-
-	}
 }

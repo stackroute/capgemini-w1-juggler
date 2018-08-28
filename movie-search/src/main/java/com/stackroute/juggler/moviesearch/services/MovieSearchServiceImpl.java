@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.juggler.moviesearch.domain.City;
-import com.stackroute.juggler.moviesearch.domain.Movie;
 import com.stackroute.juggler.moviesearch.repository.CityRepository;
 import com.stackroute.juggler.moviesearch.repository.MovieRepository;
+import com.stackroute.kafka.domain.City;
+import com.stackroute.kafka.domain.Movie;
 
 
 @Service

@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.juggler.moviesearch.domain.City;
-import com.stackroute.juggler.moviesearch.domain.Movie;
 import com.stackroute.juggler.moviesearch.services.MovieSearchServiceImpl;
+import com.stackroute.kafka.domain.City;
+import com.stackroute.kafka.domain.Movie;
 
 @RestController
 //@CrossOrigin(origins = "http://localhost:4200")

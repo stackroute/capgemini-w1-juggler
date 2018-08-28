@@ -13,12 +13,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document
-public class User {
+public class InputUser {
 
 
 	// this user_id is set as id
 	@Id
-	private int userId;
+	private String userId;
 	@Size(min = 6, max = 20)
 	private String userName;
 	private String emailId;
@@ -33,10 +33,10 @@ public class User {
 	private String[] paymentMethods;
 	private String likes;
 
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	public String getUserName() {
@@ -107,12 +107,12 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", emailId=" + emailId + ", mobileNo=" + mobileNo
+		return "InputUser [userId=" + userId + ", userName=" + userName + ", emailId=" + emailId + ", mobileNo=" + mobileNo
 				+ ", password=" + password + ", gender=" + gender + ", dateOfBirth=" + dateOfBirth + ", LanguagesKnown="
 				+ Arrays.toString(LanguagesKnown) + ", genre=" + Arrays.toString(genre) + ", location=" + location
 				+ ", paymentMethods=" + Arrays.toString(paymentMethods) + ", likes=" + likes + "]";
 	}
-	public User(int userId, @Size(min = 6, max = 20) String userName, String emailId, double mobileNo,
+	public InputUser(String userId, @Size(min = 6, max = 20) String userName, String emailId, double mobileNo,
 			@Size(min = 8, max = 20) String password, String gender, String dateOfBirth, String[] languagesKnown,
 			String[] genre, String location, String[] paymentMethods, String likes) {
 		super();
@@ -129,7 +129,7 @@ public class User {
 		this.paymentMethods = paymentMethods;
 		this.likes = likes;
 	}
-	public User() {
+	public InputUser() {
 		super();
 	}
 	
