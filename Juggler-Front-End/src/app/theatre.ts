@@ -1,5 +1,4 @@
 export class Theatre {
-    theatreId: string;
     theatreLocation: string;
     theatreCity: string;
     theatreName: string;

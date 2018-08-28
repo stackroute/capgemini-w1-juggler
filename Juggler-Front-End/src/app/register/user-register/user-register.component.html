@@ -14,28 +14,28 @@
                 <!-- User Id -->
                 <div class="md-form mt-2">
                     <mat-form-field>
-                        <input matInput placeholder="Enter user Id" [(ngModel)]="userid">
+                        <input matInput placeholder="Enter User Id" [(ngModel)]="user.userid">
                     </mat-form-field>
                 </div>
 
                 <!-- User name -->
                 <div class="md-form mt-0">
                     <mat-form-field>
-                        <input matInput placeholder="Enter user name" [(ngModel)]="username">
+                        <input matInput placeholder="Enter User Name" [(ngModel)]="user.user_name">
                     </mat-form-field>
                 </div>
 
                 <!-- E-mail -->
                 <div class="md-form mt-0">
                     <mat-form-field>
-                        <input matInput placeholder="Enter Email" [(ngModel)]="email">
+                        <input matInput placeholder="Enter Your Email" [(ngModel)]="user.email_id">
                     </mat-form-field>
                 </div>
 
                 <!-- Password -->
                 <div class="md-form">
                     <mat-form-field>
-                        <input matInput placeholder="Enter Password" [(ngModel)]="password">
+                        <input matInput placeholder="Enter Your Password" [(ngModel)]="user.password">
                     </mat-form-field>
                     <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
                         At least 8 characters and 1 digit
@@ -45,42 +45,42 @@
                 <!-- Phone number -->
                 <div class="md-form mt-0">
                     <mat-form-field>
-                        <input matInput placeholder="Enter contact number" [(ngModel)]="phoneno">
+                        <input matInput placeholder="Enter Contact Number" [(ngModel)]="user.mobileNo">
                     </mat-form-field>
                 </div>
 
                 <!-- Location -->
                 <div class="md-form mt-0">
                     <mat-form-field>
-                        <input matInput placeholder="Enter location" [(ngModel)]="location">
+                        <input matInput placeholder="Enter Location" [(ngModel)]="user.location">
                     </mat-form-field>
                 </div>
 
                 <!-- Gender -->
                 <div class="md-form mt-0">
                     <mat-form-field>
-                        <input matInput placeholder="Enter gender" [(ngModel)]="gender">
+                        <input matInput placeholder="Enter Gender" [(ngModel)]="user.gender">
                     </mat-form-field>
                 </div>
 
                 <!-- Genre -->
                 <div class="md-form mt-0">
                     <mat-form-field>
-                        <input matInput placeholder="Enter genre" [(ngModel)]="genre">
+                        <input matInput placeholder="Enter Genre" [(ngModel)]="user.genre">
                     </mat-form-field>
                 </div>
 
                 <!-- Likes -->
                 <div class="md-form mt-0">
                     <mat-form-field>
-                        <input matInput placeholder="Give your likes" [(ngModel)]="likes">
+                        <input matInput placeholder="Give Your Likes" [(ngModel)]="user.likes">
                     </mat-form-field>
                 </div>
 
                 <!-- Payment methods -->
                 <div class="md-form mt-0">
                     <mat-form-field>
-                        <input matInput placeholder="Add your payment methods" [(ngModel)]="payment">
+                        <input matInput placeholder="Add Your Payment Methods" [(ngModel)]="user.payment_methods">
                     </mat-form-field>
                 </div>
 
@@ -126,4 +126,25 @@
 
     </div>
 </div>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter Your Email" [formControl]="email">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter Your contact No." [formControl]="email">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter Your Address" [formControl]="email">
+    </mat-form-field>
+</form>
 <!-- Material form register -->
