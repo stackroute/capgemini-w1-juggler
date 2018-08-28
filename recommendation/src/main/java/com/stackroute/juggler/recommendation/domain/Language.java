@@ -6,23 +6,14 @@ import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-@Getter
-@Setter
-@ToString
 
-@AllArgsConstructor
 @NodeEntity
 public class Language {
 	@Id
 	private String name;
 	@Relationship(type="languageType",direction=Relationship.INCOMING)
 	private List<Movie> movies;
-	@Relationship(type="prefferedLanguage",direction=Relationship.INCOMING)
+	@Relationship(type="preferredLanguage",direction=Relationship.INCOMING)
 	private List<User> users;
 public Language() {
 		

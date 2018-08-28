@@ -8,28 +8,20 @@ import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-@Getter
-@Setter
-@ToString
 
-@AllArgsConstructor
+
 @NodeEntity
 public class Movie {
 	@Id
-	private int id;
+	
 	private String name;
 	public Movie() {}
-public int getId() {
-		return id;
-	}
-	public void setId(int movieId) {
-		this.id = movieId;
-	}
+//public int getId() {
+//		return id;
+//	}
+//	public void setId(int movieId) {
+//		this.id = movieId;
+//	}
 	public String getName() {
 		return name;
 	}
@@ -48,22 +40,9 @@ public int getId() {
 	private List<City> cities;
 	@Relationship(type = "languageType", direction = Relationship.OUTGOING)
 	private List<Language> languages;
-//	public Movie() {}
-//	
-//
-//	
-//
-//	public Movie(int movieId, String movieTitle, String moviePoster, LocalDate releaseDate) {
-//		super();
-//		this.movieId = movieId;
-//		this.movieTitle = movieTitle;
-//		this.moviePoster = moviePoster;
-//		this.releaseDate = releaseDate;
-//	}
-//
-//
-//
-//
+	
+
+
 	public void releasedIn(City city) {
 		cities.add(city);
 	}
@@ -75,66 +54,7 @@ public int getId() {
 	public void languageType(Language language) {
 		languages.add(language);
 	}
-//
-//
-//
-//
-//	public int getMovieId() {
-//		return movieId;
-//	}
-//
-//
-//
-//
-//	public void setMovieId(int movieId) {
-//		this.movieId = movieId;
-//	}
-//
-//
-//
-//
-//	public String getMovieTitle() {
-//		return movieTitle;
-//	}
-//
-//
-//
-//
-//	public void setMovieTitle(String movieTitle) {
-//		this.movieTitle = movieTitle;
-//	}
-//
-//
-//
-//
-//	public String getMoviePoster() {
-//		return moviePoster;
-//	}
-//
-//
-//
-//
-//	public void setMoviePoster(String moviePoster) {
-//		this.moviePoster = moviePoster;
-//	}
-//
-//
-//
-//
-//	public LocalDate getReleaseDate() {
-//		return releaseDate;
-//	}
-//
-//
-//
-//
-//	public void setReleaseDate(LocalDate releaseDate) {
-//		this.releaseDate = releaseDate;
-//	}
-//
-//
-//
-//
+
 	public List<Genre> getGenres() {
 		return genres;
 	}
@@ -173,9 +93,9 @@ public int getId() {
 	public void setLanguages(List<Language> languages) {
 		this.languages = languages;
 	}
-	public Movie(int movieId, String name) {
+	public Movie( String name) {
 		super();
-		this.id = movieId;
+
 		this.name = name;
 	}
 
