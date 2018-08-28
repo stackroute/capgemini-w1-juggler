@@ -1,5 +1,6 @@
 package com.stackroute.juggler.moviesearch.services;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,21 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 	}
 
 	@Override
-	public City saveCity(City city) {
-		City cityToBeSave = cityRepository.save(city);
-		return cityToBeSave;
+	public String saveCity(City cities) {
+		City cityToBeSave = cityRepository.save(cities);
+		List<Movie> movies =convertcitytomovie(cities);
+
+		for (Iterator iterator = movies.iterator(); iterator.hasNext();) {
+			Movie movie = (Movie) iterator.next();
+			Movie moviesaved = movieRepository.save(movie);
+		}
+		
+		return "saved";
+	}
+
+	private List<Movie> convertcitytomovie(City cities) {
+		List<Movie>  movies = cities.getMovieList();
+		return movies;
 	}
 
 	@Override

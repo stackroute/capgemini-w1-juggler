@@ -1,77 +1,49 @@
-<div class="container">
-
-  <div *ngIf="movie">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="card mt-5 mb-5">
-          <div class="card-header">
-            {{ movie.movieTitle }}
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-5">
-                <img src="{{ movie.movieposter }}" class="img-fluid" alt="{{ movie.movieTitle }}">
-              </div>
-              <div class="col-sm-7">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <strong>Release Date: </strong> {{ movie.release_date | date:'dd-MM-yyyy' }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Tagline: </strong> {{ movie.tagline }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Summary: </strong> {{ movie.overview }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Runtime: </strong> {{ movie.runtime }}
-                  </li>
-                  <!-- <li class="list-group-item">
-                    <strong>Budget: </strong> {{ movie.budget }}
-                  </li> -->
-                  <li class="list-group-item">
-                    <strong>Genre: </strong>
-                    <span *ngFor="let genre of movie.genres" class="badge badge-primary mr-2">
-                      {{ genre.name }}
-                    </span>
-                  </li>
-                  <li class="list-group-item">
-                    <a href="{{ movie.homepage }}" target="_blank">
-                      Movie Homepage
-                    </a>
-                    <a href="{{ movie.movie}}" target="_blank" class="btn btn-sm btn-info float-right">
-                      blaaaah...
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><!-- /.card -->
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-<h2>Movie Details</h2>
-<mat-card class="example-card m-5">
+<!-- <mat-card class="example-card m-5">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>
-      <h3>Movie title</h3>
+      <h3>GOLD</h3>
     </mat-card-title>
-    <!-- <mat-card-subtitle>City Name</mat-card-subtitle> -->
+   
   </mat-card-header>
   <div class="container m-2">
-    <div class="col-6">
+    <div class="col-sm-12">
+    <div class="col-sm-6">
       <img mat-card-image src="https://assetscdn.paytm.com/images/cinema/MovieIcons/Gold-web-poster-updated.jpg" alt="Movie Poster">
     </div>
-    <div class="col-4">
+    <div class="col-6">
       <mat-card-content>
-        Movie Description
+    
+        After India's independence, a drunk Indian Hockey Team Manager (pre-independence), Tapan Das (Akshay Kumar), holds aspirations of playing hockey as a free country, coaching a novice hockey team to earn independent India's first Olympic gold medal at the 1948 Summer Olympics while battling his own personal demons and the independence era situations.
       </mat-card-content>
+      <mat-card-content>
+    
+          Genre: Drama,Biography
+          Language:Hindi
+          Release data:12-
+        </mat-card-content>
     </div>
   </div>
-</mat-card>
+  </div>
+</mat-card> -->
+
+<div class="container m-4">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="https://assetscdn.paytm.com/images/cinema/MovieIcons/Gold-web-poster-updated.jpg" alt="Movie Poster">
+        <button btn-primary (onClick)="bookTicket()">Book Now</button>
+      </div>
+      <div class="col-sm-8" p-2>
+        <h5>Synopsis:</h5>
+        <p>After India's independence, a drunk Indian Hockey Team Manager (pre-independence), Tapan Das (Akshay Kumar), holds
+          aspirations of playing hockey as a free country, coaching a novice hockey team to earn independent India's first
+          Olympic gold medal at the 1948 Summer Olympics while battling his own personal demons and the independence era
+          situations.</p>
+        <h5>Genre:</h5>Drama,Biography
+        <h5>Language:</h5>Hindi
+        <h5>Release date:</h5>15-08-2018
+      </div>
+    </div>
+  </div>
+</div>

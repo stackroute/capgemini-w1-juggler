@@ -11,6 +11,7 @@ import { DistributionRegisterformComponent } from './distribution-registerform/d
 import { UserLoginComponent } from './login/user-login/user-login.component';
 import { PartnerLoginComponent } from './login/partner-login/partner-login.component';
 import { TheatreRegistrationComponent } from './theatre-registration/theatre-registration.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'home', component: HomePageComponent } ,
@@ -20,7 +21,8 @@ const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'moviedetail', component: MoviedetailsFormComponent },
 { path: 'login-partner', component: PartnerLoginComponent },
 { path: 'distributor', component: DistributionRegisterformComponent},
-{ path: 'theatre', component: TheatreRegistrationComponent} ];
+{ path: 'theatre', component: TheatreRegistrationComponent},
+{ path: 'contact', component: ContactComponent } ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

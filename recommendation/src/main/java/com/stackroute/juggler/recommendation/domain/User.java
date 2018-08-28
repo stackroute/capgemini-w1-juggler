@@ -9,21 +9,11 @@ import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
+
 @NodeEntity
 public class User {
 
-	private int userId;
-	@Id
+	
 	private String userName;
 	private Date date_of_birth;
 	
@@ -40,19 +30,19 @@ public int calculateAge(Date date) {
     }
     return i;
 }
-public User(int userId, String userName, Date date_of_birth, City city) {
+public User(String userName, Date date_of_birth, City city) {
 	super();
-	this.setUserId(userId);
+//	this.setUserId(userId);
 	this.setUserName(userName);
 	this.date_of_birth = date_of_birth;
-	this.city = city;
+//	this.city = city;
 }
-public int getUserId() {
-	return userId;
-}
-public void setUserId(int userId) {
-	this.userId = userId;
-}
+//public int getUserId() {
+//	return userId;
+//}
+//public void setUserId(int userId) {
+//	this.userId = userId;
+//}
 public String getUserName() {
 	return userName;
 }
@@ -64,7 +54,7 @@ int age=calculateAge(date_of_birth);
 private List<Genre> genres;
 @Relationship(type = "livesIn", direction = Relationship.OUTGOING)
 private City city;
-@Relationship(type = "prefferedLanguage", direction = Relationship.OUTGOING)
+@Relationship(type = "preferredLanguage", direction = Relationship.OUTGOING)
 private List<Language> languages;
 
 }

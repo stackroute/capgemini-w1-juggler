@@ -15,7 +15,7 @@ public class Movie {
 	private String movieName;
 	private String moviePoster;
 	private String synopsis;
-	private LocalDate movieReleasedate;
+	private String movieReleasedate;
 	private String movieDuration;
 	private String language;
 	private String movieGenre;
@@ -48,10 +48,10 @@ public class Movie {
 	public void setSynopsis(String synopsis) {
 		this.synopsis = synopsis;
 	}
-	public LocalDate getMovieReleasedate() {
+	public String getMovieReleasedate() {
 		return movieReleasedate;
 	}
-	public void setMovieReleasedate(LocalDate movieReleasedate) {
+	public void setMovieReleasedate(String movieReleasedate) {
 		this.movieReleasedate = movieReleasedate;
 	}
 	public String getMovieDuration() {
