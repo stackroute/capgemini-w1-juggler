@@ -5,17 +5,19 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.juggler.moviesearch.domain.City;
-import com.stackroute.juggler.moviesearch.domain.Movie;
 import com.stackroute.juggler.moviesearch.services.MovieSearchServiceImpl;
+import com.stackroute.kafka.domain.City;
+import com.stackroute.kafka.domain.Movie;
 
 @RestController
+//@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/api/v1")
 public class MovieSearchController {
 MovieSearchServiceImpl searchService;
@@ -36,11 +38,11 @@ MovieSearchServiceImpl searchService;
 		return new ResponseEntity<List<City>>(movie,HttpStatus.OK);
 
 	}
-	@RequestMapping(value = "/citys", method = RequestMethod.POST, produces = { "application/json" })
+	@RequestMapping(value = "/city", method = RequestMethod.POST, produces = { "application/json" })
 	public ResponseEntity<?> saveCity(@RequestBody City city) {
-		City cityobj;
-		cityobj=searchService.saveCity(city);
-		return new ResponseEntity<City>(cityobj, HttpStatus.OK);
+		
+		String response =searchService.saveCity(city);
+		return new ResponseEntity<String>(response, HttpStatus.OK);
 	}
 
 }

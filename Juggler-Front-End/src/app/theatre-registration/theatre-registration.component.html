@@ -8,7 +8,11 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="Enter Theatre Location" [(ngModel)]="theatre.theatreLocation">
+    <input matInput placeholder="Enter City" [(ngModel)]="theatre.theatreCity">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Theatre Address" [(ngModel)]="theatre.theatreLocation">
   </mat-form-field>
   <br>
   <mat-form-field>
@@ -17,10 +21,6 @@
   <br>
   <mat-form-field>
     <input matInput placeholder="Enter Theatre Capacity" [(ngModel)]="theatre.numberOfSeats">
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <input matInput placeholder="Enter City" [(ngModel)]="theatre.theatreCity">
   </mat-form-field>
   <br>
   <button type="submit" class="example-button" name="button" class="btn btn-success" (click)="onSubmit()">Add Theatre</button>

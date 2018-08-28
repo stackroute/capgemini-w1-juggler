@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieDataService } from '../movie-data.service';
 
 @Component({
   selector: 'app-moviedetails-form',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./moviedetails-form.component.scss']
 })
 export class MoviedetailsFormComponent implements OnInit {
+  movie: any;
+  constructor(private movieService: MovieDataService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  getMovieInfo() {
+    this.movieService.getMovieByTitle().subscribe(data => {
+      this.movie = data;
+    });
   }
-
+  ngOnInit() {
+    this.movieService.getMovie().subscribe(data => {
+    this.movie = data;
+    });
+  }
 }
+

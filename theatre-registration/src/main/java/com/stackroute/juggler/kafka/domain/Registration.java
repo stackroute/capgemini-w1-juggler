@@ -5,16 +5,10 @@ import java.util.Map;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-//import lombok.AllArgsConstructor;
-//import lombok.Builder;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
+//Domain object for theatre-registration details given by theatre-owner
 
 @Document
-//@Data
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Builder
+
 public class Registration {
 	@Id
 	private String theatreId;
@@ -27,6 +21,7 @@ public class Registration {
 	private Map<String,Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
+	// private String[] typesOfSeats;
 	// private int numberOfShows;
 	// private File seatLayout;
 	

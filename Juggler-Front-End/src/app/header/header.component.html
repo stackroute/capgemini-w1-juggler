@@ -1,36 +1,31 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <div class="col-md-4">
-    <a class="navbar-brand" href="#">
-      <h2 class="name">
-        <i>Juggler</i>
-      </h2>
-    </a>
-  </div>
-  <div class="collapse navbar-collapse col-md-8" id="collapsibleNavbar">
-    <ul class="navbar-nav mx-auto">
-      <li class="nav-item">
-        <a class="nav-link  text-white" routerLink="/home">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/movie-list">Movies</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/home">Contact Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="#" routerLink="/login-user">Login/Sign Up</a>
-      </li>
-    </ul>
-    <!-- Search form -->
-    <form class="form-inline mr-auto">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">
+    <h1 class="name">
+      <em>Juggler</em>
+    </h1>
+  </a>
 
-      <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
-
-    </form>
-  </div>
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item mx-2">
+        <a class="nav-link text-white" href="#home" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link text-white" href="#home" routerLink="/">Movies</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link text-white" href="#home" routerLink="/contact">Contact Us</a>
+      </li>
+      <li class="nav-item outline-success my-2 my-sm-0 mr-0">
+        <a class="nav-link text-white" href="#home" routerLink="/login-user">Login</a>
+      </li>
+    </ul>
+  </div>
 </nav>
