@@ -32,6 +32,7 @@
 		<module>movie-schedule</module>
 		<module>distributor</module>
 		<module>user-profile</module>	
+		<module>show-scheduler</module>
 
 	</modules>
 </project>

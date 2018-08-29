@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 //import org.springframework.kafka.core.KafkaTemplate;
 //import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,7 +49,6 @@ public class RegistrationController {
 	}
 
 	// get the particular theatre from database by using theatre name
-
 	@RequestMapping(value = "/theatre", method = RequestMethod.PUT)
 	public ResponseEntity<Registration> updateTheatre(@RequestBody Registration theatre) {
 

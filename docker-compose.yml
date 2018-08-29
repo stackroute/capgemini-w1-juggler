@@ -3,9 +3,9 @@ version: '2.1'
 services:
   eureka-server:
     build: eureka-server/
-    depends_on:
-      config-service:
-        condition: service_healthy
+#    depends_on:
+#      config-service:
+#        condition: service_healthy
     restart: always
     network_mode: "host"
     image: demo-eureka-service
@@ -15,34 +15,34 @@ services:
     healthcheck:
       test: "exit 0"
 
-  config-service:
-    build: config-service/
-    restart: always
-    network_mode: "host"
-    image: demo-config-service
-    hostname: localhost
-    ports:
-      - 8891:8891
-    healthcheck:
-      test: "exit 0"
+#  config-service:
+#    build: config-service/
+#    restart: always
+#    network_mode: "host"
+#    image: demo-config-service
+#    hostname: localhost
+#    ports:
+#      - 8891:8891
+#    healthcheck:
+#      test: "exit 0"
 
-  api-gateway:
-    build: zuul-apigateway/
-    depends_on:
-      config-service:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-    restart: always
-    network_mode: "host"
-    image: demo-zuul-service
-    hostname: localhost
-    ports:
-      - 8092:8092
-    healthcheck:
-      test: "exit 0"
+#  api-gateway:
+#    build: zuul-apigateway/
+#    depends_on:
+#      config-service:
+#        condition: service_healthy
+#      eureka-server:
+#        condition: service_healthy
+#    restart: always
+#    network_mode: "host"
+#    image: demo-zuul-service
+#    hostname: localhost
+#    ports:
+#      - 8092:8092
+#    healthcheck:
+#      test: "exit 0"
       
-  spring:
+  registration:
    image: leelamaithreyi/theatre-registration:1.0
    restart: always
    network_mode: host
@@ -54,5 +54,14 @@ services:
    healthcheck:
       test: "exit 0"
        
+       
+  mongo:
+   image: mongo
+   network_mode: host
+   container_name: spring-mongo
+   ports:
+     - 27017:27017
+   volumes:
+     - /usr/src/home:/data/db
       
       
