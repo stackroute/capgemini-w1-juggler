@@ -8,6 +8,6 @@ RUN npm install
 RUN $(npm bin)/ng build --prod
 
 # start app on nginx web server
-FROM nginx
+FROM nginx:stable-alpine
 COPY --from=builder /juggler/dist/* /usr/share/nginx/html/
 EXPOSE 80

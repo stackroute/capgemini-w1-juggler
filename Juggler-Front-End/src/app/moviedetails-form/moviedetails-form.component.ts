@@ -9,14 +9,14 @@ import { MovieDataService } from '../movie-data.service';
 export class MoviedetailsFormComponent implements OnInit {
   movie: any;
   constructor(private movieService: MovieDataService) { }
-  bookTicket() {
 
-  }
   getMovieInfo() {
     this.movieService.getMovieByTitle().subscribe(data => {
       this.movie = data;
     });
   }
+  bookTicket() {}
+
   ngOnInit() {
     this.movieService.getMovie().subscribe(data => {
     this.movie = data;
