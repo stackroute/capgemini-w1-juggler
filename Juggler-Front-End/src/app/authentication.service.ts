@@ -12,7 +12,7 @@ export class AuthenticationService {
     }
 
     loginUser(email: string, password: string ) {
-        return this.http.post<any>('http://localhost:8070/user/login', {email: email, password: password, role: 'user'})
+        return this.http.post<any>('http://localhost:8070/api/v1/juggler/user/login', {email: email, password: password, role: 'user'})
             // this is just the HTTP call,
             // we still need to handle the reception of the token
             // .shareReplay();

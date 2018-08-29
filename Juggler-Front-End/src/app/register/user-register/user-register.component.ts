@@ -42,12 +42,12 @@ export class UserRegisterComponent implements OnInit {
   }
 
   addUser() {
-    this.user.user_name = this.f.userName.value;
-    this.user.email_id = this.f.email.value;
+    this.user.userName = this.f.userName.value;
+    this.user.emailId = this.f.email.value;
     this.user.password = this.f.password.value;
     this.user.mobileNo = this.f.mobileNo.value;
     this.user.location = this.f1.address.value;
-    console.log(this.user.user_name);
+    console.log(this.user.userName);
     console.log(this.user);
     this.userService
       .saveUser(this.user)
