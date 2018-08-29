@@ -71,7 +71,7 @@ services:
       test: "exit 0"
       
       
-      spring:
+   spring:
     image: sakethmaringanti/movie-schedule:1.0
     restart: always
     network_mode: host
@@ -82,3 +82,22 @@ services:
       - 8030:8030
     healthcheck:
       test: "exit 0"  
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      

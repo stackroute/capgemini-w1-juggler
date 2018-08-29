@@ -11,6 +11,6 @@ import com.stackroute.juggler.kafka.domain.City;
 @Repository
 public interface CityRepository extends CrudRepository<City, String> {
 
-	public List<City> getBycityName(String city);
+	public City getBycityName(String city);
 
 }

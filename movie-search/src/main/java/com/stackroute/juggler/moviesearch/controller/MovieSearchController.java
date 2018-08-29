@@ -45,8 +45,8 @@ public class MovieSearchController {
 	// get city with movies by city name
 	@RequestMapping(value = "/city/{cityName}", method = RequestMethod.GET, produces = { "application/json" })
 	public ResponseEntity<?> getCityByName(@PathVariable String cityName) {
-		List<City> movie = searchService.getByCity(cityName);
-		return new ResponseEntity<List<City>>(movie, HttpStatus.OK);
+		City movie = searchService.getByCity(cityName);
+		return new ResponseEntity<City>(movie, HttpStatus.OK);
 
 	}
 

@@ -17,6 +17,19 @@ public class Theatre {
 	private String seatLayout;
 	private List<Show> shows;
 
+	// All Arguments constructor
+	public Theatre(int theatreId, String theatreName, String theatreLocation, String theatreCity, String seatLayout,
+			List<Show> shows) {
+		super();
+		this.theatreId = theatreId;
+		this.theatreName = theatreName;
+		this.theatreLocation = theatreLocation;
+		this.theatreCity = theatreCity;
+		this.seatLayout = seatLayout;
+		this.shows = shows;
+	}
+
+	// List of all getters and setters
 	public int getTheatreId() {
 		return theatreId;
 	}

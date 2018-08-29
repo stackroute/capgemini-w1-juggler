@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 // Domain object for movie details
 public class Movie {
 	@Id
-	private int id;
+	private int movieId;
 	private String movieName;
 	private String moviePoster;
 	private String synopsis;
@@ -24,12 +24,33 @@ public class Movie {
 	private String director;
 	private List<Theatre> theatres;
 
+	// All Arguments constructor
+	public Movie(int movieId, String movieName, String moviePoster, String synopsis, String movieReleasedate,
+			String movieDuration, String language, String movieGenre, String format, String hero, String heroine,
+			String director, List<Theatre> theatres) {
+		super();
+		this.movieId = movieId;
+		this.movieName = movieName;
+		this.moviePoster = moviePoster;
+		this.synopsis = synopsis;
+		this.movieReleasedate = movieReleasedate;
+		this.movieDuration = movieDuration;
+		this.language = language;
+		this.movieGenre = movieGenre;
+		this.format = format;
+		this.hero = hero;
+		this.heroine = heroine;
+		this.director = director;
+		this.theatres = theatres;
+	}
+
+	// List of all getters and setters
 	public int getId() {
-		return id;
+		return movieId;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.movieId = id;
 	}
 
 	public String getMovieName() {
