@@ -1,16 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
-import {FormControl, FormGroupDirective, FormGroup, FormBuilder, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../user';
-
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 @Component({
   selector: 'app-user-register',
@@ -21,21 +12,10 @@ export class UserRegisterComponent implements OnInit {
   isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  // userid: number;
-  // user_name: string;
-  // email_id: string;
-  // mobileNo: number;
-  // password: string;
-  // gender: string;
-  // languages_known: string;
-  // dateOfBirth: string;
-  // location: string;
-  // genre: string;
-  // likes: string;
-  // payment_methods: string;
+
   hide = true;
   user = new User();
-  matcher = new MyErrorStateMatcher();
+  // matcher = new MyErrorStateMatcher();
   constructor(private userService: UserService, private _formBuilder: FormBuilder) { }
   // emailFormControl = new FormControl('', [
   //   Validators.required,
