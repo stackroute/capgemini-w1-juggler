@@ -1,14 +1,10 @@
 package com.stackroute.juggler.kafka.domain;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-//POJO of MovieDetails
+//POJO of MovieDetails 
 
 @Document
 public class MovieDetails {
@@ -25,14 +21,14 @@ public class MovieDetails {
 	private String format;
 	private String languages;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
-	private LocalTime movieDuration;
+	private String movieDuration;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate movieReleaseDate;
+	private String movieReleaseDate;
 
 	// All arguments constructor
 	public MovieDetails(String id, String movieName, String moviePoster, String actors, String actress,
 			String directors, String movieGenres, String synopsis, String format, String languages,
-			LocalTime movieDuration, LocalDate movieReleaseDate) {
+			String movieDuration, String movieReleaseDate) {
 		super();
 		this.id = id;
 		this.movieName = movieName;
@@ -48,6 +44,7 @@ public class MovieDetails {
 		this.movieReleaseDate = movieReleaseDate;
 	}
 
+	// default constructor
 	public MovieDetails() {
 		super();
 	}
@@ -133,19 +130,19 @@ public class MovieDetails {
 		this.languages = languages;
 	}
 
-	public LocalTime getMovieDuration() {
+	public String getMovieDuration() {
 		return movieDuration;
 	}
 
-	public void setMovieDuration(LocalTime movieDuration) {
+	public void setMovieDuration(String movieDuration) {
 		this.movieDuration = movieDuration;
 	}
 
-	public LocalDate getMovieReleaseDate() {
+	public String getMovieReleaseDate() {
 		return movieReleaseDate;
 	}
 
-	public void setMovieReleaseDate(LocalDate movieReleaseDate) {
+	public void setMovieReleaseDate(String movieReleaseDate) {
 		this.movieReleaseDate = movieReleaseDate;
 	}
 

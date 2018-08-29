@@ -10,7 +10,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class City {
 	@Id
 	public String id;
+	private String cityName;
+	private List<Movie> movieList;
 
+	// List of all getters and setters
 	public String getId() {
 		return id;
 	}
@@ -35,6 +38,12 @@ public class City {
 		this.movieList = movieList;
 	}
 
-	private String cityName;
-	private List<Movie> movieList;
+	// All Arguments constructor
+	public City(String id, String cityName, List<Movie> movieList) {
+		super();
+		this.id = id;
+		this.cityName = cityName;
+		this.movieList = movieList;
+	}
+
 }

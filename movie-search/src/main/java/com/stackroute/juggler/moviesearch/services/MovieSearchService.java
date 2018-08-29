@@ -10,7 +10,7 @@ public interface MovieSearchService {
 
 	public String saveCity(City city);
 
-	public List<City> getByCity(String city);
+	public City getByCity(String city);
 
 	public List<Movie> getByTitle(String movieName) throws MovieNotFound;
 
