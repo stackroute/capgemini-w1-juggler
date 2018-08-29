@@ -7,7 +7,6 @@ import { Theatre } from './theatre';
   providedIn: 'root'
 })
 export class TheatreService {
- // private _url: string = "http://172.23.238.222:8094/api/v1/";
   private _url = 'http://localhost:8020';
   constructor(private http: HttpClient) {}
 
