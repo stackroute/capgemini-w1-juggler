@@ -17,7 +17,6 @@ import com.stackroute.juggler.kafka.domain.Movie;
 import com.stackroute.juggler.moviesearch.exceptions.MovieNotFound;
 import com.stackroute.juggler.moviesearch.services.MovieSearchServiceImpl;
 
-
 @RestController
 // @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/api/v1")

@@ -14,4 +14,3 @@ public interface MovieRepository extends CrudRepository<Movie, Integer> {
 
 	public boolean existsByMovieName(String movieName);
 }
-

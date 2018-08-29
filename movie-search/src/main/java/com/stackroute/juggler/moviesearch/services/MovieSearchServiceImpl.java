@@ -13,7 +13,6 @@ import com.stackroute.juggler.moviesearch.exceptions.MovieNotFound;
 import com.stackroute.juggler.moviesearch.repository.CityRepository;
 import com.stackroute.juggler.moviesearch.repository.MovieRepository;
 
-
 @Service
 public class MovieSearchServiceImpl implements MovieSearchService {
 

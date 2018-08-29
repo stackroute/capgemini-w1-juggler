@@ -8,6 +8,6 @@ import org.springframework.context.ApplicationContext;
 public class MovieSearchApplication {
 	// This is the main entry point of the application
 	public static void main(String[] args) {
-		ApplicationContext context=SpringApplication.run(MovieSearchApplication.class, args);
+		ApplicationContext context = SpringApplication.run(MovieSearchApplication.class, args);
 	}
 }
