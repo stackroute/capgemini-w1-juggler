@@ -1,6 +1,6 @@
 package com.stackroute.juggler.kafka.domain;
 
-
+import java.io.File;
 import java.util.Map;
 
 import org.springframework.data.annotation.Id;
@@ -23,11 +23,12 @@ public class Registration {
 	private String[] runningmovies;
 	// private String[] typesOfSeats;
 	// private int numberOfShows;
-	// private File seatLayout;
-	
+	private File seatLayout;
+
+	// All Arguments Constructor
 	public Registration(String theatreId, String theatreLocation, String theatreCity, String theatreName,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
-			String[] runningmovies) {
+			String[] runningmovies, File seatLayout) {
 		super();
 		this.theatreId = theatreId;
 		this.theatreLocation = theatreLocation;
@@ -38,9 +39,16 @@ public class Registration {
 		this.seats = seats;
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
+		this.seatLayout = seatLayout;
 	}
 
-	public String getTheatreId() {	
+	public Registration() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	// List of getters and setters
+	public String getTheatreId() {
 		return theatreId;
 	}
 
@@ -112,10 +120,21 @@ public class Registration {
 		this.runningmovies = runningmovies;
 	}
 
-	public Registration() {
-		super();
-		// TODO Auto-generated constructor stub
+	public File getSeatLayout() {
+		return seatLayout;
 	}
 
-	
+	public void setSeatLayout(File seatLayout) {
+		this.seatLayout = seatLayout;
+	}
+
+	public void setComments(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Object getComments() {
+		// TODO Auto-generated method stub
+		return null;
+	}	
 }

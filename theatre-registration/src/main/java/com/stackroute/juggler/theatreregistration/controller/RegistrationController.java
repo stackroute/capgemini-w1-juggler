@@ -51,7 +51,6 @@ public class RegistrationController {
 	}
 
 	// get the particular theatre from database by using theatre name
-
 	@RequestMapping(value = "/theatre", method = RequestMethod.PUT)
 	public ResponseEntity<Registration> updateTheatre(@RequestBody Registration theatre) {
 

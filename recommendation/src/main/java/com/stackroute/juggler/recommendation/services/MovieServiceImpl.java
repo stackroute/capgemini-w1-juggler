@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.juggler.recommendation.domain.Movie;
+import com.stackroute.juggler.kafka.domain.Movie;
 import com.stackroute.juggler.recommendation.repositories.MovieRepository;
 
 @Service

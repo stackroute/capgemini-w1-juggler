@@ -12,7 +12,7 @@ import { first } from 'rxjs/operators';
 })
 export class PartnerLoginComponent implements OnInit {
 
-  loginForm: FormGroup;
+    loginForm: FormGroup;
     loading = false;
     submitted = false;
     // returnUrl: string;

@@ -15,6 +15,8 @@ export class MoviedetailsFormComponent implements OnInit {
       this.movie = data;
     });
   }
+  bookTicket() {}
+
   ngOnInit() {
     this.movieService.getMovie().subscribe(data => {
     this.movie = data;

@@ -25,18 +25,20 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/v1/juggler/user")
 public class UserController {
 
 	@Autowired
 	private UserService userService;
-//registering the data from distributor/owner
+
+	// registering the data from distributor/owner
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public User registerUser(@RequestBody User user) {
 
 		return userService.save(user);
 	}
-//Generate the token for the first time of login
+
+	// Generate the token for the first time of login
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<?> login(@RequestBody User login) throws ServletException {
 

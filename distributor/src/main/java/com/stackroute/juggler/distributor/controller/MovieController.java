@@ -20,6 +20,7 @@ import com.stackroute.juggler.distributor.services.Services;
 //This is controller
 @Controller
 //Class level request mapping
+
 @RequestMapping("/api/v1/")
 public class MovieController {
 

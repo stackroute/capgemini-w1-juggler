@@ -40,7 +40,8 @@ services:
     ports:
      - 8092:8092
     healthcheck:
-     test: "exit 0"  
+     test: "exit 0"
+  
 
   userprofile:
    image: thoopalliamar/userprofile:1.0
@@ -52,9 +53,10 @@ services:
    ports:
     - 8040:8040
    healthcheck:
-    test: "exit 0" 
+    test: "exit 0"
+
       
-  spring:
+  registration:
    image: leelamaithreyi/theatre-registration:1.0
    restart: always
    network_mode: host
@@ -65,6 +67,16 @@ services:
      - 8020:8020
    healthcheck:
       test: "exit 0"
+       
+       
+  mongo:
+   image: mongo
+   network_mode: host
+   container_name: spring-mongo
+   ports:
+     - 27017:27017
+   volumes:
+     - /usr/src/home:/data/db
       
    spring:
     image: sakethmaringanti/movie-schedule:1.0
