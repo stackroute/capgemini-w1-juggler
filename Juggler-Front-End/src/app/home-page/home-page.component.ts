@@ -7,7 +7,7 @@ import { SearchDataService } from '../search-data.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  
+
   addedList;
   search_result = [];
   city: any;
