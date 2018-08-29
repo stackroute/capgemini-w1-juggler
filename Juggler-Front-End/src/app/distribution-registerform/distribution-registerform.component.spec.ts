@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DistributionRegisterFormComponent } from './distribution-registerform.component';
 
-describe('DistributionRegisterformComponent', () => {
+describe('DistributionRegisterFormComponent', () => {
   let component: DistributionRegisterFormComponent;
   let fixture: ComponentFixture<DistributionRegisterFormComponent>;
 

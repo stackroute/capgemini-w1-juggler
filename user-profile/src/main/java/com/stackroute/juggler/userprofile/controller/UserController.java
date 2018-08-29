@@ -34,6 +34,7 @@ public class UserController {
 		this.userService = userService;
 	}
 
+
 	// This request mapping is to accept new user and save the data to database and
 	// messagebus
 	@RequestMapping(value = "/regestration", method = RequestMethod.POST)

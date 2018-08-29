@@ -36,6 +36,7 @@ export class SearchDataService {
     return fetch (this.url3 + '/' + this.city_string)
               .then(response => response.json());
   }
+
   searchMovie(movie: string) {
    this.movie_string = movie;
    return this.http.get(this.url + '/' + this.movie_string);
