@@ -7,7 +7,7 @@ import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.stackroute.juggler.recommendation.domain.Movie;
+import com.stackroute.juggler.kafka.domain.Movie;
 
 @Repository
 public interface MovieRepository extends Neo4jRepository<Movie, Integer> {
@@ -28,7 +28,6 @@ public interface MovieRepository extends Neo4jRepository<Movie, Integer> {
 	@Query("MATCH (m:Movie)-[r:isTypeOf]->(g:Genre) where g.name={genreName} RETURN m")
 	List<Movie> getMoviesByGenre(@Param("genreName") String genreName);
 
-//
 	@Query("MATCH (m:Movie)-[r:releasedIn]->(c:City) where c.name={cityName} RETURN m")
 	List<Movie> getMoviesByCity(@Param("cityName") String cityName);
 

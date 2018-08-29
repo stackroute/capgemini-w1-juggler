@@ -2,14 +2,17 @@ package com.stackroute.juggler.moviesearch.services;
 
 import java.util.List;
 
-import com.stackroute.juggler.moviesearch.domain.City;
-import com.stackroute.juggler.moviesearch.domain.Movie;
-
-
+import com.stackroute.juggler.kafka.domain.City;
+import com.stackroute.juggler.kafka.domain.Movie;
+import com.stackroute.juggler.moviesearch.exceptions.MovieNotFound;
 
 public interface MovieSearchService {
-	public City saveCity(City city);
+
+	public String saveCity(City city);
+
 	public List<City> getByCity(String city);
-	public List<Movie> getByTitle(String movieName);
+
+	public List<Movie> getByTitle(String movieName) throws MovieNotFound;
+
 	public City consumeKafka(City city);
 }

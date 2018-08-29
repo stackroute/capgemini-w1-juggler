@@ -1,4 +1,3 @@
-import { DistributionRegisterformComponent } from './distribution-registerform/distribution-registerform.component';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,7 +12,9 @@ import { UserLoginComponent } from './login/user-login/user-login.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { AuthenticationService } from './authentication.service';
 import { AlertService } from './alert.service';
-import { MatCardModule, MatButtonModule, MatStepperModule, MatGridListModule } from '@angular/material';
+import { MatCardModule, MatGridListModule } from '@angular/material';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
 import { MaterialsModule } from './materials';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -23,6 +24,7 @@ import { SearchDataService } from './search-data.service';
 import { TheatreService } from './theatre.service';
 import { UserService } from './user.service';
 import { ContactComponent } from './contact/contact.component';
+import { DistributionRegisterFormComponent } from './distribution-registerform/distribution-registerform.component';
 
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
@@ -34,7 +36,7 @@ import { ContactComponent } from './contact/contact.component';
     routingComponents,
     UserLoginComponent,
     MoviedetailsFormComponent,
-    DistributionRegisterformComponent,
+    DistributionRegisterFormComponent,
     PartnerLoginComponent,
     TheatreRegistrationComponent,
     ContactComponent

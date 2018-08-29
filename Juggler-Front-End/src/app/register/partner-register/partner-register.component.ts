@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./partner-register.component.scss']
 })
 export class PartnerRegisterComponent implements OnInit {
-
+  role: string;
   constructor() { }
 
   ngOnInit() {

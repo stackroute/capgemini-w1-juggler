@@ -1,5 +1,6 @@
 package com.stackroute.juggler.kafka.domain;
 
+
 import java.util.Map;
 
 import org.springframework.data.annotation.Id;
@@ -10,21 +11,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 public class Registration {
 	@Id
-	private int theatreId;
+	private String theatreId;
 	private String theatreLocation;
 	private String theatreCity;
 	private String theatreName;
 	private String theatreLicenseNo;
 	private String numberOfSeats;
-	private Map<String, Integer> seats;
+	//private String[] typesOfSeats;
+	private Map<String,Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
 	// private String[] typesOfSeats;
 	// private int numberOfShows;
 	// private File seatLayout;
-
-	// All Arguments Constructor
-	public Registration(int theatreId, String theatreLocation, String theatreCity, String theatreName,
+	
+	public Registration(String theatreId, String theatreLocation, String theatreCity, String theatreName,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
 			String[] runningmovies) {
 		super();
@@ -39,12 +40,11 @@ public class Registration {
 		this.runningmovies = runningmovies;
 	}
 
-	// List of getters and setters
-	public int getTheatreId() {
+	public String getTheatreId() {	
 		return theatreId;
 	}
 
-	public void setTheatreId(int theatreId) {
+	public void setTheatreId(String theatreId) {
 		this.theatreId = theatreId;
 	}
 
@@ -117,13 +117,5 @@ public class Registration {
 		// TODO Auto-generated constructor stub
 	}
 
-//	public void setComments(String string) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//	public Object getComments() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}	
+	
 }

@@ -3,9 +3,9 @@ version: '2.1'
 services:
   eureka-server:
     build: eureka-server/
-#    depends_on:
-#      config-service:
-#       condition: service_healthy
+    depends_on:
+      config-service:
+        condition: service_healthy
     restart: always
     network_mode: "host"
     image: demo-eureka-service
@@ -16,32 +16,47 @@ services:
       test: "exit 0"
 
   config-service:
-    build: config-service/
-    restart: always
-    network_mode: "host"
-    image: demo-config-service
-    hostname: localhost
-    ports:
-      - 8891:8891
-    healthcheck:
-      test: "exit 0"
+   build: config-service/
+   restart: always
+   network_mode: "host"
+   image: demo-config-service
+   hostname: localhost
+   ports:
+    - 8891:8891
+   healthcheck:
+    test: "exit 0"
 
   api-gateway:
-    build: zuul-apigateway/
-    depends_on:
-      config-service:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
+   build: zuul-apigateway/
+   depends_on:
+    config-service:
+     condition: service_healthy
+    eureka-server:
+     condition: service_healthy
     restart: always
     network_mode: "host"
     image: demo-zuul-service
     hostname: localhost
     ports:
-      - 8092:8092
+     - 8092:8092
     healthcheck:
-      test: "exit 0"
+     test: "exit 0"
   
+
+  userprofile:
+   image: thoopalliamar/userprofile:1.0
+   restart: always
+   network_mode: host
+   container_name: userprofile
+   depends_on:
+    - mongo
+   ports:
+    - 8040:8040
+   healthcheck:
+    test: "exit 0"
+
+      
+      
   spring:
    image: leelamaithreyi/theatre-registration:1.0
    restart: always
@@ -53,8 +68,21 @@ services:
      - 8020:8020
    healthcheck:
       test: "exit 0"
-     
-  login-auth:
+      
+      
+   spring:
+    image: sakethmaringanti/movie-schedule:1.0
+    restart: always
+    network_mode: host
+    container_name: spring-docker
+    depends_on:
+      - mongo
+    ports:
+      - 8030:8030
+    healthcheck:
+      test: "exit 0"  
+    
+login-auth:
    build: login-authentication/
    image: login
    restart: always
@@ -81,3 +109,5 @@ services:
       MYSQL_PASSWORD: root
    healthcheck:
       test: "exit 0"
+ 
+ 

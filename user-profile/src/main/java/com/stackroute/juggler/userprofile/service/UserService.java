@@ -14,9 +14,9 @@ public interface UserService {
 	//Saves the user
 	public InputUser saveUser(InputUser inputUser) throws ProfileAlreadyExitsException ;
 	//Views the user
-	public InputUser viewUser(int userId) throws UserDoesNotExistsException;
+	public InputUser viewUser(String userId) throws UserDoesNotExistsException;
 	//Updates the user
-	public InputUser updateUser(int userId, UserProfile user) throws UpdateFailedException,UserDoesNotExistsException;
+	public InputUser updateUser(String userId, UserProfile user) throws UpdateFailedException,UserDoesNotExistsException;
 	//Consumes the message from kafka
 	//public void consumeKafka(UserLikes userLikes);
 }

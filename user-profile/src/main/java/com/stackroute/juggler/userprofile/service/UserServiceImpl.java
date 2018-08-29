@@ -24,21 +24,19 @@ public class UserServiceImpl implements UserService {
 
 	// using repository in service implementation
 	@Autowired
-	public UserServiceImpl(UserRepository userRepository,KafkaConfiguration kafkaConfig) {
+	public UserServiceImpl(UserRepository userRepository, KafkaConfiguration kafkaConfig) {
 
 		this.userRepository = userRepository;
-		this.kafkaConfig=kafkaConfig;
+		this.kafkaConfig = kafkaConfig;
 	}
-	
+
 	String topic = kafkaConfig.getTopic();
 
 	// Kafka template from configuration and topic
 	@Autowired
 	private KafkaTemplate<String, InputUser> kafkaTemplate;
 
-	
-
-	//private static final String TOPIC = "userProfile";
+	// private static final String TOPIC = "userProfile";
 
 	// this method is to save user to databases
 	@Override
@@ -57,7 +55,7 @@ public class UserServiceImpl implements UserService {
 
 	// this method is to view user from databases
 	@Override
-	public InputUser viewUser(int userId) throws UserDoesNotExistsException {
+	public InputUser viewUser(String userId) throws UserDoesNotExistsException {
 		if (userRepository.findByUserId(userId) != null) {
 			InputUser findUser = userRepository.findByUserId(userId);
 			return findUser;
@@ -67,7 +65,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public InputUser updateUser(int userId, UserProfile user) throws UpdateFailedException, UserDoesNotExistsException {
+	public InputUser updateUser(String userId, UserProfile user) throws UpdateFailedException, UserDoesNotExistsException {
 		// initilization of user domain object
 		InputUser finduser = null;
 		if (userRepository.findByUserId(userId) != null) {
@@ -84,17 +82,16 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-//	@Override
-//	@KafkaListener(topics = "details8", groupId = "user")
-//	public void consumeKafka(UserLikes userLikes) {
-//		InputUser findUser = null;
-//
-//		if (userRepository.findByUserId(userLikes.getUserId()) != null) {
-//			findUser = userRepository.findByUserId(userLikes.getUserId());
-//			String movieName = userLikes.getMovie();
-//			findUser.setLikes(movieName);
-//			userRepository.save(findUser);
-//		}
+	// @Override
+	// @KafkaListener(topics = "movieLikes", groupId = "user")
+	// public void consumeKafka(UserLikes userLikes) {
+	// InputUser findUser = null;
+	//
+	// if (userRepository.findByUserId(userLikes.getUserId()) != null) {
+	// findUser = userRepository.findByUserId(userLikes.getUserId());
+	// String movieName = userLikes.getMovie();
+	// findUser.setLikes(movieName);
+	// userRepository.save(findUser);
+	// }
 
-	}
-
+}

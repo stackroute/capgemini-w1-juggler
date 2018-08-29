@@ -1,5 +1,7 @@
 package com.stackroute.juggler.userprofile.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,9 @@ public class UserController {
 	// creating the userservice object to use the methods in it
 	private UserService userService;
 
+	//logger is used to log status of code
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	// constructer
 	@Autowired
 	public UserController(UserService userService) {
@@ -34,27 +39,31 @@ public class UserController {
 	// messagebus
 	@RequestMapping(value = "/regestration", method = RequestMethod.POST)
 	public ResponseEntity<?> saveUser(@RequestBody InputUser inputUser) throws ProfileAlreadyExitsException {
-		//InputUser userobj = null;
+		// InputUser userobj = null;
 		try {
 			InputUser userobj = userService.saveUser(inputUser);
+			logger.info("movie is saved into database");
 			return new ResponseEntity<InputUser>(userobj, HttpStatus.CREATED);
 		} catch (ProfileAlreadyExitsException m) {
 			// Error handling code
 			String result = m.getMessage();
+			logger.warn("movie is not added into database");
 			return new ResponseEntity<String>(result, HttpStatus.CONFLICT);
 		}
-		
+
 	}
 
 	// This is to view the user in the database we take user id in url itself
 	@RequestMapping(value = "/user/{userid}", method = RequestMethod.GET)
-	public ResponseEntity<?> viewuser(@PathVariable int userid) throws UserDoesNotExistsException {
+	public ResponseEntity<?> viewuser(@PathVariable String userid) throws UserDoesNotExistsException {
 		try {
 			InputUser userobj = userService.viewUser(userid);
+			logger.info("InputUser retrived from database");
 			return new ResponseEntity<InputUser>(userobj, HttpStatus.FOUND);
 		} catch (UserDoesNotExistsException m) {
 			// Error Handling
 			String result = m.getMessage();
+			logger.warn("movie is not found in database");
 			return new ResponseEntity<String>(result, HttpStatus.NOT_FOUND);
 		}
 
@@ -62,14 +71,16 @@ public class UserController {
 
 	// This is to update user initially we find the user and allow to update
 	@RequestMapping(value = "/user/{userid}", method = RequestMethod.PUT)
-	public ResponseEntity<?> updateuser(@PathVariable int userid, @RequestBody UserProfile user)
+	public ResponseEntity<?> updateuser(@PathVariable String userid, @RequestBody UserProfile user)
 			throws UpdateFailedException, UserDoesNotExistsException {
 		try {
 			InputUser userobj = userService.updateUser(userid, user);
+			logger.info("InputUser updated");
 			return new ResponseEntity<InputUser>(userobj, HttpStatus.OK);
 		} catch (UserDoesNotExistsException m) {
 			// Error handling
 			String result = m.getMessage();
+			logger.warn("movie is not updated");
 			return new ResponseEntity<String>(result, HttpStatus.NOT_MODIFIED);
 		}
 

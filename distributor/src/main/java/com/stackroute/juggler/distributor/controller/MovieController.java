@@ -1,6 +1,7 @@
 package com.stackroute.juggler.distributor.controller;
 
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.stackroute.juggler.distributor.domain.Movie;
 import com.stackroute.juggler.distributor.services.Services;
+
 @CrossOrigin(origins = "http://localhost:4200")
 //This is controller
 @Controller
@@ -63,5 +66,17 @@ public class MovieController {
 			return new ResponseEntity<String>("{ \"message\": \"" + "no movies with this name" + "\"}", HttpStatus.OK);
 		}
 	}
+	
+//	// update
+//		@RequestMapping(value = "/movie", method = RequestMethod.PUT, produces = { "application/json" })
+//		public ResponseEntity<?> updateMovieToDB(@RequestBody Movie movie, @RequestParam int movieId) {
+//			Movie movieUpdated;
+//			try {
+//				movieUpdated = movieServices.updateMovie(movie);
+//			} catch (MovieNotFoundException e) {
+//				return new ResponseEntity<String>("{ \"message\": \"" + e.getMessage() + "\"}", HttpStatus.CONFLICT);
+//			}
+//			return new ResponseEntity<Movie>(movieUpdated, HttpStatus.FOUND);
+//		}
 
 }
