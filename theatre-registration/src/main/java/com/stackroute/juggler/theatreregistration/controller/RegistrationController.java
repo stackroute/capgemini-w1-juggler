@@ -17,7 +17,7 @@ import com.stackroute.juggler.kafka.domain.Registration;
 import com.stackroute.juggler.theatreregistration.exceptions.TheatreAlreadyExists;
 import com.stackroute.juggler.theatreregistration.services.RegistrationService;
 
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 
 //class level request mapping
@@ -32,20 +32,29 @@ public class RegistrationController {
 		this.registrationService = registrationService;
 
 	}
+	   @Autowired
+	    private KafkaTemplate<String, Registration> kafkaTemplate;    // This is the topic name it wont be changed so "final static"
+	    private static final String TOPIC = "testkafka";
 
 	// saves the theatre details
 	@RequestMapping(value = "/theatre", method = RequestMethod.POST)
 	public ResponseEntity<?> saveTheatre(@RequestBody Registration theatre) throws TheatreAlreadyExists {
 
 		Registration theatreobj = null;
+	
+		 kafkaTemplate.send(TOPIC,theatre);
+		 // This is to save 
 		try {
-			theatreobj = registrationService.saveTheatre(theatre);
-			return new ResponseEntity<Registration>(theatreobj, HttpStatus.OK);
-		} catch (TheatreAlreadyExists m) {
-			String result = m.getMessage();
-			return new ResponseEntity<String>(result, HttpStatus.OK);
-		}
-
+			 theatreobj=registrationService.saveTheatre(theatre);
+			 return new ResponseEntity<Registration>(theatreobj, HttpStatus.OK);
+	            }
+	           catch(TheatreAlreadyExists m)
+				{
+	        	   String result=m.getMessage();
+	        	   return new ResponseEntity<String>(result, HttpStatus.OK);
+			}
+		
+		
 	}
 
 	// get the particular theatre from database by using theatre name
@@ -56,6 +65,7 @@ public class RegistrationController {
 
 		return new ResponseEntity<Registration>(theatreobj, HttpStatus.OK);
 	}
+	
 
 	// To update the theatre details using theatre name
 	@RequestMapping(value = "/theatre/{TheatreTitle}", method = RequestMethod.GET)

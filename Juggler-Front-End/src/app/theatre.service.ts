@@ -7,12 +7,11 @@ import { Theatre } from './theatre';
   providedIn: 'root'
 })
 export class TheatreService {
-
-  private _url = 'http://localhost:8020/api/v1/theatre';
+  private _url = 'http://localhost:8020';
   constructor(private http: HttpClient) {}
 
   saveTheatre(theatre: Theatre): Observable<Theatre> {
   //  return this.http.post<Theatre>(this._url+"registerTheatre", theatre);
-   return this.http.post<Theatre>(this._url , theatre);
+   return this.http.post<Theatre>(this._url + '/api/v1/theatre', theatre);
   }
 }

@@ -1,6 +1,6 @@
 package com.stackroute.juggler.userprofile.service;
 
-import com.stackroute.juggler.kafka.domain.User;
+import com.stackroute.juggler.kafka.domain.InputUser;
 import com.stackroute.juggler.kafka.domain.UserLikes;
 import com.stackroute.juggler.kafka.domain.UserProfile;
 import com.stackroute.juggler.userprofile.exceptions.ProfileAlreadyExitsException;
@@ -12,11 +12,11 @@ import com.stackroute.juggler.userprofile.exceptions.UserDoesNotExistsException;
 public interface UserService {
 	
 	//Saves the user
-	public User saveUser(User user) throws ProfileAlreadyExitsException ;
+	public InputUser saveUser(InputUser inputUser) throws ProfileAlreadyExitsException ;
 	//Views the user
-	public User viewUser(int userId) throws UserDoesNotExistsException;
+	public InputUser viewUser(String userId) throws UserDoesNotExistsException;
 	//Updates the user
-	public User updateUser(int userId, UserProfile user) throws UpdateFailedException,UserDoesNotExistsException;
+	public InputUser updateUser(String userId, UserProfile user) throws UpdateFailedException,UserDoesNotExistsException;
 	//Consumes the message from kafka
-	public void consumeKafka(UserLikes userLikes);
+	//public void consumeKafka(UserLikes userLikes);
 }

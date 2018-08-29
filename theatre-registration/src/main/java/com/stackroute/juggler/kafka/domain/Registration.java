@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 //Domain object for theatre-registration details given by theatre-owner
 
 @Document
+
 public class Registration {
 	@Id
 	private String theatreId;
@@ -16,7 +17,8 @@ public class Registration {
 	private String theatreName;
 	private String theatreLicenseNo;
 	private String numberOfSeats;
-	private Map<String, Integer> seats;
+	//private String[] typesOfSeats;
+	private Map<String,Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
 	// private String[] typesOfSeats;

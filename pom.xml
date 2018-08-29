@@ -31,8 +31,8 @@
 		<module>movie-search</module>
 		<module>movie-schedule</module>
 		<module>distributor</module>
-		<module>user-profile</module>	
-		<module>show-scheduler</module>
-
+		<module>user-profile</module>
+		<module>recommendation</module>
+		<module>login-authentication</module>
 	</modules>
 </project>

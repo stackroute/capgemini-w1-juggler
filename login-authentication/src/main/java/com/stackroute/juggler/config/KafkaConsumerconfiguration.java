@@ -18,17 +18,19 @@ import com.stackroute.juggler.kafka.domain.User;
 @EnableKafka
 @Configuration
 public class KafkaConsumerconfiguration {
+	
+	//consumer factory of kafka which will hold the configuration details
 	@Bean
 	public ConsumerFactory<String, InputUser> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.190:9092");
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "user");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
 				new JsonDeserializer<>(InputUser.class));
 	}
-
+	//Template imports the configuration from Consumer factory
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, InputUser> kafkaListenerContainerFactory() {
 		ConcurrentKafkaListenerContainerFactory<String, InputUser> factory = new ConcurrentKafkaListenerContainerFactory();

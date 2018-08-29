@@ -16,6 +16,9 @@ export class MovieDataService {
   getMovie() {
     return this.http.get('http://localhost.:8010/api/v1/movie');
   }
+  getMovieByTitle() {
+    return this.http.get('http://localhost.:8010/api/v1/movie/');
+  }
   addMovie(movie: Movie): Observable<Movie> {
     return this.http.post<Movie>(this.url2 , movie);
   }

@@ -7,12 +7,12 @@ import { SearchDataService } from '../search-data.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  city: string;
+  citydetails: any;
   constructor(private cityService: SearchDataService) { }
 
   ngOnInit() {
   }
-  searchMovie(city: string) {
-    this.cityService.getByMovieCity(city).subscribe(data => this.city = data);
-  }
+  // searchCity(city: string) {
+  //   this.cityService.getByMovieCity(city).subscribe(data => this.citydetails = data);
+  // }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../user';
+
 
 
 @Component({
@@ -9,37 +11,46 @@ import { User } from '../../user';
   styleUrls: ['./user-register.component.scss']
 })
 export class UserRegisterComponent implements OnInit {
-  // isLinear = false;
-  // firstFormGroup: FormGroup;
-  // secondFormGroup: FormGroup;
-  userid: number;
-  user_name: string;
-  email_id: string;
-  mobileNo: number;
-  password: string;
-  gender: string;
-  languages_known: string;
-  dateOfBirth: string;
-  location: string;
-  genre: string;
-  likes: string;
-  payment_methods: string;
+  isLinear = true;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
 
+  // hide = true;
   user = new User();
-  constructor(private userService: UserService) { }
 
+  constructor(private userService: UserService, private _formBuilder: FormBuilder) { }
+  // emailFormControl = new FormControl('', [
+  //   Validators.required,
+  //   Validators.email,
+  // ]);
   ngOnInit() {
-
+    this.firstFormGroup = this._formBuilder.group({
+        userName: ['', Validators.required],
+        email: ['', Validators.email],
+        password: ['', Validators.required],
+        mobileNo: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+        address: ['', Validators.required]
+    });
   }
+  get f() {
+    return this.firstFormGroup.controls;
+  }
+  get f1() {
+    return this.secondFormGroup.controls;
+  }
+
   addUser() {
-    this.user.userid = this.userid;
-    this.user.user_name = this.user_name;
-    this.user.password = this.password;
-    this.user.email_id = this.email_id;
-    this.user.mobileNo = this.mobileNo;
-    this.user.gender = this.gender;
-    this.user.location = this.location;
-    this.user.dateOfBirth = this.dateOfBirth;
-    this.userService.saveUser(this.user).subscribe();
+    this.user.user_name = this.f.userName.value;
+    this.user.email_id = this.f.email.value;
+    this.user.password = this.f.password.value;
+    this.user.mobileNo = this.f.mobileNo.value;
+    this.user.location = this.f1.address.value;
+    console.log(this.user.user_name);
+    console.log(this.user);
+    this.userService
+      .saveUser(this.user)
+      .subscribe(res => console.log('Saved User'));
   }
 }
