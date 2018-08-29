@@ -1,11 +1,12 @@
 package com.stackroute.juggler.kafka.domain;
 
 import java.util.Map;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//POJO of MovieSchedule
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+//POJO of MovieScreening details
 
 @Document
 public class MovieSchedule {
@@ -22,12 +23,20 @@ public class MovieSchedule {
 	private String[] runningmovies;
 	private MovieDetails movieDetails;
 	private int showNumbers;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private String[] showTimings;
 	private TicketPrices ticketPrices;
+
+	// default constructor
+	public MovieSchedule() {
+		super();
+	}
 
 	// All arguments constructors
 	public MovieSchedule(String theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
-			String[] runningmovies, MovieDetails movieDetails, int showNumbers, TicketPrices ticketPrices) {
+			String[] runningmovies, MovieDetails movieDetails, int showNumbers, String[] showTimings,
+			TicketPrices ticketPrices) {
 		super();
 		this.theatreId = theatreId;
 		this.theatreName = theatreName;
@@ -40,6 +49,7 @@ public class MovieSchedule {
 		this.runningmovies = runningmovies;
 		this.movieDetails = movieDetails;
 		this.showNumbers = showNumbers;
+		this.showTimings = showTimings;
 		this.ticketPrices = ticketPrices;
 	}
 
@@ -138,6 +148,14 @@ public class MovieSchedule {
 
 	public void setTicketPrices(TicketPrices ticketPrices) {
 		this.ticketPrices = ticketPrices;
+	}
+
+	public String[] getShowTimings() {
+		return showTimings;
+	}
+
+	public void setShowTimings(String[] showTimings) {
+		this.showTimings = showTimings;
 	}
 
 }

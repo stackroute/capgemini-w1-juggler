@@ -40,9 +40,7 @@ services:
     ports:
      - 8092:8092
     healthcheck:
-     test: "exit 0"
-
-  
+     test: "exit 0"  
 
   userprofile:
    image: thoopalliamar/userprofile:1.0
@@ -54,9 +52,7 @@ services:
    ports:
     - 8040:8040
    healthcheck:
-    test: "exit 0"
-
-      
+    test: "exit 0" 
       
   spring:
    image: leelamaithreyi/theatre-registration:1.0
@@ -70,8 +66,7 @@ services:
    healthcheck:
       test: "exit 0"
       
-      
-      spring:
+   spring:
     image: sakethmaringanti/movie-schedule:1.0
     restart: always
     network_mode: host
