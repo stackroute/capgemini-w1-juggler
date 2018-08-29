@@ -12,16 +12,16 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.stackroute.juggler.kafka.domain.User;
+import com.stackroute.juggler.kafka.domain.InputUser;
 
 @Configuration
 public class KafkaConfiguration {
 	
-	 static final String TOPIC = "UserData";
+	 static final String TOPIC = "details8";
 	
 	//Producer factory of kafka which will hold the configuration details
 	 @Bean
-	    public ProducerFactory<String, User> producerFactory() {
+	    public ProducerFactory<String, InputUser> producerFactory() {
 	        Map<String, Object> config = new HashMap<>();
 
 	        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
@@ -34,7 +34,7 @@ public class KafkaConfiguration {
 
 	 //Template imports the configuration from producerfactory
 	    @Bean
-	    public KafkaTemplate<String, User> kafkaTemplate() {
+	    public KafkaTemplate<String, InputUser> kafkaTemplate() {
 	        return new KafkaTemplate<>(producerFactory());
 	    }
 

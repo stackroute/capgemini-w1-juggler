@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.juggler.kafka.domain.User;
+import com.stackroute.juggler.kafka.domain.InputUser;
 import com.stackroute.juggler.kafka.domain.UserProfile;
 import com.stackroute.juggler.userprofile.exceptions.ProfileAlreadyExitsException;
 import com.stackroute.juggler.userprofile.exceptions.UpdateFailedException;
@@ -33,11 +33,11 @@ public class UserController {
 	// This request mapping is to accept new user and save the data to database and
 	// messagebus
 	@RequestMapping(value = "/regestration", method = RequestMethod.POST)
-	public ResponseEntity<?> saveUser(@RequestBody User user) throws ProfileAlreadyExitsException {
-		//User userobj = null;
+	public ResponseEntity<?> saveUser(@RequestBody InputUser inputUser) throws ProfileAlreadyExitsException {
+		//InputUser userobj = null;
 		try {
-			User userobj = userService.saveUser(user);
-			return new ResponseEntity<User>(userobj, HttpStatus.CREATED);
+			InputUser userobj = userService.saveUser(inputUser);
+			return new ResponseEntity<InputUser>(userobj, HttpStatus.CREATED);
 		} catch (ProfileAlreadyExitsException m) {
 			// Error handling code
 			String result = m.getMessage();
@@ -50,8 +50,8 @@ public class UserController {
 	@RequestMapping(value = "/user/{userid}", method = RequestMethod.GET)
 	public ResponseEntity<?> viewuser(@PathVariable int userid) throws UserDoesNotExistsException {
 		try {
-			User userobj = userService.viewUser(userid);
-			return new ResponseEntity<User>(userobj, HttpStatus.FOUND);
+			InputUser userobj = userService.viewUser(userid);
+			return new ResponseEntity<InputUser>(userobj, HttpStatus.FOUND);
 		} catch (UserDoesNotExistsException m) {
 			// Error Handling
 			String result = m.getMessage();
@@ -65,8 +65,8 @@ public class UserController {
 	public ResponseEntity<?> updateuser(@PathVariable int userid, @RequestBody UserProfile user)
 			throws UpdateFailedException, UserDoesNotExistsException {
 		try {
-			User userobj = userService.updateUser(userid, user);
-			return new ResponseEntity<User>(userobj, HttpStatus.OK);
+			InputUser userobj = userService.updateUser(userid, user);
+			return new ResponseEntity<InputUser>(userobj, HttpStatus.OK);
 		} catch (UserDoesNotExistsException m) {
 			// Error handling
 			String result = m.getMessage();
