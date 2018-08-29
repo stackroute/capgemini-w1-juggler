@@ -1,11 +1,10 @@
 package com.stackroute.juggler.kafka.domain;
 
 import java.util.Map;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//POJO of TheatreRegistration details
+//POJO of Theatre details 
 
 @Document
 public class Registration {
@@ -110,6 +109,7 @@ public class Registration {
 		this.runningmovies = runningmovies;
 	}
 
+	// default constructor
 	public Registration() {
 
 	}

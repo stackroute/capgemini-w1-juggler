@@ -17,6 +17,7 @@ import com.stackroute.juggler.userprofile.repository.UserRepository;
 @Service
 public class UserServiceImpl implements UserService {
 
+	
 	// Creating a object of user repository
 	private UserRepository userRepository;
 	private KafkaConfiguration kafkaConfig;

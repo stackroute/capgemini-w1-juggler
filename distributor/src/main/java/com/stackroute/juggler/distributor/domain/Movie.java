@@ -2,8 +2,6 @@ package com.stackroute.juggler.distributor.domain;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -24,18 +22,17 @@ public class Movie {
 	private String synopsis;
 	private String format;
 	private String languages;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
-	private LocalTime movieDuration;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate movieReleaseDate;
+	 @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+	 private LocalTime movieDuration;
+	 @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	 private LocalDate movieReleaseDate;
 
 	public Movie() {
 	}
 
 	// All Arguments constructor
 	public Movie(String id, String movieName, String moviePoster, String actors, String actress, String directors,
-			String movieGenres, String synopsis, String format, String languages, LocalTime movieDuration,
-			LocalDate movieReleaseDate) {
+			String movieGenres, String synopsis, String format, String languages) {
 		this.id = id;
 		this.movieName = movieName;
 		this.moviePoster = moviePoster;
@@ -46,8 +43,8 @@ public class Movie {
 		this.synopsis = synopsis;
 		this.format = format;
 		this.languages = languages;
-		this.movieDuration = movieDuration;
-		this.movieReleaseDate = movieReleaseDate;
+//		this.movieDuration = movieDuration;
+//		this.movieReleaseDate = movieReleaseDate;
 	}
 
 	// List of all getters and setters
@@ -131,20 +128,20 @@ public class Movie {
 		this.languages = languages;
 	}
 
-	public LocalTime getMovieDuration() {
-		return movieDuration;
-	}
-
-	public void setMovieDuration(LocalTime movieDuration) {
-		this.movieDuration = movieDuration;
-	}
-
-	public LocalDate getMovieReleaseDate() {
-		return movieReleaseDate;
-	}
-
-	public void setMovieReleaseDate(LocalDate movieReleaseDate) {
-		this.movieReleaseDate = movieReleaseDate;
-	}
+	// public LocalTime getMovieDuration() {
+	// return movieDuration;
+	// }
+	//
+	// public void setMovieDuration(LocalTime movieDuration) {
+	// this.movieDuration = movieDuration;
+	// }
+	//
+	// public LocalDate getMovieReleaseDate() {
+	// return movieReleaseDate;
+	// }
+	//
+	// public void setMovieReleaseDate(LocalDate movieReleaseDate) {
+	// this.movieReleaseDate = movieReleaseDate;
+	// }
 
 }

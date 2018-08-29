@@ -1,0 +1,39 @@
+<!-- Search form -->
+<div class="row">
+    <div class="col-sm-12">
+        <form>
+            <div class="row">
+                <div class="col-9">
+                    <input type="text" class="form-control" placeholder="Search Movies" name="city" [(ngModel)]="city">
+                </div>
+                <div class="col-3">
+                    <button class="btn-block btn-info form-control" (click)="searchMovies()">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- <p>{{movie.movieTitle}}</p> -->
+
+<mat-grid-list cols="12" rowHeight="80px">
+    <h3>Trending Movies</h3>
+    <div *ngFor="let movie of search_result">
+        <div *ngFor="let Names of movie.movieList">
+            <mat-grid-tile colspan="3" rowspan="6">
+                <mat-card class="example-card">
+                    <mat-card-header>
+
+                        <mat-card-title><a>{{Names.movieName}}</a>
+                            </mat-card-title>
+
+                    </mat-card-header>
+                    <img mat-card-image src="{{Names.moviePoster}}" alt="Poster of movie">
+                    <mat-card-actions>
+                        <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">Movie Details</button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </div>
+    </div>
+</mat-grid-list>

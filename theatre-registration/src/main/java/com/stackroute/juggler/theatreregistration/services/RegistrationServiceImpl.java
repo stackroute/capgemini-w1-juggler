@@ -41,7 +41,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 	@Override
 	public Registration updateTheatre(Registration theatre) {
 		// TODO Auto-generated method stub
-
+		kafkaTemplate.send(TOPIC, theatre);
 		Registration theatreUpdated = registrationRepository.save(theatre);
 
 		return theatreUpdated;

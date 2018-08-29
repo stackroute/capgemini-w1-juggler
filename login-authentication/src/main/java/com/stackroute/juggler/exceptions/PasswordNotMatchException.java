@@ -1,4 +1,5 @@
 package com.stackroute.juggler.exceptions;
+
 // Exception is thrown when the password does not match with the database details
 public class PasswordNotMatchException extends Exception {
 

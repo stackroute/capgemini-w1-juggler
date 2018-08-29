@@ -1,0 +1,49 @@
+<!-- Large Modal -->
+<!-- <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document"> -->
+<button type="button" mdbBtn color="primary" class="waves-light" data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
+    mdbWavesEffect>
+    LAUNCH MODAL
+</button>
+
+<div mdbModal #frame="mdbModal" class="modal fade top mx-4" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Body-->
+            <div class="modal-body">
+                <div class="row d-flex justify-content-center align-items-center">
+
+                    <a type="button" mdbBtn color="secondary" outline="true" class="waves-light" (click)="frame.hide()">Bangalore
+                    </a>
+                    <a type="button" mdbBtn color="primary" outline="true" class="waves-light" (click)="frame.hide()">Hyderabad
+                    </a>
+                    <a type="button" mdbBtn color="info" outline="true" class="waves-light" (click)="frame.hide()">Numbai
+                    </a>
+                    <a type="button" mdbBtn color="success" outline="true" class="waves-light" (click)="frame.hide()">Chennai
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+
+<mat-grid-list cols="12" rowHeight="80px">
+    <h3>Trending Movies</h3>
+    <div *ngFor="let movie of movies">
+        <mat-grid-tile colspan="3" rowspan="6">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title><a>{{movie.movieTitle}}</a></mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="{{movie.movieposter}}" alt="Poster of movie">
+                <mat-card-actions>
+                    <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">Movie Details</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+    </div>
+</mat-grid-list>

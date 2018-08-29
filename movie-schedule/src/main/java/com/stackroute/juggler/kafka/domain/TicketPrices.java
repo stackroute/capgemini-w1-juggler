@@ -2,7 +2,7 @@ package com.stackroute.juggler.kafka.domain;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//POJO of TicketPrices Details
+//POJO of TicketPrices Details for weekdays and weekends
 
 @Document
 public class TicketPrices {
@@ -34,6 +34,7 @@ public class TicketPrices {
 		this.weekdays_Price = weekdays_Price;
 	}
 
+	// default constructor
 	public TicketPrices() {
 		super();
 	}

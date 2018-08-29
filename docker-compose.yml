@@ -57,8 +57,7 @@ services:
     test: "exit 0"
 
       
-      
-  spring:
+  registration:
    image: leelamaithreyi/theatre-registration:1.0
    restart: always
    network_mode: host
@@ -69,6 +68,16 @@ services:
      - 8020:8020
    healthcheck:
       test: "exit 0"
+       
+       
+  mongo:
+   image: mongo
+   network_mode: host
+   container_name: spring-mongo
+   ports:
+     - 27017:27017
+   volumes:
+     - /usr/src/home:/data/db
       
       
    spring:
@@ -82,22 +91,3 @@ services:
       - 8030:8030
     healthcheck:
       test: "exit 0"  
-      
-      
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
