@@ -3,7 +3,7 @@ package com.stackroute.juggler.recommendation.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.juggler.recommendation.domain.City;
+import com.stackroute.juggler.kafka.domain.City;
 import com.stackroute.juggler.recommendation.repositories.CityRepository;
 @Service
 public class CityServiceImpl implements CityService{

@@ -1,0 +1,23 @@
+<div style="text-align: center">
+  <h4><b>Add Theatre Details...</b></h4>
+</div>
+<div class="container col-6 my-3">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Theatre Name" type="text" [formControl]="theatre_Name">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Theatre Liscense No." [formControl]="theatre_LicenseNo">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Theatre City" [formControl]="theatre_City">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Theatre Address" [formControl]="theatre_Location">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Theatre Capacity" type="number" [formControl]="number_OfSeats">
+    </mat-form-field>
+  </form>
+  <button mat-stroked-button color="primary" type="submit" (click)="onSubmit()">Add Theatre</button>
+</div>

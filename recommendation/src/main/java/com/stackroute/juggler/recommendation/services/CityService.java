@@ -1,6 +1,6 @@
 package com.stackroute.juggler.recommendation.services;
 
-import com.stackroute.juggler.recommendation.domain.City;
+import com.stackroute.juggler.kafka.domain.City;
 
 public interface CityService {
 //	public City saveCity(City city);

@@ -1,0 +1,38 @@
+<div class="container col-6 my-3">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Movie Name" type="text" [formControl]="movie_Name">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Add Movie Poster" [formControl]="movie_poster">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Movie Description" [formControl]="movie_Synopsis"></textarea>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Movie Format" [formControl]="_format">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Date Of Release" [formControl]="movie_Releasedate">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Duration of Movie" [formControl]="movie_Duration">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Actor" [formControl]="_actor">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Actress" [formControl]="_actres">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Directors" [formControl]="_directors">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Language" [formControl]="_languages">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Enter Movie Genres" [formControl]="movie_Genres">
+    </mat-form-field>
+  </form>
+  <button mat-stroked-button color="primary" type="submit" (click)="onSubmit()">Add Movie</button>
+</div>
