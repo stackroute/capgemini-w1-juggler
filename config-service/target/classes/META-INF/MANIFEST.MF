@@ -4,10 +4,6 @@ Build-Jdk: 10.0.2
 Implementation-Title: config-service
 Implementation-Version: 1.0.0
 Implementation-Vendor-Id: com.stackroute
-<<<<<<< HEAD
-=======
-Build-Jdk: 1.8.0_171
->>>>>>> 046346245858fb228ca82016457215ce5b11a9b7
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/capgemini-w1-juggler-test/config-service
 Created-By: Maven Integration for Eclipse

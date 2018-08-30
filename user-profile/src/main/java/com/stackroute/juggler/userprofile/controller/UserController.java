@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import com.stackroute.juggler.userprofile.exceptions.UpdateFailedException;
 import com.stackroute.juggler.userprofile.exceptions.UserDoesNotExistsException;
 import com.stackroute.juggler.userprofile.service.UserService;
 
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "/api/v1/userProfile")
 @RestController
 public class UserController {
@@ -33,6 +35,7 @@ public class UserController {
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
+
 
 	// This request mapping is to accept new user and save the data to database and
 	// messagebus
