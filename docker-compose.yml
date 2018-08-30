@@ -2,272 +2,274 @@ version: '2.1'
 
 services:
 
-eureka-server:
+  eureka-server:
 
-  build: eureka-server/
+    build: eureka-server/
 
-  depends_on:
+    depends_on:
 
-    config-service:
+      config-service:
 
-      condition: service_healthy
+        condition: service_healthy
 
-  restart: always
+    restart: always
 
-  network_mode: "host"
+    network_mode: "host"
 
-  image: demo-eureka-service
+    image: demo-eureka-service
 
-  hostname: localhost
+    hostname: localhost
 
-  ports:
+    ports:
 
-    - 9090:9090
+      - 9090:9090
 
-  healthcheck:
+    healthcheck:
+
+      test: "exit 0"
+
+
+
+  config-service:
+
+   build: config-service/
+
+   restart: always
+
+   network_mode: "host"
+
+   image: demo-config-service
+
+   hostname: localhost
+
+   ports:
+
+    - 8891:8891
+
+   healthcheck:
 
     test: "exit 0"
 
 
 
-config-service:
+  api-gateway:
 
- build: config-service/
+   build: zuul-apigateway/
 
- restart: always
+   depends_on:
 
- network_mode: "host"
+    config-service:
 
- image: demo-config-service
+     condition: service_healthy
 
- hostname: localhost
+    eureka-server:
 
- ports:
+     condition: service_healthy
 
-  - 8891:8891
+   restart: always
 
- healthcheck:
+   network_mode: "host"
 
-  test: "exit 0"
+   image: demo-zuul-service
 
+   hostname: localhost
 
+   ports:
 
-api-gateway:
+    - 8092:8092
 
- build: zuul-apigateway/
+   healthcheck:
 
- depends_on:
+    test: "exit 0"
 
-  config-service:
+  
 
-   condition: service_healthy
+  login-auth:
 
-  eureka-server:
+   build: login-authentication/
 
-   condition: service_healthy
+   container_name: login-authentication-docker
 
- restart: always
+   depends_on:
 
- network_mode: "host"
+    - mysql
 
- image: demo-zuul-service
+   healthcheck:
 
- hostname: localhost
+    test: exit 0
 
- ports:
+   hostname: localhost
 
-  - 8092:8092
+   image: login
 
- healthcheck:
+   network_mode: host
 
-  test: "exit 0"
+   ports:
 
+    - 8070:8070
 
+   restart: always
 
-login-auth:
 
- build: login-authentication/
 
- container_name: login-authentication-docker
+  mysql:
 
- depends_on:
+   container_name: mysql-docker
 
-  - mysql
+   image: mysql:5.7
 
- healthcheck:
+   ports:
 
-  test: exit 0
+    - 3306:3306
 
- hostname: localhost
+   network_mode: host
 
- image: login
+   hostname: localhost
 
- network_mode: host
+   environment:
 
- ports:
+    MYSQL_ROOT_PASSWORD: root
 
-  - 8070:8070
+    MYSQL_DATABASE: juggler_db
 
- restart: always
+    MYSQL_PASSWORD: root
 
+   healthcheck:
 
+    test: exit 0
 
-mysql:
 
- container_name: mysql-docker
 
- image: mysql:5.7
+  search:
 
- ports:
+   image: anmi123/search:1.0
 
-  - 3306:3306
+   restart: always
 
- network_mode: host
+   network_mode: host
 
- hostname: localhost
+   container_name: search
 
- environment:
+   depends_on:
 
-  MYSQL_ROOT_PASSWORD: root
+    - mongo
 
-  MYSQL_DATABASE: juggler_db
+   ports:
 
-  MYSQL_PASSWORD: root
+    - 8060:8060
 
- healthcheck:
 
-  test: exit 0
 
+  screening:
 
+   image: sakethmaringanti/movie-schedule:1.0
 
-search:
+   restart: always
 
- image: anmi123/search:1.0
+   network_mode: host
 
- restart: always
+   container_name: screening
 
- network_mode: host
+   depends_on:
 
- container_name: search
+     - mongo
 
- depends_on:
+   ports:
 
-  - mongo
+     - 8030:8030
 
- ports:
+   healthcheck:
 
-  - 8060:8060
+     test: "exit 0"
 
 
 
-screening:
+  registration:
 
- image: sakethmaringanti/movie-schedule:1.0
+   image: leelamaithreyi/theatre-registration:1.0
 
- restart: always
+   restart: always
 
- network_mode: host
+   network_mode: host
 
- container_name: screening
+   container_name: spring-docker
 
- depends_on:
+   depends_on:
 
-   - mongo
+    - mongo
 
- ports:
+   ports:
 
-   - 8030:8030
+    - 8020:8020
 
- healthcheck:
+   healthcheck:
 
-   test: "exit 0"
+    test: "exit 0"
 
 
 
-registration:
+  userprofile:
 
- image: leelamaithreyi/theatre-registration:1.0
+   image: thoopalliamar/userprofile:1.0
 
- restart: always
+   restart: always
 
- network_mode: host
+   network_mode: host
 
- container_name: spring-docker
+   container_name: userprofile
 
- depends_on:
+   depends_on:
 
-  - mongo
+    - mongo
 
- ports:
+   ports:
 
-  - 8020:8020
+    - 8040:8040
 
- healthcheck:
+   healthcheck:
 
-  test: "exit 0"
+    test: "exit 0"
 
+  
 
+  distributor:
 
-userprofile:
+   image: saiteja1996/distributor:1.0
 
- image: thoopalliamar/userprofile:1.0
+   restart: always
 
- restart: always
+   network_mode: host
 
- network_mode: host
+   container_name: distributor
 
- container_name: userprofile
+   depends_on:
 
- depends_on:
+     - mongo
 
-  - mongo
+   ports:
 
- ports:
+    - 8010:8010
 
-  - 8040:8040
+   healthcheck:
 
- healthcheck:
+    test: "exit 0"
 
-  test: "exit 0"
 
 
+  mongo:
 
-distributor:
+   image: mongo
 
- image: saiteja1996/distributor:1.0
+   network_mode: host
 
- restart: always
+   container_name: spring-mongo
 
- network_mode: host
+   ports:
 
- container_name: distributor
+    - 27017:27017
 
- depends_on:
+   volumes:
 
-   - mongo
+    - /usr/src/home:/data/db
 
- ports:
 
-  - 8010:8010
-
- healthcheck:
-
-  test: "exit 0"
-
-
-
-mongo:
-
- image: mongo
-
- network_mode: host
-
- container_name: spring-mongo
-
- ports:
-
-  - 27017:27017
-
- volumes:
-
-  - /usr/src/home:/data/db
