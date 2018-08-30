@@ -26,6 +26,16 @@ public class User {
 	public User() {
 	}
 
+	public User(Long userId, String email, String password, Long phoneNumber, String role, Date created) {
+		super();
+		this.userId = userId;
+		this.email = email;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
+		this.role = role;
+		this.created = created;
+	}
+
 	public Long getUserId() {
 		return userId;
 	}

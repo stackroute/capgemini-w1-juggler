@@ -18,8 +18,8 @@ import com.stackroute.juggler.kafka.domain.User;
 @EnableKafka
 @Configuration
 public class KafkaConsumerconfiguration {
-	
-	//consumer factory of kafka which will hold the configuration details
+
+	// consumer factory of kafka which will hold the configuration details
 	@Bean
 	public ConsumerFactory<String, InputUser> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
@@ -30,7 +30,8 @@ public class KafkaConsumerconfiguration {
 		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
 				new JsonDeserializer<>(InputUser.class));
 	}
-	//Template imports the configuration from Consumer factory
+
+	// Template imports the configuration from Consumer factory
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, InputUser> kafkaListenerContainerFactory() {
 		ConcurrentKafkaListenerContainerFactory<String, InputUser> factory = new ConcurrentKafkaListenerContainerFactory();
