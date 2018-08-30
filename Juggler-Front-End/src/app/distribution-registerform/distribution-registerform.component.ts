@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import { MovieDataService } from '../movie-data.service';
 import { Movie } from '../movie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-distribution-registerform',
@@ -45,7 +46,7 @@ export class DistributionRegisterFormComponent implements OnInit {
   movie_Genres = new FormControl('', [
     Validators.required
   ]);
-  constructor(private cardservice: MovieDataService) { }
+  constructor(private cardservice: MovieDataService, private router: Router) { }
 
   onSubmit() {
     this.movie.movieName = this.movie_name.value;
@@ -65,6 +66,7 @@ export class DistributionRegisterFormComponent implements OnInit {
       this.cardservice
         .addMovie(this.movie)
         .subscribe(res => console.log('Saved theatre'));
+      this.router.navigate(['/login-partner']);
   }
   ngOnInit() {
   }
