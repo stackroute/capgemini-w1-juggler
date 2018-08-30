@@ -3,8 +3,8 @@ export class Movie {
   movieposter: string;
   synopsis: string;
   format: string;
-  movieReleaseDate: Date;
-  movieDuration: Date;
+  movieReleaseDate: string;
+  movieDuration: string;
   actor: string[];
   actres: string[];
   directors: string[];

@@ -49,8 +49,8 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 
 	// get city by cityName
 	@Override
-	public List<City> getByCity(String city) {
-		List<City> list = cityRepository.getBycityName(city);
+	public City getByCity(String city) {
+		City list = cityRepository.getBycityName(city);
 		return list;
 
 	}
@@ -68,9 +68,9 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 	}
 
 	@Override
-	@KafkaListener(topics = "movieLikes", groupId = "user")
+	@KafkaListener(topics = "searchdetails", groupId = "user")
 	public City consumeKafka(City city) {
-
+		System.out.println(""+city.getCityName());
 		return city;
 
 	}

@@ -1,12 +1,10 @@
 package com.stackroute.juggler.userprofile.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.kafka.domain.InputUser;
-import com.stackroute.juggler.kafka.domain.UserLikes;
 import com.stackroute.juggler.kafka.domain.UserProfile;
 import com.stackroute.juggler.userprofile.configuration.KafkaConfiguration;
 import com.stackroute.juggler.userprofile.exceptions.ProfileAlreadyExitsException;

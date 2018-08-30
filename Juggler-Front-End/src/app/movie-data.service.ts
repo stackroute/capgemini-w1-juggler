@@ -14,7 +14,7 @@ export class MovieDataService {
     return this.http.get('http://localhost.:8010/api/v1/movie/');
   }
   getMovie() {
-    return this.http.get('http://localhost.:8010/api/v1/movie/');
+    return this.http.get('http://localhost.:8010/api/v1/movie');
   }
   getMovieByTitle() {
     return this.http.get('http://localhost.:8010/api/v1/movie/');
