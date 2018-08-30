@@ -12,5 +12,5 @@ public interface UserDao extends CrudRepository<User, Long> {
 	// find data fom database by email and number
 	User findByEmail(String email);
 
-	User findByPhoneNumber(Long phoneNumber);
+	
 }

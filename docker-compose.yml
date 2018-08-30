@@ -1,5 +1,4 @@
 version: '2.1'
-
 services:
   eureka-server:
     build: eureka-server/
@@ -33,81 +32,44 @@ services:
      condition: service_healthy
     eureka-server:
      condition: service_healthy
-    restart: always
-    network_mode: "host"
-    image: demo-zuul-service
-    hostname: localhost
-    ports:
-     - 8092:8092
-    healthcheck:
-     test: "exit 0"
-  
-
-  userprofile:
-   image: thoopalliamar/userprofile:1.0
    restart: always
-   network_mode: host
-   container_name: userprofile
-   depends_on:
-    - mongo
+   network_mode: "host"
+   image: demo-zuul-service
+   hostname: localhost
    ports:
-    - 8040:8040
+    - 8092:8092
    healthcheck:
     test: "exit 0"
-
-      
-      
-  spring:
-   image: leelamaithreyi/theatre-registration:1.0
-   restart: always
-   network_mode: host
-   container_name: spring-docker
-   depends_on:
-     - mongo
-   ports:
-     - 8020:8020
-   healthcheck:
-      test: "exit 0"
-      
-      
-   spring:
-    image: sakethmaringanti/movie-schedule:1.0
-    restart: always
-    network_mode: host
-    container_name: spring-docker
-    depends_on:
-      - mongo
-    ports:
-      - 8030:8030
-    healthcheck:
-      test: "exit 0"  
-    
-login-auth:
+  
+  login-auth:
    build: login-authentication/
-   image: login
-   restart: always
-   network_mode: host
-   hostname: localhost
    container_name: login-authentication-docker
    depends_on:
     - mysql
+   healthcheck:
+    test: exit 0
+   hostname: localhost
+   image: login
+   network_mode: host
    ports:
     - 8070:8070
-   healthcheck:
-      test: "exit 0"
-     
+   restart: always
+
   mysql:
+   container_name: mysql-docker
    image: mysql:5.7
    ports:
-    - "3306:3306"
-   container_name: mysql-docker
+    - 3306:3306
    network_mode: host
    hostname: localhost
    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: juggler_db
-      MYSQL_PASSWORD: root
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: juggler_db
+    MYSQL_PASSWORD: root
    healthcheck:
-      test: "exit 0"
- 
- 
+    test: exit 0
+   
+   
+   
+   
+  

@@ -22,12 +22,6 @@ public class UserServiceImpl implements UserService {
 		return userDao.findByEmail(email);
 	}
 
-	@Override
-	public User findByPhoneNumber(Long phoneNumber) {
-
-		return userDao.findByPhoneNumber(phoneNumber);
-	}
-
 	// Listen the details from the kafka
 	@Override
 	@KafkaListener(topics = "details8", groupId = "user")
