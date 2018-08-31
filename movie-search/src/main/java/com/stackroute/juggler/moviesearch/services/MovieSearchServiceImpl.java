@@ -2,13 +2,13 @@ package com.stackroute.juggler.moviesearch.services;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.moviesearch.domain.City;
 import com.stackroute.juggler.moviesearch.domain.Movie;
 import com.stackroute.juggler.moviesearch.repository.CityRepository;
@@ -49,8 +49,8 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 
 
 	@Override
-	public City getByCity(String city) {
-		City list = cityRepository.getBycityName(city);
+	public List<City> getByCity(String city) {
+		List<City> list = cityRepository.getBycityName(city);
 		return list;
 		
 	}
@@ -61,39 +61,14 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		return list;
 		
 	}
-	// the method to listen the message from the specified kafka topic
+	
 	@Override
-    @KafkaListener(topics = "movieLikes", groupId = "user" , containerFactory = "kafkaListenerContainerFactory")
-    public void consumeKafka(MovieSchedule movieschedule) {
-		City addcity=null;
-		addcity=cityRepository.getBycityName(movieschedule.getTheatreCity());
-		String cityName=movieschedule.getTheatreCity();
-			Movie movie=null;
-			movie=(Movie) movieRepository.getBymovieName(movieschedule.getMovieDetails().getMovieName());
-		
-			String id=((KafkaListener) movieschedule.getMovieDetails()).id();
-		movieschedule.getMovieDetails().getActors();
-//			City addTheatre = null;
-//
-//			if (movieScheduleRepo.getByTheatreName(registration.getTheatreName()) != null) {
-//				addTheatre = movieScheduleRepo.getByTheatreName(registration.getTheatreName());
-//				String theatreId = registration.getTheatreId();
-//				String theatreLocation = registration.getTheatreLocation();
-//				String theatreCity = registration.getTheatreCity();
-//				String theatreLicenseNo = registration.getTheatreLicenseNo();
-//				String noOfSeats = registration.getNumberOfSeats();
-//				Map<String, Integer> seats = registration.getSeats();
-//				addTheatre.setTheatreLocation(theatreLocation);
-//				addTheatre.setTheatreId(theatreId);
-//				addTheatre.setTheatreCity(theatreCity);
-//				addTheatre.setTheatreLicenseNo(theatreLicenseNo);
-//				addTheatre.setNumberOfSeats(noOfSeats);
-//				addTheatre.setSeats(seats);
-//				movieScheduleRepo.save(addTheatre);
-//				System.out.println(theatreLocation);
-			}
+    @KafkaListener(topics = "movieLikes", groupId = "user")
+    public City consumeKafka(City city) {
+		System.out.println(""+city.getCityName());
+		return city;
 
-		
-		
+ 
+        }
 
 }

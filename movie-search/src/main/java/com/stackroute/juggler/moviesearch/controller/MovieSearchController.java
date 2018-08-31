@@ -26,33 +26,21 @@ MovieSearchServiceImpl searchService;
 	public MovieSearchController(MovieSearchServiceImpl searchService) {
 	this.searchService=searchService;
 	}
-
-	// get movies by movieName
 	@RequestMapping(value = "/movie/{movieName}", method = RequestMethod.GET, produces = { "application/json" })
 	public ResponseEntity<?> getMovieByName(@PathVariable String movieName) {
-
-		try {
-			List<Movie> movie = searchService.getByTitle(movieName);
-			return new ResponseEntity<List<Movie>>(movie, HttpStatus.OK);
-		} catch (MovieNotFound m) {
-			String result = m.getMessage();
-			return new ResponseEntity<String>(result, HttpStatus.OK);
-		}
+		List<Movie> movie=searchService.getByTitle(movieName);
+		return new ResponseEntity<List<Movie>>(movie,HttpStatus.OK);
 
 	}
-
-	// get city with movies by city name
 	@RequestMapping(value = "/city/{cityName}", method = RequestMethod.GET, produces = { "application/json" })
 	public ResponseEntity<?> getCityByName(@PathVariable String cityName) {
-		City movie=searchService.getByCity(cityName);
-		return new ResponseEntity<City>(movie,HttpStatus.OK);
+		List<City> movie=searchService.getByCity(cityName);
+		return new ResponseEntity<List<City>>(movie,HttpStatus.OK);
 
 	}
-
-	// saving the city and movies
-	@RequestMapping(value = "/city", method = RequestMethod.POST, produces = { "application/json" })
+	@RequestMapping(value = "/citys", method = RequestMethod.POST, produces = { "application/json" })
 	public ResponseEntity<?> saveCity(@RequestBody City city) {
-
+		
 		String response = searchService.saveCity(city);
 		return new ResponseEntity<String>(response, HttpStatus.OK);
 	}

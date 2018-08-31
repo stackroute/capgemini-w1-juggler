@@ -13,7 +13,6 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.moviesearch.domain.City;
 
 @EnableKafka
@@ -21,7 +20,7 @@ import com.stackroute.juggler.moviesearch.domain.City;
 public class KafkaConsumerconfiguration {
 
 	@Bean
-	public ConsumerFactory<String,MovieSchedule> consumerFactory() {
+	public ConsumerFactory<String, City> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
 		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
@@ -29,12 +28,12 @@ public class KafkaConsumerconfiguration {
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 
-		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(), new JsonDeserializer<>(MovieSchedule.class));
+		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(), new JsonDeserializer<>(City.class));
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, MovieSchedule> kafkaListenerContainerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String, MovieSchedule> factory = new ConcurrentKafkaListenerContainerFactory();
+	public ConcurrentKafkaListenerContainerFactory<String, City> kafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, City> factory = new ConcurrentKafkaListenerContainerFactory();
 		factory.setConsumerFactory(consumerFactory());
 		return factory;
 	}

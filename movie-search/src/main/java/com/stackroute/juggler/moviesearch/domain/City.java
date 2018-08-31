@@ -18,9 +18,6 @@ import lombok.NoArgsConstructor;
 public class City {
 	@Id
 	private String cityId;
-	private String cityName;
-	private List<Movie> movieList;
-	// List of all getters and setters
 	public String getCityId() {
 		return cityId;
 	}
@@ -40,15 +37,16 @@ public class City {
 	public void setMovieList(List<Movie> movieList) {
 		this.movieList = movieList;
 	}
-
-	// All arguments constructor
-	public City(String cityId, String cityName, List<Movie> movieList) {
-		super();
-		this.cityId = cityId;
-		this.cityName = cityName;
-		this.movieList = movieList;
-	}
+	private String cityName;
+	private List<Movie> movieList;
 	
-	public City() {
-		super();	}
+//	public City(int cityId, String cityName, List<Movie> movieList) {
+//		super();
+//		this.cityId = cityId;
+//		this.cityName = cityName;
+//		this.movieList = movieList;
+//	}
+////	public City() {
+////		super();
+////	}
 }
