@@ -1,49 +1,54 @@
-package com.stackroute.juggler.kafka.domain;
+package com.stackroute.juggler.moviesearch.domain;
 
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Document
-// Domain object for city
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class City {
 	@Id
-	public String id;
+	private String cityId;
 	private String cityName;
 	private List<Movie> movieList;
-
 	// List of all getters and setters
-	public String getId() {
-		return id;
+	public String getCityId() {
+		return cityId;
 	}
-
-	public void setId(String id) {
-		this.id = id;
+	public void setCityId(String cityId) {
+		this.cityId = cityId;
 	}
-
 	public String getCityName() {
 		return cityName;
 	}
-
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
-
 	public List<Movie> getMovieList() {
 		return movieList;
 	}
-
+	
 	public void setMovieList(List<Movie> movieList) {
 		this.movieList = movieList;
 	}
 
-	// All Arguments constructor
-	public City(String id, String cityName, List<Movie> movieList) {
+	// All arguments constructor
+	public City(String cityId, String cityName, List<Movie> movieList) {
 		super();
-		this.id = id;
+		this.cityId = cityId;
 		this.cityName = cityName;
 		this.movieList = movieList;
 	}
-
+	
+	public City() {
+		super();	}
 }

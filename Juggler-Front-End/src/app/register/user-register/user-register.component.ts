@@ -1,7 +1,8 @@
+import { User } from './../../user';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { User } from '../../user';
+
 
 
 
@@ -16,7 +17,7 @@ export class UserRegisterComponent implements OnInit {
   secondFormGroup: FormGroup;
 
   // hide = true;
-  user = new User();
+  user = new User;
 
   constructor(private userService: UserService, private _formBuilder: FormBuilder) { }
   // emailFormControl = new FormControl('', [
