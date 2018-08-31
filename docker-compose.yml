@@ -1,5 +1,4 @@
 version: '2.1'
-
 services:
   eureka-server:
     build: eureka-server/
@@ -7,75 +6,65 @@ services:
       config-service:
         condition: service_healthy
     restart: always
-    network_mode: "host"
+    network_mode: host
     image: demo-eureka-service
     hostname: localhost
     ports:
-      - 9090:9090
+    - 9090:9090
     healthcheck:
-      test: "exit 0"
-
+      test: exit 0
   config-service:
     build: config-service/
     restart: always
-    network_mode: "host"
+    network_mode: host
     image: demo-config-service
     hostname: localhost
     ports:
-      - 8891:8891
+    - 8891:8891
     healthcheck:
-      test: "exit 0"
-
+      test: exit 0
   api-gateway:
-   build: zuul-apigateway/
-   depends_on:
-    config-service:
-     condition: service_healthy
-    eureka-server:
-     condition: service_healthy
-    restart: always
-    network_mode: "host"
-    image: demo-zuul-service
-    hostname: localhost
-    ports:
-     - 8092:8092
-    healthcheck:
-     test: "exit 0"
-  
-
+    build: zuul-apigateway/
+    depends_on:
+      config-service:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+      restart: always
+      network_mode: host
+      image: demo-zuul-service
+      hostname: localhost
+      ports:
+      - 8092:8092
+      healthcheck:
+        test: exit 0
   userprofile:
-   image: thoopalliamar/userprofile:1.0
-   restart: always
-   network_mode: host
-   container_name: userprofile
-   depends_on:
+    image: thoopalliamar/userprofile:1.0
+    restart: always
+    network_mode: host
+    container_name: userprofile
+    depends_on:
     - mongo
-   ports:
+    ports:
     - 8040:8040
-   healthcheck:
-    test: "exit 0"
-
-      
+    healthcheck:
+      test: exit 0
   registration:
-   image: leelamaithreyi/theatre-registration:1.0
-   restart: always
-   network_mode: host
-   container_name: spring-docker
-   depends_on:
-     - mongo
-   ports:
-     - 8020:8020
-   healthcheck:
-      test: "exit 0"
-       
-       
+    image: leelamaithreyi/theatre-registration:1.0
+    restart: always
+    network_mode: host
+    container_name: spring-docker
+    depends_on:
+    - mongo
+    ports:
+    - 8020:8020
+    healthcheck:
+      test: exit 0
   mongo:
-   image: mongo
-   network_mode: host
-   container_name: spring-mongo
-   ports:
-     - 27017:27017
-   volumes:
-     - /usr/src/home:/data/db
-      
-      
+    image: mongo
+    network_mode: host
+    container_name: spring-mongo
+    ports:
+    - 27017:27017
+    volumes:
+    - /usr/src/home:/data/db

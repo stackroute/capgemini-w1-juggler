@@ -17,8 +17,8 @@ public class Registration {
 	private String theatreName;
 	private String theatreLicenseNo;
 	private String numberOfSeats;
-	//private String[] typesOfSeats;
-	private Map<String,Integer> seats;
+	// private String[] typesOfSeats;
+	private Map<String, Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
 	// private String[] typesOfSeats;
@@ -130,11 +130,11 @@ public class Registration {
 
 	public void setComments(String string) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public Object getComments() {
 		// TODO Auto-generated method stub
 		return null;
-	}	
+	}
 }

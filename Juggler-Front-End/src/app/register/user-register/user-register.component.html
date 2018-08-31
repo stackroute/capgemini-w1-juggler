@@ -1,15 +1,21 @@
 <div style="text-align: center">
-    <h4><strong>User Registration</strong></h4>
+    <h4>
+        <strong>User Registration</strong>
+    </h4>
 </div>
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Fill out your name</ng-template>
+
+
             <mat-form-field class="example-full-width">
                 <mat-label>Enter Your Name</mat-label>
                 <input matInput placeholder="Enter your name" formControlName="userName" type="text" required>
                 <mat-error>This field is required</mat-error>
             </mat-form-field>
+
+
             <mat-form-field class="example-full-width">
                 <mat-label>Enter Your Email</mat-label>
                 <input matInput placeholder="Enter Your Email" formControlName="email" type="email" required>
@@ -28,6 +34,9 @@
         </form>
     </mat-step>
 
+
+
+    
     <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
             <ng-template matStepLabel>Fill out your address</ng-template>
