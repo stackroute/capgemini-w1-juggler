@@ -8,20 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./partner-register.component.scss']
 })
 export class PartnerRegisterComponent implements OnInit {
-role: string;
-//   registerForm: FormGroup;
-//   loading = false;
-//   submitted = false;
-//   constructor(private formBuilder: FormBuilder, private alertService: AlertService) { }
 
-  ngOnInit() {
-//     this.registerForm = this.formBuilder.group({
-//       email: ['', Validators.required],
-//       password: ['', Validators.required]
-//   });
-  }
-//   get f() {
-//     return this.registerForm.controls;
-//   }
-//   onSubmit() {}
+  ngOnInit() { }
 }
+
