@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.juggler.kafka.domain.Language;
-import com.stackroute.juggler.kafka.domain.Movie;
-import com.stackroute.juggler.kafka.domain.User;
+import com.stackroute.juggler.recommendation.domain.Language;
+import com.stackroute.juggler.recommendation.domain.Movie;
+import com.stackroute.juggler.recommendation.domain.User;
 import com.stackroute.juggler.recommendation.repositories.UserRepository;
 import com.stackroute.juggler.recommendation.services.MovieService;
 import com.stackroute.juggler.recommendation.services.UserService;

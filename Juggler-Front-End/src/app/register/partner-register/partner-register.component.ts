@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./partner-register.component.scss']
 })
 export class PartnerRegisterComponent implements OnInit {
-//   role: string;
+role: string;
 //   registerForm: FormGroup;
 //   loading = false;
 //   submitted = false;

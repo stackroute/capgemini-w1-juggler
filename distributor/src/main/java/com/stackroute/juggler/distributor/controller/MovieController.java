@@ -68,19 +68,6 @@ public class MovieController {
 		}
 	}
 
-	// // update
-	// @RequestMapping(value = "/movie", method = RequestMethod.PUT, produces = {
-	// "application/json" })
-	// public ResponseEntity<?> updateMovieToDB(@RequestBody Movie movie,
-	// @RequestParam int movieId) {
-	// Movie movieUpdated;
-	// try {
-	// movieUpdated = movieServices.updateMovie(movie);
-	// } catch (MovieNotFoundException e) {
-	// return new ResponseEntity<String>("{ \"message\": \"" + e.getMessage() +
-	// "\"}", HttpStatus.CONFLICT);
-	// }
-	// return new ResponseEntity<Movie>(movieUpdated, HttpStatus.FOUND);
-	// }
+
 
 }
