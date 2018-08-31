@@ -20,7 +20,7 @@ import com.stackroute.juggler.theatreregistration.services.RegistrationService;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 
-//class level request mapping
+// class level request mapping
 @RequestMapping(value = "/api/v1/")
 public class RegistrationController {
 
@@ -38,6 +38,8 @@ public class RegistrationController {
 	public ResponseEntity<?> saveTheatre(@RequestBody Registration theatre) throws TheatreAlreadyExists {
 
 		Registration theatreobj = null;
+
+		// This is to save
 		try {
 			theatreobj = registrationService.saveTheatre(theatre);
 			return new ResponseEntity<Registration>(theatreobj, HttpStatus.OK);
@@ -49,7 +51,6 @@ public class RegistrationController {
 	}
 
 	// get the particular theatre from database by using theatre name
-
 	@RequestMapping(value = "/theatre", method = RequestMethod.PUT)
 	public ResponseEntity<Registration> updateTheatre(@RequestBody Registration theatre) {
 

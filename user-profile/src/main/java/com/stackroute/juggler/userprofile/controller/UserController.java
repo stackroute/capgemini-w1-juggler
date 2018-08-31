@@ -36,9 +36,7 @@ public class UserController {
 		this.userService = userService;
 	}
 
-
-	// This request mapping is to accept new user and save the data to database and
-	// messagebus
+	// mapping is to accept new user and save the data to database and messagebus
 	@RequestMapping(value = "/regestration", method = RequestMethod.POST)
 	public ResponseEntity<?> saveUser(@RequestBody InputUser inputUser) throws ProfileAlreadyExitsException {
 		// InputUser userobj = null;
@@ -55,7 +53,7 @@ public class UserController {
 
 	}
 
-	// This is to view the user in the database we take user id in url itself
+	// Views the user in the database we take user id in url itself
 	@RequestMapping(value = "/user/{userid}", method = RequestMethod.GET)
 	public ResponseEntity<?> viewuser(@PathVariable String userid) throws UserDoesNotExistsException {
 		try {
@@ -71,7 +69,7 @@ public class UserController {
 
 	}
 
-	// This is to update user initially we find the user and allow to update
+	//Updates user initially we find the user and allow to update
 	@RequestMapping(value = "/user/{userid}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateuser(@PathVariable String userid, @RequestBody UserProfile user)
 			throws UpdateFailedException, UserDoesNotExistsException {

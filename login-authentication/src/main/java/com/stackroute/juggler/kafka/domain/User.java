@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
+
 // Domain object to save details into login database
 @Entity
 public class User {
@@ -21,6 +22,19 @@ public class User {
 
 	@CreationTimestamp
 	private Date created;
+
+	public User() {
+	}
+
+	public User(Long userId, String email, String password, Long phoneNumber, String role, Date created) {
+		super();
+		this.userId = userId;
+		this.email = email;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
+		this.role = role;
+		this.created = created;
+	}
 
 	public Long getUserId() {
 		return userId;

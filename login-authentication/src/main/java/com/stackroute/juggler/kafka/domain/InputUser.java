@@ -1,15 +1,13 @@
 package com.stackroute.juggler.kafka.domain;
 
-import java.util.Arrays;
 import javax.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
 
-//																
 // This domain object is used to save the data from the kafka
 // this user_id is set as id
 public class InputUser {
 	@Id
-	private int userId;
+	private String userId;
 	@Size(min = 6, max = 20)
 	private String userName;
 	private String emailId;
@@ -29,11 +27,11 @@ public class InputUser {
 
 	}
 
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
@@ -131,14 +129,7 @@ public class InputUser {
 		this.likes = likes;
 	}
 
-	// @Override
-	// public String toString() {
-	// return "User [ emailId=" + emailId + ",
-	// password=" + password + ",
-	//
-	// }
-
-	public InputUser(int userId, @Size(min = 6, max = 20) String userName, String emailId, double mobileNo,
+	public InputUser(String userId, @Size(min = 6, max = 20) String userName, String emailId, double mobileNo,
 			@Size(min = 8, max = 20) String password, String gender, String dateOfBirth, String[] languagesKnown,
 			String[] genre, String location, String[] paymentMethods, String likes) {
 		super();

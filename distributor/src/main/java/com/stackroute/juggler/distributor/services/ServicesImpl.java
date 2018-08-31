@@ -10,7 +10,7 @@ import com.stackroute.juggler.distributor.repositary.MovieRepositary;
 @Service
 public class ServicesImpl implements Services {
 
-	//Instance of repository
+	// Instance of repository
 	@Autowired
 	private MovieRepositary movieRepositary;
 
@@ -19,7 +19,7 @@ public class ServicesImpl implements Services {
 		this.movieRepositary = movieRepositary;
 	}
 
-	//This saves the movie to database
+	// This saves the movie to database
 	@Override
 	public Movie saveMovie(Movie movie) {
 		Movie savedMovie = movieRepositary.save(movie);
@@ -27,14 +27,14 @@ public class ServicesImpl implements Services {
 
 	}
 
-	//This gets the movie from database by movie title
+	// This gets the movie from database by movie title
 	@Override
 	public List<Movie> getByMovieTitle(String movieTitle) {
 		List<Movie> movies = movieRepositary.getByMovieName(movieTitle);
 		return movies;
 	}
 
-	//This gets all the movies from the database
+	// This gets all the movies from the database
 	@Override
 	public List<Movie> getAllMovies() {
 		List<Movie> movies = (List<Movie>) movieRepositary.findAll();

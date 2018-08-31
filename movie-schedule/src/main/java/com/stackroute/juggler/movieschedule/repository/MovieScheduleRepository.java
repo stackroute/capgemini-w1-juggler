@@ -1,12 +1,14 @@
 package com.stackroute.juggler.movieschedule.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
 
-public interface MovieScheduleRepository extends CrudRepository<MovieSchedule, Integer> {
-	
-	MovieSchedule findByTheatreId(int theatreId);
-	
+//declaring it as a repository
+@Repository
+public interface MovieScheduleRepository extends MongoRepository<MovieSchedule, Integer> {
+
+	public MovieSchedule getByTheatreName(String theatreName);
 
 }

@@ -4,12 +4,13 @@ import com.stackroute.juggler.kafka.domain.InputUser;
 import com.stackroute.juggler.kafka.domain.User;
 
 public interface UserService {
-	//save the user
+	// save the user
 	User save(User user);
-   // find user my email and phoneNumber
+
+	// find user my email
 	User findByEmail(String email);
-	User findByPhoneNumber(Long phoneNumber);
+
 	// consume message from kafka
-	 public void consumeKafka(InputUser User);
+	public void consumeKafka(InputUser User);
 
 }

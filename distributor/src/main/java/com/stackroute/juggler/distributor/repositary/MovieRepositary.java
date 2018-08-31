@@ -11,9 +11,10 @@ import com.stackroute.juggler.distributor.domain.Movie;
 @Repository
 public interface MovieRepositary extends MongoRepository<Movie, String> {
 
-	//Gets movie details by title from database
+	// Gets movie details by title from database
 	public List<Movie> getByMovieName(String movieName);
 
-	//Gets movie details by Id from database
+	// Gets movie details by Id from database
 	public Movie getById(String id);
+
 }
