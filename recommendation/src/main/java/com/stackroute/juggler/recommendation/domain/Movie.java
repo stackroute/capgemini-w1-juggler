@@ -92,3 +92,4 @@ public class Movie{
 		public void setDirector(String director) {
 			this.director = director;
 		}
+}
