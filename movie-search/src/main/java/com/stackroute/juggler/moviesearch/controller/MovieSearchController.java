@@ -12,20 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.juggler.kafka.domain.City;
-import com.stackroute.juggler.kafka.domain.Movie;
-import com.stackroute.juggler.moviesearch.exceptions.MovieNotFound;
+import com.stackroute.juggler.moviesearch.domain.City;
+import com.stackroute.juggler.moviesearch.domain.Movie;
 import com.stackroute.juggler.moviesearch.services.MovieSearchServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/api/v1")
 public class MovieSearchController {
-	MovieSearchServiceImpl searchService;
-
+MovieSearchServiceImpl searchService;
+	
 	@Autowired
 	public MovieSearchController(MovieSearchServiceImpl searchService) {
-		this.searchService = searchService;
+	this.searchService=searchService;
 	}
 
 	// get movies by movieName
@@ -45,8 +44,8 @@ public class MovieSearchController {
 	// get city with movies by city name
 	@RequestMapping(value = "/city/{cityName}", method = RequestMethod.GET, produces = { "application/json" })
 	public ResponseEntity<?> getCityByName(@PathVariable String cityName) {
-		City movie = searchService.getByCity(cityName);
-		return new ResponseEntity<City>(movie, HttpStatus.OK);
+		City movie=searchService.getByCity(cityName);
+		return new ResponseEntity<City>(movie,HttpStatus.OK);
 
 	}
 

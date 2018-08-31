@@ -15,4 +15,5 @@ public interface MovieSearchService {
 	public List<Movie> getByTitle(String movieName) throws MovieNotFound;
 
 	public City consumeKafka(City city);
+	
 }

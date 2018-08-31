@@ -1,14 +1,17 @@
-//package com.stackroute.juggler.moviesearch.controllertest;
+//package com.stackroute.juggler.distributor.controllerTest;
+//
 //import static org.mockito.Mockito.times;
 //import static org.mockito.Mockito.verify;
 //import static org.mockito.Mockito.verifyNoMoreInteractions;
 //import static org.mockito.Mockito.when;
-//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 //import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 //import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 //import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 //import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-//
+////
+//import java.time.LocalDate;
+//import java.time.LocalTime;
+//import java.time.Month;
 //import java.util.ArrayList;
 //import java.util.List;
 //
@@ -16,7 +19,6 @@
 //import org.junit.Test;
 //import org.junit.runner.RunWith;
 //import org.mockito.InjectMocks;
-//
 //import org.mockito.Mockito;
 //import org.mockito.MockitoAnnotations;
 //import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -24,56 +26,60 @@
 //import org.springframework.http.MediaType;
 //import org.springframework.test.context.junit4.SpringRunner;
 //import org.springframework.test.web.servlet.MockMvc;
-//
 //import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 //
 //import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.stackroute.juggler.kafka.domain.City;
-//import com.stackroute.juggler.kafka.domain.Movie;
-//import com.stackroute.juggler.moviesearch.controller.MovieSearchController;
-//import com.stackroute.juggler.moviesearch.services.MovieSearchService;
-//
+//import com.stackroute.juggler.distributor.controller.MovieController;
+//import com.stackroute.juggler.distributor.domain.Movie;
+//import com.stackroute.juggler.distributor.services.Services;
 //
 //@RunWith(SpringRunner.class)
-//@WebMvcTest(MovieSearchController.class)
-//public class SearchControllerTest {
+//@WebMvcTest(MovieController.class)
+//public class ControllerTest {
 //
 //	private MockMvc movieMockMvc;
 //
 //	@MockBean
-//	private MovieSearchService movieService;
+//	private Services movieServices;
 //
 //	@InjectMocks
-//	private MovieSearchController movieController;
+//	private MovieController movieController;
 //
-//	private Movie movie;
-//	private City city;
 //	static List<Movie> movies;
 //
 //	@Before
 //	public void setUp() throws Exception {
 //
 //		MockitoAnnotations.initMocks(this);
-//
-//		
 //		movieMockMvc = MockMvcBuilders.standaloneSetup(movieController).build();
 //		movies = new ArrayList<>();
-//		movie= new Movie(1,"bahubali", null, null, null, null, null, null, null, null, null, null, null);
-//		movies.add(movie);
-//		movie = new Movie(2, "geetha", null, null, null, null, null, null, null, null, null, null, null);
-//		movies.add(movie);
-//		movie = new Movie(3, "geetha subraanyam", null, null, null, null, null, null, null, null, null, null, null);
-//		movies.add(movie);
 //	}
 //
-//	
-//	
 //	@Test
-//	public void testgetbyMoviename() throws Exception {
+//	public void testGetAllMovies() throws Exception {
+//		String actors = "ranveer";
+//		String actress = "deepika";
+//		String directors = "rajkumar";
+//		String genres = "romance";
+//		String languages = "Telugu";
+//		LocalTime localTime2 = LocalTime.of(21, 30, 59, 11001);
+//		LocalDate firstDay_2014 = LocalDate.of(2014, Month.JANUARY, 1);
+//		Movie movie = new Movie("1", "RamLeela", "something.com", actors, actress, directors, genres,
+//				"A heroine mad for hero fights against all the hurdles and losses him", "14D", languages, localTime2,
+//				firstDay_2014);
 //
-//		when(movieService.getByTitle("bahubali")).thenReturn((List<Movie>) movies.get(1));
-//		movieMockMvc.perform(get("/api/v1/movie/", "bahubali")).andExpect(status().isOk());
-//		verify(movieService, times(1)).getByTitle("bahubali");
-//		verifyNoMoreInteractions(movieService);
+//		when(movieServices.getAllMovies()).thenReturn(null);
+//		movieMockMvc.perform(get("/api/v1/movies")).andExpect(status().isOk());
+//		verify(movieServices, times(1)).getAllMovies();
+//		verifyNoMoreInteractions(movieServices);
+//
+//	}
+//
+//	public static String asJsonString(final Object obj) {
+//		try {
+//			return new ObjectMapper().writeValueAsString(obj);
+//		} catch (Exception e) {
+//			throw new RuntimeException(e);
+//		}
 //	}
 //}

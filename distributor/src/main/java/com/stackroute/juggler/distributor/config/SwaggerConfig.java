@@ -1,4 +1,4 @@
-package com.stackroute.juggler.moviesearch.config;
+package com.stackroute.juggler.distributor.config;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +16,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
    @Bean
    public Docket productApi() {
        return new Docket(DocumentationType.SWAGGER_2).select()
-               .apis(RequestHandlerSelectors.basePackage("com.stackroute.juggler.moviesearch.controller"))
+               .apis(RequestHandlerSelectors.basePackage("com.stackroute.juggler.distributor.controller"))
                .paths(regex("/api/v1.*")).build();
 
    }

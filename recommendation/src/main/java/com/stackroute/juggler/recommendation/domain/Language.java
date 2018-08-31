@@ -1,4 +1,4 @@
-package com.stackroute.juggler.kafka.domain;
+package com.stackroute.juggler.recommendation.domain;
 
 import java.util.List;
 
