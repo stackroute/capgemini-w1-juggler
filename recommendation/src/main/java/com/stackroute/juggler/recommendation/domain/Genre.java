@@ -1,4 +1,4 @@
-package com.stackroute.juggler.kafka.domain;
+package com.stackroute.juggler.recommendation.domain;
 
 import java.util.List;
 
@@ -7,30 +7,28 @@ import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
 @NodeEntity
-public class City {
+public class Genre {
 	@Id
-	private String nodeId;
 	private String name;
-	@Relationship(type = "releasedIn", direction = Relationship.INCOMING)
+	@Relationship(type = "isTypeOf", direction = Relationship.INCOMING)
 	private List<Movie> movies;
-	@Relationship(type = "livesIn", direction = Relationship.INCOMING)
+	@Relationship(type = "follows", direction = Relationship.INCOMING)
 	private List<User> users;
 
-	public City() {
-		super();
+	public Genre() {
+
 	}
 
-	public String getNodeId() {
-		return nodeId;
-	}
-
-	public void setNodeId(String nodeId) {
-		this.nodeId = nodeId;
-	}
-
-	public City(String name) {
+	public Genre(String name) {
 		super();
 		this.name = name;
+	}
+
+	public Genre(String name, List<Movie> movies, List<User> users) {
+		super();
+		this.name = name;
+		this.movies = movies;
+		this.users = users;
 	}
 
 	public String getName() {

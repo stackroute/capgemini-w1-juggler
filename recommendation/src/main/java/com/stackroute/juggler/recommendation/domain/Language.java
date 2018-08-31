@@ -1,4 +1,4 @@
-package com.stackroute.juggler.kafka.domain;
+package com.stackroute.juggler.recommendation.domain;
 
 import java.util.List;
 
@@ -10,15 +10,6 @@ import org.neo4j.ogm.annotation.Relationship;
 @NodeEntity
 public class Language {
 	@Id
-	private String nodeId;
-
-	public String getNodeId() {
-		return nodeId;
-	}
-
-	public void setNodeId(String nodeId) {
-		this.nodeId = nodeId;
-	}
 	private String name;
 	@Relationship(type="languageType",direction=Relationship.INCOMING)
 	private List<Movie> movies;
@@ -47,6 +38,12 @@ public List<User> getUsers() {
 	return users;
 }
 public void setUsers(List<User> users) {
+	this.users = users;
+}
+public Language(String name, List<Movie> movies, List<User> users) {
+	super();
+	this.name = name;
+	this.movies = movies;
 	this.users = users;
 }
 

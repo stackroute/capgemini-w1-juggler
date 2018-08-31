@@ -2,7 +2,7 @@ package com.stackroute.juggler.recommendation.services;
 
 import java.util.List;
 
-import com.stackroute.juggler.kafka.domain.Movie;
+import com.stackroute.juggler.recommendation.domain.Movie;
 
 public interface MovieService {
 //	Movie findByMovieTitle(String movieTitle);

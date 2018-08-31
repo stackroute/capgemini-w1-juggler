@@ -2,11 +2,11 @@ package com.stackroute.juggler.recommendation.services;
 
 import java.util.List;
 
-import com.stackroute.juggler.kafka.domain.City;
-import com.stackroute.juggler.kafka.domain.Genre;
-import com.stackroute.juggler.kafka.domain.Language;
-import com.stackroute.juggler.kafka.domain.Movie;
-import com.stackroute.juggler.kafka.domain.User;
+import com.stackroute.juggler.recommendation.domain.City;
+import com.stackroute.juggler.recommendation.domain.Genre;
+import com.stackroute.juggler.recommendation.domain.Language;
+import com.stackroute.juggler.recommendation.domain.Movie;
+import com.stackroute.juggler.recommendation.domain.User;
 import com.stackroute.juggler.recommendation.repositories.MovieRepository;
 import com.stackroute.juggler.recommendation.repositories.UserRepository;
 

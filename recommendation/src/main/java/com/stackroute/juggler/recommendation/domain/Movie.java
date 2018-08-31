@@ -1,12 +1,6 @@
-package com.stackroute.juggler.kafka.domain;
+package com.stackroute.juggler.recommendation.domain;
 
-import java.time.LocalDate;
-import java.util.List;
-
-import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Relationship;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @NodeEntity
@@ -24,7 +18,6 @@ public class Movie{
 		private String hero;
 		private String heroine;
 		private String director;
-		private List<Theatre> theatres;
 		public int getId() {
 			return id;
 		}
@@ -97,10 +90,10 @@ public class Movie{
 		public void setDirector(String director) {
 			this.director = director;
 		}
-		public List<Theatre> getTheatres() {
-			return theatres;
-		}
-		public void setTheatres(List<Theatre> theatres) {
-			this.theatres = theatres;
-		}
+//		public List<Theatre> getTheatres() {
+//			return theatres;
+//		}
+//		public void setTheatres(List<Theatre> theatres) {
+//			this.theatres = theatres;
+//		}
 }
