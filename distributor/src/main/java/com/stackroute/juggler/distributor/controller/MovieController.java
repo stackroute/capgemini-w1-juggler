@@ -19,16 +19,17 @@ import com.stackroute.juggler.distributor.domain.Movie;
 import com.stackroute.juggler.distributor.services.Services;
 
 @CrossOrigin(origins = "http://localhost:4200")
-// This is controller
+//This is controller
 @RestController
-// Class level request mapping
-@RequestMapping("/api/v1")
+//Class level request mapping
+
+@RequestMapping("/api/v1/")
 public class MovieController {
 
-	// Creating an instance of service
+	//Creating an instance of service
 	private Services movieServices;
 
-	// logger
+	//logger
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
@@ -36,7 +37,7 @@ public class MovieController {
 		this.movieServices = movieServices;
 	}
 
-	// saves the movie accepted from User
+	// saves the  movie accepted from User
 	@RequestMapping(value = "/movie", method = RequestMethod.POST)
 	public ResponseEntity<?> saveMovie(@RequestBody Movie movie) {
 		Movie savedMovie;
@@ -46,7 +47,7 @@ public class MovieController {
 
 	}
 
-	// Get all the movies the data from database
+	// Get all the movies the data from database 
 	@RequestMapping(value = "/movies", method = RequestMethod.GET)
 
 	public ResponseEntity<List<Movie>> getAllMovies() {
@@ -55,7 +56,7 @@ public class MovieController {
 		return new ResponseEntity<List<Movie>>(movies, HttpStatus.OK);
 	}
 
-	// To get the movie from the database using title
+	// To get the movie from the database using title 
 	@RequestMapping(value = "/getbytitle/movie", method = RequestMethod.GET)
 	public ResponseEntity<?> getMovieByTitleFromDB(@RequestParam String movieTitle) {
 		List<Movie> movie = movieServices.getByMovieTitle(movieTitle);
@@ -68,19 +69,6 @@ public class MovieController {
 		}
 	}
 
-	// // update
-	// @RequestMapping(value = "/movie", method = RequestMethod.PUT, produces = {
-	// "application/json" })
-	// public ResponseEntity<?> updateMovieToDB(@RequestBody Movie movie,
-	// @RequestParam int movieId) {
-	// Movie movieUpdated;
-	// try {
-	// movieUpdated = movieServices.updateMovie(movie);
-	// } catch (MovieNotFoundException e) {
-	// return new ResponseEntity<String>("{ \"message\": \"" + e.getMessage() +
-	// "\"}", HttpStatus.CONFLICT);
-	// }
-	// return new ResponseEntity<Movie>(movieUpdated, HttpStatus.FOUND);
-	// }
+
 
 }

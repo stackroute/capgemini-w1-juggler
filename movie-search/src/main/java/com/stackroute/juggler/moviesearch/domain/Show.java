@@ -1,16 +1,24 @@
-package com.stackroute.juggler.kafka.domain;
+package com.stackroute.juggler.moviesearch.domain;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Document
-// Domain object for show details
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Show {
 	private String[] showTimings;
-	// List of all getters and setters
+
 	public String[] getShowTimings() {
 		return showTimings;
 	}
-	// All Arguments constructor
+
 	public void setShowTimings(String[] showTimings) {
 		this.showTimings = showTimings;
 	}

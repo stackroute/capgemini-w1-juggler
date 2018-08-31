@@ -26,9 +26,9 @@ public class Movie {
 	private String movieReleaseDate;
 
 	// All arguments constructor
-	public Movie(String id, String movieName, String moviePoster, String actors, String actress,
-			String directors, String movieGenres, String synopsis, String format, String languages,
-			String movieDuration, String movieReleaseDate) {
+	public Movie(String id, String movieName, String moviePoster, String actors, String actress, String directors,
+			String movieGenres, String synopsis, String format, String languages, String movieDuration,
+			String movieReleaseDate) {
 
 		this.id = id;
 		this.movieName = movieName;
@@ -144,6 +144,14 @@ public class Movie {
 
 	public void setMovieReleaseDate(String movieReleaseDate) {
 		this.movieReleaseDate = movieReleaseDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", movieName=" + movieName + ", moviePoster=" + moviePoster + ", actors=" + actors
+				+ ", actress=" + actress + ", directors=" + directors + ", movieGenres=" + movieGenres + ", synopsis="
+				+ synopsis + ", format=" + format + ", languages=" + languages + ", movieDuration=" + movieDuration
+				+ ", movieReleaseDate=" + movieReleaseDate + "]";
 	}
 
 }

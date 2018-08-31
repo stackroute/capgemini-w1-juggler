@@ -36,23 +36,28 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 	// the method to update the existing movie-theatre schedule
 	@Override
 	public MovieSchedule updateMovieSchedule(MovieSchedule updateMovie) {
-		MovieSchedule update = movieScheduleRepo.save(updateMovie);
-		return update;
+		if (movieScheduleRepo.getByTheatreName(updateMovie.getTheatreName()) != null) {
+		 updateMovie = movieScheduleRepo.save(updateMovie);
+		}
+		return updateMovie;
 	}
 
 	// the method to listen the message from the specified kafka topic
 	@Override
 	@KafkaListener(topics = "testkafka", groupId = "grpid", containerFactory = "kafkaListenerContainerFactory")
 	public void consumeKafka(Registration registration) {
-		MovieSchedule addTheatre = null;
-		if (movieScheduleRepo.getByTheatreName(registration.getTheatreName()) != null) {
-			addTheatre = movieScheduleRepo.getByTheatreName(registration.getTheatreName());
+		MovieSchedule addTheatre = new MovieSchedule();
+		if (movieScheduleRepo.getByTheatreName(registration.getTheatreName()) == null) {
+			// addTheatre =
+			// movieScheduleRepo.getByTheatreName(registration.getTheatreName());
+			String theatreName = registration.getTheatreName();
 			String theatreId = registration.getTheatreId();
 			String theatreLocation = registration.getTheatreLocation();
 			String theatreCity = registration.getTheatreCity();
 			String theatreLicenseNo = registration.getTheatreLicenseNo();
 			String noOfSeats = registration.getNumberOfSeats();
 			Map<String, Integer> seats = registration.getSeats();
+			addTheatre.setTheatreName(theatreName);
 			addTheatre.setTheatreLocation(theatreLocation);
 			addTheatre.setTheatreId(theatreId);
 			addTheatre.setTheatreCity(theatreCity);
