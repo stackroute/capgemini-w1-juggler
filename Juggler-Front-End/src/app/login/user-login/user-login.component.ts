@@ -46,6 +46,7 @@ export class UserLoginComponent implements OnInit {
         this.submitted = true;
         // stop here if form is invalid
         if (this.loginForm.invalid) {
+            console.log('Give Valid details');
             return;
         }
         console.log(this.f.email.value);
