@@ -1,5 +1,6 @@
 package com.stackroute.juggler.kafka.domain;
 
+import java.util.Arrays;
 import java.util.Map;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -112,6 +113,14 @@ public class Registration {
 	// default constructor
 	public Registration() {
 
+	}
+
+	@Override
+	public String toString() {
+		return "Registration [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreLocation="
+				+ theatreLocation + ", theatreCity=" + theatreCity + ", theatreLicenseNo=" + theatreLicenseNo
+				+ ", numberOfSeats=" + numberOfSeats + ", seats=" + seats + ", screenedmovies="
+				+ Arrays.toString(screenedmovies) + ", runningmovies=" + Arrays.toString(runningmovies) + "]";
 	}
 
 }

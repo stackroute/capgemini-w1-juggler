@@ -38,4 +38,11 @@ public class TicketPrices {
 	public TicketPrices() {
 
 	}
+
+	@Override
+	public String toString() {
+		return "TicketPrices [weekends_Price=" + weekends_Price + ", weekdays_Price=" + weekdays_Price + "]";
+	}
+	
+	
 }
