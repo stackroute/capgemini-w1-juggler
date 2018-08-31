@@ -28,7 +28,7 @@
 //import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 //
 //import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.stackroute.juggler.kafka.domain.MovieDetails;
+//import com.stackroute.juggler.kafka.domain.Movie;
 //import com.stackroute.juggler.kafka.domain.MovieSchedule;
 //import com.stackroute.juggler.kafka.domain.TicketPrices;
 //import com.stackroute.juggler.movieschedule.controller.MovieScheduleController;
@@ -46,7 +46,7 @@
 //	@InjectMocks
 //	private MovieScheduleController movieController;
 //
-//	private MovieSchedule movie;
+//	private MovieSchedule moviee;
 //	static List<MovieSchedule> movies;
 //
 //	@Before
@@ -70,18 +70,18 @@
 //		seats.put("Gold", 60);
 //		String[] screenedmovies = new String[] {"abcd", "Avengers"};
 //		String[] runningmovies = new String[] {"Batman"}; 
-//		MovieDetails movieDetails = new MovieDetails("1", "Batman", "url", "bcd", "abcd", "xyz", "action", "aeiou", "2D", "English", "02:00:00", "2018-08-29");
+//		Movie movie = new Movie("1", "Batman", "url", "bcd", "abcd", "xyz", "action", "aeiou", "2D", "English", "02:00:00", "2018-08-29");
 //		int showNumbers = 4;
 //		String[] showTimings = new String[] {"10:00", "13:00", "18:00", "22:00"};
 //		TicketPrices ticketPrices = new TicketPrices(150, 100);
 //		
-//		movie = new MovieSchedule(theatreId, theatreName, theatreLocation, theatreCity, theatreLicenseNo, numberOfSeats, seats, screenedmovies, runningmovies, movieDetails, showNumbers, showTimings, ticketPrices);
-//		when(movieService.addMovieSchedule(movie)).thenReturn(movie);
-//		movieMockMvc.perform(post("/api/v1/movie-schedule/add").contentType(MediaType.APPLICATION_JSON).content(asJsonString(movie)))
+//		moviee = new MovieSchedule(theatreId, theatreName, theatreLocation, theatreCity, theatreLicenseNo, numberOfSeats, seats, screenedmovies, runningmovies, movie, showNumbers, showTimings, ticketPrices);
+//		when(movieService.addMovieSchedule(moviee)).thenReturn(moviee);
+//		movieMockMvc.perform(post("/api/v1/add").contentType(MediaType.APPLICATION_JSON).content(asJsonString(movie)))
 //				.andExpect(status().isOk()).andDo(print());
 //		verify(movieService, times(1)).addMovieSchedule(Mockito.any(MovieSchedule.class));
 //		when(movieService.getMoviesSchedule()).thenReturn(null);
-//        movieMockMvc.perform(get("/api/v1/movie-schedule/show")).andExpect(status().isOk());
+//        movieMockMvc.perform(get("/api/v1/show")).andExpect(status().isOk());
 //        verify(movieService, times(1)).getMoviesSchedule();
 //        verifyNoMoreInteractions(movieService);
 //	}

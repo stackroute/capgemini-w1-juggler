@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import { Theatre } from '../theatre';
 import { TheatreService } from '../theatre.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-theatre-registration',
@@ -27,7 +28,7 @@ export class TheatreRegistrationComponent implements OnInit {
   number_OfSeats = new FormControl('', [
     Validators.required
   ]);
-  constructor(private theatreService: TheatreService) { }
+  constructor(private theatreService: TheatreService, private router: Router) { }
   onSubmit() {
     // this.theatre.theatreName = localStorage.getItem('currentUser').replace('\"', '').replace('\"', '');
     this.theatre.theatreName = this.theatre_Name.value;
@@ -40,6 +41,7 @@ export class TheatreRegistrationComponent implements OnInit {
     this.theatreService
       .saveTheatre(this.theatre)
       .subscribe(res => console.log('Saved theatre'));
+    this.router.navigate(['/login-partner']);
   }
   ngOnInit() {
   }

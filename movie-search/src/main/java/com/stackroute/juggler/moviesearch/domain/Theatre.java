@@ -5,9 +5,6 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.stackroute.juggler.kafka.domain.TicketPrices;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,23 +18,16 @@ import lombok.NoArgsConstructor;
 
 public class Theatre {
 	@Id
-	private String theatreId;
+	private int theatreId;
 	private String theatreName;
 	private String theatreLocation;
-	private String theatreLicenseNo;
-	private String numberOfSeats;
-	private String[] typeofseats;
-	private int showNumbers;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
-	private String[] showTimings;
-	private TicketPrices ticketPrices;
-	// List of all getters and setters
-	public String getTheatreId() {
+	private String theatreCity;
+	private String seatLayout;
+	private List<Show> shows;
+	public int getTheatreId() {
 		return theatreId;
 	}
-
-	
-	public void setTheatreId(String theatreId) {
+	public void setTheatreId(int theatreId) {
 		this.theatreId = theatreId;
 	}
 	public String getTheatreName() {
@@ -52,57 +42,36 @@ public class Theatre {
 	public void setTheatreLocation(String theatreLocation) {
 		this.theatreLocation = theatreLocation;
 	}
-	
-	public String getTheatreLicenseNo() {
-		return theatreLicenseNo;
+	public String getTheatreCity() {
+		return theatreCity;
 	}
-	public void setTheatreLicenseNo(String theatreLicenseNo) {
-		this.theatreLicenseNo = theatreLicenseNo;
+	public void setTheatreCity(String theatreCity) {
+		this.theatreCity = theatreCity;
 	}
-	public String getNumberOfSeats() {
-		return numberOfSeats;
+	public String getSeatLayout() {
+		return seatLayout;
 	}
-	public void setNumberOfSeats(String numberOfSeats) {
-		this.numberOfSeats = numberOfSeats;
+	public void setSeatLayout(String seatLayout) {
+		this.seatLayout = seatLayout;
 	}
-	public String[] getTypeofseats() {
-		return typeofseats;
+	public List<Show> getShows() {
+		return shows;
 	}
-	public void setTypeofseats(String[] typeofseats) {
-		this.typeofseats = typeofseats;
+	public void setShows(List<Show> shows) {
+		this.shows = shows;
 	}
-	public int getShowNumbers() {
-		return showNumbers;
-	}
-	public void setShowNumbers(int showNumbers) {
-		this.showNumbers = showNumbers;
-	}
-	public String[] getShowTimings() {
-		return showTimings;
-	}
-	public void setShowTimings(String[] showTimings) {
-		this.showTimings = showTimings;
-	}
-	public TicketPrices getTicketPrices() {
-		return ticketPrices;
-	}
-	public void setTicketPrices(TicketPrices ticketPrices) {
-		this.ticketPrices = ticketPrices;
-	}
-	public Theatre(String theatreId, String theatreName, String theatreLocation,
-			String theatreLicenseNo, String numberOfSeats, String[] typeofseats, int showNumbers, String[] showTimings,
-			TicketPrices ticketPrices) {
-		super();
-		this.theatreId = theatreId;
-		this.theatreName = theatreName;
-		this.theatreLocation = theatreLocation;
-	
-		this.theatreLicenseNo = theatreLicenseNo;
-		this.numberOfSeats = numberOfSeats;
-		this.typeofseats = typeofseats;
-		this.showNumbers = showNumbers;
-		this.showTimings = showTimings;
-		this.ticketPrices = ticketPrices;
-	}
+//	public Theatre(int theatreId, String theatreName, String theatreLocation, String theatreCity, String seatLayout,
+//			List<Show> shows) {
+//		super();
+//		this.theatreId = theatreId;
+//		this.theatreName = theatreName;
+//		this.theatreLocation = theatreLocation;
+//		this.theatreCity = theatreCity;
+//		this.seatLayout = seatLayout;
+//		this.shows = shows;
+//	}
+//	public Theatre() {
+//		super();
+//	}
 	
 }

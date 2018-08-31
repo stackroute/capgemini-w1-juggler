@@ -7,10 +7,8 @@ public interface UserService {
 	// save the user
 	User save(User user);
 
-	// find user my email and phoneNumber
+	// find user my email
 	User findByEmail(String email);
-
-	User findByPhoneNumber(Long phoneNumber);
 
 	// consume message from kafka
 	public void consumeKafka(InputUser User);

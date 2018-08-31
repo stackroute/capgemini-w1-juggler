@@ -4,10 +4,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-//POJO of MovieDetails 
+//POJO of Movie 
 
 @Document
-public class MovieDetails {
+public class Movie {
 
 	@Id
 	public String id;
@@ -26,10 +26,10 @@ public class MovieDetails {
 	private String movieReleaseDate;
 
 	// All arguments constructor
-	public MovieDetails(String id, String movieName, String moviePoster, String actors, String actress,
-			String directors, String movieGenres, String synopsis, String format, String languages,
-			String movieDuration, String movieReleaseDate) {
-		super();
+	public Movie(String id, String movieName, String moviePoster, String actors, String actress, String directors,
+			String movieGenres, String synopsis, String format, String languages, String movieDuration,
+			String movieReleaseDate) {
+
 		this.id = id;
 		this.movieName = movieName;
 		this.moviePoster = moviePoster;
@@ -45,8 +45,8 @@ public class MovieDetails {
 	}
 
 	// default constructor
-	public MovieDetails() {
-		super();
+	public Movie() {
+
 	}
 
 	// List of all getters and setters
@@ -144,6 +144,14 @@ public class MovieDetails {
 
 	public void setMovieReleaseDate(String movieReleaseDate) {
 		this.movieReleaseDate = movieReleaseDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", movieName=" + movieName + ", moviePoster=" + moviePoster + ", actors=" + actors
+				+ ", actress=" + actress + ", directors=" + directors + ", movieGenres=" + movieGenres + ", synopsis="
+				+ synopsis + ", format=" + format + ", languages=" + languages + ", movieDuration=" + movieDuration
+				+ ", movieReleaseDate=" + movieReleaseDate + "]";
 	}
 
 }

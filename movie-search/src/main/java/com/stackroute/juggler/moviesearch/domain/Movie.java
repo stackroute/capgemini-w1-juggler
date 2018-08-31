@@ -6,8 +6,6 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,43 +19,117 @@ import lombok.NoArgsConstructor;
 
 public class Movie {
 	@Id
-	public String id;
+	private int id;
 	private String movieName;
 	private String moviePoster;
-	private String actors;
-	private String actress;
-	private String directors;
-	private String movieGenres;
 	private String synopsis;
-	private String format;
-	private String languages;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+	private LocalDate movieReleasedate;
 	private String movieDuration;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private String movieReleaseDate;
+	private String[] language;
+	private String[] movieGenre;
+	private String format;
+	private String hero;
+	private String heroine;
+	private String director;
 	private List<Theatre> theatres;
-	public Movie(String id, String movieName, String moviePoster, String actors, String actress, String directors,
-			String movieGenres, String synopsis, String format, String languages, String movieDuration,
-			String movieReleaseDate, List<Theatre> theatres) {
-		super();
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
 		this.id = id;
+	}
+	public String getMovieName() {
+		return movieName;
+	}
+	public void setMovieName(String movieName) {
 		this.movieName = movieName;
+	}
+	public String getMoviePoster() {
+		return moviePoster;
+	}
+	public void setMoviePoster(String moviePoster) {
 		this.moviePoster = moviePoster;
-		this.actors = actors;
-		this.actress = actress;
-		this.directors = directors;
-		this.movieGenres = movieGenres;
+	}
+	public String getSynopsis() {
+		return synopsis;
+	}
+	public void setSynopsis(String synopsis) {
 		this.synopsis = synopsis;
-		this.format = format;
-		this.languages = languages;
+	}
+	public LocalDate getMovieReleasedate() {
+		return movieReleasedate;
+	}
+	public void setMovieReleasedate(LocalDate movieReleasedate) {
+		this.movieReleasedate = movieReleasedate;
+	}
+	public String getMovieDuration() {
+		return movieDuration;
+	}
+	public void setMovieDuration(String movieDuration) {
 		this.movieDuration = movieDuration;
-		this.movieReleaseDate = movieReleaseDate;
+	}
+	public String[] getLanguage() {
+		return language;
+	}
+	public void setLanguage(String[] language) {
+		this.language = language;
+	}
+	public String[] getMovieGenre() {
+		return movieGenre;
+	}
+	public void setMovieGenre(String[] movieGenre) {
+		this.movieGenre = movieGenre;
+	}
+	public String getFormat() {
+		return format;
+	}
+	public void setFormat(String format) {
+		this.format = format;
+	}
+	public String getHero() {
+		return hero;
+	}
+	public void setHero(String hero) {
+		this.hero = hero;
+	}
+	public String getHeroine() {
+		return heroine;
+	}
+	public void setHeroine(String heroine) {
+		this.heroine = heroine;
+	}
+	public String getDirector() {
+		return director;
+	}
+	public void setDirector(String director) {
+		this.director = director;
+	}
+	public List<Theatre> getTheatres() {
+		return theatres;
+	}
+	public void setTheatres(List<Theatre> theatres) {
 		this.theatres = theatres;
 	}
-	public Movie() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+//	public Movie(int id, String movieName, String moviePoster, String synopsis, LocalDate movieReleasedate,
+//			String movieDuration, String[] language, String[] movieGenre, String format, String hero, String heroine,
+//			String director, List<Theatre> theatres) {
+//		super();
+//		this.id = id;
+//		this.movieName = movieName;
+//		this.moviePoster = moviePoster;
+//		this.synopsis = synopsis;
+//		this.movieReleasedate = movieReleasedate;
+//		this.movieDuration = movieDuration;
+//		this.language = language;
+//		this.movieGenre = movieGenre;
+//		this.format = format;
+//		this.hero = hero;
+//		this.heroine = heroine;
+//		this.director = director;
+//		this.theatres = theatres;
+//	}
+//	public Movie() {
+//		super();
+//	}
+	
 }
-	
-	

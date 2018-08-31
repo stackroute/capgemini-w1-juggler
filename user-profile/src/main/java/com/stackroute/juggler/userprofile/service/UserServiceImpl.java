@@ -1,12 +1,12 @@
 package com.stackroute.juggler.userprofile.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.kafka.domain.InputUser;
-import com.stackroute.juggler.kafka.domain.UserLikes;
 import com.stackroute.juggler.kafka.domain.UserProfile;
 import com.stackroute.juggler.userprofile.configuration.KafkaConfiguration;
 import com.stackroute.juggler.userprofile.exceptions.ProfileAlreadyExitsException;
@@ -16,8 +16,10 @@ import com.stackroute.juggler.userprofile.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
-
 	
+	// logger is used to log status of code
+		private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	// Creating a object of user repository
 	private UserRepository userRepository;
 	private KafkaConfiguration kafkaConfig;
@@ -36,7 +38,6 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private KafkaTemplate<String, InputUser> kafkaTemplate;
 
-	// private static final String TOPIC = "userProfile";
 
 	// this method is to save user to databases
 	@Override
@@ -46,8 +47,11 @@ public class UserServiceImpl implements UserService {
 			// This is because we dont want to save the password in the userprofile database
 			inputUser.setPassword(null);
 			InputUser userSaved = userRepository.save(inputUser);
+			logger.info("Profile is saved into database-servicelayer");
 			return userSaved;
 		} else {
+			//Error Handling
+			logger.warn("Profile is not added into database-servicelayer");
 			throw new ProfileAlreadyExitsException("Profile already exists");
 		}
 
@@ -58,14 +62,19 @@ public class UserServiceImpl implements UserService {
 	public InputUser viewUser(String userId) throws UserDoesNotExistsException {
 		if (userRepository.findByUserId(userId) != null) {
 			InputUser findUser = userRepository.findByUserId(userId);
+			logger.info("Profile is viewd from database");
 			return findUser;
+			
 		} else {
+			//Error Handling
+			logger.warn("Profile does not exits in database-servicelayer");
 			throw new UserDoesNotExistsException("InputUser Does Not Exist");
 		}
 	}
 
 	@Override
-	public InputUser updateUser(String userId, UserProfile user) throws UpdateFailedException, UserDoesNotExistsException {
+	public InputUser updateUser(String userId, UserProfile user)
+			throws UpdateFailedException, UserDoesNotExistsException {
 		// initilization of user domain object
 		InputUser finduser = null;
 		if (userRepository.findByUserId(userId) != null) {
@@ -75,23 +84,14 @@ public class UserServiceImpl implements UserService {
 			finduser.setLanguagesKnown(user.getLanguagesKnown());
 			finduser.setLocation(user.getLocation());
 			finduser.setPaymentMethods(user.getPaymentMethods());
+			logger.info("Profile is updated into database-servicelayer");
 			return finduser;
 		} else {
+			//Error Handling
+			logger.warn("Profile is not updated into database-servicelayer");
 			throw new UserDoesNotExistsException("InputUser Does Not Exist");
 		}
 
 	}
-
-	// @Override
-	// @KafkaListener(topics = "movieLikes", groupId = "user")
-	// public void consumeKafka(UserLikes userLikes) {
-	// InputUser findUser = null;
-	//
-	// if (userRepository.findByUserId(userLikes.getUserId()) != null) {
-	// findUser = userRepository.findByUserId(userLikes.getUserId());
-	// String movieName = userLikes.getMovie();
-	// findUser.setLikes(movieName);
-	// userRepository.save(findUser);
-	// }
 
 }

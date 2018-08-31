@@ -5,18 +5,15 @@
 //import static org.mockito.Mockito.times;
 //import static org.mockito.Mockito.verify;
 //import static org.mockito.Mockito.when;
-//
 //import java.util.HashMap;
 //import java.util.Map;
 //import java.util.Optional;
-//
 //import org.junit.Before;
 //import org.junit.Test;
 //import org.mockito.InjectMocks;
 //import org.mockito.Mock;
 //import org.mockito.MockitoAnnotations;
-//
-//import com.stackroute.juggler.kafka.domain.MovieDetails;
+//import com.stackroute.juggler.kafka.domain.Movie;
 //import com.stackroute.juggler.kafka.domain.MovieSchedule;
 //import com.stackroute.juggler.kafka.domain.TicketPrices;
 //import com.stackroute.juggler.movieschedule.repository.MovieScheduleRepository;
@@ -27,13 +24,10 @@
 //	@Mock
 //	private MovieScheduleRepository movieRepo;
 //
-////	@Mock
-////	private MovieScheduleService movieService;
-//
 //	@InjectMocks
 //	private MovieServiceScheduleImpl movieServiceImpl;
 //
-//	private MovieSchedule movie;
+//	private MovieSchedule moviee;
 //
 //	Optional<MovieSchedule> options;
 //
@@ -51,31 +45,30 @@
 //		seats.put("Gold", 60);
 //		String[] screenedmovies = new String[] { "abcd", "Avengers" };
 //		String[] runningmovies = new String[] { "Batman" };
-//		MovieDetails movieDetails = new MovieDetails("1", "Batman", "url", "bcd", "abcd", "xyz", "action", "aeiou",
-//				"2D", "English", "02:00:00", "2018-08-29");
+//		Movie movie = new Movie("1", "Batman", "url", "bcd", "abcd", "xyz", "action", "aeiou", "2D", "English",
+//				"02:00:00", "2018-08-29");
 //		int showNumbers = 4;
 //		String[] showTimings = new String[] { "10:00", "13:00", "18:00", "22:00" };
 //		TicketPrices ticketPrices = new TicketPrices(150, 100);
-//
-//		movie = new MovieSchedule(theatreId, theatreName, theatreLocation, theatreCity, theatreLicenseNo, numberOfSeats,
-//				seats, screenedmovies, runningmovies, movieDetails, showNumbers, showTimings, ticketPrices);
-//		options = Optional.of(movie);
+//		moviee = new MovieSchedule(theatreId, theatreName, theatreLocation, theatreCity, theatreLicenseNo,
+//				numberOfSeats, seats, screenedmovies, runningmovies, movie, showNumbers, showTimings, ticketPrices);
+//		options = Optional.of(moviee);
 //
 //	}
 //
 //	@Test
 //	public void testMockCreation() {
-//		assertNotNull(movie);
+//		assertNotNull(moviee);
 //		assertNotNull("jpaRepository creation fails: use @injectMocks on movieServicempl", movieRepo);
 //	}
 //
 //	@Test
 //	public void testSaveMovieSuccess() throws Exception {
-//		when(movieRepo.save(movie)).thenReturn(movie);
-//		MovieSchedule flag = movieServiceImpl.addMovieSchedule(movie);
-//		assertEquals("saving movie failed , the call to movieDAOImpl is returning false ,check this method", movie,
+//		when(movieRepo.save(moviee)).thenReturn(moviee);
+//		MovieSchedule flag = movieServiceImpl.addMovieSchedule(moviee);
+//		assertEquals("saving movie failed , the call to movieDAOImpl is returning false ,check this method", moviee,
 //				flag);
-//		verify(movieRepo, times(1)).save(movie);
+//		verify(movieRepo, times(1)).save(moviee);
 //
 //	}
 //

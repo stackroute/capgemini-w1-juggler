@@ -12,7 +12,7 @@ public class TicketPrices {
 
 	// All arguments constructors
 	public TicketPrices(int weekends_Price, int weekdays_Price) {
-		super();
+
 		this.weekends_Price = weekends_Price;
 		this.weekdays_Price = weekdays_Price;
 	}
@@ -36,6 +36,13 @@ public class TicketPrices {
 
 	// default constructor
 	public TicketPrices() {
-		super();
+
 	}
+
+	@Override
+	public String toString() {
+		return "TicketPrices [weekends_Price=" + weekends_Price + ", weekdays_Price=" + weekdays_Price + "]";
+	}
+	
+	
 }

@@ -17,7 +17,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 	public Docket productApi() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.stackroute.juggler.movieschedule.controller"))
-				.paths(regex("/api/v1/movie-schedule.*")).build();
+				.paths(regex("/api/v1.*")).build();
 	}
 
 	@Override
