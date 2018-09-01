@@ -49,4 +49,10 @@ public class City {
 		this.users = users;
 	}
 
+
+	@Override
+	public String toString() {
+		return "City [name=" + name + ", movies=" + movies + ", users=" + users + "]";
+	}
+
 }

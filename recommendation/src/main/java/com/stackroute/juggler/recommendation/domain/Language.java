@@ -55,4 +55,9 @@ public class Language {
 		this.users = users;
 	}
 
+	@Override
+	public String toString() {
+		return "Language [name=" + name + ", movies=" + movies + ", users=" + users + "]";
+	}
+
 }

@@ -1,5 +1,8 @@
 package com.stackroute.juggler.recommendation.services;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +15,7 @@ import com.stackroute.juggler.recommendation.domain.Genre;
 import com.stackroute.juggler.recommendation.domain.Language;
 import com.stackroute.juggler.recommendation.domain.Movie;
 import com.stackroute.juggler.recommendation.domain.User;
-import com.stackroute.juggler.recommendation.relations.Follows;
 import com.stackroute.juggler.recommendation.repositories.CityRepository;
-import com.stackroute.juggler.recommendation.repositories.FollowsRepository;
 import com.stackroute.juggler.recommendation.repositories.GenreRepository;
 import com.stackroute.juggler.recommendation.repositories.LanguageRepository;
 import com.stackroute.juggler.recommendation.repositories.UserRepository;
@@ -26,44 +27,41 @@ public class UserServiceImpl implements UserService {
 	private GenreRepository genreRepository;
 	private LanguageRepository languageRepository;
 	private CityRepository cityRepository;
-	private FollowsRepository followsRepository;
-
+	
 	@Autowired
 	public UserServiceImpl(UserRepository userRepository, GenreRepository genreRepository,
-			LanguageRepository languageRepository, CityRepository cityRepository, FollowsRepository followsRepository) {
+			LanguageRepository languageRepository, CityRepository cityRepository) {
 		super();
 		this.userRepository = userRepository;
 		this.genreRepository = genreRepository;
 		this.languageRepository = languageRepository;
 		this.cityRepository = cityRepository;
-		this.followsRepository = followsRepository;
-	}
+		}
 
+	@SuppressWarnings("null")
 	@KafkaListener(topics = "details8", groupId = "user")
 	void getUserNode(InputUser user) {
-		User userObj = new User(user.getUserName(), user.getEmailId(), user.getDateOfBirth(), user.getLanguagesKnown(),
-				user.getGenre(), user.getLocation());
-		userRepository.save(userObj);
+		User userObj = new User();
+		userObj.setName(user.getUserName());
+		userObj.setEmailId(user.getEmailId());
+		userObj.setDateOfBirth(user.getDateOfBirth());
 		City city = new City(user.getLocation());
-		cityRepository.save(city);
-		Genre gen = null;
-		for (String s : user.getGenre()) {
-			System.out.println("1");
-			gen = new Genre(s);
-			genreRepository.save(gen);
-
+		userObj.setCity(city);
+		List<Genre> genres = new ArrayList<Genre>();
+		List<Language> languages = new ArrayList<Language>();
+		for(String s:user.getGenre()) {
+		Genre genre=new Genre(s);
+		genres.add(genre);
+		userObj.setGenres(genres);
 		}
-		System.out.println("2");
-		for (String s : user.getLanguagesKnown()) {
-			Language lang = new Language(s);
-			languageRepository.save(lang);
-		}
-		System.out.println("3");
-		Follows follows = new Follows(userObj, gen);
-		System.out.println("4");
-		followsRepository.save(follows);
-		System.out.println("5");
-
+		for(String s:user.getLanguagesKnown()) {
+			Language lang=new Language(s);
+			languages.add(lang);
+			userObj.setLanguages(languages);
+			}
+		System.out.println(userObj);
+		userRepository.save(userObj);
+		System.out.println(userObj);
 	}
 }
 

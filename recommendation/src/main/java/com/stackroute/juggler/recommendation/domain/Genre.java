@@ -1,5 +1,6 @@
 package com.stackroute.juggler.recommendation.domain;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.neo4j.ogm.annotation.Id;
@@ -15,14 +16,27 @@ public class Genre {
 	@Relationship(type = "follows", direction = Relationship.INCOMING)
 	private List<User> users;
 
-	public Genre() {
-
-	}
+	
 
 	public Genre(String name) {
 		super();
 		this.name = name;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Genre [name=" +name + ", movies=" + movies + ", users=" + users + "]";
+	}
+
+
+
+	public Genre() {
+
+	}
+
+	
 
 	public Genre(String name, List<Movie> movies, List<User> users) {
 		super();
@@ -31,13 +45,19 @@ public class Genre {
 		this.users = users;
 	}
 
+	
+
 	public String getName() {
 		return name;
 	}
 
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
 
 	public List<Movie> getMovies() {
 		return movies;
