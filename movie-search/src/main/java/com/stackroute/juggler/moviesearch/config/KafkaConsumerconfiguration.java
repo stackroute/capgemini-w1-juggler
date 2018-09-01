@@ -13,7 +13,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import com.stackroute.juggler.moviesearch.domain.City;
+import com.stackroute.juggler.kafka.domain.City;
 
 @EnableKafka
 @Configuration
