@@ -2,24 +2,22 @@ package com.stackroute.juggler.moviesearch.services;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.juggler.kafka.domain.City;
-import com.stackroute.juggler.kafka.domain.Movie;
-import com.stackroute.juggler.moviesearch.exceptions.MovieNotFound;
 import com.stackroute.juggler.moviesearch.repository.CityRepository;
 import com.stackroute.juggler.moviesearch.repository.MovieRepository;
+import com.stackroute.kafka.domain.City;
+import com.stackroute.kafka.domain.Movie;
+
 
 @Service
 public class MovieSearchServiceImpl implements MovieSearchService {
 
 	MovieRepository movieRepository;
 	CityRepository cityRepository;
-	Movie movie;
 
 	@Autowired
 	public MovieSearchServiceImpl(MovieRepository movieRepository, CityRepository cityrepository) {
@@ -28,52 +26,45 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		this.cityRepository = cityrepository;
 	}
 
-	// save the movie and theaters in city
 	@Override
 	public String saveCity(City cities) {
 		City cityToBeSave = cityRepository.save(cities);
-		List<Movie> movies = convertcitytomovie(cities);
+		List<Movie> movies =convertcitytomovie(cities);
 
 		for (Iterator iterator = movies.iterator(); iterator.hasNext();) {
 			Movie movie = (Movie) iterator.next();
 			Movie moviesaved = movieRepository.save(movie);
 		}
-
+		
 		return "saved";
-
 	}
 
 	private List<Movie> convertcitytomovie(City cities) {
-		List<Movie> movies = cities.getMovieList();
+		List<Movie>  movies = cities.getMovieList();
 		return movies;
 	}
 
-	// get city by cityName
 	@Override
-	public City getByCity(String city) {
-		City list = cityRepository.getBycityName(city);
+	public List<City> getByCity(String city) {
+		List<City> list = cityRepository.getBycityName(city);
 		return list;
-
-	}
-
-	// get movie by movieName
-	@Override
-	public List<Movie> getByTitle(String movieName) throws MovieNotFound {
-		boolean result = movieRepository.existsByMovieName(movieName);
-		if (result) {
-			List<Movie> list = movieRepository.getBymovieName(movieName);
-			return list;
-		} else
-			throw new MovieNotFound("movie not found");
-
+		
 	}
 
 	@Override
-	@KafkaListener(topics = "searchdetails", groupId = "user")
-	public City consumeKafka(City city) {
-		System.out.println("" + city.getCityName());
+	public List<Movie> getByTitle(String movieName) {
+		List<Movie> list = movieRepository.getBymovieName(movieName);
+		return list;
+		
+	}
+	
+	@Override
+    @KafkaListener(topics = "movieLikes", groupId = "user")
+    public City consumeKafka(City city) {
+       
 		return city;
 
-	}
+ 
+        }
 
 }
