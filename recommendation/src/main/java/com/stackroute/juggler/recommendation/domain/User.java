@@ -99,7 +99,7 @@ public class User {
 		this.location = location;
 	}
 
-	public User(String userId, String userName,String emailId, String dateOfBirth, String[] languagesKnown, String[] genre,
+	public User(String userName,String emailId, String dateOfBirth, String[] languagesKnown, String[] genre,
 			String location) {
 		super();
 		this.userId = userId;

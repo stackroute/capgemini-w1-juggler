@@ -12,7 +12,7 @@ import com.stackroute.juggler.recommendation.domain.Language;
 import com.stackroute.juggler.recommendation.domain.Movie;
 import com.stackroute.juggler.recommendation.domain.User;
 
-public interface UserRepository extends Neo4jRepository<User, Integer>{
+public interface UserRepository extends Neo4jRepository<User, Long>{
 	@Query("MATCH (u:User)-[:livesIn]->(c:City) where u.name={userName} return c")
 	public City getCityOfUser(@Param("userName") String userName);
 	@Query("MATCH (u:User)-[:follows]->(g:Genre) where u.name={userName} return c")

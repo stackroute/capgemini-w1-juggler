@@ -4,38 +4,69 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.kafka.domain.InputUser;
 import com.stackroute.juggler.recommendation.domain.City;
+import com.stackroute.juggler.recommendation.domain.Genre;
+import com.stackroute.juggler.recommendation.domain.Language;
+import com.stackroute.juggler.recommendation.domain.Movie;
 import com.stackroute.juggler.recommendation.domain.User;
+import com.stackroute.juggler.recommendation.relations.Follows;
 import com.stackroute.juggler.recommendation.repositories.CityRepository;
+import com.stackroute.juggler.recommendation.repositories.FollowsRepository;
+import com.stackroute.juggler.recommendation.repositories.GenreRepository;
+import com.stackroute.juggler.recommendation.repositories.LanguageRepository;
 import com.stackroute.juggler.recommendation.repositories.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
-private UserRepository userRepository;
-private CityRepository cityRepository;
-@Autowired
-	public UserServiceImpl(UserRepository userRepository) {
-	super();
-	this.userRepository = userRepository;
+
+	private UserRepository userRepository;
+	private GenreRepository genreRepository;
+	private LanguageRepository languageRepository;
+	private CityRepository cityRepository;
+	private FollowsRepository followsRepository;
+
+	@Autowired
+	public UserServiceImpl(UserRepository userRepository, GenreRepository genreRepository,
+			LanguageRepository languageRepository, CityRepository cityRepository,FollowsRepository followsRepository) {
+		super();
+		this.userRepository = userRepository;
+		this.genreRepository = genreRepository;
+		this.languageRepository = languageRepository;
+		this.cityRepository = cityRepository;
+		this.followsRepository=followsRepository;
+	}
+
+	@KafkaListener(topics = "details8", groupId = "user")
+	void getUserNode(InputUser user) {
+		User userObj = new User(user.getUserName(), user.getEmailId(), user.getDateOfBirth(),
+				user.getLanguagesKnown(), user.getGenre(), user.getLocation());
+		userRepository.save(userObj);
+		City city = new City(user.getLocation());
+		cityRepository.save(city);
+		Genre gen = null;
+		for (String s : user.getGenre()) {
+			System.out.println("1");
+		 gen= new Genre(s);
+			genreRepository.save(gen);
+			
+			}
+		System.out.println("2");
+		for (String s : user.getLanguagesKnown()) {
+			Language lang= new Language(s);
+			languageRepository.save(lang);
+			}
+		System.out.println("3");
+		Follows follows=new Follows(userObj, gen);
+		System.out.println("4");
+		followsRepository.save(follows);
+		System.out.println("5");
+
+	}
 }
 
-	@Override
-	@KafkaListener(topics="recomtest", groupId="user")
-	public void getUserNode(@Payload InputUser kafkaUser) {
-		User user =new User(kafkaUser.getUserId(),kafkaUser.getUserName(),kafkaUser.getEmailId(),kafkaUser.getDateOfBirth(),kafkaUser.getLanguagesKnown(),kafkaUser.getGenre(),kafkaUser.getLocation());
-		userRepository.save(user);
-		City city=new City(kafkaUser.getLocation());
-		cityRepository.save(city);
-//		List<Genre> genreList;
-//		for(String s:kafkaUser.getLanguagesKnown()) {
-//			
-//		}
-	}
-//	private UserRepository userRepository;
 //	@Override
 //	public User saveUser(User user) {
 //		return userRepository.save(user);
@@ -66,4 +97,3 @@ private CityRepository cityRepository;
 //	public List<Movie> getLanguageBasedMoviesForUser(String userName) {
 //		return userRepository.getLanguageBasedMoviesForUser(userName);
 //	}
-}

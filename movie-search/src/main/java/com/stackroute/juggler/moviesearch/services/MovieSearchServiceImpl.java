@@ -2,6 +2,7 @@ package com.stackroute.juggler.moviesearch.services;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -12,6 +13,7 @@ import com.stackroute.juggler.kafka.domain.Movie;
 import com.stackroute.juggler.moviesearch.exceptions.MovieNotFound;
 import com.stackroute.juggler.moviesearch.repository.CityRepository;
 import com.stackroute.juggler.moviesearch.repository.MovieRepository;
+
 
 @Service
 public class MovieSearchServiceImpl implements MovieSearchService {

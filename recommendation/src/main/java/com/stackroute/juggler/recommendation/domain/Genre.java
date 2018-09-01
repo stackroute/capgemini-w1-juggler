@@ -9,7 +9,6 @@ import org.neo4j.ogm.annotation.Relationship;
 @NodeEntity
 public class Genre {
 	@Id
-	private String nodeId;
 	private String name;
 	@Relationship(type = "isTypeOf", direction = Relationship.INCOMING)
 	private List<Movie> movies;
@@ -20,17 +19,16 @@ public class Genre {
 
 	}
 
-	public String getNodeId() {
-		return nodeId;
-	}
-
-	public void setNodeId(String nodeId) {
-		this.nodeId = nodeId;
-	}
-
 	public Genre(String name) {
 		super();
 		this.name = name;
+	}
+
+	public Genre(String name, List<Movie> movies, List<User> users) {
+		super();
+		this.name = name;
+		this.movies = movies;
+		this.users = users;
 	}
 
 	public String getName() {

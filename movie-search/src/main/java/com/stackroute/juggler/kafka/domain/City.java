@@ -5,6 +5,11 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Document
 // Domain object for city
 public class City {
@@ -45,5 +50,7 @@ public class City {
 		this.cityName = cityName;
 		this.movieList = movieList;
 	}
-
+	
+	public City() {
+		super();	}
 }

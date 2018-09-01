@@ -3,6 +3,7 @@ package com.stackroute.juggler.recommendation.domain;
 import org.neo4j.ogm.annotation.NodeEntity;
 
 
+
 @NodeEntity
 public class Movie{
 	
@@ -18,6 +19,7 @@ public class Movie{
 		private String hero;
 		private String heroine;
 		private String director;
+		
 		public int getId() {
 			return id;
 		}
@@ -90,5 +92,4 @@ public class Movie{
 		public void setDirector(String director) {
 			this.director = director;
 		}
-		
 }

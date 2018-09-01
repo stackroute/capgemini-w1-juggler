@@ -13,7 +13,7 @@ import { City } from './City';
 export class SearchDataService {
 
  private city_string: string;
- private name_string: string;
+ private movie_string: string;
  private url = 'http://localhost:8060/api/v1/movie';
  private url3 = 'http://localhost:8060/api/v1/city';
 

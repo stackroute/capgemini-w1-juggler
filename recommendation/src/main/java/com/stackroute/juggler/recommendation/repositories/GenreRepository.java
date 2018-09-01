@@ -4,7 +4,7 @@ import org.springframework.data.neo4j.repository.Neo4jRepository;
 
 import com.stackroute.juggler.recommendation.domain.Genre;
 
-public interface GenreRepository extends Neo4jRepository<Genre, Integer>{
+public interface GenreRepository extends Neo4jRepository<Genre, Long>{
 	
 	public Genre findByName(String name);
 

@@ -9,7 +9,6 @@ import org.neo4j.ogm.annotation.Relationship;
 @NodeEntity
 public class City {
 	@Id
-	private String nodeId;
 	private String name;
 	@Relationship(type = "releasedIn", direction = Relationship.INCOMING)
 	private List<Movie> movies;
@@ -20,14 +19,7 @@ public class City {
 		super();
 	}
 
-	public String getNodeId() {
-		return nodeId;
-	}
-
-	public void setNodeId(String nodeId) {
-		this.nodeId = nodeId;
-	}
-
+	
 	public City(String name) {
 		super();
 		this.name = name;
