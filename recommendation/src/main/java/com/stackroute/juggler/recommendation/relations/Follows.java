@@ -13,26 +13,32 @@ public class Follows {
 	private User user;
 	@EndNode
 	private Genre genre;
+
 	public User getUser() {
 		return user;
 	}
+
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 	public Genre getGenre() {
 		return genre;
 	}
+
 	public void setGenre(Genre genre) {
 		this.genre = genre;
 	}
+
 	public Follows(User user, Genre genre) {
 		super();
 		this.user = user;
 		this.genre = genre;
 	}
+
 	@Override
 	public String toString() {
 		return "follows [user=" + user + ", genre=" + genre + "]";
 	}
-	
+
 }

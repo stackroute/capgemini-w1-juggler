@@ -30,36 +30,36 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	public UserServiceImpl(UserRepository userRepository, GenreRepository genreRepository,
-			LanguageRepository languageRepository, CityRepository cityRepository,FollowsRepository followsRepository) {
+			LanguageRepository languageRepository, CityRepository cityRepository, FollowsRepository followsRepository) {
 		super();
 		this.userRepository = userRepository;
 		this.genreRepository = genreRepository;
 		this.languageRepository = languageRepository;
 		this.cityRepository = cityRepository;
-		this.followsRepository=followsRepository;
+		this.followsRepository = followsRepository;
 	}
 
 	@KafkaListener(topics = "details8", groupId = "user")
 	void getUserNode(InputUser user) {
-		User userObj = new User(user.getUserName(), user.getEmailId(), user.getDateOfBirth(),
-				user.getLanguagesKnown(), user.getGenre(), user.getLocation());
+		User userObj = new User(user.getUserName(), user.getEmailId(), user.getDateOfBirth(), user.getLanguagesKnown(),
+				user.getGenre(), user.getLocation());
 		userRepository.save(userObj);
 		City city = new City(user.getLocation());
 		cityRepository.save(city);
 		Genre gen = null;
 		for (String s : user.getGenre()) {
 			System.out.println("1");
-		 gen= new Genre(s);
+			gen = new Genre(s);
 			genreRepository.save(gen);
-			
-			}
+
+		}
 		System.out.println("2");
 		for (String s : user.getLanguagesKnown()) {
-			Language lang= new Language(s);
+			Language lang = new Language(s);
 			languageRepository.save(lang);
-			}
+		}
 		System.out.println("3");
-		Follows follows=new Follows(userObj, gen);
+		Follows follows = new Follows(userObj, gen);
 		System.out.println("4");
 		followsRepository.save(follows);
 		System.out.println("5");

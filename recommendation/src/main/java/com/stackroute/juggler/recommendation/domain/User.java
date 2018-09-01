@@ -3,6 +3,7 @@ package com.stackroute.juggler.recommendation.domain;
 import java.util.Arrays;
 import java.util.List;
 
+import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
@@ -10,7 +11,7 @@ import org.neo4j.ogm.annotation.Relationship;
 @NodeEntity
 public class User {
 	@Id
-	private String userId;
+
 	private String userName;
 	private String emailId;
 	private String dateOfBirth;
@@ -51,13 +52,13 @@ public class User {
 		this.emailId = emailId;
 	}
 
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+//	public Long getUserId() {
+//		return userId;
+//	}
+//
+//	public void setUserId(Long userId) {
+//		this.userId = userId;
+//	}
 
 	public String getUserName() {
 		return userName;
@@ -99,12 +100,12 @@ public class User {
 		this.location = location;
 	}
 
-	public User(String userName,String emailId, String dateOfBirth, String[] languagesKnown, String[] genre,
+	public User(String userName, String emailId, String dateOfBirth, String[] languagesKnown, String[] genre,
 			String location) {
 		super();
-		this.userId = userId;
+//		this.userId = userId;
 		this.userName = userName;
-		this.emailId=emailId;
+		this.emailId = emailId;
 		this.dateOfBirth = dateOfBirth;
 		this.LanguagesKnown = languagesKnown;
 		this.genre = genre;
@@ -113,9 +114,9 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", dateOfBirth=" + dateOfBirth
-				+ ", LanguagesKnown=" + Arrays.toString(LanguagesKnown) + ", genre=" + Arrays.toString(genre)
-				+ ", location=" + location + "]";
+		return "User [userName=" + userName + ", dateOfBirth=" + dateOfBirth + ", LanguagesKnown="
+				+ Arrays.toString(LanguagesKnown) + ", genre=" + Arrays.toString(genre) + ", location=" + location
+				+ "]";
 	}
 
 }

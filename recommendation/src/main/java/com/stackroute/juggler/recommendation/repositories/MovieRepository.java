@@ -1,7 +1,6 @@
 package com.stackroute.juggler.recommendation.repositories;
 
 import java.util.List;
-
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;

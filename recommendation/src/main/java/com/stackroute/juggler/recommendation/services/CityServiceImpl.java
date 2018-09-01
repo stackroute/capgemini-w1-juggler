@@ -5,9 +5,10 @@ import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.recommendation.domain.City;
 import com.stackroute.juggler.recommendation.repositories.CityRepository;
+
 @Service
-public class CityServiceImpl implements CityService{
-	
+public class CityServiceImpl implements CityService {
+
 //	private CityRepository cityRepository;
 //	@Autowired
 //	public CityServiceImpl(CityRepository cityrepository) {
