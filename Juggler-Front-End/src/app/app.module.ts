@@ -12,7 +12,7 @@ import { UserLoginComponent } from './login/user-login/user-login.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { AuthenticationService } from './authentication.service';
 import { AlertService } from './alert.service';
-import { MatCardModule, MatGridListModule } from '@angular/material';
+import { MatCardModule, MatGridListModule, MatNativeDateModule } from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { MaterialsModule } from './materials';
@@ -25,6 +25,7 @@ import { TheatreService } from './theatre.service';
 import { UserService } from './user.service';
 import { ContactComponent } from './contact/contact.component';
 import { DistributionRegisterFormComponent } from './distribution-registerform/distribution-registerform.component';
+import { MatFileUploadModule } from 'angular-material-fileupload';
 
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
@@ -56,7 +57,9 @@ import { DistributionRegisterFormComponent } from './distribution-registerform/d
     MatStepperModule,
     MatInputModule,
     MatFormFieldModule,
-    MatGridListModule
+    MatGridListModule,
+    MatFileUploadModule,
+    MatNativeDateModule
   ],
   providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService],
   bootstrap: [AppComponent],
