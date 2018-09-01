@@ -1,9 +1,3 @@
-# Loco yaml export: Symfony YAML object
-# Project: application.properties conversion
-# Release: Working copy
-# Locale: en-GB, English (UK)
-# Exported by: Unregistered user
-# Exported at: Fri, 31 Aug 2018 12:03:24 +0530
 ---
 spring:
   data:

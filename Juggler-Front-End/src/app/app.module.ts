@@ -12,9 +12,13 @@ import { UserLoginComponent } from './login/user-login/user-login.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { AuthenticationService } from './authentication.service';
 import { AlertService } from './alert.service';
+<<<<<<< HEAD
 import { MatCardModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
+=======
+import { MatCardModule, MatGridListModule, MatNativeDateModule } from '@angular/material';
+>>>>>>> 5800480b3eccea9d68a48d0a8807b82b2675de39
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { MaterialsModule } from './materials';
@@ -27,9 +31,13 @@ import { TheatreService } from './theatre.service';
 import { UserService } from './user.service';
 import { ContactComponent } from './contact/contact.component';
 import { DistributionRegisterFormComponent } from './distribution-registerform/distribution-registerform.component';
+<<<<<<< HEAD
 import { DialogComponentComponent } from './landing-page/dialog-component/dialog-component.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+=======
+import { MatFileUploadModule } from 'angular-material-fileupload';
+>>>>>>> 5800480b3eccea9d68a48d0a8807b82b2675de39
 
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
@@ -65,7 +73,12 @@ import { HomePageComponent } from './home-page/home-page.component';
     MatInputModule,
     MatFormFieldModule,
     MatGridListModule,
+<<<<<<< HEAD
     MatDialogModule
+=======
+    MatFileUploadModule,
+    MatNativeDateModule
+>>>>>>> 5800480b3eccea9d68a48d0a8807b82b2675de39
   ],
   providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService],
   bootstrap: [AppComponent],

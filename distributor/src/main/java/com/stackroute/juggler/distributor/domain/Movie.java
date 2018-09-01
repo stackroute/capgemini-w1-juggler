@@ -1,5 +1,6 @@
 package com.stackroute.juggler.distributor.domain;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -16,7 +17,7 @@ public class Movie {
 	@Id
 	public String id;
 	private String movieName;
-	private String moviePoster;
+	private File moviePoster;
 	private String actors;
 	private String actress;
 	private String directors;
@@ -26,14 +27,14 @@ public class Movie {
 	private String languages;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
 	private LocalTime movieDuration;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private LocalDate movieReleaseDate;
 
 	public Movie() {
 	}
 
 	// All Arguments constructor
-	public Movie(String id, String movieName, String moviePoster, String actors, String actress, String directors,
+	public Movie(String id, String movieName, File moviePoster, String actors, String actress, String directors,
 			String movieGenres, String synopsis, String format, String languages, LocalTime movieDuration,
 			LocalDate movieReleaseDate) {
 		this.id = id;
@@ -67,11 +68,11 @@ public class Movie {
 		this.movieName = movieName;
 	}
 
-	public String getMoviePoster() {
+	public File getMoviePoster() {
 		return moviePoster;
 	}
 
-	public void setMoviePoster(String moviePoster) {
+	public void setMoviePoster(File moviePoster) {
 		this.moviePoster = moviePoster;
 	}
 

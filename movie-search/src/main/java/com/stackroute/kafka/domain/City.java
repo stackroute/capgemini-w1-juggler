@@ -1,28 +1,21 @@
-package com.stackroute.juggler.moviesearch.domain;
+package com.stackroute.kafka.domain;
 
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Document
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+
 public class City {
 	@Id
-	private String cityId;
-	public String getCityId() {
-		return cityId;
+	public String id;
+	
+	public String getId() {
+		return id;
 	}
-	public void setCityId(String cityId) {
-		this.cityId = cityId;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getCityName() {
 		return cityName;

@@ -1,17 +1,9 @@
-package com.stackroute.juggler.moviesearch.domain;
+package com.stackroute.kafka.domain;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Document
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+
 public class Show {
 	private String[] showTimings;
 
