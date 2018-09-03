@@ -1,4 +1,4 @@
-package com.stackroute.kafka.domain;
+package com.stackroute.juggler.moviesearch.domain;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

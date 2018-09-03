@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.stackroute.kafka.domain.Movie;
+import com.stackroute.juggler.moviesearch.domain.Movie;
 
 
 
