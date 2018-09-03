@@ -15,6 +15,7 @@ import { Router, ParamMap, ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie-screening.component.scss']
 })
 export class MovieScreeningComponent implements OnInit {
+  title: string;
   isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;

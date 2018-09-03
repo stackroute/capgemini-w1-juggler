@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,15 +9,18 @@ import { Router } from '@angular/router';
 })
 export class DialogComponentComponent implements OnInit {
 
+  city = ['Bangalore','Hyderabad','Mumbai','Chennai'];
   constructor(
         public dialogRef: MatDialogRef<DialogComponentComponent>, private router: Router) {}
 
-  onNoClick(): void {
+  onClick(): void {
     this.dialogRef.close();
   }
   ngOnInit() {
   }
-  searchMovies() {
-    this.router.navigate(['/']);
+  searchMovies(city: string) {
+    console.log(city);
+    this.router.navigate(['home',city]);
+    this.dialogRef.close();
   }
 }

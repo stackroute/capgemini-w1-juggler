@@ -38,9 +38,9 @@ public class UserServiceImpl implements UserService {
 		this.cityRepository = cityRepository;
 		}
 
-	@SuppressWarnings("null")
+	@Override
 	@KafkaListener(topics = "details8", groupId = "user")
-	void getUserNode(InputUser user) {
+	public void getUserNode(InputUser user) {
 		User userObj = new User();
 		userObj.setName(user.getUserName());
 		userObj.setEmailId(user.getEmailId());
