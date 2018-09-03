@@ -76,8 +76,8 @@ import { MovieScreeningService } from './movie-screening.service';
   ],
   providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponentComponent],
+  entryComponents: [ DialogComponentComponent ],
   schemas: [ NO_ERRORS_SCHEMA ]
-})
+}) 
 export class AppModule { }
 

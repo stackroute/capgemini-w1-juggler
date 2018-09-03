@@ -17,21 +17,20 @@ export class LandingPageComponent implements OnInit {
   {'movieTitle': 'Happy Phir bhag jayeghi', 'movieposter': 'https://s3-ap-southeast-1.amazonaws.com/assets.paytm.com/images/cinema/Happy-phirr-bhag-jayegi-web-poster-214c1486-e7e3-4f94-bd64-bbeaadf6f3ff.jpg'},
   {'movieTitle': 'Mile22', 'movieposter': 'https://assetscdn1.paytm.com/images/catalog/view_item/195582/1535023771411.jpg'}];
 
-  animal: string;
-  name: string;
-  dialogRef: any;
+
+  // dialogRef: any;
   constructor(public dialog: MatDialog) {}
 
   // constructor(private cityService: SearchDataService, private router: Router) { }
 
   ngOnInit() {
       const dialogRef = this.dialog.open(DialogComponentComponent, {
-        width: '70%', height: '35%',
+        width: '70%', height: '30%',
         position: {top: '10%', left: '15%'},
       });
 
       dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
+        console.log('The dialog was closed ${result}');
       });
 }
 }

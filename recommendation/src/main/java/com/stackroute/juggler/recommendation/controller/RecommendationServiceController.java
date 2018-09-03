@@ -77,39 +77,39 @@ private UserRepository userRepository;
 //		return new ResponseEntity<Language>(userService.getLanguageOfUser(userName), HttpStatus.OK);
 //	}
 
-	@GetMapping("/getMoviesByGenre/{genreName}")
-	public ResponseEntity<?> getMoviesByGenre(@PathVariable String genreName) {
-		return new ResponseEntity<List<Movie>>(movieService.getMoviesByGenre(genreName), HttpStatus.OK);
-	}
-
-	@GetMapping("/getMoviesByCityGenre/{cityName}&{genreName}")
-	public ResponseEntity<List<Movie>> getMovieByCityGenre(@PathVariable String cityName,
-			@PathVariable String genreName) {
-		return new ResponseEntity<List<Movie>>(movieService.getMovieByCityGenre(cityName, genreName), HttpStatus.OK);
-	}
-
-	@GetMapping("/getMoviesByCity/{cityName}")
-	public ResponseEntity<?> getMoviesByCity(@PathVariable String cityName) {
-		return new ResponseEntity<List<Movie>>(movieService.getMoviesByCity(cityName), HttpStatus.OK);
-	}
-
-	@GetMapping("/getMoviesByCityLanguage/{cityName}&{languageName}")
-	public ResponseEntity<List<Movie>> getMovieByCityLanguage(@PathVariable String cityName,
-			@PathVariable String languageName) {
-		System.out.println("hello");
-		 List<Movie> cityLangMovies = movieService.getMovieByCityLanguage(cityName, languageName);
-		
-		 return new ResponseEntity<List<Movie>>(cityLangMovies,
-				HttpStatus.OK);
-	}
-
-	@GetMapping("/getMoviesByCityGenreLanguage/{cityName}&{genreName}&{languageName}")
-	public ResponseEntity<List<Movie>> getMovieByCityGenreLanguage(@PathVariable String cityName,
-			@PathVariable String genreName, @PathVariable String languageName) {
-		System.out.println("hello");
-		return new ResponseEntity<List<Movie>>(
-				movieService.getMovieByCityGenreLanguage(cityName, genreName, languageName), HttpStatus.OK);
-	}
+//	@GetMapping("/getMoviesByGenre/{genreName}")
+//	public ResponseEntity<?> getMoviesByGenre(@PathVariable String genreName) {
+//		return new ResponseEntity<List<Movie>>(movieService.getMoviesByGenre(genreName), HttpStatus.OK);
+//	}
+//
+//	@GetMapping("/getMoviesByCityGenre/{cityName}&{genreName}")
+//	public ResponseEntity<List<Movie>> getMovieByCityGenre(@PathVariable String cityName,
+//			@PathVariable String genreName) {
+//		return new ResponseEntity<List<Movie>>(movieService.getMovieByCityGenre(cityName, genreName), HttpStatus.OK);
+//	}
+//
+//	@GetMapping("/getMoviesByCity/{cityName}")
+//	public ResponseEntity<?> getMoviesByCity(@PathVariable String cityName) {
+//		return new ResponseEntity<List<Movie>>(movieService.getMoviesByCity(cityName), HttpStatus.OK);
+//	}
+//
+//	@GetMapping("/getMoviesByCityLanguage/{cityName}&{languageName}")
+//	public ResponseEntity<List<Movie>> getMovieByCityLanguage(@PathVariable String cityName,
+//			@PathVariable String languageName) {
+//		System.out.println("hello");
+//		 List<Movie> cityLangMovies = movieService.getMovieByCityLanguage(cityName, languageName);
+//		
+//		 return new ResponseEntity<List<Movie>>(cityLangMovies,
+//				HttpStatus.OK);
+//	}
+//
+//	@GetMapping("/getMoviesByCityGenreLanguage/{cityName}&{genreName}&{languageName}")
+//	public ResponseEntity<List<Movie>> getMovieByCityGenreLanguage(@PathVariable String cityName,
+//			@PathVariable String genreName, @PathVariable String languageName) {
+//		System.out.println("hello");
+//		return new ResponseEntity<List<Movie>>(
+//				movieService.getMovieByCityGenreLanguage(cityName, genreName, languageName), HttpStatus.OK);
+//	}
 
 //	@GetMapping("/getGenreBasedMoviesForUser/{userName}")
 //	public ResponseEntity<List<Movie>> getGenreBasedMoviesForUser(@PathVariable String userName) {
