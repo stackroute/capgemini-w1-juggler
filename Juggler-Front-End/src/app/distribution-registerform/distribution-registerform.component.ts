@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MovieDataService } from '../movie-data.service';
 import { Movie } from '../movie';
 import { Router } from '@angular/router';
-import { MatFileUploadModule } from 'angular-material-fileupload';
+// import { MatFileUploadModule } from 'angular-material-fileupload';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class DistributionRegisterFormComponent implements OnInit {
   constructor(
     private cardservice: MovieDataService,
     private _formBuilder: FormBuilder,
-    private router: Router
+    private route: Router
   ) {}
 
   isLinear = true;
@@ -58,10 +58,10 @@ export class DistributionRegisterFormComponent implements OnInit {
       this.f.movie_Releasedate.value.getMonth()+"/"+
       this.f.movie_Releasedate.value.getYear();
     this.movie.movieGenres = this.f.movie_Genres.value;
-    this.movie.actor = this.f1._actor.value;
+    this.movie.actors = this.f1._actor.value;
     this.movie.synopsis = this.f1.movie_Synopsis.value;
     this.movie.movieDuration = this.f1.movie_Duration.value;
-    this.movie.actres = this.f1._actress.value;
+    this.movie.actress = this.f1._actress.value;
     this.movie.directors = this.f1._directors.value;
     this.movie.languages = this.f1._languages.value;
     console.log(this.movie.movieName);
@@ -70,6 +70,6 @@ export class DistributionRegisterFormComponent implements OnInit {
     this.cardservice
       .addMovie(this.movie)
       .subscribe(res => console.log('Saved theatre'));
-    this.router.navigate(['/login-partner']);
+    this.route.navigate(['/login-partner']);
   }
 }
