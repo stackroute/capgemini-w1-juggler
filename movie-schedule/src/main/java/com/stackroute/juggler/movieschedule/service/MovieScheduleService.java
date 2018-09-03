@@ -11,7 +11,7 @@ public interface MovieScheduleService {
 
 	public List<MovieSchedule> getMoviesSchedule();
 
-	public MovieSchedule updateMovieSchedule(MovieSchedule updateMovie);
+	public MovieSchedule updateMovieSchedule(String theatreName, MovieSchedule updateMovie);
 
 	public void consumeKafka(Registration registration);
 

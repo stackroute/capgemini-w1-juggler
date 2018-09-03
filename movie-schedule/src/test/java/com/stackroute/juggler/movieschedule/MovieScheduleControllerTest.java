@@ -72,7 +72,7 @@
 //		String[] runningmovies = new String[] {"Batman"}; 
 //		Movie movie = new Movie("1", "Batman", "url", "bcd", "abcd", "xyz", "action", "aeiou", "2D", "English", "02:00:00", "2018-08-29");
 //		int showNumbers = 4;
-//		String[] showTimings = new String[] {"10:00", "13:00", "18:00", "22:00"};
+//		String showTimings = new String ("10:00, 13:00, 18:00, 22:00");
 //		TicketPrices ticketPrices = new TicketPrices(150, 100);
 //		
 //		moviee = new MovieSchedule(theatreId, theatreName, theatreLocation, theatreCity, theatreLicenseNo, numberOfSeats, seats, screenedmovies, runningmovies, movie, showNumbers, showTimings, ticketPrices);

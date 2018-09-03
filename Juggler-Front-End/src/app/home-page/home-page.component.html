@@ -1,5 +1,5 @@
 <!-- Search form -->
-<div class="container col-8">
+<div class="container col-8 mt-5">
     <div class="row">
         <div class="col-sm-12">
             <form>
@@ -23,16 +23,16 @@
     <div *ngFor="let movie of search_result">
         <div *ngFor="let Names of movie.movieList">
             <mat-grid-tile colspan="3" rowspan="6">
-                <mat-card class="example-card">
+                <mat-card class="example-card m-3">
                     <mat-card-header>
 
                         <mat-card-title><a>{{Names.movieName}}</a>
                         </mat-card-title>
 
                     </mat-card-header>
-                    <img mat-card-image src="{{Names.moviePoster}}" alt="Poster of movie">
+                    <img mat-card-image  routerLink="/moviedetail" src="{{Names.moviePoster}}" alt="Poster of movie" width="180" height="280">
                     <mat-card-actions>
-                        <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">Movie Details</button>
+                        <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">View Details</button>
                     </mat-card-actions>
                 </mat-card>
             </mat-grid-tile>

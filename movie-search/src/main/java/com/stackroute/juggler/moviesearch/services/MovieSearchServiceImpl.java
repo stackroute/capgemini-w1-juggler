@@ -15,6 +15,8 @@ import com.stackroute.juggler.moviesearch.domain.Theatre;
 import com.stackroute.juggler.moviesearch.repository.CityRepository;
 import com.stackroute.juggler.moviesearch.repository.MovieRepository;
 
+
+
 @Service
 public class MovieSearchServiceImpl implements MovieSearchService {
 
@@ -46,6 +48,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		List<Movie> movies = city.getMovieList();
 		return movies;
 	}
+
 
 	@Override
 	public City getByCity(String city) {
