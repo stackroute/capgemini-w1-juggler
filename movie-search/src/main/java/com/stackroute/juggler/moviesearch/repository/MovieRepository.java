@@ -12,5 +12,10 @@ import com.stackroute.juggler.moviesearch.domain.Movie;
 @Repository     //declaring it as repository
 public interface MovieRepository extends CrudRepository<Movie,Integer> {
 	public List<Movie> getBymovieName(String movieName);
+	public Movie findByMovieName(String movieName);
+
+	public boolean existsByMovieName(String movieName);
+
+	public Movie getById(String movieId);
 }
 
