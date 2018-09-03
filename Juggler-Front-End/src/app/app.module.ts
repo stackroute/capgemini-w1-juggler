@@ -69,7 +69,7 @@ import { MovieScreeningService } from './movie-screening.service';
     MatInputModule,
     MatFormFieldModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
     MatFileUploadModule,
     MatNativeDateModule,
     MatAutocompleteModule

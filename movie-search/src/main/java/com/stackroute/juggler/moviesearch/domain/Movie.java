@@ -1,7 +1,6 @@
 package com.stackroute.juggler.moviesearch.domain;
 
 import java.io.File;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -44,9 +43,11 @@ public class Movie {
 		this.director = director;
 		this.theatres = theatres;
 	}
+
 	public Movie() {
 		super();
 	}
+
 	// List of all getters and setters
 	public String getId() {
 		return movieId;
@@ -152,7 +153,4 @@ public class Movie {
 		this.theatres = theatres;
 	}
 
-	
-
-	
 }
