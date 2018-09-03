@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,7 +17,7 @@ export class DialogComponentComponent implements OnInit {
   }
   ngOnInit() {
   }
-  searchMovies() {
-    this.router.navigate(['/']);
+  searchMovies(city: string) {
+    this.router.navigate(['home']);
   }
 }

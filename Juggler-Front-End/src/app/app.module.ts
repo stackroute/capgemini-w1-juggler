@@ -66,14 +66,14 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     MatInputModule,
     MatFormFieldModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
     MatFileUploadModule,
     MatNativeDateModule
   ],
   providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponentComponent],
+  entryComponents: [ DialogComponentComponent ],
   schemas: [ NO_ERRORS_SCHEMA ]
-})
+}) 
 export class AppModule { }
 
