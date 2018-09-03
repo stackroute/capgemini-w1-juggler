@@ -1,7 +1,9 @@
+
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../user';
+import { Router } from '@angular/router';
 
 
 
@@ -18,7 +20,7 @@ export class UserRegisterComponent implements OnInit {
   // hide = true;
   user = new User();
 
-  constructor(private userService: UserService, private _formBuilder: FormBuilder) { }
+  constructor(private userService: UserService, private _formBuilder: FormBuilder, private router: Router) { }
   // emailFormControl = new FormControl('', [
   //   Validators.required,
   //   Validators.email,
@@ -42,15 +44,16 @@ export class UserRegisterComponent implements OnInit {
   }
 
   addUser() {
-    this.user.user_name = this.f.userName.value;
-    this.user.email_id = this.f.email.value;
+    this.user.userName = this.f.userName.value;
+    this.user.emailId = this.f.email.value;
     this.user.password = this.f.password.value;
     this.user.mobileNo = this.f.mobileNo.value;
     this.user.location = this.f1.address.value;
-    console.log(this.user.user_name);
+    console.log(this.user.userName);
     console.log(this.user);
     this.userService
       .saveUser(this.user)
       .subscribe(res => console.log('Saved User'));
+    this.router.navigate(['/login-user']);
   }
 }

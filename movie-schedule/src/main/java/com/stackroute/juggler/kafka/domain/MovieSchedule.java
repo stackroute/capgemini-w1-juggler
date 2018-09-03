@@ -50,6 +50,7 @@ public class MovieSchedule {
 		super();
 	}
 
+	// All arguments constructors
 	public MovieSchedule(String theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, File seatLayout,
 			String[] screenedmovies, String[] runningmovies, String id, String movieName, File moviePoster,
@@ -64,7 +65,6 @@ public class MovieSchedule {
 		this.theatreLicenseNo = theatreLicenseNo;
 		this.numberOfSeats = numberOfSeats;
 		this.seats = seats;
-		this.seatLayout = seatLayout;
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
 		this.id = id;
@@ -85,6 +85,7 @@ public class MovieSchedule {
 		this.weekdays_Price = weekdays_Price;
 	}
 
+	// List of all getters and setters
 	public String getTheatreId() {
 		return theatreId;
 	}

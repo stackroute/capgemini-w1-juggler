@@ -1,6 +1,10 @@
 package com.stackroute.juggler.distributor.domain;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -21,17 +25,18 @@ public class Movie {
 	private String synopsis;
 	private String format;
 	private String languages;
-	 @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
-	 private String movieDuration;
-	 @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	 private String movieReleaseDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+	private LocalTime movieDuration;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	private LocalDate movieReleaseDate;
 
 	public Movie() {
 	}
 
 	// All Arguments constructor
 	public Movie(String id, String movieName, File moviePoster, String actors, String actress, String directors,
-			String movieGenres, String synopsis, String format, String languages, String movieDuration, String movieReleaseDate) {
+			String movieGenres, String synopsis, String format, String languages, LocalTime movieDuration,
+			LocalDate movieReleaseDate) {
 		this.id = id;
 		this.movieName = movieName;
 		this.moviePoster = moviePoster;
@@ -127,20 +132,20 @@ public class Movie {
 		this.languages = languages;
 	}
 
-	 public String getMovieDuration() {
-	 return movieDuration;
-	 }
-	
-	 public void setMovieDuration(String movieDuration) {
-	 this.movieDuration = movieDuration;
-	 }
-	
-	 public String getMovieReleaseDate() {
-	 return movieReleaseDate;
-	 }
-	
-	 public void setMovieReleaseDate(String movieReleaseDate) {
-	 this.movieReleaseDate = movieReleaseDate;
-	 }
+	public LocalTime getMovieDuration() {
+		return movieDuration;
+	}
+
+	public void setMovieDuration(LocalTime movieDuration) {
+		this.movieDuration = movieDuration;
+	}
+
+	public LocalDate getMovieReleaseDate() {
+		return movieReleaseDate;
+	}
+
+	public void setMovieReleaseDate(LocalDate movieReleaseDate) {
+		this.movieReleaseDate = movieReleaseDate;
+	}
 
 }

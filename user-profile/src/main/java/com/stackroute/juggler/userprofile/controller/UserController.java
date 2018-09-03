@@ -36,25 +36,24 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	// This request mapping is to accept new user and save the data to database and
-	// messagebus
+	// mapping is to accept new user and save the data to database and messagebus
 	@RequestMapping(value = "/regestration", method = RequestMethod.POST)
 	public ResponseEntity<?> saveUser(@RequestBody InputUser inputUser) throws ProfileAlreadyExitsException {
 		// InputUser userobj = null;
 		try {
 			InputUser userobj = userService.saveUser(inputUser);
-			logger.info("Profile is saved into database");
+			logger.info("movie is saved into database");
 			return new ResponseEntity<InputUser>(userobj, HttpStatus.CREATED);
 		} catch (ProfileAlreadyExitsException m) {
 			// Error handling code
 			String result = m.getMessage();
-			logger.warn("Profile is not added into database");
+			logger.warn("movie is not added into database");
 			return new ResponseEntity<String>(result, HttpStatus.CONFLICT);
 		}
 
 	}
 
-	// This is to view the user in the database we take user id in url itself
+	// Views the user in the database we take user id in url itself
 	@RequestMapping(value = "/user/{userid}", method = RequestMethod.GET)
 	public ResponseEntity<?> viewuser(@PathVariable String userid) throws UserDoesNotExistsException {
 		try {
@@ -64,13 +63,13 @@ public class UserController {
 		} catch (UserDoesNotExistsException m) {
 			// Error Handling
 			String result = m.getMessage();
-			logger.warn("Profile is not found in database");
+			logger.warn("movie is not found in database");
 			return new ResponseEntity<String>(result, HttpStatus.NOT_FOUND);
 		}
 
 	}
 
-	// This is to update user initially we find the user and allow to update
+	//Updates user initially we find the user and allow to update
 	@RequestMapping(value = "/user/{userid}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateuser(@PathVariable String userid, @RequestBody UserProfile user)
 			throws UpdateFailedException, UserDoesNotExistsException {
@@ -81,7 +80,7 @@ public class UserController {
 		} catch (UserDoesNotExistsException m) {
 			// Error handling
 			String result = m.getMessage();
-			logger.warn("Profile is not updated");
+			logger.warn("movie is not updated");
 			return new ResponseEntity<String>(result, HttpStatus.NOT_MODIFIED);
 		}
 

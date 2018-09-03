@@ -12,6 +12,6 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   saveUser(user: User): Observable<User> {
-   return this.http.post<User>(this._url + '/api/v1/user-profile/registration', user);
+   return this.http.post<User>(this._url + '/api/v1/userProfile/regestration', user);
   }
 }

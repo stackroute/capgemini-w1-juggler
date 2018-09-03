@@ -37,10 +37,7 @@ export class SearchDataService {
               .then(response => response.json());
   }
 
-  searchMovie(movie: string) {
-   this.movie_string = movie;
-   return this.http.get(this.url + '/' + this.movie_string);
-  }
+ 
 //  searchMovie(city: string) {
 
 //   return this.http.get('http://localhost:8060/api/v1/city' + '/' + city);

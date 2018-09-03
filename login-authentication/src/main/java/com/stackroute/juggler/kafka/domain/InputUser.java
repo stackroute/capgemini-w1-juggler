@@ -3,7 +3,6 @@ package com.stackroute.juggler.kafka.domain;
 import javax.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
 
-															
 // This domain object is used to save the data from the kafka
 // this user_id is set as id
 public class InputUser {

@@ -2,7 +2,6 @@ package com.stackroute.juggler.userprofile.configuration;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -12,13 +11,11 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import com.stackroute.juggler.kafka.domain.InputUser;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-@EnableSwagger2
 public class KafkaConfiguration {
 
-	// Setting topic name
+	//Declaring Topic
 	static final String TOPIC = "details8";
 
 	// Producer factory of kafka which will hold the configuration details
@@ -39,11 +36,9 @@ public class KafkaConfiguration {
 		return new KafkaTemplate<>(producerFactory());
 	}
 
-	// To get Topic
-	public String getTopic() {
+	//To Send Topic
+	public static String getTopic() {
 		return TOPIC;
 	}
-
-
 
 }

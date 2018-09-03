@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MovieDataService } from '../movie-data.service';
 import { Movie } from '../movie';
+import { Router } from '@angular/router';
+import { MatFileUploadModule } from 'angular-material-fileupload';
+
 
 @Component({
   selector: 'app-distribution-registerform',
@@ -9,67 +12,64 @@ import { Movie } from '../movie';
   styleUrls: ['./distribution-registerform.component.scss']
 })
 export class DistributionRegisterFormComponent implements OnInit {
+  constructor(
+    private cardservice: MovieDataService,
+    private _formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
+  isLinear = true;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+
+  // hide = true;
   movie = new Movie();
 
-  movie_Name = new FormControl('', [
-    Validators.required
-  ]);
-  movie_poster = new FormControl('', [
-    Validators.required
-  ]);
-  movie_Synopsis = new FormControl('', [
-    Validators.required
-  ]);
-  _format = new FormControl('', [
-    Validators.required
-  ]);
-  movie_Releasedate = new FormControl('', [
-    Validators.required
-  ]);
-  movie_Duration = new FormControl('', [
-    Validators.required
-  ]);
-  _actor = new FormControl('', [
-    Validators.required
-  ]);
-  _actres = new FormControl('', [
-    Validators.required
-  ]);
-  _directors = new FormControl('', [
-    Validators.required
-  ]);
-  _languages = new FormControl('', [
-    Validators.required
-  ]);
-  movie_Genres = new FormControl('', [
-    Validators.required
-  ]);
-  constructor(private cardservice: MovieDataService) { }
-
-  onSubmit() {
-    this.movie.movieName = this.movie_Name.value;
-    this.movie.movieposter = this.movie_poster.value;
-    this.movie.synopsis = this.movie_Synopsis.value;
-    this.movie.format = this._format.value;
-    this.movie.movieReleaseDate = this.movie_Releasedate.value;
-    this.movie.movieDuration = this.movie_Duration.value;
-    this.movie.actor = this._actor.value;
-    this.movie.actres = this._actres.value;
-    this.movie.directors = this._directors.value;
-    this.movie.languages = this._languages.value;
-    this.movie.movieGenres = this.movie_Genres.value;
-      // this.theatre.theatreName = localStorage.getItem('currentUser').replace('\"', '').replace('\"', '');
-      console.log(this.movie.movieName);
-      console.log(this.movie);
-      this.cardservice
-        .addMovie(this.movie)
-        .subscribe(res => console.log('Saved theatre'));
-  }
   ngOnInit() {
+    this.firstFormGroup = this._formBuilder.group({
+      movie_name: ['', Validators.required],
+      movie_poster: ['', Validators.required],
+      _format: ['', Validators.required],
+      movie_Releasedate: ['', Validators.required],
+      movie_Genres: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      _actor: ['', Validators.required],
+      _actress: ['', Validators.required],
+      _directors: ['', Validators.required],
+      _languages: ['', Validators.required],
+      movie_Duration: ['', Validators.required],
+      movie_Synopsis: ['', Validators.required]
+    });
+  }
+  get f() {
+    return this.firstFormGroup.controls;
+  }
+  get f1() {
+    return this.secondFormGroup.controls;
   }
 
+  addMovie() {
+    this.movie.movieName = this.f.movie_name.value;
+    this.movie.movieposter = this.f.movie_poster.value;
+    this.movie.format = this.f._format.value;
+    this.movie.movieReleaseDate = 
+      this.f.movie_Releasedate.value.getDate()+"/"+
+      this.f.movie_Releasedate.value.getMonth()+"/"+
+      this.f.movie_Releasedate.value.getYear();
+    this.movie.movieGenres = this.f.movie_Genres.value;
+    this.movie.actor = this.f1._actor.value;
+    this.movie.synopsis = this.f1.movie_Synopsis.value;
+    this.movie.movieDuration = this.f1.movie_Duration.value;
+    this.movie.actres = this.f1._actress.value;
+    this.movie.directors = this.f1._directors.value;
+    this.movie.languages = this.f1._languages.value;
+    console.log(this.movie.movieName);
+    console.log(this.movie);
+    console.log(this.movie.movieReleaseDate);
+    this.cardservice
+      .addMovie(this.movie)
+      .subscribe(res => console.log('Saved theatre'));
+    this.router.navigate(['/login-partner']);
+  }
 }
-
-
-

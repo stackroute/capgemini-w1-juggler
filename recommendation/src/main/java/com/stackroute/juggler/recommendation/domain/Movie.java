@@ -1,15 +1,10 @@
-package com.stackroute.juggler.kafka.domain;
+package com.stackroute.juggler.recommendation.domain;
 
-import java.time.LocalDate;
-import java.util.List;
+import org.neo4j.ogm.annotation.NodeEntity;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
-// Domain object for movie details
+@NodeEntity
 public class Movie {
-	@Id
+
 	private int id;
 	private String movieName;
 	private String moviePoster;
@@ -22,7 +17,6 @@ public class Movie {
 	private String hero;
 	private String heroine;
 	private String director;
-	private List<Theatre> theatres;
 
 	public int getId() {
 		return id;
@@ -119,13 +113,4 @@ public class Movie {
 	public void setDirector(String director) {
 		this.director = director;
 	}
-
-	public List<Theatre> getTheatres() {
-		return theatres;
-	}
-
-	public void setTheatres(List<Theatre> theatres) {
-		this.theatres = theatres;
-	}
-
 }

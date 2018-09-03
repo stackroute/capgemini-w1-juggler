@@ -1,4 +1,4 @@
-package com.stackroute.juggler.kafka.domain;
+package com.stackroute.juggler.recommendation.domain;
 
 import java.util.List;
 
@@ -7,28 +7,19 @@ import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
 @NodeEntity
-public class Genre {
+public class Language {
 	@Id
-	private String nodeId;
 	private String name;
-	@Relationship(type = "isTypeOf", direction = Relationship.INCOMING)
+	@Relationship(type = "languageType", direction = Relationship.INCOMING)
 	private List<Movie> movies;
-	@Relationship(type = "follows", direction = Relationship.INCOMING)
+	@Relationship(type = "preferredLanguage", direction = Relationship.INCOMING)
 	private List<User> users;
 
-	public Genre() {
+	public Language() {
 
 	}
 
-	public String getNodeId() {
-		return nodeId;
-	}
-
-	public void setNodeId(String nodeId) {
-		this.nodeId = nodeId;
-	}
-
-	public Genre(String name) {
+	public Language(String name) {
 		super();
 		this.name = name;
 	}
@@ -55,6 +46,18 @@ public class Genre {
 
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	public Language(String name, List<Movie> movies, List<User> users) {
+		super();
+		this.name = name;
+		this.movies = movies;
+		this.users = users;
+	}
+
+	@Override
+	public String toString() {
+		return "Language [name=" + name + ", movies=" + movies + ", users=" + users + "]";
 	}
 
 }

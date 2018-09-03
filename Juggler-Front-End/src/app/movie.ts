@@ -3,11 +3,11 @@ export class Movie {
   movieposter: string;
   synopsis: string;
   format: string;
-  movieReleaseDate: Date;
-  movieDuration: Date;
-  actor: string;
-  actres: string;
-  directors: string;
-  movieGenres: string;
-  languages: string;
+  movieReleaseDate: string;
+  movieDuration: string;
+  actor: string[];
+  actres: string[];
+  directors: string[];
+  movieGenres: string[];
+  languages: string[];
 }

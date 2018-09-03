@@ -10,7 +10,7 @@ import com.stackroute.juggler.kafka.domain.User;
 import com.stackroute.juggler.service.UserService;
 
 @RestController
-@RequestMapping("/secure")
+@RequestMapping("/api/v1/juggler/secure")
 public class SecureController {
 
 	@Autowired

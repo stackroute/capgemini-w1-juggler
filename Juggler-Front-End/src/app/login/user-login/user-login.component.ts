@@ -15,6 +15,7 @@ export class UserLoginComponent implements OnInit {
   loginForm: FormGroup;
     loading = false;
     submitted = false;
+    error = '';
     // returnUrl: string;
 
     constructor(
@@ -46,6 +47,7 @@ export class UserLoginComponent implements OnInit {
         this.submitted = true;
         // stop here if form is invalid
         if (this.loginForm.invalid) {
+            console.log('Give Valid details');
             return;
         }
         console.log(this.f.email.value);
@@ -57,8 +59,9 @@ export class UserLoginComponent implements OnInit {
                     this.router.navigate(['/']);
                 },
                 error => {
-                    this.alertService.error(error);
-                    this.loading = false;
+                    // this.alertService.error(error);
+                    // this.loading = false;
+                    this.error = 'Empty fields';
                 });
     }
 }

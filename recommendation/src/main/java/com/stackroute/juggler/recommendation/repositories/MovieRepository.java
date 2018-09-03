@@ -1,16 +1,15 @@
 package com.stackroute.juggler.recommendation.repositories;
 
 import java.util.List;
-
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.stackroute.juggler.kafka.domain.Movie;
+import com.stackroute.juggler.recommendation.domain.Movie;
 
 @Repository
-public interface MovieRepository extends Neo4jRepository<Movie, Integer> {
+public interface MovieRepository extends Neo4jRepository<Movie, String> {
 //	Movie findByMovieTitle(String name);
 //	@Query("match (u:User{userName})-[:FOLLOWS]->(Genre{genreName})<-[:IS_OF_TYPE]-(m1:Movie),(u)-[:LIVES_IN]->(City{cityName})<-[:RELEASED_IN]-(m1:Movie) where u.age<13 return m1")
 //	List<Movie> getByGenreAgeCity(@Param("userName") String userName,@Param("genreName")String genreName,@Param("cityName")String cityName);

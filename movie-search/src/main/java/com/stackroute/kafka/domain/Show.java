@@ -1,4 +1,8 @@
-package com.stackroute.juggler.kafka.domain;
+package com.stackroute.kafka.domain;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 
 public class Show {
 	private String[] showTimings;
