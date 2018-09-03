@@ -1,5 +1,7 @@
 package com.stackroute.juggler.kafka.domain;
 
+import java.io.File;
+import java.util.Arrays;
 import java.util.Map;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -19,24 +21,41 @@ public class MovieSchedule {
 	private String theatreLicenseNo;
 	private String numberOfSeats;
 	private Map<String, Integer> seats;
+	private File seatLayout;
 	private String[] screenedmovies;
 	private String[] runningmovies;
-	private MovieDetails movieDetails;
+	public String id;
+	private String movieName;
+	private File moviePoster;
+	private String actors;
+	private String actress;
+	private String directors;
+	private String movieGenres;
+	private String synopsis;
+	private String format;
+	private String languages;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+	private String movieDuration;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyy")
+	private String movieReleaseDate;
+
 	private int showNumbers;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
-	private String[] showTimings;
-	private TicketPrices ticketPrices;
+	private String showTimings;
+	private int weekends_Price;
+	private int weekdays_Price;
 
 	// default constructor
 	public MovieSchedule() {
 		super();
 	}
 
-	// All arguments constructors
 	public MovieSchedule(String theatreId, String theatreName, String theatreLocation, String theatreCity,
-			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
-			String[] runningmovies, MovieDetails movieDetails, int showNumbers, String[] showTimings,
-			TicketPrices ticketPrices) {
+			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, File seatLayout,
+			String[] screenedmovies, String[] runningmovies, String id, String movieName, File moviePoster,
+			String actors, String actress, String directors, String movieGenres, String synopsis, String format,
+			String languages, String movieDuration, String movieReleaseDate, int showNumbers, String showTimings,
+			int weekends_Price, int weekdays_Price) {
 		super();
 		this.theatreId = theatreId;
 		this.theatreName = theatreName;
@@ -45,15 +64,27 @@ public class MovieSchedule {
 		this.theatreLicenseNo = theatreLicenseNo;
 		this.numberOfSeats = numberOfSeats;
 		this.seats = seats;
+		this.seatLayout = seatLayout;
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
-		this.movieDetails = movieDetails;
+		this.id = id;
+		this.movieName = movieName;
+		this.moviePoster = moviePoster;
+		this.actors = actors;
+		this.actress = actress;
+		this.directors = directors;
+		this.movieGenres = movieGenres;
+		this.synopsis = synopsis;
+		this.format = format;
+		this.languages = languages;
+		this.movieDuration = movieDuration;
+		this.movieReleaseDate = movieReleaseDate;
 		this.showNumbers = showNumbers;
 		this.showTimings = showTimings;
-		this.ticketPrices = ticketPrices;
+		this.weekends_Price = weekends_Price;
+		this.weekdays_Price = weekdays_Price;
 	}
 
-	// List of all getters and setters
 	public String getTheatreId() {
 		return theatreId;
 	}
@@ -110,6 +141,14 @@ public class MovieSchedule {
 		this.seats = seats;
 	}
 
+	public File getSeatLayout() {
+		return seatLayout;
+	}
+
+	public void setSeatLayout(File seatLayout) {
+		this.seatLayout = seatLayout;
+	}
+
 	public String[] getScreenedmovies() {
 		return screenedmovies;
 	}
@@ -126,12 +165,100 @@ public class MovieSchedule {
 		this.runningmovies = runningmovies;
 	}
 
-	public MovieDetails getMovieDetails() {
-		return movieDetails;
+	public String getId() {
+		return id;
 	}
 
-	public void setMovieDetails(MovieDetails movieDetails) {
-		this.movieDetails = movieDetails;
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getMovieName() {
+		return movieName;
+	}
+
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
+
+	public File getMoviePoster() {
+		return moviePoster;
+	}
+
+	public void setMoviePoster(File moviePoster) {
+		this.moviePoster = moviePoster;
+	}
+
+	public String getActors() {
+		return actors;
+	}
+
+	public void setActors(String actors) {
+		this.actors = actors;
+	}
+
+	public String getActress() {
+		return actress;
+	}
+
+	public void setActress(String actress) {
+		this.actress = actress;
+	}
+
+	public String getDirectors() {
+		return directors;
+	}
+
+	public void setDirectors(String directors) {
+		this.directors = directors;
+	}
+
+	public String getMovieGenres() {
+		return movieGenres;
+	}
+
+	public void setMovieGenres(String movieGenres) {
+		this.movieGenres = movieGenres;
+	}
+
+	public String getSynopsis() {
+		return synopsis;
+	}
+
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
+
+	public String getFormat() {
+		return format;
+	}
+
+	public void setFormat(String format) {
+		this.format = format;
+	}
+
+	public String getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(String languages) {
+		this.languages = languages;
+	}
+
+	public String getMovieDuration() {
+		return movieDuration;
+	}
+
+	public void setMovieDuration(String movieDuration) {
+		this.movieDuration = movieDuration;
+	}
+
+	public String getMovieReleaseDate() {
+		return movieReleaseDate;
+	}
+
+	public void setMovieReleaseDate(String movieReleaseDate) {
+		this.movieReleaseDate = movieReleaseDate;
 	}
 
 	public int getShowNumbers() {
@@ -142,20 +269,42 @@ public class MovieSchedule {
 		this.showNumbers = showNumbers;
 	}
 
-	public TicketPrices getTicketPrices() {
-		return ticketPrices;
-	}
-
-	public void setTicketPrices(TicketPrices ticketPrices) {
-		this.ticketPrices = ticketPrices;
-	}
-
-	public String[] getShowTimings() {
+	public String getShowTimings() {
 		return showTimings;
 	}
 
-	public void setShowTimings(String[] showTimings) {
+	public void setShowTimings(String showTimings) {
 		this.showTimings = showTimings;
+	}
+
+	public int getWeekends_Price() {
+		return weekends_Price;
+	}
+
+	public void setWeekends_Price(int weekends_Price) {
+		this.weekends_Price = weekends_Price;
+	}
+
+	public int getWeekdays_Price() {
+		return weekdays_Price;
+	}
+
+	public void setWeekdays_Price(int weekdays_Price) {
+		this.weekdays_Price = weekdays_Price;
+	}
+
+	@Override
+	public String toString() {
+		return "MovieSchedule [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreLocation="
+				+ theatreLocation + ", theatreCity=" + theatreCity + ", theatreLicenseNo=" + theatreLicenseNo
+				+ ", numberOfSeats=" + numberOfSeats + ", seats=" + seats + ", seatLayout=" + seatLayout
+				+ ", screenedmovies=" + Arrays.toString(screenedmovies) + ", runningmovies="
+				+ Arrays.toString(runningmovies) + ", id=" + id + ", movieName=" + movieName + ", moviePoster="
+				+ moviePoster + ", actors=" + actors + ", actress=" + actress + ", directors=" + directors
+				+ ", movieGenres=" + movieGenres + ", synopsis=" + synopsis + ", format=" + format + ", languages="
+				+ languages + ", movieDuration=" + movieDuration + ", movieReleaseDate=" + movieReleaseDate
+				+ ", showNumbers=" + showNumbers + ", showTimings=" + showTimings + ", weekends_Price=" + weekends_Price
+				+ ", weekdays_Price=" + weekdays_Price + "]";
 	}
 
 }

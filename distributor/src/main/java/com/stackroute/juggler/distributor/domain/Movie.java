@@ -1,7 +1,6 @@
 package com.stackroute.juggler.distributor.domain;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.io.File;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,7 +13,7 @@ public class Movie {
 	@Id
 	public String id;
 	private String movieName;
-	private String moviePoster;
+	private File moviePoster;
 	private String actors;
 	private String actress;
 	private String directors;
@@ -23,16 +22,16 @@ public class Movie {
 	private String format;
 	private String languages;
 	 @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
-	 private LocalTime movieDuration;
+	 private String movieDuration;
 	 @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	 private LocalDate movieReleaseDate;
+	 private String movieReleaseDate;
 
 	public Movie() {
 	}
 
 	// All Arguments constructor
-	public Movie(String id, String movieName, String moviePoster, String actors, String actress, String directors,
-			String movieGenres, String synopsis, String format, String languages) {
+	public Movie(String id, String movieName, File moviePoster, String actors, String actress, String directors,
+			String movieGenres, String synopsis, String format, String languages, String movieDuration, String movieReleaseDate) {
 		this.id = id;
 		this.movieName = movieName;
 		this.moviePoster = moviePoster;
@@ -43,8 +42,8 @@ public class Movie {
 		this.synopsis = synopsis;
 		this.format = format;
 		this.languages = languages;
-//		this.movieDuration = movieDuration;
-//		this.movieReleaseDate = movieReleaseDate;
+		this.movieDuration = movieDuration;
+		this.movieReleaseDate = movieReleaseDate;
 	}
 
 	// List of all getters and setters
@@ -64,11 +63,11 @@ public class Movie {
 		this.movieName = movieName;
 	}
 
-	public String getMoviePoster() {
+	public File getMoviePoster() {
 		return moviePoster;
 	}
 
-	public void setMoviePoster(String moviePoster) {
+	public void setMoviePoster(File moviePoster) {
 		this.moviePoster = moviePoster;
 	}
 
@@ -128,20 +127,20 @@ public class Movie {
 		this.languages = languages;
 	}
 
-	// public LocalTime getMovieDuration() {
-	// return movieDuration;
-	// }
-	//
-	// public void setMovieDuration(LocalTime movieDuration) {
-	// this.movieDuration = movieDuration;
-	// }
-	//
-	// public LocalDate getMovieReleaseDate() {
-	// return movieReleaseDate;
-	// }
-	//
-	// public void setMovieReleaseDate(LocalDate movieReleaseDate) {
-	// this.movieReleaseDate = movieReleaseDate;
-	// }
+	 public String getMovieDuration() {
+	 return movieDuration;
+	 }
+	
+	 public void setMovieDuration(String movieDuration) {
+	 this.movieDuration = movieDuration;
+	 }
+	
+	 public String getMovieReleaseDate() {
+	 return movieReleaseDate;
+	 }
+	
+	 public void setMovieReleaseDate(String movieReleaseDate) {
+	 this.movieReleaseDate = movieReleaseDate;
+	 }
 
 }

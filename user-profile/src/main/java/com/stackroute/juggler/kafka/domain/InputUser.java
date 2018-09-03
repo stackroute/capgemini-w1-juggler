@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class InputUser {
 
 
-	// this user_id is set as id
+	//Unique attribute in domain object
 	@Id
 	private String userId;
 	@Size(min = 6, max = 20)
@@ -33,6 +33,7 @@ public class InputUser {
 	private String[] paymentMethods;
 	private String likes;
 
+	//Getters and Setters
 	public String getUserId() {
 		return userId;
 	}
@@ -105,6 +106,8 @@ public class InputUser {
 	public void setLikes(String likes) {
 		this.likes = likes;
 	}
+	
+	//ToString
 	@Override
 	public String toString() {
 		return "InputUser [userId=" + userId + ", userName=" + userName + ", emailId=" + emailId + ", mobileNo=" + mobileNo
@@ -112,6 +115,8 @@ public class InputUser {
 				+ Arrays.toString(LanguagesKnown) + ", genre=" + Arrays.toString(genre) + ", location=" + location
 				+ ", paymentMethods=" + Arrays.toString(paymentMethods) + ", likes=" + likes + "]";
 	}
+	
+	//All Args Constructer
 	public InputUser(String userId, @Size(min = 6, max = 20) String userName, String emailId, double mobileNo,
 			@Size(min = 8, max = 20) String password, String gender, String dateOfBirth, String[] languagesKnown,
 			String[] genre, String location, String[] paymentMethods, String likes) {
@@ -129,7 +134,9 @@ public class InputUser {
 		this.paymentMethods = paymentMethods;
 		this.likes = likes;
 	}
-	public InputUser() {
+	
+	//No Arg Constructer
+	public InputUser(){
 		super();
 	}
 	

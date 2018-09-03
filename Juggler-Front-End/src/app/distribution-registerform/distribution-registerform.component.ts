@@ -12,7 +12,7 @@ export class DistributionRegisterFormComponent implements OnInit {
 
   movie = new Movie();
 
-  movie_name = new FormControl('', [
+  movie_Name = new FormControl('', [
     Validators.required
   ]);
   movie_poster = new FormControl('', [
@@ -48,7 +48,7 @@ export class DistributionRegisterFormComponent implements OnInit {
   constructor(private cardservice: MovieDataService) { }
 
   onSubmit() {
-    this.movie.movieName = this.movie_name.value;
+    this.movie.movieName = this.movie_Name.value;
     this.movie.movieposter = this.movie_poster.value;
     this.movie.synopsis = this.movie_Synopsis.value;
     this.movie.format = this._format.value;

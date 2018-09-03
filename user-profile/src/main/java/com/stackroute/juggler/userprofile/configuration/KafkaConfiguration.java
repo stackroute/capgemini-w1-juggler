@@ -11,39 +11,39 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
-
 import com.stackroute.juggler.kafka.domain.InputUser;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
+@EnableSwagger2
 public class KafkaConfiguration {
-	
-	 static final String TOPIC = "details8";
-	
-	//Producer factory of kafka which will hold the configuration details
-	 @Bean
-	    public ProducerFactory<String, InputUser> producerFactory() {
-	        Map<String, Object> config = new HashMap<>();
 
-	        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.190:9092");
-	        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-	        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+	// Setting topic name
+	static final String TOPIC = "details8";
 
-	        return new DefaultKafkaProducerFactory<>(config);
-	    }
+	// Producer factory of kafka which will hold the configuration details
+	@Bean
+	public ProducerFactory<String, InputUser> producerFactory() {
+		Map<String, Object> config = new HashMap<>();
 
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.190:9092");
+		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
-	 //Template imports the configuration from producerfactory
-	    @Bean
-	    public KafkaTemplate<String, InputUser> kafkaTemplate() {
-	        return new KafkaTemplate<>(producerFactory());
-	    }
+		return new DefaultKafkaProducerFactory<>(config);
+	}
 
+	// Template imports the configuration from producerfactory
+	@Bean
+	public KafkaTemplate<String, InputUser> kafkaTemplate() {
+		return new KafkaTemplate<>(producerFactory());
+	}
 
-		public static String getTopic() {
-			return TOPIC;
-		}
-	    
-	  
+	// To get Topic
+	public String getTopic() {
+		return TOPIC;
+	}
+
 
 
 }

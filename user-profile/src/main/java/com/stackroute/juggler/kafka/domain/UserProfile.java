@@ -12,18 +12,20 @@ allowed to change does not exist in it to be safe*/
 public class UserProfile {
 
 	@Id
-	private int userd;
+	private String userId;
 	private String dateOfBirth;
 	private String[] LanguagesKnown;
 	private String[] genre;
 	private String location;
 	private String[] paymentMethods;
-	private String[] likes;
-	public int getUserd() {
-		return userd;
+	private String likes;
+	
+	//Getters and Setters
+	public String getUserd() {
+		return userId;
 	}
-	public void setUserd(int userd) {
-		this.userd = userd;
+	public void setUserd(String userd) {
+		this.userId = userId;
 	}
 	public String getDateOfBirth() {
 		return dateOfBirth;
@@ -55,22 +57,21 @@ public class UserProfile {
 	public void setPaymentMethods(String[] paymentMethods) {
 		this.paymentMethods = paymentMethods;
 	}
-	public String[] getLikes() {
+	public String getLikes() {
 		return likes;
 	}
-	public void setLikes(String[] likes) {
+	public void setLikes(String likes) {
 		this.likes = likes;
 	}
-	@Override
-	public String toString() {
-		return "UserProfile [userd=" + userd + ", dateOfBirth=" + dateOfBirth + ", LanguagesKnown="
-				+ Arrays.toString(LanguagesKnown) + ", genre=" + Arrays.toString(genre) + ", location=" + location
-				+ ", paymentMethods=" + Arrays.toString(paymentMethods) + ", likes=" + Arrays.toString(likes) + "]";
-	}
-	public UserProfile(int userd, String dateOfBirth, String[] languagesKnown, String[] genre, String location,
-			String[] paymentMethods, String[] likes) {
+	
+	//To String
+
+	
+	//All Args Constructer
+	public UserProfile(String userd, String dateOfBirth, String[] languagesKnown, String[] genre, String location,
+			String[] paymentMethods, String likes) {
 		super();
-		this.userd = userd;
+		this.userId = userd;
 		this.dateOfBirth = dateOfBirth;
 		LanguagesKnown = languagesKnown;
 		this.genre = genre;
@@ -78,6 +79,14 @@ public class UserProfile {
 		this.paymentMethods = paymentMethods;
 		this.likes = likes;
 	}
+	
+	@Override
+	public String toString() {
+		return "UserProfile [userId=" + userId + ", dateOfBirth=" + dateOfBirth + ", LanguagesKnown="
+				+ Arrays.toString(LanguagesKnown) + ", genre=" + Arrays.toString(genre) + ", location=" + location
+				+ ", paymentMethods=" + Arrays.toString(paymentMethods) + ", likes=" + likes + "]";
+	}
+	//No Arg Constructer
 	public UserProfile() {
 		super();
 	}

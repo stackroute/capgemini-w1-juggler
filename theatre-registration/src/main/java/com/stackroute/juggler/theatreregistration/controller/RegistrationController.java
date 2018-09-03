@@ -17,7 +17,7 @@ import com.stackroute.juggler.kafka.domain.Registration;
 import com.stackroute.juggler.theatreregistration.exceptions.TheatreAlreadyExists;
 import com.stackroute.juggler.theatreregistration.services.RegistrationService;
 
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 
 // class level request mapping

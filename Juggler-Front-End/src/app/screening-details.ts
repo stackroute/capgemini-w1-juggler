@@ -1,6 +1,7 @@
-export class Movie {
+export class ScreeningDetails {
+  id: string;
   movieName: string;
-  movieposter: string;
+  movieposter: File;
   synopsis: string;
   format: string;
   movieReleaseDate: Date;
@@ -10,4 +11,10 @@ export class Movie {
   directors: string;
   movieGenres: string;
   languages: string;
+  showNumbers: number;
+  showTimings: String;
+  weekends_Price: number;
+  weekdays_Price: number;
 }
+
+
