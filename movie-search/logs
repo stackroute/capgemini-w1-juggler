@@ -7082,3 +7082,4 @@ Caused by: java.util.ConcurrentModificationException: null
 2018-Sep-03 17:48:01.410 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
 2018-Sep-03 17:50:11.396 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-3, groupId=search] Connection to node -1 could not be established. Broker may not be available.
 2018-Sep-03 17:52:22.466 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-3, groupId=search] Connection to node -1 could not be established. Broker may not be available.
+2018-Sep-03 17:54:33.538 WARN  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.NetworkClient - [Consumer clientId=consumer-3, groupId=search] Connection to node -1 could not be established. Broker may not be available.
