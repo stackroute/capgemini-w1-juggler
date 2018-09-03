@@ -2,14 +2,18 @@ package com.stackroute.juggler.moviesearch.services;
 
 import java.util.List;
 
-import com.stackroute.kafka.domain.City;
-import com.stackroute.kafka.domain.Movie;
+import com.stackroute.juggler.kafka.domain.MovieSchedule;
+import com.stackroute.juggler.moviesearch.domain.City;
+import com.stackroute.juggler.moviesearch.domain.Movie;
 
 
 
 public interface MovieSearchService {
 	public String saveCity(City city);
-	public List<City> getByCity(String city);
+	public City getByCity(String city);
 	public List<Movie> getByTitle(String movieName);
-	public City consumeKafka(City city);
+	public void consumeKafka(MovieSchedule movieschedule);
+
+	public void consumeKafkaMovie(MovieSchedule movieschedule);
+	
 }
