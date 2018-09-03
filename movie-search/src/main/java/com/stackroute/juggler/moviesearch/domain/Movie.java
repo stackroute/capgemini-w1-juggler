@@ -1,5 +1,6 @@
-package com.stackroute.juggler.kafka.domain;
+package com.stackroute.juggler.moviesearch.domain;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -10,9 +11,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 // Domain object for movie details
 public class Movie {
 	@Id
-	private int movieId;
+	private String movieId;
 	private String movieName;
-	private String moviePoster;
+	private File moviePoster;
 	private String synopsis;
 	private String movieReleasedate;
 	private String movieDuration;
@@ -25,7 +26,7 @@ public class Movie {
 	private List<Theatre> theatres;
 
 	// All Arguments constructor
-	public Movie(int movieId, String movieName, String moviePoster, String synopsis, String movieReleasedate,
+	public Movie(String movieId, String movieName, File moviePoster, String synopsis, String movieReleasedate,
 			String movieDuration, String language, String movieGenre, String format, String hero, String heroine,
 			String director, List<Theatre> theatres) {
 		super();
@@ -43,13 +44,15 @@ public class Movie {
 		this.director = director;
 		this.theatres = theatres;
 	}
-
+	public Movie() {
+		super();
+	}
 	// List of all getters and setters
-	public int getId() {
+	public String getId() {
 		return movieId;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.movieId = id;
 	}
 
@@ -61,11 +64,11 @@ public class Movie {
 		this.movieName = movieName;
 	}
 
-	public String getMoviePoster() {
+	public File getMoviePoster() {
 		return moviePoster;
 	}
 
-	public void setMoviePoster(String moviePoster) {
+	public void setMoviePoster(File moviePoster) {
 		this.moviePoster = moviePoster;
 	}
 
@@ -149,4 +152,7 @@ public class Movie {
 		this.theatres = theatres;
 	}
 
+	
+
+	
 }

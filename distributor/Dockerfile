@@ -3,6 +3,7 @@ FROM java:8-jre
 
 # copy jar file to docker file system
 ADD ./target/distributor-0.0.1-SNAPSHOT.jar /usr/app/distributor-0.0.1-SNAPSHOT.jar
+EXPOSE 8010
 
 # java -jar <jar fileName> 
 WORKDIR usr/app

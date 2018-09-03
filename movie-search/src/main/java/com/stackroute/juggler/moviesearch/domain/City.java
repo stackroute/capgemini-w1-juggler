@@ -1,9 +1,11 @@
-package com.stackroute.juggler.kafka.domain;
+package com.stackroute.juggler.moviesearch.domain;
 
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+
 
 @Document
 // Domain object for city
@@ -42,6 +44,12 @@ public class City {
 	public City(String id, String cityName, List<Movie> movieList) {
 		super();
 		this.id = id;
+		this.cityName = cityName;
+		this.movieList = movieList;
+	}
+	public City( String cityName, List<Movie> movieList) {
+		super();
+	
 		this.cityName = cityName;
 		this.movieList = movieList;
 	}

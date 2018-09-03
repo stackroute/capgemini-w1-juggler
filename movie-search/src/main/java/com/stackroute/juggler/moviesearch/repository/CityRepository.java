@@ -5,12 +5,13 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.stackroute.juggler.kafka.domain.City;
+import com.stackroute.juggler.moviesearch.domain.City;
 
-//Declaring it as repo
-@Repository
-public interface CityRepository extends CrudRepository<City, String> {
-
+//declaring it as repository
+@Repository   
+	public interface CityRepository extends CrudRepository<City,String> {
+	
 	public City getBycityName(String city);
-
-}
+			public City findBycityName(String cityName);
+		
+	}

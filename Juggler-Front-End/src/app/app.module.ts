@@ -12,7 +12,10 @@ import { UserLoginComponent } from './login/user-login/user-login.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { AuthenticationService } from './authentication.service';
 import { AlertService } from './alert.service';
-import { MatCardModule, MatGridListModule } from '@angular/material';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatAutocompleteModule } from '@angular/material';
+import { MatCardModule, MatNativeDateModule } from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { MaterialsModule } from './materials';
@@ -25,7 +28,12 @@ import { TheatreService } from './theatre.service';
 import { UserService } from './user.service';
 import { ContactComponent } from './contact/contact.component';
 import { DistributionRegisterFormComponent } from './distribution-registerform/distribution-registerform.component';
-
+import { DialogComponentComponent } from './landing-page/dialog-component/dialog-component.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { MatFileUploadModule } from 'angular-material-fileupload';
+import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
+import { MovieScreeningService } from './movie-screening.service';
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
@@ -39,7 +47,11 @@ import { DistributionRegisterFormComponent } from './distribution-registerform/d
     DistributionRegisterFormComponent,
     PartnerLoginComponent,
     TheatreRegistrationComponent,
-    ContactComponent
+    ContactComponent,
+    DialogComponentComponent,
+    LandingPageComponent,
+    HomePageComponent,
+    MovieScreeningComponent
   ],
 
   imports: [
@@ -56,10 +68,15 @@ import { DistributionRegisterFormComponent } from './distribution-registerform/d
     MatStepperModule,
     MatInputModule,
     MatFormFieldModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
+    MatFileUploadModule,
+    MatNativeDateModule,
+    MatAutocompleteModule
   ],
-  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService],
+  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService],
   bootstrap: [AppComponent],
+  entryComponents: [DialogComponentComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }
