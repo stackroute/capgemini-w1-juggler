@@ -14,7 +14,7 @@ import { MovieScreeningComponent } from './movie-screening/movie-screening.compo
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
-  { path: 'home', component: HomePageComponent },
+  { path: 'home/:city', component: HomePageComponent },
   { path: 'register-user', component: UserRegisterComponent },
   { path: 'login-user', component: UserLoginComponent },
   { path: 'register-partner', component: PartnerRegisterComponent },
