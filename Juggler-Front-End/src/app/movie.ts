@@ -5,9 +5,9 @@ export class Movie {
   format: string;
   movieReleaseDate: string;
   movieDuration: string;
-  actor: string[];
-  actres: string[];
-  directors: string[];
-  movieGenres: string[];
-  languages: string[];
-}
+    actors: string[];
+    actress: string[];
+    directors: string[];
+    movieGenres: string[];
+    languages: string[];
+  }

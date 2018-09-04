@@ -7,6 +7,6 @@ import { Component, VERSION } from '@angular/core';
 })
 export class AppComponent {
   title = 'Juggler-Book Movies';
-  ngVersion: string = VERSION.full;
+  // ngVersion: string = VERSION.full;
 }
 

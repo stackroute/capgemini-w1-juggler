@@ -271,5 +271,16 @@ services:
    volumes:
 
     - /usr/src/home:/data/db
+  
+  juggler-front-end:
+
+   image: viship/juggler:1.0.0
+
+   container_name: juggler-front-end
+
+   ports:
+    - 8080:4200
 
 
+
+    

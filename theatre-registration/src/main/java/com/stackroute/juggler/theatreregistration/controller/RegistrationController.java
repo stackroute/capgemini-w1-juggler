@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.juggler.kafka.domain.Registration;
+import com.stackroute.juggler.kafka.domain.Theatre;
 import com.stackroute.juggler.theatreregistration.exceptions.TheatreAlreadyExists;
 import com.stackroute.juggler.theatreregistration.services.RegistrationService;
 
@@ -35,14 +35,14 @@ public class RegistrationController {
 
 	// saves the theatre details
 	@RequestMapping(value = "/theatre", method = RequestMethod.POST)
-	public ResponseEntity<?> saveTheatre(@RequestBody Registration theatre) throws TheatreAlreadyExists {
+	public ResponseEntity<?> saveTheatre(@RequestBody Theatre theatre) throws TheatreAlreadyExists {
 
-		Registration theatreobj = null;
+		Theatre theatreobj = null;
 
 		// This is to save
 		try {
 			theatreobj = registrationService.saveTheatre(theatre);
-			return new ResponseEntity<Registration>(theatreobj, HttpStatus.OK);
+			return new ResponseEntity<Theatre>(theatreobj, HttpStatus.OK);
 		} catch (TheatreAlreadyExists m) {
 			String result = m.getMessage();
 			return new ResponseEntity<String>(result, HttpStatus.OK);
@@ -52,19 +52,19 @@ public class RegistrationController {
 
 	// get the particular theatre from database by using theatre name
 	@RequestMapping(value = "/theatre", method = RequestMethod.PUT)
-	public ResponseEntity<Registration> updateTheatre(@RequestBody Registration theatre) {
+	public ResponseEntity<Theatre> updateTheatre(@RequestBody Theatre theatre) {
 
-		Registration theatreobj = registrationService.updateTheatre(theatre);
+		Theatre theatreobj = registrationService.updateTheatre(theatre);
 
-		return new ResponseEntity<Registration>(theatreobj, HttpStatus.OK);
+		return new ResponseEntity<Theatre>(theatreobj, HttpStatus.OK);
 	}
 
 	// To update the theatre details using theatre name
 	@RequestMapping(value = "/theatre/{TheatreTitle}", method = RequestMethod.GET)
 	public ResponseEntity<?> getByTheatreTitle(@PathVariable String TheatreTitle) {
-		Registration list = registrationService.getByTitle(TheatreTitle);
+		Theatre list = registrationService.getByTitle(TheatreTitle);
 
-		return new ResponseEntity<Registration>(list, HttpStatus.OK);
+		return new ResponseEntity<Theatre>(list, HttpStatus.OK);
 
 	}
 }

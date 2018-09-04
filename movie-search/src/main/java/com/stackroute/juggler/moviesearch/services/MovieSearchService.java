@@ -6,14 +6,15 @@ import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.moviesearch.domain.City;
 import com.stackroute.juggler.moviesearch.domain.Movie;
 
-
-
 public interface MovieSearchService {
 	public String saveCity(City city);
+
 	public City getByCity(String city);
+
 	public List<Movie> getByTitle(String movieName);
+
 	public void consumeKafka(MovieSchedule movieschedule);
 
-	public void consumeKafkaMovie(MovieSchedule movieschedule);
-	
+	public City update(String cityname, List<Movie> movies);
+
 }
