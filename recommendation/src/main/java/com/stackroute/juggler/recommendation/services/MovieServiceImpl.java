@@ -96,7 +96,12 @@ public class MovieServiceImpl implements MovieService {
 		System.out.println(movieObj.toString());
 		movieRepository.save(movieObj);
 	}
-
+	
+	@Override
+    public List<Movie> getGenreLanguageBasedMoviesForUser(String emailId) {
+        return movieRepository.getGenreLanguageBasedMoviesForUser(emailId);
+    }
+	
 //	@Override
 //	public List<Movie> getByGenreAgeCity(String userName, String genreName, String cityName) {
 //		return movieRepository.getByGenreAgeCity(userName, genreName, cityName);

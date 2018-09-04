@@ -34,6 +34,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MatFileUploadModule } from 'angular-material-fileupload';
 import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
 import { MovieScreeningService } from './movie-screening.service';
+import { RecommendationComponent } from './recommendation/recommendation.component';
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
@@ -51,7 +52,8 @@ import { MovieScreeningService } from './movie-screening.service';
     DialogComponentComponent,
     LandingPageComponent,
     HomePageComponent,
-    MovieScreeningComponent
+    MovieScreeningComponent,
+    RecommendationComponent
   ],
 
   imports: [

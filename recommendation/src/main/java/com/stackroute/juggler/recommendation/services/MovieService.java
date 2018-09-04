@@ -1,13 +1,19 @@
 package com.stackroute.juggler.recommendation.services;
 
 
+import java.util.List;
+
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
+import com.stackroute.juggler.recommendation.domain.Movie;
 
 public interface MovieService {
 //	Movie findByMovieTitle(String movieTitle);
 //	List<Movie> getByGenreAgeCity(@Param("userName") String userName,@Param("genreName")String genreName,@Param("cityName")String cityName);
 //	Movie saveMovie(Movie movie);
-	public void getMovieNode(MovieSchedule movie); 
+	public void getMovieNode(MovieSchedule movie);
+
+	List<Movie> getGenreLanguageBasedMoviesForUser(String emailId); 
+	
 //	public Movie findByName(String name);
 //	public Movie findById(int id);
 //    public void releasedIn(String cityName,int movieId);

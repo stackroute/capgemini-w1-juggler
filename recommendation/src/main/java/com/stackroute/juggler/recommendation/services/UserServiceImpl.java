@@ -60,8 +60,8 @@ public class UserServiceImpl implements UserService {
 			userObj.setLanguages(languages);
 			}
 		System.out.println(userObj);
-		userRepository.save(userObj);
-		System.out.println(userObj);
+		System.out.println(userRepository.save(userObj));;
+		
 	}
 }
 

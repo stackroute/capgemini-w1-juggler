@@ -19,5 +19,6 @@ export class DialogComponentComponent implements OnInit {
   }
   searchMovies(city: string) {
     this.router.navigate(['home']);
+    this.dialogRef.close();
   }
 }

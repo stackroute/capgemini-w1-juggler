@@ -2,10 +2,12 @@ package com.stackroute.juggler.recommendation.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,8 @@ import com.stackroute.juggler.recommendation.repositories.UserRepository;
 import com.stackroute.juggler.recommendation.services.MovieService;
 import com.stackroute.juggler.recommendation.services.UserService;
 
+
+@CrossOrigin("https//localhost:4200")
 @RestController
 @RequestMapping("/api/v1")
 public class RecommendationServiceController {
@@ -122,4 +126,11 @@ private UserRepository userRepository;
 //		System.out.println("hello");
 //		return new ResponseEntity<List<Movie>>(userService.getLanguageBasedMoviesForUser(userName), HttpStatus.OK);
 //	}
+	
+	@GetMapping("/getGenreLanguageBasedMoviesForUser/{emailId}")
+    public ResponseEntity<List<Movie>> getGenreLanguageBasedMoviesForUser(@PathVariable String emailId) {
+        System.out.println("hello");
+        return new ResponseEntity<List<Movie>>(movieService.getGenreLanguageBasedMoviesForUser(emailId), HttpStatus.OK);
+    }
+	
 }

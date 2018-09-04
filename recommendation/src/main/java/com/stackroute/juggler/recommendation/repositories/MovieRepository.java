@@ -24,19 +24,22 @@ public interface MovieRepository extends Neo4jRepository<Movie, String> {
 //	@Query("Match (c:City) ,(m:Movie) where c.name={name} and m.name={movieName} with m,c merge (m)-[releasedIn]->(c)")
 //	void releasedIn(@Param("name") String name, @Param("name") String movieName);
 
-	@Query("MATCH (m:Movie)-[r:isTypeOf]->(g:Genre) where g.name={genreName} RETURN m")
-	List<Movie> getMoviesByGenre(@Param("genreName") String genreName);
-
-	@Query("MATCH (m:Movie)-[r:releasedIn]->(c:City) where c.name={cityName} RETURN m")
-	List<Movie> getMoviesByCity(@Param("cityName") String cityName);
-
-	@Query("MATCH (c:City)<- [:releasedIn]-(m:Movie)-[:isTypeOf]->(g:Genre) where g.name={genreName} and  c.name={cityName} RETURN m")
-	List<Movie> getMovieByCityGenre(@Param("cityName") String cityName, @Param("genreName") String genreName);
-
-	@Query("MATCH (c:City)<- [:releasedIn]-(m:Movie)-[:languageType]->(l:Language) where l.name={languageName} and  c.name={cityName} RETURN m")
-	List<Movie> getMovieByCityLanguage(@Param("cityName") String cityName, @Param("languageName") String languageName);
-
-	@Query("MATCH (g:Genre)<- [:isTypeOf]-(m:Movie)-[:languageType]->(l:Language) where g.name={genreName} and l.name={languageName} MATCH (m)-[:releasedIn]->(c:City)where c.name={cityName} RETURN m")
-	List<Movie> getMovieByCityGenreLanguage(@Param("cityName") String cityName, @Param("genreName") String genreName,
-			@Param("languageName") String languageName);
+//	@Query("MATCH (m:Movie)-[r:isTypeOf]->(g:Genre) where g.name={genreName} RETURN m")
+//	List<Movie> getMoviesByGenre(@Param("genreName") String genreName);
+//
+//	@Query("MATCH (m:Movie)-[r:releasedIn]->(c:City) where c.name={cityName} RETURN m")
+//	List<Movie> getMoviesByCity(@Param("cityName") String cityName);
+//
+//	@Query("MATCH (c:City)<- [:releasedIn]-(m:Movie)-[:isTypeOf]->(g:Genre) where g.name={genreName} and  c.name={cityName} RETURN m")
+//	List<Movie> getMovieByCityGenre(@Param("cityName") String cityName, @Param("genreName") String genreName);
+//
+//	@Query("MATCH (c:City)<- [:releasedIn]-(m:Movie)-[:languageType]->(l:Language) where l.name={languageName} and  c.name={cityName} RETURN m")
+//	List<Movie> getMovieByCityLanguage(@Param("cityName") String cityName, @Param("languageName") String languageName);
+//
+//	@Query("MATCH (g:Genre)<- [:isTypeOf]-(m:Movie)-[:languageType]->(l:Language) where g.name={genreName} and l.name={languageName} MATCH (m)-[:releasedIn]->(c:City)where c.name={cityName} RETURN m")
+//	List<Movie> getMovieByCityGenreLanguage(@Param("cityName") String cityName, @Param("genreName") String genreName,
+//			@Param("languageName") String languageName);
+	@Query("Match (u:User)-[:follows]->(g:Genre)<-[:isTypeOf]-(r:Movie) where u.emailId={emailId} Match (r)-[:releasedIn]->(c:City)<-[:livesIn]-(u)  Match (r)-[:LanguageType]->(l:Language)<-[:preferredLanguage]-(u) return (r)")
+    public List<Movie> getGenreLanguageBasedMoviesForUser(@Param("emailId") String emailId);
+	
 }
