@@ -6,8 +6,8 @@ export class ScreeningDetails {
   format: string;
   movieReleaseDate: Date;
   movieDuration: Date;
-  actor: string;
-  actres: string;
+  actors: string;
+  actress: string;
   directors: string;
   movieGenres: string;
   languages: string;

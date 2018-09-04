@@ -9,7 +9,7 @@ import { Movie } from './movie';
   providedIn: 'root'
 })
 export class MovieScreeningService {
-  public tName;
+  // public tName;
   private _url = 'http://localhost:8030';
   constructor(private http: HttpClient, private router: ActivatedRoute) {}
 
@@ -32,6 +32,7 @@ export class MovieScreeningService {
   //     movieScreening
   //   );
   // }
+  
   saveScreening(
     movieScreening: ScreeningDetails, tName: string
   ): Observable<ScreeningDetails> {

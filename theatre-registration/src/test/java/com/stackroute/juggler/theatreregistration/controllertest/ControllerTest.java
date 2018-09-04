@@ -32,7 +32,7 @@
 //
 //import com.fasterxml.jackson.databind.ObjectMapper;
 //import com.stackroute.juggler.theatreregistration.controller.RegistrationController;
-//import com.stackroute.juggler.kafka.domain.Registration;
+//import com.stackroute.juggler.kafka.domain.Theatre;
 //
 //import com.stackroute.juggler.theatreregistration.services.RegistrationService;
 //
@@ -48,9 +48,9 @@
 //	@InjectMocks
 //	private RegistrationController registrationController;
 //
-//	private Registration theatre;
+//	private Theatre theatre;
 //
-//	static List<Registration> theatres;
+//	static List<Theatre> theatres;
 //
 //	@Before
 //	public void setUp() throws Exception {
@@ -64,12 +64,12 @@
 //		String[] sm = new String[] { "null value" };
 //		String[] rm = new String[] { "null" };
 //
-//		theatre = new Registration("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null);
+//		theatre = new Theatre("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null);
 //		theatreMockMvc = MockMvcBuilders.standaloneSetup(registrationController).build();
 //		theatres = new ArrayList<>();
-//		theatre = new Registration("802", "koramangala-5-67", "chennai", "ABC", "7", "100", map, sm, rm, null);
+//		theatre = new Theatre("802", "koramangala-5-67", "chennai", "ABC", "7", "100", map, sm, rm, null);
 //		theatres.add(theatre);
-//		theatre = new Registration("802", "koramangala-5-67", "chennai", "LMN", "7", "100", map, sm, rm, null);
+//		theatre = new Theatre("802", "koramangala-5-67", "chennai", "LMN", "7", "100", map, sm, rm, null);
 //		theatres.add(theatre);
 //	}
 //
@@ -83,13 +83,13 @@
 //		String[] sm = new String[] { "null value" };
 //		String[] rm = new String[] { "null" };
 //
-//		theatre = new Registration("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null);
+//		theatre = new Theatre("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null);
 //
 //		when(registrationService.saveTheatre(theatre)).thenReturn(theatre);
 //		theatreMockMvc
 //				.perform(post("/api/v1/theatre").contentType(MediaType.APPLICATION_JSON).content(asJsonString(theatre)))
 //				.andExpect(status().isOk()).andDo(print());
-//		verify(registrationService, times(1)).saveTheatre(Mockito.any(Registration.class));
+//		verify(registrationService, times(1)).saveTheatre(Mockito.any(Theatre.class));
 //	}
 //
 //	@Test
@@ -103,7 +103,7 @@
 //		String[] sm = new String[] { "temper", "billa" };
 //		String[] rm = new String[] { "geetha govindham", "Antman" };
 //
-//		theatre = new Registration("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null);
+//		theatre = new Theatre("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null);
 //
 //		when(registrationService.getByTitle("xyz")).thenReturn(theatres.get(0));
 //		theatreMockMvc.perform(get("/api/v1/theatre/{TheatreTitle}", "xyz")).andExpect(status().isOk());
@@ -122,7 +122,7 @@
 //		String[] sm = new String[] { "temper", "billa" };
 //		String[] rm = new String[] { "geetha govindham", "Antman" };
 //
-//		theatre = new Registration("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null);
+//		theatre = new Theatre("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null);
 //
 //		when(registrationService.updateTheatre(theatre)).thenReturn(theatre);
 //		theatreMockMvc.perform(put("/api/v1/theatre").contentType(MediaType.APPLICATION_JSON)

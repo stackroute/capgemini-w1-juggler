@@ -1,59 +1,57 @@
 package com.stackroute.juggler.kafka.domain;
 
-import java.io.File;
+import java.util.Arrays;
 import java.util.Map;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-//Domain object for theatre-registration details given by theatre-owner
+
+//POJO of Theatre details 
 
 @Document
+public class Theatre {
 
-public class Registration {
 	@Id
 	private String theatreId;
+	private String theatreName;
 	private String theatreLocation;
 	private String theatreCity;
-	private String theatreName;
 	private String theatreLicenseNo;
 	private String numberOfSeats;
-	//private String[] typesOfSeats;
-	private Map<String,Integer> seats;
+	private Map<String, Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
-	// private String[] typesOfSeats;
-	// private int numberOfShows;
-	private File seatLayout;
 
-	// All Arguments Constructor
-	public Registration(String theatreId, String theatreLocation, String theatreCity, String theatreName,
+	// All arguments constructors
+	public Theatre(String theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
-			String[] runningmovies, File seatLayout) {
-		super();
+			String[] runningmovies) {
+
 		this.theatreId = theatreId;
+		this.theatreName = theatreName;
 		this.theatreLocation = theatreLocation;
 		this.theatreCity = theatreCity;
-		this.theatreName = theatreName;
 		this.theatreLicenseNo = theatreLicenseNo;
 		this.numberOfSeats = numberOfSeats;
 		this.seats = seats;
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
-		this.seatLayout = seatLayout;
 	}
 
-	public Registration() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	// List of getters and setters
+	// List of all getters and setters
 	public String getTheatreId() {
 		return theatreId;
 	}
 
 	public void setTheatreId(String theatreId) {
 		this.theatreId = theatreId;
+	}
+
+	public String getTheatreName() {
+		return theatreName;
+	}
+
+	public void setTheatreName(String theatreName) {
+		this.theatreName = theatreName;
 	}
 
 	public String getTheatreLocation() {
@@ -70,14 +68,6 @@ public class Registration {
 
 	public void setTheatreCity(String theatreCity) {
 		this.theatreCity = theatreCity;
-	}
-
-	public String getTheatreName() {
-		return theatreName;
-	}
-
-	public void setTheatreName(String theatreName) {
-		this.theatreName = theatreName;
 	}
 
 	public String getTheatreLicenseNo() {
@@ -120,21 +110,17 @@ public class Registration {
 		this.runningmovies = runningmovies;
 	}
 
-	public File getSeatLayout() {
-		return seatLayout;
+	// default constructor
+	public Theatre() {
+
 	}
 
-	public void setSeatLayout(File seatLayout) {
-		this.seatLayout = seatLayout;
+	@Override
+	public String toString() {
+		return "Theatre [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreLocation="
+				+ theatreLocation + ", theatreCity=" + theatreCity + ", theatreLicenseNo=" + theatreLicenseNo
+				+ ", numberOfSeats=" + numberOfSeats + ", seats=" + seats + ", screenedmovies="
+				+ Arrays.toString(screenedmovies) + ", runningmovies=" + Arrays.toString(runningmovies) + "]";
 	}
 
-	public void setComments(String string) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public Object getComments() {
-		// TODO Auto-generated method stub
-		return null;
-	}	
 }

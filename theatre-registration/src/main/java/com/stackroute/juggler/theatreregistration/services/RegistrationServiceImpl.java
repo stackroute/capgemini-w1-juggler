@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.juggler.kafka.domain.Registration;
+import com.stackroute.juggler.kafka.domain.Theatre;
 import com.stackroute.juggler.theatreregistration.exceptions.TheatreAlreadyExists;
 import com.stackroute.juggler.theatreregistration.repository.RegistrationRepository;
 
@@ -22,16 +22,15 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 	@Autowired
 	// This is the topic name it wont be changed so "final static"
-	private KafkaTemplate<String, Registration> kafkaTemplate;
-	private static final String TOPIC = "testkafka";
+	private KafkaTemplate<String, Theatre> kafkaTemplate;
+	private static final String TOPIC = "theatredetails";
 
 	// saves the theatre details to database
 	@Override
-	public Registration saveTheatre(Registration theatre) throws TheatreAlreadyExists {
-		// TODO Auto-generated method stub
+	public Theatre saveTheatre(Theatre theatre) throws TheatreAlreadyExists {
 		kafkaTemplate.send(TOPIC, theatre);
 		if (!registrationRepository.existsByTheatreName(theatre.getTheatreName())) {
-			Registration theatreSaved = registrationRepository.save(theatre);
+			Theatre theatreSaved = registrationRepository.save(theatre);
 			return theatreSaved;
 		} else
 			throw new TheatreAlreadyExists("theatre already exists");
@@ -39,19 +38,17 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 	// to update the theatre details
 	@Override
-	public Registration updateTheatre(Registration theatre) {
-		// TODO Auto-generated method stub
-		kafkaTemplate.send(TOPIC, theatre);
-		Registration theatreUpdated = registrationRepository.save(theatre);
+	public Theatre updateTheatre(Theatre theatre) {
+//		kafkaTemplate.send(TOPIC, theatre);
+		Theatre theatreUpdated = registrationRepository.save(theatre);
 
 		return theatreUpdated;
 	}
 
 	// To the theatre by using theatre title from database
 	@Override
-	public Registration getByTitle(String theatre) {
-		// TODO Auto-generated method stub
-		Registration list = registrationRepository.getByTheatreName(theatre);
+	public Theatre getByTitle(String theatre) {
+		Theatre list = registrationRepository.getByTheatreName(theatre);
 		return list;
 	}
 

@@ -31,9 +31,10 @@ import { DistributionRegisterFormComponent } from './distribution-registerform/d
 import { DialogComponentComponent } from './landing-page/dialog-component/dialog-component.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { MatFileUploadModule } from 'angular-material-fileupload';
+// import { MatFileUploadModule } from 'angular-material-fileupload';
 import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
 import { MovieScreeningService } from './movie-screening.service';
+import { MovieDetailsService } from './moviedetails.service';
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
@@ -70,11 +71,11 @@ import { MovieScreeningService } from './movie-screening.service';
     MatFormFieldModule,
     MatGridListModule,
     MatDialogModule,
-    MatFileUploadModule,
+    // MatFileUploadModule,
     MatNativeDateModule,
     MatAutocompleteModule
   ],
-  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService],
+  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService],
   bootstrap: [AppComponent],
   entryComponents: [ DialogComponentComponent ],
   schemas: [ NO_ERRORS_SCHEMA ]

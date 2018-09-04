@@ -24,13 +24,13 @@ export class LandingPageComponent implements OnInit {
   // constructor(private cityService: SearchDataService, private router: Router) { }
 
   ngOnInit() {
-      const dialogRef = this.dialog.open(DialogComponentComponent, {
+      const dialogRef = setTimeout(()=>this.dialog.open(DialogComponentComponent, {
         width: '70%', height: '30%',
         position: {top: '10%', left: '15%'},
-      });
+      }));
 
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed ${result}');
-      });
+      // dialogRef.afterClosed().subscribe(result => {
+      //   console.log('The dialog was closed ${result}');
+      // });
 }
 }

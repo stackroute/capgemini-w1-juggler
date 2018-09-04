@@ -22,7 +22,7 @@
 //import org.springframework.test.web.servlet.MockMvc;
 //import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 //
-//import com.stackroute.juggler.kafka.domain.Registration;
+//import com.stackroute.juggler.kafka.domain.Theatre;
 //import com.stackroute.juggler.theatreregistration.repository.RegistrationRepository;
 //import com.stackroute.juggler.theatreregistration.services.RegistrationService;
 //import com.stackroute.juggler.theatreregistration.services.RegistrationServiceImpl;
@@ -38,7 +38,7 @@
 //	@InjectMocks
 //	private RegistrationServiceImpl theatreServiceImpl;
 //
-//	private Registration theatre;
+//	private Theatre theatre;
 //
 //	@Before
 //	public void setupMock() {
@@ -57,7 +57,7 @@
 //		String[] sm = new String[] { "temper","billa" };
 //		String[] rm = new String[] { "geetha govindham","Antman" };
 //
-//		theatre = new Registration("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null);
+//		theatre = new Theatre("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null);
 //		
 //		 assertNotNull(theatre);
 //		assertNotNull("jpaRepository creation fails: use @injectMocks on movieServicempl", theatreRepo);
@@ -72,10 +72,10 @@
 ////		String[] sm = new String[] { "temper", "billa" };
 ////		String[] rm = new String[] { "geetha govindham", "Antman" };
 ////		File seating = new File("layout");
-////		Registration theatre = new Registration("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm,
+////		Theatre theatre = new Theatre("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm,
 ////				seating);
 ////		when(theatreRepo.save(theatre)).thenReturn(theatre);
-////		Registration returnedtheatre = theatreServiceImpl.saveTheatre(theatre);
+////		Theatre returnedtheatre = theatreServiceImpl.saveTheatre(theatre);
 ////		assertEquals(returnedtheatre, theatre);
 ////		 verify(theatreRepo, times(1)).save(theatre);
 ////
@@ -93,12 +93,12 @@
 ////		String[] sm = new String[] { "temper", "billa" };
 ////		String[] rm = new String[] { "geetha govindham", "Antman" };
 ////		File seating = new File("layout");
-////		Registration theatre = new Registration("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm,
+////		Theatre theatre = new Theatre("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm,
 ////				seating);
 ////		
 ////		theatreRepo.save(theatre);
 ////		when(theatreRepo.existsByTheatreName("xyz")).thenReturn(true);
-////		Registration theatre1 =theatreServiceImpl.getByTitle("xyz");
+////		Theatre theatre1 =theatreServiceImpl.getByTitle("xyz");
 ////		assertEquals("fetching theatre by name failed", theatre1, theatre);
 ////		verify(theatreRepo, times(1)).existsByTheatreName(theatre.getTheatreName());
 ////	}
