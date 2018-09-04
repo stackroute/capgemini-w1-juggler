@@ -11,9 +11,9 @@ import { MovieDetailsService } from '../moviedetails.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-
+  search;
   // addedList;
-  search_result = [];
+  search_result;
   city: string;
   selectedName;
   selectedMovie: Movie;
@@ -22,13 +22,13 @@ export class HomePageComponent implements OnInit {
   listMovie = [];
   data: Movie;
    constructor(private cityService: SearchDataService, private movieDetailsService: MovieDetailsService , private route: Router, private router: ActivatedRoute) { }
-   searchMovies() {
+   searchMovies(cityName) {
     //  console.log(this.city);
     this.cityService.searchMoviebycity(this.city)
     .subscribe(data => {
       this.search_result = data["movieList"];
     });
-       console.log(this.search_result);
+      //  console.log(this.search_result);
    }
    ngOnInit() {
       this.router.paramMap.subscribe((params: ParamMap) => {

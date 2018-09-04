@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieDataService } from '../movie-data.service';
+import { MovieDetailsService } from '../moviedetails.service';
+import { Movie } from "../movie";
 
 @Component({
   selector: 'app-moviedetails-form',
@@ -8,7 +10,8 @@ import { MovieDataService } from '../movie-data.service';
 })
 export class MoviedetailsFormComponent implements OnInit {
   movie: any;
-  constructor(private movieService: MovieDataService) { }
+  movieObject: Movie;
+  constructor(private movieService: MovieDataService, private movieDetailsService: MovieDetailsService) { }
 
   getMovieInfo() {
     this.movieService.getMovieByTitle().subscribe(data => {
@@ -18,9 +21,8 @@ export class MoviedetailsFormComponent implements OnInit {
   bookTicket() {}
 
   ngOnInit() {
-    this.movieService.getMovie().subscribe(data => {
-    this.movie = data;
-    });
-  }
+    this.movieObject = this.movieDetailsService.receive();
+    };
+
 }
 
