@@ -18,32 +18,64 @@
     </div>
   </div>
 </div> -->
-<div>
-  <mat-grid-list cols="2" rows="2">
-    <div class="container">
-      <mat-grid-tile class=" col-sm-4 ">
-        <!-- <mat-card item-width="400"> -->
-        <img src={{movieObject.moviePoster}} alt="movieName" height="450" width="300">
-      </mat-grid-tile>
-      <mat-grid-tile class="col-sm-6">
-        <mat-card class="md-elevation-z">
-          <mat-card-title><b>{{movieObject.movieName}}</b></mat-card-title>
-          <mat-card-content>{{movieObject.synopsis}}</mat-card-content>
-          <h5>Genre: </h5>
-          <p>{{movieObject.movieGenre}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card mt-5 mb-5">
+        <div class="card-header">
+          <strong> {{movieObject.movieName}}</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-5">
+              <img src={{movieObject.moviePoster}} class="img-fluid">
+            </div>
+            <div class="col-sm-7">
+              <ul class="list-group">
 
-          <h5>Language:</h5>
 
-          <p>{{movieObject.language}}</p>
-          <h5>Director:</h5>
-          <p>{{movieObject.director}}</p>
-          <h5>Cast:</h5>
-          <p>{{movieObject.hero}}</p>
-          <p>{{movieObject.heroine}}</p>
-          <button mat-raised-button color="primary">Book Now</button>
-        </mat-card>
+                <li class="list-group-item">
+                  <strong>Summary: </strong> {{movieObject.synopsis}}
+                </li>
+                <li class="list-group-item">
+                  <strong>language: </strong> {{movieObject.language}}
+                </li>
 
-      </mat-grid-tile>
+                <li class="list-group-item">
+                  <strong>Genre: </strong>
+
+                  {{movieObject.movieGenre}}
+
+                </li>
+                <li class="list-group-item">
+                  <strong>Director: </strong>
+
+                  {{movieObject.director}}
+
+                </li>
+
+                <li class="list-group-item">
+                  <strong>Crew: </strong>
+
+                  {{movieObject.hero}},{{movieObject.heroine}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Duration: </strong>
+
+                  {{movieObject.movieReleasedate}}
+                </li>
+                <li class="list-group-item">
+                  <button mat-raised-button color="primary">Book Now</button>
+
+                </li>
+
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </mat-grid-list>
+  </div>
 </div>
