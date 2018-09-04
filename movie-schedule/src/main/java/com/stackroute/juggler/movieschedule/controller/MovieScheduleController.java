@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.movieschedule.service.MovieScheduleService;
 
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1")
 public class MovieScheduleController {
