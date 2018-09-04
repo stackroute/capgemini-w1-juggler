@@ -38,14 +38,15 @@ export class MovieScreeningComponent implements OnInit {
     this.screening.weekends_Price = this.f.weekends_Price.value;
     this.screening.id = mve.id;
     this.screening.movieName = mve.movieName;
+    this.screening.movieposter = mve.movieposter;
     this.screening.movieReleaseDate = mve.movieReleaseDate;
     this.screening.movieDuration = mve.movieDuration;
     this.screening.synopsis = mve.synopsis;
     this.screening.format = mve.format;
     this.screening.movieGenres = mve.movieGenres;
     this.screening.languages = mve.languages;
-    this.screening.actor = mve.actor;
-    this.screening.actres = mve.actres;
+    this.screening.actors = mve.actors;
+    this.screening.actress = mve.actress;
     this.screening.directors = mve.directors;
     console.log(this.screening.movieName);
     console.log(this.screening);
@@ -53,6 +54,7 @@ export class MovieScreeningComponent implements OnInit {
     this.screeningService
       .saveScreening(this.screening, this.tName)
       .subscribe(res => console.log('Saved screening details'));
+      // this.route.navigate(['/login-partner']);
   }
 
   getMovie(title: string) {
@@ -77,8 +79,8 @@ export class MovieScreeningComponent implements OnInit {
   get f() {
     return this.firstFormGroup.controls;
   }
-  get f1() {
-    return this.secondFormGroup.controls;
-  }
+  // get f1() {
+  //   return this.secondFormGroup.controls;
+  // }
 
 }

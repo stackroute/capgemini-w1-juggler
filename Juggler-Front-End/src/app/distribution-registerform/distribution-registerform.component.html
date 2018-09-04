@@ -1,5 +1,7 @@
 <div style="text-align: center">
-  <h4><strong>Movie Registration</strong></h4>
+  <h4>
+    <strong>Movie Registration</strong>
+  </h4>
 </div>
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
@@ -13,11 +15,20 @@
 
       <mat-form-field class="example-full-width">
         <mat-label>Movie Poster</mat-label>
-        <input matInput placeholder="Movie Poster" formControlName="movie_poster" type="text" required>
+        <input matInput placeholder="Movie Poster" formControlName="movie_poster" type="url" required>
       </mat-form-field>
-      
-      
-      
+
+      <!-- <label for="singleFile">Upload file</label>
+      <input id="singleFile" type="file" [fileUploadInputFor]="fileUploadQueue" />
+      <br>
+
+      <mat-file-upload-queue #fileUploadQueue [fileAlias]="'file'" [httpUrl]="'http://localhost:8180/jax-rs-jersey-application-sample'">
+
+        <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
+      </mat-file-upload-queue> -->
+
+
+
       <mat-form-field class="example-full-width">
         <mat-label>Format</mat-label>
         <input matInput placeholder="Format" type="text" formControlName="_format" required>
