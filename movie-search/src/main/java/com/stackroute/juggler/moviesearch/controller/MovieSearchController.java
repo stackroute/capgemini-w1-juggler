@@ -34,14 +34,14 @@ MovieSearchServiceImpl searchService;
 	}
 	@RequestMapping(value = "/city/{cityName}", method = RequestMethod.GET, produces = { "application/json" })
 	public ResponseEntity<?> getCityByName(@PathVariable String cityName) {
-		List<City> movie=searchService.getByCity(cityName);
-		return new ResponseEntity<List<City>>(movie,HttpStatus.OK);
+		City movie=searchService.getByCity(cityName);
+		return new ResponseEntity<City>(movie,HttpStatus.OK);
 
 	}
-	@RequestMapping(value = "/citys", method = RequestMethod.POST, produces = { "application/json" })
+	@RequestMapping(value = "/city", method = RequestMethod.POST, produces = { "application/json" })
 	public ResponseEntity<?> saveCity(@RequestBody City city) {
 		
-		String response = searchService.saveCity(city);
+		String response =searchService.saveCity(city);
 		return new ResponseEntity<String>(response, HttpStatus.OK);
 	}
 

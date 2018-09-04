@@ -1,41 +1,107 @@
 <div style="text-align: center">
-  <h4><b>Add Movie Details...</b></h4>
+  <h4>
+    <strong>Movie Registration</strong>
+  </h4>
 </div>
-<div class="container col-6 my-3">
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Enter Movie Name" type="text" [formControl]="movie_name">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Add Movie Poster" [formControl]="movie_poster">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Movie Description" [formControl]="movie_Synopsis"></textarea>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Enter Movie Format" [formControl]="_format">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Enter Date Of Release" [formControl]="movie_Releasedate">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Enter Duration of Movie" [formControl]="movie_Duration">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Enter Actor" [formControl]="_actor">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Enter Actress" [formControl]="_actres">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Enter Directors" [formControl]="_directors">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Enter Language" [formControl]="_languages">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Enter Movie Genres" [formControl]="movie_Genres">
-    </mat-form-field>
-  </form>
-  <button mat-stroked-button color="primary" type="submit" (click)="onSubmit()">Add Movie</button>
-</div>
+<mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel></ng-template>
+      <mat-form-field class="example-full-width">
+        <mat-label>Movie Name</mat-label>
+        <input matInput placeholder="Movie Name" formControlName="movie_name" type="text" required>
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Movie Poster</mat-label>
+        <input matInput placeholder="Movie Poster" formControlName="movie_poster" type="url" required>
+      </mat-form-field>
+
+      <!-- <label for="singleFile">Upload file</label>
+      <input id="singleFile" type="file" [fileUploadInputFor]="fileUploadQueue" />
+      <br>
+
+      <mat-file-upload-queue #fileUploadQueue [fileAlias]="'file'" [httpUrl]="'http://localhost:8180/jax-rs-jersey-application-sample'">
+
+        <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
+      </mat-file-upload-queue> -->
+
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Format</mat-label>
+        <input matInput placeholder="Format" type="text" formControlName="_format" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Releasedate</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Releasedate" formControlName="movie_Releasedate" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Genres</mat-label>
+        <input matInput placeholder="Genres" formControlName="movie_Genres" type="text" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel></ng-template>
+      <mat-form-field class="example-full-width">
+        <mat-label>Actor</mat-label>
+        <input matInput placeholder="Actor" formControlName="_actor" type="text" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Actress</mat-label>
+        <input matInput placeholder="Actress" formControlName="_actress" type="text" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Directors</mat-label>
+        <input matInput placeholder="Directors" formControlName="_directors" type="text" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Language</mat-label>
+        <input matInput placeholder="Languages" formControlName="_languages" type="text" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Duration</mat-label>
+        <input matInput placeholder="Ex:-hh:mm:ss" formControlName="movie_Duration" type="text" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Synopsis</mat-label>
+        <input matInput placeholder="Synopsis" formControlName="movie_Synopsis" type="textarea" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel></ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+    <div>
+      <button mat-button (click)="addMovie()">Add Movie</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+<!-- angular-app:
+  build: Angular-project/
+  image: angular
+  restart: always
+  container_name: Angular
+  network_mode: "host"
+  hostname: localhost
+  ports:
+    - 4200:4200
+  healthcheck:
+    test: "exit 0"   -->

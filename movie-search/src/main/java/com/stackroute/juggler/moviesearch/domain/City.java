@@ -5,48 +5,55 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Document
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+// Domain object for city
 public class City {
 	@Id
-	private String cityId;
-	public String getCityId() {
-		return cityId;
+	public String id;
+	private String cityName;
+	private List<Movie> movieList;
+
+	// List of all getters and setters
+	public String getId() {
+		return id;
 	}
-	public void setCityId(String cityId) {
-		this.cityId = cityId;
+
+	public void setId(String id) {
+		this.id = id;
 	}
+
 	public String getCityName() {
 		return cityName;
 	}
+
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
+
 	public List<Movie> getMovieList() {
 		return movieList;
 	}
-	
+
 	public void setMovieList(List<Movie> movieList) {
 		this.movieList = movieList;
 	}
-	private String cityName;
-	private List<Movie> movieList;
-	
-//	public City(int cityId, String cityName, List<Movie> movieList) {
-//		super();
-//		this.cityId = cityId;
-//		this.cityName = cityName;
-//		this.movieList = movieList;
-//	}
-////	public City() {
-////		super();
-////	}
+
+	// All Arguments constructor
+	public City(String id, String cityName, List<Movie> movieList) {
+		super();
+		this.id = id;
+		this.cityName = cityName;
+		this.movieList = movieList;
+	}
+
+	public City(String cityName, List<Movie> movieList) {
+		super();
+
+		this.cityName = cityName;
+		this.movieList = movieList;
+	}
+
+	public City() {
+		super();
+	}
 }
