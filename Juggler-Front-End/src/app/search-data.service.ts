@@ -11,7 +11,7 @@ import { City } from './City';
 })
 
 export class SearchDataService {
-
+ data: any;
  private city_string: string;
  private movie_string: string;
  private url = 'http://localhost:8060/api/v1/movie';
@@ -32,9 +32,9 @@ export class SearchDataService {
 }
   searchMoviebycity(city: string) {
     this.city_string = city;
-    console.log(this.city_string + '11');
-    return fetch (this.url3 + '/' + this.city_string)
-              .then(response => response.json());
+    console.log(this.city_string + '===> Highlighted');
+    return this.http.get(this.url3 + '/' + city)
+              .pipe(map(res => this.data = res));
   }
 
  

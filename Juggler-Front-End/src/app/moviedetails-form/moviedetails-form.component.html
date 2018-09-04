@@ -1,5 +1,4 @@
-
-<div class="container m-4">
+<!-- <div class="container m-4">
   <div class="col-sm-12">
     <div class="row">
       <div class="col-sm-4">
@@ -18,4 +17,33 @@
       </div>
     </div>
   </div>
+</div> -->
+<div>
+  <mat-grid-list cols="2" rows="2">
+    <div class="container">
+      <mat-grid-tile class=" col-sm-4 ">
+        <!-- <mat-card item-width="400"> -->
+        <img src={{movieObject.moviePoster}} alt="movieName" height="450" width="300">
+      </mat-grid-tile>
+      <mat-grid-tile class="col-sm-6">
+        <mat-card class="md-elevation-z">
+          <mat-card-title><b>{{movieObject.movieName}}</b></mat-card-title>
+          <mat-card-content>{{movieObject.synopsis}}</mat-card-content>
+          <h5>Genre: </h5>
+          <p>{{movieObject.movieGenre}}</p>
+
+          <h5>Language:</h5>
+
+          <p>{{movieObject.language}}</p>
+          <h5>Director:</h5>
+          <p>{{movieObject.director}}</p>
+          <h5>Cast:</h5>
+          <p>{{movieObject.hero}}</p>
+          <p>{{movieObject.heroine}}</p>
+          <button mat-raised-button color="primary">Book Now</button>
+        </mat-card>
+
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
 </div>

@@ -34,6 +34,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 // import { MatFileUploadModule } from 'angular-material-fileupload';
 import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
 import { MovieScreeningService } from './movie-screening.service';
+import { MovieDetailsService } from './moviedetails.service';
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
@@ -74,7 +75,7 @@ import { MovieScreeningService } from './movie-screening.service';
     MatNativeDateModule,
     MatAutocompleteModule
   ],
-  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService],
+  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService],
   bootstrap: [AppComponent],
   entryComponents: [ DialogComponentComponent ],
   schemas: [ NO_ERRORS_SCHEMA ]
