@@ -79,6 +79,6 @@ import { MovieDetailsService } from './moviedetails.service';
   bootstrap: [AppComponent],
   entryComponents: [ DialogComponentComponent ],
   schemas: [ NO_ERRORS_SCHEMA ]
-}) 
+})
 export class AppModule { }
 

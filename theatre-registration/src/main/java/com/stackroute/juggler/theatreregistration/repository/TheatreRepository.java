@@ -9,10 +9,10 @@ import com.stackroute.juggler.kafka.domain.Theatre;
 
 //Repository to perform operations on database
 @Repository
-public interface RegistrationRepository extends CrudRepository<Theatre, Integer> {
+public interface TheatreRepository extends CrudRepository<Theatre, Integer> {
 
 	// get the theatre details by theatre-name from database
-	public Theatre getByTheatreName(String theatreTitle);
+	public Theatre getByTheatreName(String theatre);
 
 	// checks if the theatre with that particular name exists or not
 	public boolean existsByTheatreName(String theatreName);
