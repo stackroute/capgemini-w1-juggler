@@ -1,11 +1,11 @@
 package com.stackroute.juggler.kafka.domain;
 
+import java.util.Arrays;
 import java.util.Map;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//POJO of TheatreRegistration details
+//POJO of Theatre details 
 
 @Document
 public class Registration {
@@ -25,7 +25,7 @@ public class Registration {
 	public Registration(String theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
 			String[] runningmovies) {
-		super();
+
 		this.theatreId = theatreId;
 		this.theatreName = theatreName;
 		this.theatreLocation = theatreLocation;
@@ -110,8 +110,17 @@ public class Registration {
 		this.runningmovies = runningmovies;
 	}
 
+	// default constructor
 	public Registration() {
 
+	}
+
+	@Override
+	public String toString() {
+		return "Registration [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreLocation="
+				+ theatreLocation + ", theatreCity=" + theatreCity + ", theatreLicenseNo=" + theatreLicenseNo
+				+ ", numberOfSeats=" + numberOfSeats + ", seats=" + seats + ", screenedmovies="
+				+ Arrays.toString(screenedmovies) + ", runningmovies=" + Arrays.toString(runningmovies) + "]";
 	}
 
 }

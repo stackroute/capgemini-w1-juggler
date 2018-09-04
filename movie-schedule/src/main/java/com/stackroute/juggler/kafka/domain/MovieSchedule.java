@@ -1,11 +1,13 @@
 package com.stackroute.juggler.kafka.domain;
 
+import java.util.Arrays;
 import java.util.Map;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//POJO of MovieSchedule
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+//POJO of MovieScreening details
 
 @Document
 public class MovieSchedule {
@@ -20,15 +22,22 @@ public class MovieSchedule {
 	private Map<String, Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
-	private MovieDetails movieDetails;
+	private Movie movie;
 	private int showNumbers;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private String showTimings;
 	private TicketPrices ticketPrices;
+
+	// default constructor
+	public MovieSchedule() {
+		super();
+	}
 
 	// All arguments constructors
 	public MovieSchedule(String theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
-			String[] runningmovies, MovieDetails movieDetails, int showNumbers, TicketPrices ticketPrices) {
-		super();
+			String[] runningmovies, Movie movie, int showNumbers, String showTimings, TicketPrices ticketPrices) {
+
 		this.theatreId = theatreId;
 		this.theatreName = theatreName;
 		this.theatreLocation = theatreLocation;
@@ -38,8 +47,9 @@ public class MovieSchedule {
 		this.seats = seats;
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
-		this.movieDetails = movieDetails;
+		this.movie = movie;
 		this.showNumbers = showNumbers;
+		this.showTimings = showTimings;
 		this.ticketPrices = ticketPrices;
 	}
 
@@ -116,12 +126,12 @@ public class MovieSchedule {
 		this.runningmovies = runningmovies;
 	}
 
-	public MovieDetails getMovieDetails() {
-		return movieDetails;
+	public Movie getMovieDetails() {
+		return movie;
 	}
 
-	public void setMovieDetails(MovieDetails movieDetails) {
-		this.movieDetails = movieDetails;
+	public void setMovieDetails(Movie movie) {
+		this.movie = movie;
 	}
 
 	public int getShowNumbers() {
@@ -138,6 +148,24 @@ public class MovieSchedule {
 
 	public void setTicketPrices(TicketPrices ticketPrices) {
 		this.ticketPrices = ticketPrices;
+	}
+
+	public String getShowTimings() {
+		return showTimings;
+	}
+
+	public void setShowTimings(String showTimings) {
+		this.showTimings = showTimings;
+	}
+
+	@Override
+	public String toString() {
+		return "MovieSchedule [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreLocation="
+				+ theatreLocation + ", theatreCity=" + theatreCity + ", theatreLicenseNo=" + theatreLicenseNo
+				+ ", numberOfSeats=" + numberOfSeats + ", seats=" + seats + ", screenedmovies="
+				+ Arrays.toString(screenedmovies) + ", runningmovies=" + Arrays.toString(runningmovies) + ", movie="
+				+ movie + ", showNumbers=" + showNumbers + ", showTimings=" + showTimings + ", ticketPrices="
+				+ ticketPrices + "]";
 	}
 
 }

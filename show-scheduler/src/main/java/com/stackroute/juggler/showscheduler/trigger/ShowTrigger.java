@@ -20,7 +20,9 @@ import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.stereotype.Service;
 import static org.quartz.DateBuilder.futureDate;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
-import com.stackroute.juggler.kafka.domain.MovieSchedule;
+
+import com.stackroute.juggler.kafka.domain.MovieScheduler;
+import com.stackroute.juggler.kafka.domain.MovieScheduling;
 import com.stackroute.juggler.kafka.domain.Show;
 import com.stackroute.juggler.showscheduler.showjob.ShowJobFunction;
 
@@ -33,8 +35,8 @@ public class ShowTrigger {
 		shows = new HashMap<String, Show>();
 	}
 
-	public void trigger(MovieSchedule movieschedule) throws SchedulerException {
-		List<Show> showList = movieschedule.getShows();
+	public void trigger(MovieScheduler ieschedule) throws SchedulerException {
+		List<Show> showList = movieScheduleId.getShows();
 
 		Scheduler sc = StdSchedulerFactory.getDefaultScheduler();
 		for (Show show : showList) {
@@ -58,8 +60,7 @@ public class ShowTrigger {
 			 * calculate delay time. so that we can start the trigger after the delay time.
 			 */
 			long secondsDiff = (showTimeInMilliSeconds - currentTimeInms) / 1000;
-			// System.out.println("delay time: " + secondsDiff);
-
+			
 			// TriggerKey triggerKey = TriggerKey.triggerKey("trigger" + show.getShowId());
 			TriggerKey triggerKey = TriggerKey.triggerKey("trigger" + (show.getShowId()));
 			SimpleTrigger trigger = TriggerBuilder.newTrigger().withIdentity(triggerKey)

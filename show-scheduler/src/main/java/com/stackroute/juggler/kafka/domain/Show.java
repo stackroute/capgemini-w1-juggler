@@ -20,11 +20,11 @@ public class Show {
 	private LocalDate showDate;
 	private LocalTime showTime;
 	private boolean showStatus;
-	private MovieSchedule moviescheduleId;
+	private MovieScheduler moviescheduleId;
 
 	// All Arguments Constructor
 	public Show(String showId, LocalDate showDate, LocalTime showTime, boolean showStatus,
-			MovieSchedule moviescheduleId) {
+			MovieScheduler moviescheduleId) {
 		super();
 		this.showId = showId;
 		this.showDate = showDate;
@@ -69,11 +69,11 @@ public class Show {
 		this.showStatus = showStatus;
 	}
 
-	public MovieSchedule getMoviescheduleId() {
+	public MovieScheduler getMoviescheduleId() {
 		return moviescheduleId;
 	}
 
-	public void setMoviescheduleId(MovieSchedule moviescheduleId) {
+	public void setMoviescheduleId(MovieScheduler moviescheduleId) {
 		this.moviescheduleId = moviescheduleId;
 	}
 

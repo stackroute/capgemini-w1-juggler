@@ -1,0 +1,23 @@
+# Loco yaml export: Symfony YAML object
+# Project: application.properties conversion
+# Release: Working copy
+# Locale: en-GB, English (UK)
+# Exported by: Unregistered user
+# Exported at: Fri, 31 Aug 2018 12:03:24 +0530
+---
+spring:
+  data:
+    neo4j:
+      username: neo4j
+      password: baby@8686
+  application:
+    name: movie-recommendation
+server:
+  port: "8050"
+eureka:
+  client:
+    register-with-eureka: "true"
+    fetch-registry: "true"
+    serviceUrl:
+      defaultZone: http://localhost:9090/eureka/
+...

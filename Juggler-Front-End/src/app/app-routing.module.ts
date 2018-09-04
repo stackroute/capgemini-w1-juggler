@@ -11,6 +11,7 @@ import { PartnerLoginComponent } from './login/partner-login/partner-login.compo
 import { TheatreRegistrationComponent } from './theatre-registration/theatre-registration.component';
 import { ContactComponent } from './contact/contact.component';
 
+import {  ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'home', component: HomePageComponent } ,
 { path: 'register-user', component: UserRegisterComponent } ,
@@ -23,7 +24,7 @@ const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'contact', component: ContactComponent } ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), ReactiveFormsModule],
   exports: [RouterModule]
 })
 

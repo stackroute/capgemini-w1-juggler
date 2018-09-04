@@ -13,7 +13,7 @@
 //import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 //import org.springframework.kafka.support.serializer.JsonDeserializer;
 //
-//import com.stackroute.juggler.kafka.domain.MovieSchedule;
+//import com.stackroute.juggler.kafka.domain.MovieScheduling;
 //
 ////Kafka Consumer for MovieSchedule Details
 //
@@ -33,7 +33,7 @@
 //			config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 //
 //			return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-//					new JsonDeserializer<>(.class));
+//					new JsonDeserializer<>(MovieSchedule.class));
 //		}
 //
 //		@Bean

@@ -1,11 +1,12 @@
+
 export class User {
     // userid: number;
-    user_name: string;
-    email_id: string;
+    userName: string;
+    emailId: string;
     mobileNo: number;
     password: string;
     gender: string;
-    languages_known: string;
+    LanguagesKnown: string;
     dateOfBirth: string;
     location: string;
     genre: string;
