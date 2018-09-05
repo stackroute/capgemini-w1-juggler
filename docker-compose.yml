@@ -4,7 +4,7 @@ services:
 
   eureka-server:
 
-    build: eureka-server/
+#    build: eureka-server/
 
     depends_on:
 
@@ -32,7 +32,7 @@ services:
 
   config-service:
 
-   build: config-service/
+#   build: config-service/
 
    restart: always
 
@@ -54,7 +54,7 @@ services:
 
   api-gateway:
 
-   build: zuul-apigateway/
+#   build: zuul-apigateway/
 
    depends_on:
 
@@ -86,7 +86,7 @@ services:
 
   login-auth:
 
-   build: login-authentication/
+#   build: login-authentication/
 
    container_name: login-authentication-docker
 
@@ -133,6 +133,8 @@ services:
     MYSQL_DATABASE: juggler_db
 
     MYSQL_PASSWORD: root
+    
+    MYSQL_USER: root
 
    healthcheck:
 
@@ -271,5 +273,16 @@ services:
    volumes:
 
     - /usr/src/home:/data/db
+  
+  juggler-front-end:
+
+   image: viship/juggler:1.0.0
+
+   container_name: juggler-front-end
+
+   ports:
+    - 8080:4200
 
 
+
+    
