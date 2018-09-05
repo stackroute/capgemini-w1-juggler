@@ -5,3 +5,4 @@ ADD ./target/theatre-registration-0.0.1-SNAPSHOT.jar /usr/app/theatre-registrati
 # java -jar <jar fileName>
 WORKDIR usr/app
 ENTRYPOINT ["java","-jar", "theatre-registration-0.0.1-SNAPSHOT.jar"]
+EXPOSE 8020

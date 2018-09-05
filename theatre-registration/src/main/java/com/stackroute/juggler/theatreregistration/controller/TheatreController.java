@@ -32,10 +32,10 @@ public class TheatreController {
 
 	}
 
-	@Autowired
-	private KafkaTemplate<String, Theatre> kafkaTemplate; // This is the topic name it wont be changed so "final
-															// static"
-	private static final String TOPIC = "testkafka";
+//	@Autowired
+//	private KafkaTemplate<String, Theatre> kafkaTemplate; // This is the topic name it wont be changed so "final
+//															// static"
+//	private static final String TOPIC = "testkafka";
 
 	// saves the theatre details
 	@RequestMapping(value = "/theatre", method = RequestMethod.POST)
@@ -43,7 +43,7 @@ public class TheatreController {
 
 		Theatre theatreobj = null;
 
-		kafkaTemplate.send(TOPIC, theatre);
+//		kafkaTemplate.send(TOPIC, theatre);
 		// This is to save
 		try {
 			theatreobj = theatreService.saveTheatre(theatre);
