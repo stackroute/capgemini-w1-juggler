@@ -14,12 +14,10 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
-import com.stackroute.juggler.moviesearch.domain.City;
 
 @EnableKafka
 @Configuration
 public class KafkaConsumerconfiguration {
-
 
 	@Bean
 	public ConsumerFactory<String, MovieSchedule> consumerFactory() {
@@ -30,7 +28,8 @@ public class KafkaConsumerconfiguration {
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 
-		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(), new JsonDeserializer<>(MovieSchedule.class));
+		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
+				new JsonDeserializer<>(MovieSchedule.class));
 	}
 
 	@Bean

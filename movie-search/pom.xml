@@ -4,13 +4,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.stackroute.juggler</groupId>
 	<artifactId>movie-search</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
-	<name>movie-search</name>
-	<description>Demo project for Spring Boot</description>
 
 	<parent>
 		<groupId>com.stackroute</groupId>
@@ -34,24 +29,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
-<dependency>
-    <groupId>com.netflix.eureka</groupId>
-    <artifactId>eureka-client</artifactId>
-    <version>1.9.4</version>
-    <scope>runtime</scope>
-</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.6.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
@@ -72,6 +60,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>

@@ -57,6 +57,7 @@ export class UserLoginComponent implements OnInit {
       .subscribe(
         data => {
           this.router.navigate(["/"]);
+          location.reload();
         },
         error => {
           // this.alertService.error(error);
