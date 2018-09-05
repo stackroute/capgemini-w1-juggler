@@ -36,7 +36,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 
 	@Override
 	public String saveCity(City city) {
-
+		
 		City cityToBeSave = cityRepository.save(city);
 		List<Movie> movies = convertcitytomovie(city);
 
@@ -53,6 +53,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		List<Movie> movies = city.getMovieList();
 		return movies;
 	}
+	
 
 	@Override
 	public City getByCity(String city) {
