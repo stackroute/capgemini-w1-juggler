@@ -23,7 +23,7 @@ import com.stackroute.juggler.recommendation.services.UserService;
 @RequestMapping("/api/v1")
 public class RecommendationServiceController {
 
-	private MovieService movieService;
+	 MovieService movieService;
 private UserRepository userRepository;
 	private UserService userService;
 
@@ -88,38 +88,44 @@ private UserRepository userRepository;
 		return new ResponseEntity<List<Movie>>(movieService.getMovieByCityGenre(cityName, genreName), HttpStatus.OK);
 	}
 
-	@GetMapping("/getMoviesByCity/{cityName}")
-	public ResponseEntity<?> getMoviesByCity(@PathVariable String cityName) {
-		return new ResponseEntity<List<Movie>>(movieService.getMoviesByCity(cityName), HttpStatus.OK);
-	}
-
-	@GetMapping("/getMoviesByCityLanguage/{cityName}&{languageName}")
-	public ResponseEntity<List<Movie>> getMovieByCityLanguage(@PathVariable String cityName,
-			@PathVariable String languageName) {
-		System.out.println("hello");
-		 List<Movie> cityLangMovies = movieService.getMovieByCityLanguage(cityName, languageName);
-		
-		 return new ResponseEntity<List<Movie>>(cityLangMovies,
-				HttpStatus.OK);
-	}
-
-	@GetMapping("/getMoviesByCityGenreLanguage/{cityName}&{genreName}&{languageName}")
-	public ResponseEntity<List<Movie>> getMovieByCityGenreLanguage(@PathVariable String cityName,
-			@PathVariable String genreName, @PathVariable String languageName) {
-		System.out.println("hello");
-		return new ResponseEntity<List<Movie>>(
-				movieService.getMovieByCityGenreLanguage(cityName, genreName, languageName), HttpStatus.OK);
-	}
-
-//	@GetMapping("/getGenreBasedMoviesForUser/{userName}")
-//	public ResponseEntity<List<Movie>> getGenreBasedMoviesForUser(@PathVariable String userName) {
-//		System.out.println("hello");
-//		return new ResponseEntity<List<Movie>>(userService.getGenreBasedMoviesForUser(userName), HttpStatus.OK);
+//	@GetMapping("/getMoviesByCity/{cityName}")
+//	public ResponseEntity<?> getMoviesByCity(@PathVariable String cityName) {
+//		return new ResponseEntity<List<Movie>>(movieService.getMoviesByCity(cityName), HttpStatus.OK);
 //	}
 //
-//	@GetMapping("/getLanguageBasedMoviesForUser/{userName}")
-//	public ResponseEntity<List<Movie>> getLanguageBasedMoviesForUser(@PathVariable String userName) {
+//	@GetMapping("/getMoviesByCityLanguage/{cityName}&{languageName}")
+//	public ResponseEntity<List<Movie>> getMovieByCityLanguage(@PathVariable String cityName,
+//			@PathVariable String languageName) {
 //		System.out.println("hello");
-//		return new ResponseEntity<List<Movie>>(userService.getLanguageBasedMoviesForUser(userName), HttpStatus.OK);
+//		 List<Movie> cityLangMovies = movieService.getMovieByCityLanguage(cityName, languageName);
+//		
+//		 return new ResponseEntity<List<Movie>>(cityLangMovies,
+//				HttpStatus.OK);
 //	}
+//
+//	@GetMapping("/getMoviesByCityGenreLanguage/{cityName}&{genreName}&{languageName}")
+//	public ResponseEntity<List<Movie>> getMovieByCityGenreLanguage(@PathVariable String cityName,
+//			@PathVariable String genreName, @PathVariable String languageName) {
+//		System.out.println("hello");
+//		return new ResponseEntity<List<Movie>>(
+//				movieService.getMovieByCityGenreLanguage(cityName, genreName, languageName), HttpStatus.OK);
+//	}
+
+	@GetMapping("/getGenreBasedMoviesForUser/{emailId}")
+	public ResponseEntity<List<Movie>> getGenreBasedMoviesForUser(@PathVariable String emailId) {
+		System.out.println("hello"+ emailId);
+		return new ResponseEntity<List<Movie>>(movieService.getGenreBasedMoviesForUser(emailId), HttpStatus.OK);
+	}
+
+	@GetMapping("/getLanguageBasedMoviesForUser/{emailId}")
+	public ResponseEntity<List<Movie>> getLanguageBasedMoviesForUser(@PathVariable String emailId) {
+		System.out.println("hello");
+		return new ResponseEntity<List<Movie>>(movieService.getLanguageBasedMoviesForUser(emailId), HttpStatus.OK);
+	}
+	
+	@GetMapping("/getGenreLanguageBasedMoviesForUser/{emailId}")
+	public ResponseEntity<List<Movie>> getGenreLanguageBasedMoviesForUser(@PathVariable String emailId) {
+		System.out.println("hello");
+		return new ResponseEntity<List<Movie>>(movieService.getGenreLanguageBasedMoviesForUser(emailId), HttpStatus.OK);
+	}
 }

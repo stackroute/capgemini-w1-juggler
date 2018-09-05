@@ -10,7 +10,9 @@ import { UserLoginComponent } from './login/user-login/user-login.component';
 import { PartnerLoginComponent } from './login/partner-login/partner-login.component';
 import { TheatreRegistrationComponent } from './theatre-registration/theatre-registration.component';
 import { ContactComponent } from './contact/contact.component';
+import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
 
+import {  ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'home', component: HomePageComponent } ,
 { path: 'register-user', component: UserRegisterComponent } ,
@@ -23,12 +25,19 @@ const routes: Routes = [{ path: '', component: LandingPageComponent } ,
 { path: 'contact', component: ContactComponent } ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), ReactiveFormsModule],
   exports: [RouterModule]
 })
+export class AppRoutingModule {}
 
-export class AppRoutingModule { }
-
-export const routingComponents = [ LandingPageComponent, UserRegisterComponent , PartnerLoginComponent,
-  UserLoginComponent, PartnerRegisterComponent, HomePageComponent, TheatreRegistrationComponent, DistributionRegisterFormComponent];
-
+export const routingComponents = [
+  LandingPageComponent,
+  UserRegisterComponent,
+  PartnerLoginComponent,
+  UserLoginComponent,
+  PartnerRegisterComponent,
+  HomePageComponent,
+  TheatreRegistrationComponent,
+  DistributionRegisterFormComponent,
+  MovieScreeningComponent
+];

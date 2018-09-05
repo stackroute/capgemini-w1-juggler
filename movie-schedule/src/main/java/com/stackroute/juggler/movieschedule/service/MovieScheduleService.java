@@ -3,7 +3,7 @@ package com.stackroute.juggler.movieschedule.service;
 import java.util.List;
 
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
-import com.stackroute.juggler.kafka.domain.Registration;
+import com.stackroute.juggler.kafka.domain.Theatre;
 
 public interface MovieScheduleService {
 
@@ -11,8 +11,8 @@ public interface MovieScheduleService {
 
 	public List<MovieSchedule> getMoviesSchedule();
 
-	public MovieSchedule updateMovieSchedule(MovieSchedule updateMovie);
+	public MovieSchedule updateMovieSchedule(String theatreName, MovieSchedule updateMovie);
 
-	public void consumeKafka(Registration registration);
+	public void consumeKafka(Theatre theatre);
 
 }

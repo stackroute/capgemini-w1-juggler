@@ -11,7 +11,9 @@ import org.neo4j.ogm.annotation.Relationship;
 @NodeEntity
 public class User {
 	@Id
+	
 	private String emailId;
+	private Long id;
 	private String name;
 	private String dateOfBirth;
 //	private String[] LanguagesKnown;

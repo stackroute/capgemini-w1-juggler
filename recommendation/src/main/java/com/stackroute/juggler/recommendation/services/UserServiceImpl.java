@@ -23,24 +23,19 @@ import com.stackroute.juggler.recommendation.repositories.UserRepository;
 @Service
 public class UserServiceImpl implements UserService {
 
-	private UserRepository userRepository;
-	private GenreRepository genreRepository;
-	private LanguageRepository languageRepository;
-	private CityRepository cityRepository;
+	 UserRepository userRepository;
+	
 	
 	@Autowired
-	public UserServiceImpl(UserRepository userRepository, GenreRepository genreRepository,
-			LanguageRepository languageRepository, CityRepository cityRepository) {
+	public UserServiceImpl(UserRepository userRepository) {
 		super();
 		this.userRepository = userRepository;
-		this.genreRepository = genreRepository;
-		this.languageRepository = languageRepository;
-		this.cityRepository = cityRepository;
+		
 		}
 
-	@SuppressWarnings("null")
-	@KafkaListener(topics = "details8", groupId = "user")
-	void getUserNode(InputUser user) {
+	@Override
+	@KafkaListener( groupId = "user",topics = "details8", containerFactory="kafkaListenerContainerFactory")
+	public void getUserNode(InputUser user) {
 		User userObj = new User();
 		userObj.setName(user.getUserName());
 		userObj.setEmailId(user.getEmailId());
@@ -61,7 +56,7 @@ public class UserServiceImpl implements UserService {
 			}
 		System.out.println(userObj);
 		userRepository.save(userObj);
-		System.out.println(userObj);
+		System.out.println("hhhhhhhhhhh"+userRepository.save(userObj));
 	}
 }
 
