@@ -56,11 +56,11 @@ export class UserLoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(["/"]);
+          this.router.navigate(["/home"]);
         },
         error => {
-          // this.alertService.error(error);
-          // this.loading = false;
+          this.alertService.error(error);
+          this.loading = false;
           this.errormessage = false;
         }
       );

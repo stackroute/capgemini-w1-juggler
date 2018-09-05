@@ -31,17 +31,17 @@ export class HomePageComponent implements OnInit {
       //  console.log(this.search_result);
    }
    ngOnInit() {
-    //   this.router.paramMap.subscribe((params: ParamMap) => {
-    //   // console.log(params.get('city'));
-    //   const city = (params.get('city'));
-    //   this.city = city;
-    //   // console.log(this.city);
-    //   this.cityService.searchMoviebycity(this.city)
-    //           .subscribe(data => {
-    //             this.search_result = data["movieList"];
-    //           });
-    //   console.log(this.search_result);
-    // });
+      this.router.paramMap.subscribe((params: ParamMap) => {
+      // console.log(params.get('city'));
+      const city = (params.get('city'));
+      this.city = city;
+      // console.log(this.city);
+      this.cityService.searchMoviebycity(this.city)
+              .subscribe(data => {
+                this.search_result = data["movieList"];
+              });
+      console.log(this.search_result);
+    });
    }
    getMovieInfo(movieDetail) {
     
