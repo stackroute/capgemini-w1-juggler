@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.stackroute.juggler.kafka.domain.InputUser;
 
 
-//using crudrepo to use in build methods so as to add into database
+//using mongorepo to use in build methods so as to add into database
 @Repository
 public interface UserRepository extends MongoRepository<InputUser,Integer> {
 

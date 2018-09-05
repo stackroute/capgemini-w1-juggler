@@ -50,13 +50,14 @@ export class DistributionRegisterFormComponent implements OnInit {
   }
 
   addMovie() {
+  console.log(this.f.movie_Releasedate.value.getYear());
     this.movie.movieName = this.f.movie_name.value;
-    this.movie.movieposter = this.f.movie_poster.value;
+    this.movie.moviePoster = this.f.movie_poster.value;
     this.movie.format = this.f._format.value;
     this.movie.movieReleaseDate = 
       this.f.movie_Releasedate.value.getDate()+"/"+
       this.f.movie_Releasedate.value.getMonth()+"/"+
-      this.f.movie_Releasedate.value.getYear();
+      this.f.movie_Releasedate.value.getUTCFullYear();
     this.movie.movieGenres = this.f.movie_Genres.value;
     this.movie.actors = this.f1._actor.value;
     this.movie.synopsis = this.f1.movie_Synopsis.value;
@@ -67,6 +68,7 @@ export class DistributionRegisterFormComponent implements OnInit {
     console.log(this.movie.movieName);
     console.log(this.movie);
     console.log(this.movie.movieReleaseDate);
+    console.log(this.movie.moviePoster);
     this.cardservice
       .addMovie(this.movie)
       .subscribe(res => console.log('Saved theatre'));

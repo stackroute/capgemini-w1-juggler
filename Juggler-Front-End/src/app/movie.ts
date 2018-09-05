@@ -1,6 +1,6 @@
 export class Movie {
   movieName: string;
-  movieposter: string;
+  moviePoster: string;
   synopsis: string;
   format: string;
   movieReleaseDate: string;
