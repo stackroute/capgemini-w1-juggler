@@ -81,6 +81,6 @@ import { RecommendationComponent } from './recommendation/recommendation.compone
   bootstrap: [AppComponent],
   entryComponents: [ DialogComponentComponent ],
   schemas: [ NO_ERRORS_SCHEMA ]
-}) 
+})
 export class AppModule { }
 

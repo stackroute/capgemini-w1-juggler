@@ -36,7 +36,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 
 	@Override
 	public String saveCity(City city) {
-		
+
 		City cityToBeSave = cityRepository.save(city);
 		List<Movie> movies = convertcitytomovie(city);
 
@@ -53,11 +53,10 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		List<Movie> movies = city.getMovieList();
 		return movies;
 	}
-	
 
 	@Override
 	public City getByCity(String city) {
-		String input=city.toLowerCase();
+		String input = city.toLowerCase();
 		City list = cityRepository.getBycityName(input);
 		return list;
 
@@ -65,8 +64,8 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 
 	@Override
 	public List<Movie> getByTitle(String movieName) {
-		String input=movieName.toLowerCase(); 
-		List<Movie> list = movieRepository.getBymovieName(input);
+
+		List<Movie> list = movieRepository.getBymovieName(movieName);
 		return list;
 
 	}
@@ -79,8 +78,8 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		City cities;
 		Movie movie;
 		Movie tempMovie;
-		List<Movie> movies;
-		List<Theatre> theaters;
+		List<Movie> movies = new ArrayList<Movie>();
+		List<Theatre> theaters = new ArrayList<Theatre>();
 		List<Theatre> newtheater;
 		Theatre theater;
 		Theatre theatre1;
@@ -89,12 +88,17 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 			logger.debug("---------checking the city----------------");
 			cities = cityRepository.findBycityName(cityname);
 			movies = cities.getMovieList();
-			for (Movie movie1 : movies) {
+			Iterator<Movie> iterator = movies.iterator();
+			while (iterator.hasNext()) {
+				movie = iterator.next();
 				logger.debug("------checking the movies ------------- ");
-				if (movie1.getMovieName() == movieschedule.getMovieName()) {
-					theaters = movie1.getTheatres();
-					for (Theatre theater1 : theaters) {
-						if (theater1.getTheatreName() == movieschedule.getTheatreName()) {
+				if (movie.getMovieName() == movieschedule.getMovieName()) {
+					theaters = movie.getTheatres();
+					Iterator<Theatre> iterator1 = theaters.iterator();
+					while (iterator1.hasNext()) {
+						theater = iterator1.next();
+						if (theater.getTheatreName() == movieschedule.getTheatreName()) {
+							logger.debug("theatre names is present");
 						} else {
 							theatre1 = new Theatre(movieschedule.getTheatreId(), movieschedule.getTheatreName(),
 									movieschedule.getTheatreLocation(), movieschedule.getSeatLayout(),
@@ -120,8 +124,9 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 							movieschedule.getLanguages(), movieschedule.getMovieGenres(), movieschedule.getFormat(),
 							movieschedule.getActors(), movieschedule.getActress(), movieschedule.getDirectors(),
 							newtheater);
-					movieRepository.save(tempMovie);
+//					movieRepository.save(tempMovie);
 					movies.add(tempMovie);
+					cityRepository.save(cities);
 				}
 			}
 		} else {
@@ -141,16 +146,14 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 
 			cities = new City(cityname, movies);
 			cityRepository.save(cities);
-			List<Movie> mov = convertcitytomovie(cities);
-			for (Iterator iterator = mov.iterator(); iterator.hasNext();) {
-				Movie movi = (Movie) iterator.next();
-				Movie moviesaved = movieRepository.save(movi);
-			}
+			// List<Movie> mov = convertcitytomovie(cities);
+			// for (Iterator iterator = mov.iterator(); iterator.hasNext();) {
+			// Movie movi = (Movie) iterator.next();
+			// Movie moviesaved = movieRepository.save(movi);
+			// }
 		}
 
 	}
-
-	
 
 	@Override
 	public City update(String cityname, List<Movie> movies) {

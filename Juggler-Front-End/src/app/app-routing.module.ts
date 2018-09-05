@@ -12,22 +12,20 @@ import { TheatreRegistrationComponent } from './theatre-registration/theatre-reg
 import { ContactComponent } from './contact/contact.component';
 import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
 
-const routes: Routes = [
-  { path: '', component: LandingPageComponent },
-  { path: 'home/:city', component: HomePageComponent },
-  { path: 'register-user', component: UserRegisterComponent },
-  { path: 'login-user', component: UserLoginComponent },
-  { path: 'register-partner', component: PartnerRegisterComponent },
-  { path: 'moviedetail', component: MoviedetailsFormComponent },
-  { path: 'login-partner', component: PartnerLoginComponent },
-  { path: 'distributor', component: DistributionRegisterFormComponent },
-  { path: 'screening/:theatreName', component: MovieScreeningComponent },
-  { path: 'theatre', component: TheatreRegistrationComponent },
-  { path: 'contact', component: ContactComponent }
-];
+import {  ReactiveFormsModule } from '@angular/forms';
+const routes: Routes = [{ path: '', component: LandingPageComponent } ,
+{ path: 'home', component: HomePageComponent } ,
+{ path: 'register-user', component: UserRegisterComponent } ,
+{ path: 'login-user', component: UserLoginComponent } ,
+{ path: 'register-partner', component: PartnerRegisterComponent },
+{ path: 'moviedetail', component: MoviedetailsFormComponent },
+{ path: 'login-partner', component: PartnerLoginComponent },
+{ path: 'distributor', component: DistributionRegisterFormComponent},
+{ path: 'theatre', component: TheatreRegistrationComponent},
+{ path: 'contact', component: ContactComponent } ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), ReactiveFormsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
