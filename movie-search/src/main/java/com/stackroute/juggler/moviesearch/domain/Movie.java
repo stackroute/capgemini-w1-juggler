@@ -12,7 +12,7 @@ public class Movie {
 	@Id
 	private String movieId;
 	private String movieName;
-	private File moviePoster;
+	private String moviePoster;
 	private String synopsis;
 	private String movieReleasedate;
 	private String movieDuration;
@@ -25,7 +25,7 @@ public class Movie {
 	private List<Theatre> theatres;
 
 	// All Arguments constructor
-	public Movie(String movieId, String movieName, File moviePoster, String synopsis, String movieReleasedate,
+	public Movie(String movieId, String movieName, String moviePoster, String synopsis, String movieReleasedate,
 			String movieDuration, String language, String movieGenre, String format, String hero, String heroine,
 			String director, List<Theatre> theatres) {
 		super();
@@ -65,11 +65,11 @@ public class Movie {
 		this.movieName = movieName;
 	}
 
-	public File getMoviePoster() {
+	public String getMoviePoster() {
 		return moviePoster;
 	}
 
-	public void setMoviePoster(File moviePoster) {
+	public void setMoviePoster(String moviePoster) {
 		this.moviePoster = moviePoster;
 	}
 

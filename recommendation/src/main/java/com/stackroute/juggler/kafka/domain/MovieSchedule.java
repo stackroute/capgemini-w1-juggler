@@ -17,7 +17,7 @@ public class MovieSchedule {
 	private String[] runningmovies;
 	public String id;
 	private String movieName;
-	private File moviePoster;
+	private String moviePoster;
 	private File seatLayout;
 	private String actors;
 	private String actress;
@@ -38,7 +38,7 @@ public class MovieSchedule {
 	private int weekdays_Price;
 	public MovieSchedule(String theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
-			String[] runningmovies, String id, String movieName, File moviePoster, File seatLayout, String actors,
+			String[] runningmovies, String id, String movieName, String moviePoster, File seatLayout, String actors,
 			String actress, String directors, String movieGenres, String synopsis, String format, String languages,
 			String movieDuration, String movieReleaseDate, int showNumbers, String showTimings, int weekends_Price,
 			int weekdays_Price) {
@@ -139,10 +139,10 @@ public class MovieSchedule {
 	public void setMovieName(String movieName) {
 		this.movieName = movieName;
 	}
-	public File getMoviePoster() {
+	public String getMoviePoster() {
 		return moviePoster;
 	}
-	public void setMoviePoster(File moviePoster) {
+	public void setMoviePoster(String moviePoster) {
 		this.moviePoster = moviePoster;
 	}
 	public File getSeatLayout() {

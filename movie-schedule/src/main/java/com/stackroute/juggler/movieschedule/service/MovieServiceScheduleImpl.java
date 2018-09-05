@@ -15,7 +15,7 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 
 	private MovieScheduleRepository movieScheduleRepo;
 	
-	static final String TOPIC = "screeningfinal";
+	static final String TOPIC = "screeningdetails";
 
 	public MovieServiceScheduleImpl(MovieScheduleRepository movieScheduleRepo) {
 
