@@ -3,6 +3,7 @@ package com.stackroute.juggler.recommendation.domain;
 import java.util.Arrays;
 import java.util.List;
 
+import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
@@ -10,18 +11,19 @@ import org.neo4j.ogm.annotation.Relationship;
 @NodeEntity
 public class User {
 	@Id
-	private String userId;
-	private String userName;
+	
 	private String emailId;
+	private Long id;
+	private String name;
 	private String dateOfBirth;
-	private String[] LanguagesKnown;
-	private String[] genre;
-	private String location;
-	@Relationship(type = "livesIn", direction = Relationship.INCOMING)
+//	private String[] LanguagesKnown;
+//	private String[] genre;
+//	private String location;
+	@Relationship(type = "livesIn", direction = Relationship.OUTGOING)
 	private City city;
-	@Relationship(type = "follows", direction = Relationship.INCOMING)
+	@Relationship(type = "follows", direction = Relationship.OUTGOING)
 	private List<Genre> genres;
-	@Relationship(type = "preferredLanguage", direction = Relationship.INCOMING)
+	@Relationship(type = "preferredLanguage", direction = Relationship.OUTGOING)
 	private List<Language> languages;
 
 //
@@ -51,20 +53,20 @@ public class User {
 		this.emailId = emailId;
 	}
 
-	public String getUserId() {
-		return userId;
+//	public Long getUserId() {
+//		return userId;
+//	}
+//
+//	public void setUserId(Long userId) {
+//		this.userId = userId;
+//	}
+
+	public String getName() {
+		return name;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setName(String userName) {
+		this.name = userName;
 	}
 
 	public String getDateOfBirth() {
@@ -75,47 +77,90 @@ public class User {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String[] getLanguagesKnown() {
-		return LanguagesKnown;
+//	public String[] getLanguagesKnown() {
+//		return LanguagesKnown;
+//	}
+//
+//	public void setLanguagesKnown(String[] languagesKnown) {
+//		LanguagesKnown = languagesKnown;
+//	}
+//
+//	public String[] getGenre() {
+//		return genre;
+//	}
+//
+//	public void setGenre(String[] genre) {
+//		this.genre = genre;
+//	}
+//
+//	public String getLocation() {
+//		return location;
+//	}
+//
+//	public void setLocation(String location) {
+//		this.location = location;
+//	}
+
+	public City getCity() {
+		return city;
 	}
 
-	public void setLanguagesKnown(String[] languagesKnown) {
-		LanguagesKnown = languagesKnown;
+	public void setCity(City city) {
+		this.city = city;
 	}
 
-	public String[] getGenre() {
-		return genre;
+	public List<Genre> getGenres() {
+		return genres;
 	}
 
-	public void setGenre(String[] genre) {
-		this.genre = genre;
+	public void setGenres(List<Genre> genres) {
+		this.genres = genres;
 	}
 
-	public String getLocation() {
-		return location;
+	public List<Language> getLanguages() {
+		return languages;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setLanguages(List<Language> languages) {
+		this.languages = languages;
 	}
 
-	public User(String userId, String userName,String emailId, String dateOfBirth, String[] languagesKnown, String[] genre,
-			String location) {
+	public User(String name, String emailId, String dateOfBirth, City city, List<Genre> genres, List<Language> languages) {
 		super();
-		this.userId = userId;
-		this.userName = userName;
-		this.emailId=emailId;
+		this.name = name;
+		this.emailId = emailId;
 		this.dateOfBirth = dateOfBirth;
-		this.LanguagesKnown = languagesKnown;
-		this.genre = genre;
-		this.location = location;
+//		LanguagesKnown = languagesKnown;
+//		this.genre = genre;
+//		this.location = location;
+		this.city = city;
+		this.genres = genres;
+		this.languages = languages;
 	}
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", dateOfBirth=" + dateOfBirth
-				+ ", LanguagesKnown=" + Arrays.toString(LanguagesKnown) + ", genre=" + Arrays.toString(genre)
-				+ ", location=" + location + "]";
+		return "User [name=" + name + ", emailId=" + emailId + ", dateOfBirth=" + dateOfBirth + ", city=" + city
+				+ ", genres=" + genres + ", languages=" + languages + "]";
 	}
+
+//	public User(String userName, String emailId, String dateOfBirth, String[] languagesKnown, String[] genre,
+//			String location) {
+//		super();
+//		this.userId = userId;
+//		this.name = userName;
+//		this.emailId = emailId;
+//		this.dateOfBirth = dateOfBirth;
+//		this.LanguagesKnown = languagesKnown;
+//		this.genre = genre;
+//		this.location = location;
+//	}
+
+//	@Override
+//	public String toString() {
+//		return "User [userName=" + name + ", dateOfBirth=" + dateOfBirth + ", LanguagesKnown="
+//				+ Arrays.toString(LanguagesKnown) + ", genre=" + Arrays.toString(genre) + ", location=" + location
+//				+ "]";
+//	}
 
 }

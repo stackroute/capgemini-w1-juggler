@@ -12,7 +12,7 @@
 //import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 //import org.springframework.boot.test.context.SpringBootTest;
 //import org.springframework.test.context.junit4.SpringRunner;
-//import com.stackroute.juggler.kafka.domain.Registration;
+//import com.stackroute.juggler.kafka.domain.Theatre;
 //import com.stackroute.juggler.theatreregistration.repository.RegistrationRepository;
 //import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 //
@@ -40,8 +40,8 @@
 //		String[] sm = new String[] { "null value" };
 //		String[] rm = new String[] { "null" };
 //
-//		repo.save(new Registration("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null));
-//		final Registration theatre = repo.getByTheatreName("xyz");
+//		repo.save(new Theatre("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null));
+//		final Theatre theatre = repo.getByTheatreName("xyz");
 //		assertThat(theatre.getTheatreId()).isEqualTo("802");
 //	}
 //
@@ -54,13 +54,13 @@
 //		String[] sm = new String[] { "null value" };
 //		String[] rm = new String[] { "null" };
 //
-//		repo.save(new Registration("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null));
-//		final Registration theatre = repo.getByTheatreName("xyz");
+//		repo.save(new Theatre("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null));
+//		final Theatre theatre = repo.getByTheatreName("xyz");
 //		assertEquals(theatre.getTheatreId(), "802");
 //		theatre.setTheatreName("pqrs");
 //		// System.out.println(theatre.getComments());
 //		repo.save(theatre);
-//		final Registration temp = repo.getByTheatreName("xyz");
+//		final Theatre temp = repo.getByTheatreName("xyz");
 //		assertEquals("pqrs", theatre.getTheatreName());
 //	}
 //
@@ -73,8 +73,8 @@
 //		String[] sm = new String[] { "null value" };
 //		String[] rm = new String[] { "null" };
 //
-//		repo.save(new Registration("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null));
-//		final Registration theatre = repo.getByTheatreName("xyz");
+//		repo.save(new Theatre("802", "koramangala-5-67", "chennai", "xyz", "7", "100", map, sm, rm, null));
+//		final Theatre theatre = repo.getByTheatreName("xyz");
 //		assertEquals(theatre.getTheatreId(), "802");
 //	}
 //

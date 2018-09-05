@@ -1,32 +1,46 @@
 <div style="text-align: center">
-    <h4><strong>User Registration</strong></h4>
+    <h4>
+        <strong>User Registration</strong>
+    </h4> <mat-error>This field is required</mat-error>
 </div>
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Fill out your name</ng-template>
+
+
             <mat-form-field class="example-full-width">
                 <mat-label>Enter Your Name</mat-label>
                 <input matInput placeholder="Enter your name" formControlName="userName" type="text" required>
                 <mat-error>This field is required</mat-error>
             </mat-form-field>
+
+
             <mat-form-field class="example-full-width">
                 <mat-label>Enter Your Email</mat-label>
                 <input matInput placeholder="Enter Your Email" formControlName="email" type="email" required>
                 <mat-error>Enter valid email</mat-error>
             </mat-form-field>
+
+
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Enter Your Password" type="password" formControlName="password" required>
-                <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon> -->
             </mat-form-field>
+
+
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Enter Your MobileNo." formControlName="mobileNo" type="number" required>
             </mat-form-field>
+
+            
             <div>
                 <button mat-button matStepperNext>Next</button>
             </div>
         </form>
     </mat-step>
+
+
+
 
     <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
@@ -35,14 +49,54 @@
                 <input matInput placeholder="Address" formControlName="address" required>
                 <mat-error>The input is invalid</mat-error>
             </mat-form-field>
+            <br>
+            <mat-radio-group class="example-radio-group">
+                <label><h5>Gender:</h5></label>
+                <mat-radio-button class="example-radio-button mx-2" *ngFor="let gender of genderGroup" [value]="gender">
+                    {{gender}}
+                </mat-radio-button>
+            </mat-radio-group>
             <div>
                 <button mat-button matStepperPrevious>Back</button>
                 <button mat-button matStepperNext>Next</button>
             </div>
         </form>
     </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
+    <mat-step [stepControl]>
+        <form class="example-form">
+            <ng-template matStepLabel>Done</ng-template>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Language" aria-label="language" [matAutocomplete]="auto" [formControl]="languageCtrl">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let language of filteredLanguages | async" [value]="language.name">
+                        <span>{{language.name}}</span>
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-select placeholder="Genres" [formControl]="genres" multiple>
+                    <mat-option *ngFor="let genre of genreList" [value]="genre">{{genre}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+
+
+
+    <mat-step [stepControl]="fourthFormGroup">
+        <form [formGroup]="fourthFormGroup">
+            <ng-template matStepLabel>Select your genres</ng-template>
+            <label formArrayName="orders" *ngFor="let order of fourthFormGroup.controls.orders.controls; let i = index">
+                <input type="checkbox" [formControlName]="i"> {{orders[i].name}}
+            </label>
+            <div *ngIf="!fourthFormGroup.valid">At least one order must be selected</div>
+        </form>
         You are now done.
         <div>
             <button mat-button matStepperPrevious>Back</button>

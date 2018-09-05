@@ -1,5 +1,6 @@
 package com.stackroute.juggler.distributor.domain;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -25,17 +26,17 @@ public class Movie {
 	private String format;
 	private String languages;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
-	private LocalTime movieDuration;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate movieReleaseDate;
+	private String movieDuration;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	private String movieReleaseDate;
 
 	public Movie() {
 	}
 
 	// All Arguments constructor
 	public Movie(String id, String movieName, String moviePoster, String actors, String actress, String directors,
-			String movieGenres, String synopsis, String format, String languages, LocalTime movieDuration,
-			LocalDate movieReleaseDate) {
+			String movieGenres, String synopsis, String format, String languages, String movieDuration,
+			String movieReleaseDate) {
 		this.id = id;
 		this.movieName = movieName;
 		this.moviePoster = moviePoster;
@@ -131,19 +132,19 @@ public class Movie {
 		this.languages = languages;
 	}
 
-	public LocalTime getMovieDuration() {
+	public String getMovieDuration() {
 		return movieDuration;
 	}
 
-	public void setMovieDuration(LocalTime movieDuration) {
+	public void setMovieDuration(String movieDuration) {
 		this.movieDuration = movieDuration;
 	}
 
-	public LocalDate getMovieReleaseDate() {
+	public String getMovieReleaseDate() {
 		return movieReleaseDate;
 	}
 
-	public void setMovieReleaseDate(LocalDate movieReleaseDate) {
+	public void setMovieReleaseDate(String movieReleaseDate) {
 		this.movieReleaseDate = movieReleaseDate;
 	}
 

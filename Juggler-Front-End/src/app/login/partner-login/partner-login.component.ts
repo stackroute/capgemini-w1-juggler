@@ -11,6 +11,19 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./partner-login.component.scss']
 })
 export class PartnerLoginComponent implements OnInit {
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  // returnUrl: string;
+  role: string;
+  errormessage: Boolean = true;
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private alertService: AlertService
+  ) {}
 
     loginForm: FormGroup;
     loading = false;

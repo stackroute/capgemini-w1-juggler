@@ -1,0 +1,117 @@
+<div style="text-align: center">
+  <h4>
+    <strong>Movie Screening Details</strong>
+  </h4>
+</div>
+<mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill the Screening Details</ng-template>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter No. of Shows" formControlName="show_Numbers" type="text" required>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter Show Timings" formControlName="show_Timings" type="text" required>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter Weekdays Price" type="text" formControlName="weekdays_Price" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter Weekends Price" formControlName="weekends_Price" type="text" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext type="submit">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form>
+      <ng-template matStepLabel>Add Movie for Screening</ng-template>
+      <mat-form-field>
+        <input [(ngModel)]="title" matInput placeholder="Movie Search" name="movie" required>
+        <button mat-stroked-button color="primary" type="search" (click)="getMovie(title)">search</button>
+      </mat-form-field>
+      <!-- <section class="d-flex flex-wrap">
+        <div *ngFor="let movie of movies" class="card" style="width: 250px ; height: 500px">
+          <p>{{movie.movieName}}</p>
+          <p>{{movie.synopsis}}</p>
+          <p>{{movie.format}}</p>
+          <img src={{movie.moviePoster}} class="img-fluid" width=80px height=50px>
+          <div class="card-body">
+            <button class="btn btn-primary" (click)="onSubmit(movie)"> Add Movie</button>
+          </div>
+        </div>
+      </section>  -->
+      <div class="container" *ngFor="let movie of movies">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card mt-5 mb-5">
+              <div class="card-header">
+                <strong> {{movie.movieName}}</strong>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <img src={{movie.moviePoster}} class="img-fluid" height="400%" width="200%">
+                  </div>
+                  <div class="col-sm-7">
+                    <ul class="list-group">
+
+
+                      <li class="list-group-item">
+                        <strong>Summary: </strong> {{movie.synopsis}}
+                      </li>
+                      <li class="list-group-item">
+                        <strong>language: </strong> {{movie.languages}}
+                      </li>
+
+                      <li class="list-group-item">
+                        <strong>Genre: </strong>
+
+                        {{movie.movieGenres}}
+
+                      </li>
+                      <li class="list-group-item">
+                        <strong>Director: </strong>
+
+                        {{movie.directors}}
+
+                      </li>
+
+                      <li class="list-group-item">
+                        <strong>Crew: </strong>
+
+                        {{movie.actors}}, {{movie.actress}}
+                      </li>
+                      <li class="list-group-item">
+                        <strong>Release Date: </strong>
+
+                        {{movie.movieReleaseDate}}
+                      </li>
+                      <li class="list-group-item">
+                        <strong>Running Time: </strong>
+
+                        {{movie.movieDuration}}
+                      </li>
+                      <li class="list-group-item">
+                        <button class="btn btn-primary" (click)="onSubmit(movie)"> Add Movie</button>
+
+                      </li>
+
+                    </ul>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>
