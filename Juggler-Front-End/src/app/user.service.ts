@@ -6,7 +6,7 @@ import { User } from './user';
 @Injectable({
   providedIn: 'root'
 })
-
+@Injectable()
 export class UserService {
   private _url = 'http://localhost:8040';
   constructor(private http: HttpClient) {}
@@ -14,4 +14,6 @@ export class UserService {
   saveUser(user: User): Observable<User> {
    return this.http.post<User>(this._url + '/api/v1/userProfile/regestration', user);
   }
+
+
 }

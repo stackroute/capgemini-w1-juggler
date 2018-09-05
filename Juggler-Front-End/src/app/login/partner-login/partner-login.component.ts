@@ -17,7 +17,7 @@ export class PartnerLoginComponent implements OnInit {
     submitted = false;
     // returnUrl: string;
     role: string;
-
+    errormessage: Boolean = true;
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
@@ -53,14 +53,15 @@ export class PartnerLoginComponent implements OnInit {
         console.log(this.role);
         this.loading = true;
         this.authenticationService.loginPartner(this.f.email.value, this.f.password.value, this.role)
-            .pipe(first())
+                    .pipe(first())
             .subscribe(
                 data => {
                     this.router.navigate(['/']);
                 },
                 error => {
-                    this.alertService.error(error);
-                    this.loading = false;
+                     this.alertService.error(error);
+                     this.loading = false;
+                    this.errormessage = false;
                 });
     }
 

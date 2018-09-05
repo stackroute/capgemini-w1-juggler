@@ -11,12 +11,12 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./user-login.component.scss']
 })
 export class UserLoginComponent implements OnInit {
-
+    error = '';
   loginForm: FormGroup;
     loading = false;
     submitted = false;
-    // returnUrl: string;
-
+    returnUrl: string;
+errormessage: Boolean = true;
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
@@ -26,15 +26,15 @@ export class UserLoginComponent implements OnInit {
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
-            email: ['', Validators.required],
-            password: ['', Validators.required]
+            email: [null, Validators.required],
+            password: [null, Validators.required]
         });
 
         // reset login status
         this.authenticationService.logout();
 
         // get return url from route parameters or default to '/'
-        // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
     // convenience getter for easy access to form fields
@@ -46,7 +46,6 @@ export class UserLoginComponent implements OnInit {
         this.submitted = true;
         // stop here if form is invalid
         if (this.loginForm.invalid) {
-            console.log('Give Valid details');
             return;
         }
         console.log(this.f.email.value);
@@ -58,8 +57,9 @@ export class UserLoginComponent implements OnInit {
                     this.router.navigate(['/']);
                 },
                 error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+                     this.alertService.error(error);
+                     this.loading = false;
+                    this.errormessage = false;
+                                   });
     }
 }
