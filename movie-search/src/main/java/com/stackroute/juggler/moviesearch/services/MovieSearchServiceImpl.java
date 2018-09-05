@@ -89,14 +89,12 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 			logger.debug("---------checking the city----------------");
 			cities = cityRepository.findBycityName(cityname);
 			movies = cities.getMovieList();
-			for (Iterator iterator = movies.iterator(); iterator.hasNext();) {
-				movie= (Movie) iterator.next();
+			for (Movie movie1 : movies) {
 				logger.debug("------checking the movies ------------- ");
-				if (movie.getMovieName() == movieschedule.getMovieName()) {
-					theaters = movie.getTheatres();
-					for (Iterator iterator1 = theaters.iterator(); iterator.hasNext();) {
-						theater=(Theatre) iterator1.next();
-						if (theater.getTheatreName() == movieschedule.getTheatreName()) {
+				if (movie1.getMovieName() == movieschedule.getMovieName()) {
+					theaters = movie1.getTheatres();
+					for (Theatre theater1 : theaters) {
+						if (theater1.getTheatreName() == movieschedule.getTheatreName()) {
 						} else {
 							theatre1 = new Theatre(movieschedule.getTheatreId(), movieschedule.getTheatreName(),
 									movieschedule.getTheatreLocation(), movieschedule.getSeatLayout(),
@@ -107,9 +105,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 							theaters.add(theatre1);
 						}
 					}
-				}
-				
-			else {
+				} else {
 					theatre1 = new Theatre(movieschedule.getTheatreId(), movieschedule.getTheatreName(),
 							movieschedule.getTheatreLocation(), movieschedule.getSeatLayout(),
 							movieschedule.getShowNumbers(), movieschedule.getShowTimings(),
@@ -128,8 +124,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 					movies.add(tempMovie);
 				}
 			}
-		}
-		 else {
+		} else {
 			theater = new Theatre(movieschedule.getTheatreId(), movieschedule.getTheatreName(),
 					movieschedule.getTheatreLocation(), movieschedule.getSeatLayout(), movieschedule.getShowNumbers(),
 					movieschedule.getShowTimings(), movieschedule.getWeekends_Price(),
@@ -154,7 +149,6 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		}
 
 	}
-
 	
 
 	@Override

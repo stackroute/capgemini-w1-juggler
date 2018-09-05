@@ -23,7 +23,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 	@Autowired
 	// This is the topic name it wont be changed so "final static"
 	private KafkaTemplate<String, Theatre> kafkaTemplate;
-	private static final String TOPIC = "theatredetails";
+	private static final String TOPIC = "theaterdetails";
 
 	// saves the theatre details to database
 	@Override

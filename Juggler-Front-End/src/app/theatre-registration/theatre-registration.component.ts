@@ -88,12 +88,13 @@ onSubmit() {
   map.set(this.f2.type2.value , this.f2.n2.value);
   map.set(this.f2.type3.value , this.f2.n3.value);
   this.theatre.seats = map;
+  // console.log(this.f2.type1);
   // map.set("B",2);
   // map.set("C",3);
 this.theatreService
       .saveTheatre(this.theatre)
       .subscribe(res => console.log('Saved theatre'));
       this.router.navigate(['/screening', this.theatre.theatreName]);
-  console.log(this.theatre);
+  console.log(this.f2.type1.value);
 }
 }
