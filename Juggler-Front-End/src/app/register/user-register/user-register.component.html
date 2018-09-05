@@ -49,14 +49,54 @@
                 <input matInput placeholder="Address" formControlName="address" required>
                 <mat-error>The input is invalid</mat-error>
             </mat-form-field>
+            <br>
+            <mat-radio-group class="example-radio-group">
+                <label><h5>Gender:</h5></label>
+                <mat-radio-button class="example-radio-button mx-2" *ngFor="let gender of genderGroup" [value]="gender">
+                    {{gender}}
+                </mat-radio-button>
+            </mat-radio-group>
             <div>
                 <button mat-button matStepperPrevious>Back</button>
                 <button mat-button matStepperNext>Next</button>
             </div>
         </form>
     </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
+    <mat-step [stepControl]>
+        <form class="example-form">
+            <ng-template matStepLabel>Done</ng-template>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Language" aria-label="language" [matAutocomplete]="auto" [formControl]="languageCtrl">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let language of filteredLanguages | async" [value]="language.name">
+                        <span>{{language.name}}</span>
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-select placeholder="Genres" [formControl]="genres" multiple>
+                    <mat-option *ngFor="let genre of genreList" [value]="genre">{{genre}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+
+
+
+    <mat-step [stepControl]="fourthFormGroup">
+        <form [formGroup]="fourthFormGroup">
+            <ng-template matStepLabel>Select your genres</ng-template>
+            <label formArrayName="orders" *ngFor="let order of fourthFormGroup.controls.orders.controls; let i = index">
+                <input type="checkbox" [formControlName]="i"> {{orders[i].name}}
+            </label>
+            <div *ngIf="!fourthFormGroup.valid">At least one order must be selected</div>
+        </form>
         You are now done.
         <div>
             <button mat-button matStepperPrevious>Back</button>

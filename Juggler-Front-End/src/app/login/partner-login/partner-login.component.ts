@@ -57,7 +57,7 @@ export class PartnerLoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(["/"]);
+          this.router.navigate(["/home"]);
         },
         error => {
           // this.alertService.error(error);
