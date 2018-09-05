@@ -15,6 +15,10 @@ import com.stackroute.juggler.kafka.domain.MovieSchedule;
 @Configuration
 public class Producer {
 
+	// Declaring Topic
+	static final String TOPIC = "screeningdetails";
+
+	// Producer factory of kafka which will hold the configuration details
 	@Bean
 	public ProducerFactory<String, MovieSchedule> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
@@ -25,9 +29,15 @@ public class Producer {
 		return new DefaultKafkaProducerFactory<>(config);
 	}
 
+	// Template imports the configuration from producerfactory
 	@Bean
 	public KafkaTemplate<String, MovieSchedule> kafkaTemplate() {
 		return new KafkaTemplate<>(producerFactory());
+	}
+
+	// To Send Topic
+	public static String getTopic() {
+		return TOPIC;
 	}
 
 }

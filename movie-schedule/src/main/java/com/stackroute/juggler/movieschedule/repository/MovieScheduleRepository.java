@@ -9,6 +9,7 @@ import com.stackroute.juggler.kafka.domain.MovieSchedule;
 @Repository
 public interface MovieScheduleRepository extends MongoRepository<MovieSchedule, Integer> {
 
+	//These are the defined methods to be used when handling with database
 	public MovieSchedule getByTheatreName(String theatreName);
 	
 	public MovieSchedule getByTheatreId(String theatreId);
