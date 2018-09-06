@@ -1,6 +1,5 @@
 <h2>Recommended Movies</h2>
 <mat-grid-list cols="12">
-  <h3>Trending Movies</h3>
   <div class="container">
       
           <div class="row">
@@ -14,7 +13,7 @@
                                           <a>{{Movie.name}}</a>
                                       </mat-card-title>
                                   </mat-card-header>
-                                  <img mat-card-image src="{{Movie.moviePoster}}" alt="Poster of movie" height="150px" width="100px">
+                                  <img mat-card-image src="{{Movie.moviePoster}}" alt="Poster of movie" >
                                   <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button>
                               </mat-card>
                           </div>
