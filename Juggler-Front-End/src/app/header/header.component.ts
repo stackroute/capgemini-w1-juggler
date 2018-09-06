@@ -10,14 +10,19 @@ import { AuthenticationService } from '../authentication.service';
 export class HeaderComponent implements OnInit {
   citydetails: any;
   flag:boolean;
+  userLogged:boolean;
   constructor(private cityService: SearchDataService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     if(localStorage.getItem("currentUser")!== null)
-    this.flag = true;
+   {this.flag = true;
+    this.userLogged =false;
+  }
     else
-    this.flag = false;
+   {this.flag = false;
+    this.userLogged =true;
       }
+    }
       logout()
       {
       this.authenticationService.logout();
