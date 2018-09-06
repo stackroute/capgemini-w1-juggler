@@ -33,12 +33,13 @@ export class UserRegisterComponent implements OnInit {
   filteredLanguages: Observable<Language[]>;
   genderGroup: string[] = ["Male", "Female"];
   gender;
-  orders = [
-    { id: 100, name: "order 1" },
-    { id: 200, name: "order 2" },
-    { id: 300, name: "order 3" },
-    { id: 400, name: "order 4" }
-  ];
+
+  // genres = [
+  //   { id: 1, name: "Horror", img: "assets/images/Horror.jpeg" },
+  //   { id: 2, name: "Thriller", img: "assets/images/Thriller.jpeg" },
+  //   { id: 3, name: "Fiction", img: "assets/images/Fiction.jpeg" },
+  //   { id: 4, name: "Animation", img: "assets/images/Animation.jpeg" }
+  // ];
 
   genreList: string[] = [
     "Action",
@@ -73,15 +74,15 @@ export class UserRegisterComponent implements OnInit {
       startWith(""),
       map(
         language =>
-          language ? this._filterStates(language) : this.languages.slice()
+          language ? this._filterLanguages(language) : this.languages.slice()
       )
     );
-    const controls = this.orders.map(c => new FormControl(false));
-    controls[0].setValue(true);
+    // const controls = this.genres.map(c => new FormControl(false));
+    // controls[0].setValue(true);
 
-    this.fourthFormGroup = this._formBuilder.group({
-      orders: new FormArray(controls, minSelectedCheckboxes(1))
-    });
+    // this.fourthFormGroup = this._formBuilder.group({
+    //   genres: new FormArray(controls, minSelectedCheckboxes(1))
+    // });
   }
 
   ngOnInit() {
@@ -94,9 +95,9 @@ export class UserRegisterComponent implements OnInit {
     this.secondFormGroup = this._formBuilder.group({
       address: ["", Validators.required]
     });
-    this.fourthFormGroup = this._formBuilder.group({
-      i: ["", Validators.required]
-    });
+    // this.fourthFormGroup = this._formBuilder.group({
+    //   i: ["", Validators.required]
+    // });
   }
 
   get f() {
@@ -108,12 +109,13 @@ export class UserRegisterComponent implements OnInit {
   // get f2() {
   //   return this.thirdFormGroup.controls;
   // }
-  private _filterStates(value: string): Language[] {
+  private _filterLanguages(value: string): Language[] {
     const filterValue = value.toLowerCase();
     return this.languages.filter(
       language => language.name.toLowerCase().indexOf(filterValue) === 0
     );
   }
+
   addUser() {
     this.user.userName = this.f.userName.value;
     this.user.emailId = this.f.email.value;
@@ -122,24 +124,28 @@ export class UserRegisterComponent implements OnInit {
     this.user.location = this.f1.address.value;
     this.user.LanguagesKnown = this.languageCtrl.value;
     this.user.genre = this.genres.value;
-    this.user.gender = this.gender.value;
+    // this.user.gender = this.gender.value;
     console.log(this.genres.value);
     console.log(this.user.userName);
-    console.log(this.user);
+    // console.log(this.user);
+    // const selectedGenreIds = this.fourthFormGroup.value.genres
+    //   .map((v, i) => (v ? this.genres[i].id : null))
+    //   .filter(v => v !== null);
+    // console.log(selectedGenreIds);
     this.userService
       .saveUser(this.user)
       .subscribe(res => console.log("Saved User"));
     this.router.navigate(["/login-user"]);
   }
 }
-function minSelectedCheckboxes(min = 1) {
-  const validator: ValidatorFn = (formArray: FormArray) => {
-    const totalSelected = formArray.controls
-      .map(control => control.value)
-      .reduce((prev, next) => next ? prev + next : prev, 0);
+// function minSelectedCheckboxes(min = 1) {
+//   const validator: ValidatorFn = (formArray: FormArray) => {
+//     const totalSelected = formArray.controls
+//       .map(control => control.value)
+//       .reduce((prev, next) => (next ? prev + next : prev), 0);
 
-    return totalSelected >= min ? null : { required: true };
-  };
+//     return totalSelected >= min ? null : { required: true };
+//   };
 
-  return validator;
-}
+//   return validator;
+// }

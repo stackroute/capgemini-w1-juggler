@@ -1,7 +1,8 @@
 <div style="text-align: center">
     <h4>
         <strong>User Registration</strong>
-    </h4> <mat-error>This field is required</mat-error>
+    </h4>
+    <!-- <mat-error>This field is required</mat-error> -->
 </div>
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
@@ -44,7 +45,7 @@
 
     <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Fill out your address</ng-template>
+            <ng-template matStepLabel>Fill out other details</ng-template>
             <mat-form-field>
                 <input matInput placeholder="Address" formControlName="address" required>
                 <mat-error>The input is invalid</mat-error>
@@ -62,9 +63,9 @@
             </div>
         </form>
     </mat-step>
-    <mat-step [stepControl]>
+    <mat-step>
         <form class="example-form">
-            <ng-template matStepLabel>Done</ng-template>
+            <ng-template matStepLabel>Fill your recommendations</ng-template>
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Language" aria-label="language" [matAutocomplete]="auto" [formControl]="languageCtrl">
                 <mat-autocomplete #auto="matAutocomplete">
@@ -79,21 +80,27 @@
                     <mat-option *ngFor="let genre of genreList" [value]="genre">{{genre}}</mat-option>
                 </mat-select>
             </mat-form-field>
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext>Next</button>
-            </div>
         </form>
+        You are now done.
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+        <div>
+            <button mat-button (click)="addUser()">Add User</button>
+        </div>
     </mat-step>
 
 
 
 
-    <mat-step [stepControl]="fourthFormGroup">
+    <!-- <mat-step [stepControl]="fourthFormGroup">
         <form [formGroup]="fourthFormGroup">
             <ng-template matStepLabel>Select your genres</ng-template>
-            <label formArrayName="orders" *ngFor="let order of fourthFormGroup.controls.orders.controls; let i = index">
-                <input type="checkbox" [formControlName]="i"> {{orders[i].name}}
+            <label class="mx-2 p-2" fxLayout="row wrap" formArrayName="genres" *ngFor="let order of fourthFormGroup.controls.genres.controls; let i = index">
+                <input type="checkbox" [formControlName]="i"> {{genres[i].name}}
+                <br>
+                <img src={{genres[i].img}} alt="genre icon">
             </label>
             <div *ngIf="!fourthFormGroup.valid">At least one order must be selected</div>
         </form>
@@ -105,7 +112,7 @@
         <div>
             <button mat-button (click)="addUser()">Add User</button>
         </div>
-    </mat-step>
+    </mat-step> -->
 </mat-horizontal-stepper>
 <!-- angular-app:
     build: Angular-project/

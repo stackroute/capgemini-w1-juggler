@@ -19,6 +19,8 @@ export class SearchDataService {
   
   constructor(private http: HttpClient, private router: Router) { }
   
+  //
+  
   getByMovieCity(city: string) {
    //  return this.http.get('http://localhost:8060/api/v1/city' + '/' + city);
     return this.http.get('http://localhost:8060/api/v1/city' + '/' + city)
@@ -27,6 +29,7 @@ export class SearchDataService {
        }));
   }
    searchMoviebycity(city: string) {
+   
       return this.http.get(this.url3 + '/' + city)
       .pipe( map(res => this.data = res));
    }
