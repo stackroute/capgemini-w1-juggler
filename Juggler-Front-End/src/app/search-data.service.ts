@@ -45,8 +45,9 @@ export class SearchDataService {
     return this.http.get(this.url + '/' + this.movie_string);
    }
   
-  getByMovieName(name) {
-    return this.http.get('http://localhost:8060/api/v1/movie/' + name);
+  getByMovieName(name:string) {
+    return this.http.get(this.url3 + '/' + name)
+      .pipe( map(res => this.data = res));
   }
 
 }
