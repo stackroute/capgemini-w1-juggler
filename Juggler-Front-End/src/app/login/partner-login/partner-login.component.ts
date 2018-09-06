@@ -25,18 +25,6 @@ export class PartnerLoginComponent implements OnInit {
     private alertService: AlertService
   ) {}
 
-    loginForm: FormGroup;
-    loading = false;
-    submitted = false;
-    // returnUrl: string;
-    role: string;
-    errormessage: Boolean = true;
-    constructor(
-        private formBuilder: FormBuilder,
-        private route: ActivatedRoute,
-        private router: Router,
-        private authenticationService: AuthenticationService,
-        private alertService: AlertService) {}
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
