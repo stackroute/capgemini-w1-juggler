@@ -2,10 +2,8 @@ package com.stackroute.juggler.moviesearch.domain;
 
 import java.io.File;
 import java.util.Map;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Document
@@ -136,7 +134,7 @@ public class Theatre {
 		this.runningmovies = runningmovies;
 	}
 	
-
+	// No argument constructor
 	public Theatre() {
 		super();
 	}

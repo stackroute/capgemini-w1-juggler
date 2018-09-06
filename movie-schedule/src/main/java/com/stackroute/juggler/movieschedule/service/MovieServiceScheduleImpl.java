@@ -26,6 +26,7 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 	}
 
 	String topic = kafkaProducer.getTopic();
+	String topic1 = kafkaProducer.getTopic1();
 	
 	@Autowired
 	private KafkaTemplate<String, MovieSchedule> kafkaTemplate;
@@ -79,6 +80,7 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 			System.out.println("" + movie.getTheatreName() + "" + movie.getShowNumbers());
 			movieScheduleRepo.save(movie);
 			kafkaTemplate.send(topic, movie);
+			kafkaTemplate.send(topic1, movie);
 		} else
 			System.out.println("error");
 		return updateMovie;
