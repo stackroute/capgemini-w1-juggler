@@ -78,18 +78,31 @@ export class TheatreRegistrationComponent implements OnInit {
                                       this.f1.country.value;
       this.theatre.theatreName =  this.f.theatreName.value;
       // tslint:disable-next-line:no-shadowed-variable
+      // let map : Map<String,String> = new HashMap<String, String>();
+    //   let map = new LinkedHashMap([
+    //     [ this.f2.type1.value, this.f2.n1.value ],
+    //     [ this.f2.type2.value , this.f2.n2.value ],
+    //     [ this.f2.type3.value , this.f2.n3.value ]
+    //  ]);
+      
+    //   console.log(map);
+//       var map = new Map([[ this.f2.type1.value, this.f2.n1.value],[this.f2.type2.value , this.f2.n2.value ], [ this.f2.type3.value , this.f2.n3.value]]);
+// console.log(map instanceof Object);
+      
+      
+      
       const map = new Map<String , String>();
        map.set(this.f2.type1.value, this.f2.n1.value);
       map.set(this.f2.type2.value , this.f2.n2.value);
       map.set(this.f2.type3.value , this.f2.n3.value);
       this.theatre.seats = map;
-      console.log(this.theatre.theatreName);
-      console.log(this.theatre);
+    console.log(this.theatre.seats);
     this.theatreService
           .saveTheatre(this.theatre)
           .subscribe(res => console.log('Saved theatre'));
-         this.router.navigate(['/screening', this.theatre.theatreName]);
-      console.log(this.theatre);
+         
+        this.router.navigate(['/profile', this.theatre.theatreName]);
+      //console.log(this.theatre);
     }
 
     // this.filteredOptions = this.myControl.valueChanges

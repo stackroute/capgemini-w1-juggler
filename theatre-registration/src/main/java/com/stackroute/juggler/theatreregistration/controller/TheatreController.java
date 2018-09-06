@@ -42,7 +42,8 @@ public class TheatreController {
 	public ResponseEntity<?> saveTheatre(@RequestBody Theatre theatre) throws TheatreAlreadyExistsException {
 
 		Theatre theatreobj = null;
-
+		System.out.println(theatre.getTheatreCity());
+		System.out.println(theatre.getSeats());
 //		kafkaTemplate.send(TOPIC, theatre);
 		// This is to save
 		try {

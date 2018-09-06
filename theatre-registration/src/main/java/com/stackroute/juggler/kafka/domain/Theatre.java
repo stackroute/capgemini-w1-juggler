@@ -1,6 +1,7 @@
 package com.stackroute.juggler.kafka.domain;
 
 import java.io.File;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.springframework.data.annotation.Id;
@@ -17,14 +18,15 @@ public class Theatre {
 	private String theatreName;
 	private String theatreLicenseNo;
 	private String numberOfSeats;
-	private Map<String, Integer> seats;
+	private LinkedHashMap<String,String> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
 	private File seatLayout;
 
+
 	// All Arguments Constructor
 	public Theatre(String theatreId, String theatreLocation, String theatreCity, String theatreName,
-			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
+			String theatreLicenseNo, String numberOfSeats, LinkedHashMap<String, String> seats, String[] screenedmovies,
 			String[] runningmovies, File seatLayout) {
 		super();
 		this.theatreId = theatreId;
@@ -40,8 +42,6 @@ public class Theatre {
 	}
 
 	public Theatre() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	// List of getters and setters
@@ -93,11 +93,11 @@ public class Theatre {
 		this.numberOfSeats = numberOfSeats;
 	}
 
-	public Map<String, Integer> getSeats() {
+	public Map<String, String> getSeats() {
 		return seats;
 	}
 
-	public void setSeats(Map<String, Integer> seats) {
+	public void setSeats(LinkedHashMap<String, String> seats) {
 		this.seats = seats;
 	}
 
