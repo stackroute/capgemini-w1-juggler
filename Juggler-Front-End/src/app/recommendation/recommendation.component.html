@@ -14,7 +14,7 @@
                                           <a>{{Movie.name}}</a>
                                       </mat-card-title>
                                   </mat-card-header>
-                                  <img mat-card-image src="https://images-na.ssl-images-amazon.com/images/I/81YRmoEwYtL._SL1464_.jpg" alt="Poster of movie" height="200px" width="150px">
+                                  <img mat-card-image src="{{Movie.moviePoster}}" alt="Poster of movie" height="150px" width="100px">
                                   <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button>
                               </mat-card>
                           </div>
