@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecommendationService} from '../recommendation.service';
-import {  Movie } from "../movieDetails";
+// import {  Movie } from "../movieDetails";
 @Component({
   selector: 'app-recommendation',
   templateUrl: './recommendation.component.html',

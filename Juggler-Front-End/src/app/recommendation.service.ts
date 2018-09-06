@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import { HttpClient } from "@angular/common/http";
-import {Movie} from './movieDetails';
+import { MovieDetails } from './movieDetails';
 import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
@@ -14,15 +14,15 @@ export class RecommendationService {
  private languagegenrebased_url = "http://localhost:8050/api/v1/getGenreLanguageBasedMoviesForUser/"; 
  constructor(private http:HttpClient) { } 
 
-getGenreBasedMovies(emailId): Observable<Movie[]> {
+getGenreBasedMovies(emailId): Observable<MovieDetails[]> {
   console.log("inside ngOnInit getRecommendationList swervice");
-  return this.http.get<Movie[]>(this.genrebasedmovies_url +emailId);
+  return this.http.get<MovieDetails[]>(this.genrebasedmovies_url +emailId);
 }  
-getLanguageBased(emailId): Observable<Movie[]> {
-  return this.http.get<Movie[]>(this.languagebasedmovies_url+ '/' + emailId);
+getLanguageBased(emailId): Observable<MovieDetails[]> {
+  return this.http.get<MovieDetails[]>(this.languagebasedmovies_url+ '/' + emailId);
 }
-getLanguageGenreBasedMovies(emailId):Observable<Movie[]> {
- return this.http.get<Movie[]>(this.languagegenrebased_url+ '/' + emailId);
+getLanguageGenreBasedMovies(emailId):Observable<MovieDetails[]> {
+ return this.http.get<MovieDetails[]>(this.languagegenrebased_url+ '/' + emailId);
 }
 }
  
