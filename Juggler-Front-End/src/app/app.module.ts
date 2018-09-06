@@ -36,6 +36,7 @@ import { MovieScreeningComponent } from './movie-screening/movie-screening.compo
 import { MovieScreeningService } from './movie-screening.service';
 import { MovieDetailsService } from './moviedetails.service';
 import { RecommendationComponent } from './recommendation/recommendation.component';
+import { ProfileComponent } from './profile/profile.component'
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
@@ -54,7 +55,8 @@ import { RecommendationComponent } from './recommendation/recommendation.compone
     LandingPageComponent,
     HomePageComponent,
     MovieScreeningComponent,
-    RecommendationComponent
+    RecommendationComponent,
+    ProfileComponent
   ],
 
   imports: [
