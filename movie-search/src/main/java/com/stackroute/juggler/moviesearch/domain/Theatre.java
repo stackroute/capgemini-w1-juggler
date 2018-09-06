@@ -1,7 +1,6 @@
 package com.stackroute.juggler.moviesearch.domain;
 
 import java.io.File;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.annotation.Id;
@@ -17,7 +16,6 @@ public class Theatre {
 	private String theatreId;
 	private String theatreName;
 	private String theatreLocation;
-
 	private File seatLayout;
 	private int showNumbers;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")

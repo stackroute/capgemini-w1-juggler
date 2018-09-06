@@ -1,5 +1,6 @@
 package com.stackroute.juggler.recommendation.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -10,10 +11,14 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.stackroute.juggler.kafka.domain.InputUser;
+import com.stackroute.juggler.recommendation.domain.City;
+import com.stackroute.juggler.recommendation.domain.Genre;
 import com.stackroute.juggler.recommendation.domain.Language;
 import com.stackroute.juggler.recommendation.domain.Movie;
 import com.stackroute.juggler.recommendation.domain.User;
@@ -37,6 +42,8 @@ private UserRepository userRepository;
 		this.movieService = movieService;
 		this.userService = userService;
 	}
+	
+	
 //	@KafkaListener(topics = "movieLikes", groupId = "user")
 //	@RequestMapping(value = "/save", method = RequestMethod.POST)
 //	public ResponseEntity<User> saveUser(User user) {

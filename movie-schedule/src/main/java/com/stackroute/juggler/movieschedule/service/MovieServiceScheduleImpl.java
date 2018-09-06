@@ -7,7 +7,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
-import com.stackroute.juggler.kafka.domain.Registration;
+import com.stackroute.juggler.kafka.domain.Theatre;
 import com.stackroute.juggler.movieschedule.repository.MovieScheduleRepository;
 
 @Service
@@ -85,18 +85,18 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 
 	// the method to listen the message from the specified kafka topic
 	@Override
-	@KafkaListener(topics = "testkafka", groupId = "grpid", containerFactory = "kafkaListenerContainerFactory")
-	public void consumeKafka(Registration registration) {
+	@KafkaListener(topics = "theatredetails", groupId = "grpid", containerFactory = "kafkaListenerContainerFactory")
+	public void consumeKafka(Theatre theatre) {
 		MovieSchedule addTheatre = new MovieSchedule();
 		
-		if (movieScheduleRepo.getByTheatreName(registration.getTheatreName()) == null) {
-			String theatreName = registration.getTheatreName();
-			String theatreId = registration.getTheatreId();
-			String theatreLocation = registration.getTheatreLocation();
-			String theatreCity = registration.getTheatreCity();
-			String theatreLicenseNo = registration.getTheatreLicenseNo();
-			String noOfSeats = registration.getNumberOfSeats();
-			Map<String, Integer> seats = registration.getSeats();
+		if (movieScheduleRepo.getByTheatreName(theatre.getTheatreName()) == null) {
+			String theatreName = theatre.getTheatreName();
+			String theatreId = theatre.getTheatreId();
+			String theatreLocation = theatre.getTheatreLocation();
+			String theatreCity = theatre.getTheatreCity();
+			String theatreLicenseNo = theatre.getTheatreLicenseNo();
+			String noOfSeats = theatre.getNumberOfSeats();
+			Map<String, Integer> seats = theatre.getSeats();
 			addTheatre.setTheatreName(theatreName);
 			addTheatre.setTheatreLocation(theatreLocation);
 			addTheatre.setTheatreId(theatreId);

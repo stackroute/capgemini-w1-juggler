@@ -39,8 +39,9 @@ public class UserServiceImpl implements UserService {
 		}
 
 	@Override
-	@KafkaListener(topics = "details8", groupId = "user")
+	@KafkaListener(topics = "details10", groupId = "user")
 	public void getUserNode(InputUser user) {
+		System.out.println("entering getnode");
 		User userObj = new User();
 		userObj.setName(user.getUserName());
 		userObj.setEmailId(user.getEmailId());
@@ -60,7 +61,8 @@ public class UserServiceImpl implements UserService {
 			userObj.setLanguages(languages);
 			}
 		System.out.println(userObj);
-		System.out.println(userRepository.save(userObj));;
+		userRepository.save(userObj);
+		//System.out.println(userRepository.save(userObj));;
 		
 	}
 }

@@ -16,15 +16,14 @@ import com.stackroute.juggler.recommendation.repositories.MovieRepository;
 @Service
 public class MovieServiceImpl implements MovieService {
 
-	private MovieRepository movieRepository;
+	MovieRepository movieRepository;
+	
 
 	@Autowired
 	public MovieServiceImpl(MovieRepository movieRepository) {
-		super();
 		this.movieRepository = movieRepository;
 	}
 
-	
 //	@Override
 //	public List<Movie> findByGenre(String genre) {
 //
@@ -47,7 +46,7 @@ public class MovieServiceImpl implements MovieService {
 //	public List<Movie> getMoviesByGenre(String genreName) {
 //		return movieRepository.getMoviesByGenre(genreName);
 //	}
-//
+
 //	@Override
 //	public List<Movie> getMoviesByCity(String name) {
 //		return movieRepository.getMoviesByCity(name);
@@ -60,7 +59,7 @@ public class MovieServiceImpl implements MovieService {
 
 //	@Override
 //	public void releasedIn(String cityName, int movieId) {
-//		// TODO Auto-generated method stub
+//		
 //		
 //	}
 //	@Override
@@ -74,9 +73,10 @@ public class MovieServiceImpl implements MovieService {
 //	}
 
 	@Override
-	@KafkaListener(topics = "screeningfinal", groupId = "movie")
+	@KafkaListener(groupId = "movie", topics = "screeningfinal", containerFactory = "movieKafkaListenerContainerFactory")
 	public void getMovieNode(MovieSchedule movie) {
-		Movie movieObj=new Movie();
+		System.out.println("1");
+		Movie movieObj = new Movie();
 		movieObj.setMovieId(movie.getId());
 		movieObj.setName(movie.getMovieName());
 		movieObj.setMoviePoster(movie.getMoviePoster());
@@ -87,15 +87,31 @@ public class MovieServiceImpl implements MovieService {
 		movieObj.setHero(movie.getActors());
 		movieObj.setHeroine(movie.getActress());
 		movieObj.setDirector(movie.getDirectors());
-		City cityObj=new City(movie.getTheatreCity());
+		movieObj.setReleasedInCity(movie.getTheatreCity());
+		movieObj.setMovieGenres(movie.getMovieGenres());
+		movieObj.setLanguage(movie.getLanguages());
+		City cityObj = new City(movie.getTheatreCity());
 		movieObj.setCity(cityObj);
-		Language langObj=new Language(movie.getLanguages());
+		Language langObj = new Language(movie.getLanguages());
 		movieObj.setLanguages(langObj);
-		Genre genreObj=new Genre(movie.getMovieGenres());
+		Genre genreObj = new Genre(movie.getMovieGenres());
 		movieObj.setGenre(genreObj);
 		System.out.println(movieObj.toString());
 		movieRepository.save(movieObj);
+		System.out.println("final");
 	}
+//	@Override
+//	public List<Movie> getGenreBasedMoviesForUser(String emailId) {
+//		System.out.println("serviceimpl");
+//		return movieRepository.getGenreBasedMoviesForUser(emailId);
+//	}
+//
+//	@Override
+//	public List<Movie> getLanguageBasedMoviesForUser(String emailId) {
+//		return movieRepository.getLanguageBasedMoviesForUser(emailId);
+//	}
+
+	
 	
 	@Override
     public List<Movie> getGenreLanguageBasedMoviesForUser(String emailId) {

@@ -1,7 +1,6 @@
 package com.stackroute.juggler.moviesearch.domain;
 
 import java.io.File;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -13,7 +12,7 @@ public class Movie {
 	@Id
 	private String movieId;
 	private String movieName;
-	private File moviePoster;
+	private String moviePoster;
 	private String synopsis;
 	private String movieReleasedate;
 	private String movieDuration;
@@ -26,7 +25,7 @@ public class Movie {
 	private List<Theatre> theatres;
 
 	// All Arguments constructor
-	public Movie(String movieId, String movieName, File moviePoster, String synopsis, String movieReleasedate,
+	public Movie(String movieId, String movieName, String moviePoster, String synopsis, String movieReleasedate,
 			String movieDuration, String language, String movieGenre, String format, String hero, String heroine,
 			String director, List<Theatre> theatres) {
 		super();
@@ -44,9 +43,11 @@ public class Movie {
 		this.director = director;
 		this.theatres = theatres;
 	}
+
 	public Movie() {
 		super();
 	}
+
 	// List of all getters and setters
 	public String getId() {
 		return movieId;
@@ -64,11 +65,11 @@ public class Movie {
 		this.movieName = movieName;
 	}
 
-	public File getMoviePoster() {
+	public String getMoviePoster() {
 		return moviePoster;
 	}
 
-	public void setMoviePoster(File moviePoster) {
+	public void setMoviePoster(String moviePoster) {
 		this.moviePoster = moviePoster;
 	}
 
@@ -152,7 +153,4 @@ public class Movie {
 		this.theatres = theatres;
 	}
 
-	
-
-	
 }
