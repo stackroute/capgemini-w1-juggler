@@ -59,8 +59,10 @@ export class PartnerLoginComponent implements OnInit {
         data => {
           if (this.role == "Distributor") {
             this.router.navigate(["/distributor"]);
+            location.reload();
           } else {
             this.router.navigate(["/theatre"]);
+            location.reload();
           }
         },
         error => {
