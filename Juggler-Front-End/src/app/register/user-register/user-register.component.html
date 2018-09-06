@@ -45,7 +45,7 @@
 
     <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Fill out your address</ng-template>
+            <ng-template matStepLabel>Fill out other details</ng-template>
             <mat-form-field>
                 <input matInput placeholder="Address" formControlName="address" required>
                 <mat-error>The input is invalid</mat-error>
@@ -65,7 +65,7 @@
     </mat-step>
     <mat-step>
         <form class="example-form">
-            <ng-template matStepLabel>Done</ng-template>
+            <ng-template matStepLabel>Fill your recommendations</ng-template>
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Language" aria-label="language" [matAutocomplete]="auto" [formControl]="languageCtrl">
                 <mat-autocomplete #auto="matAutocomplete">
