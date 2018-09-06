@@ -57,11 +57,15 @@ export class PartnerLoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(["/"]);
+          if (this.role == "Distributor") {
+            this.router.navigate(["/distributor"]);
+          } else {
+            this.router.navigate(["/theatre"]);
+          }
         },
         error => {
-          // this.alertService.error(error);
-          // this.loading = false;
+          this.alertService.error(error);
+          this.loading = false;
           this.errormessage = false;
         }
       );

@@ -15,19 +15,35 @@ import com.stackroute.juggler.kafka.domain.MovieSchedule;
 @Configuration
 public class Producer {
 
+	// Declaring Topic
+	static final String TOPIC = "screeningdetails";
+	static final String TOPIC1 = "screenings";
+
+	// Producer factory of kafka which will hold the configuration details
 	@Bean
 	public ProducerFactory<String, MovieSchedule> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.190:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.111:9092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
 		return new DefaultKafkaProducerFactory<>(config);
 	}
 
+	// Template imports the configuration from producerfactory
 	@Bean
 	public KafkaTemplate<String, MovieSchedule> kafkaTemplate() {
 		return new KafkaTemplate<>(producerFactory());
+	}
+
+	// To Send Topic 
+	public static String getTopic() {
+		return TOPIC;
+	}
+	
+	// To Send Topic1
+	public static String getTopic1() {
+		return TOPIC1;
 	}
 
 }

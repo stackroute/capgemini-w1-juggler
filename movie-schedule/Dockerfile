@@ -2,8 +2,9 @@
 FROM java:8-jre
 
 # copy jar file to docker file system
-ADD ./target/movie-schedule-0.0.1-SNAPSHOT.jar /usr/app/movie-schedule-0.0.1-SNAPSHOT.jar
+ADD ./target/movie-schedule-1.0.0.jar /usr/app/movie-schedule-1.0.0.jar
 
 # java -jar <jar fileName>
 WORKDIR usr/app
-ENTRYPOINT ["java","-jar", "movie-schedule-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar", "movie-schedule-1.0.0.jar"]
+EXPOSE 8030

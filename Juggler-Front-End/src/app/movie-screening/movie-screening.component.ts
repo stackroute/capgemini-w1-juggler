@@ -23,7 +23,7 @@ export class MovieScreeningComponent implements OnInit {
   tName: string;
   movies = [];
   screening = new ScreeningDetails();
-
+  
   constructor(
     private screeningService: MovieScreeningService,
     private _formBuilder: FormBuilder,
@@ -38,7 +38,7 @@ export class MovieScreeningComponent implements OnInit {
     this.screening.weekends_Price = this.f.weekends_Price.value;
     this.screening.id = mve.id;
     this.screening.movieName = mve.movieName;
-    this.screening.movieposter = mve.movieposter;
+    this.screening.moviePoster = mve.moviePoster;
     this.screening.movieReleaseDate = mve.movieReleaseDate;
     this.screening.movieDuration = mve.movieDuration;
     this.screening.synopsis = mve.synopsis;
@@ -51,6 +51,7 @@ export class MovieScreeningComponent implements OnInit {
     console.log(this.screening.movieName);
     console.log(this.screening);
     console.log(this.tName);
+    console.log(this.screening.moviePoster);
     this.screeningService
       .saveScreening(this.screening, this.tName)
       .subscribe(res => console.log('Saved screening details'));

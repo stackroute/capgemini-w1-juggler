@@ -2,9 +2,9 @@ package com.stackroute.juggler.kafka.domain;
 
 import java.io.File;
 import java.util.Map;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+//Domain object for data from screening service
 public class MovieSchedule {
 	private String theatreId;
 	private String theatreName;
@@ -30,12 +30,13 @@ public class MovieSchedule {
 	private String movieDuration;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private String movieReleaseDate;
-
 	private int showNumbers;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
 	private String showTimings;
 	private int weekends_Price;
 	private int weekdays_Price;
+
+	// All argument Constructor
 	public MovieSchedule(String theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
 			String[] runningmovies, String id, String movieName, String moviePoster, File seatLayout, String actors,
@@ -70,162 +71,217 @@ public class MovieSchedule {
 		this.weekends_Price = weekends_Price;
 		this.weekdays_Price = weekdays_Price;
 	}
+
+	// No argument constructor
 	public MovieSchedule() {
 		super();
 	}
+
+	// List of all getters and setters
 	public String getTheatreId() {
 		return theatreId;
 	}
+
 	public void setTheatreId(String theatreId) {
 		this.theatreId = theatreId;
 	}
+
 	public String getTheatreName() {
 		return theatreName;
 	}
+
 	public void setTheatreName(String theatreName) {
 		this.theatreName = theatreName;
 	}
+
 	public String getTheatreLocation() {
 		return theatreLocation;
 	}
+
 	public void setTheatreLocation(String theatreLocation) {
 		this.theatreLocation = theatreLocation;
 	}
+
 	public String getTheatreCity() {
 		return theatreCity;
 	}
+
 	public void setTheatreCity(String theatreCity) {
 		this.theatreCity = theatreCity;
 	}
+
 	public String getTheatreLicenseNo() {
 		return theatreLicenseNo;
 	}
+
 	public void setTheatreLicenseNo(String theatreLicenseNo) {
 		this.theatreLicenseNo = theatreLicenseNo;
 	}
+
 	public String getNumberOfSeats() {
 		return numberOfSeats;
 	}
+
 	public void setNumberOfSeats(String numberOfSeats) {
 		this.numberOfSeats = numberOfSeats;
 	}
+
 	public Map<String, Integer> getSeats() {
 		return seats;
 	}
+
 	public void setSeats(Map<String, Integer> seats) {
 		this.seats = seats;
 	}
+
 	public String[] getScreenedmovies() {
 		return screenedmovies;
 	}
+
 	public void setScreenedmovies(String[] screenedmovies) {
 		this.screenedmovies = screenedmovies;
 	}
+
 	public String[] getRunningmovies() {
 		return runningmovies;
 	}
+
 	public void setRunningmovies(String[] runningmovies) {
 		this.runningmovies = runningmovies;
 	}
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getMovieName() {
 		return movieName;
 	}
+
 	public void setMovieName(String movieName) {
 		this.movieName = movieName;
 	}
+
 	public String getMoviePoster() {
 		return moviePoster;
 	}
+
 	public void setMoviePoster(String moviePoster) {
 		this.moviePoster = moviePoster;
 	}
+
 	public File getSeatLayout() {
 		return seatLayout;
 	}
+
 	public void setSeatLayout(File seatLayout) {
 		this.seatLayout = seatLayout;
 	}
+
 	public String getActors() {
 		return actors;
 	}
+
 	public void setActors(String actors) {
 		this.actors = actors;
 	}
+
 	public String getActress() {
 		return actress;
 	}
+
 	public void setActress(String actress) {
 		this.actress = actress;
 	}
+
 	public String getDirectors() {
 		return directors;
 	}
+
 	public void setDirectors(String directors) {
 		this.directors = directors;
 	}
+
 	public String getMovieGenres() {
 		return movieGenres;
 	}
+
 	public void setMovieGenres(String movieGenres) {
 		this.movieGenres = movieGenres;
 	}
+
 	public String getSynopsis() {
 		return synopsis;
 	}
+
 	public void setSynopsis(String synopsis) {
 		this.synopsis = synopsis;
 	}
+
 	public String getFormat() {
 		return format;
 	}
+
 	public void setFormat(String format) {
 		this.format = format;
 	}
+
 	public String getLanguages() {
 		return languages;
 	}
+
 	public void setLanguages(String languages) {
 		this.languages = languages;
 	}
+
 	public String getMovieDuration() {
 		return movieDuration;
 	}
+
 	public void setMovieDuration(String movieDuration) {
 		this.movieDuration = movieDuration;
 	}
+
 	public String getMovieReleaseDate() {
 		return movieReleaseDate;
 	}
+
 	public void setMovieReleaseDate(String movieReleaseDate) {
 		this.movieReleaseDate = movieReleaseDate;
 	}
+
 	public int getShowNumbers() {
 		return showNumbers;
 	}
+
 	public void setShowNumbers(int showNumbers) {
 		this.showNumbers = showNumbers;
 	}
+
 	public String getShowTimings() {
 		return showTimings;
 	}
+
 	public void setShowTimings(String showTimings) {
 		this.showTimings = showTimings;
 	}
+
 	public int getWeekends_Price() {
 		return weekends_Price;
 	}
+
 	public void setWeekends_Price(int weekends_Price) {
 		this.weekends_Price = weekends_Price;
 	}
+
 	public int getWeekdays_Price() {
 		return weekdays_Price;
 	}
+
 	public void setWeekdays_Price(int weekdays_Price) {
 		this.weekdays_Price = weekdays_Price;
 	}

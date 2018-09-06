@@ -34,8 +34,9 @@ public class UserServiceImpl implements UserService {
 		}
 
 	@Override
-	@KafkaListener( groupId = "user",topics = "details8", containerFactory="kafkaListenerContainerFactory")
+	@KafkaListener( groupId = "user",topics = "details10", containerFactory="kafkaListenerContainerFactory")
 	public void getUserNode(InputUser user) {
+		System.out.println("hello");
 		User userObj = new User();
 		userObj.setName(user.getUserName());
 		userObj.setEmailId(user.getEmailId());

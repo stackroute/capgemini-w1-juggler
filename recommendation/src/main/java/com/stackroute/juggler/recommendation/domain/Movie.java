@@ -11,7 +11,7 @@ public class Movie {
 	
 	private String movieId;
 	private String name;
-	private File moviePoster;
+	private String moviePoster;
 	private String synopsis;
 	private String movieReleasedate;
 	private String movieDuration;
@@ -29,7 +29,7 @@ public class Movie {
 	@Relationship(type = "LanguageType", direction = Relationship.OUTGOING)
 	private Language languages;
 //// All Arguments constructor
-	public Movie(Long id, String movieId, String name, File moviePoster, String synopsis, String movieReleasedate,
+	public Movie(Long id, String movieId, String name, String moviePoster, String synopsis, String movieReleasedate,
 			String movieDuration, String format, String hero, String heroine, String director, String releasedInCity,
 			String movieGenres, String language, City city, Genre genre, Language languages) {
 		super();
@@ -51,7 +51,7 @@ public class Movie {
 		this.genre = genre;
 		this.languages = languages;
 	}
-public Movie(Long id, String movieId, String name, File moviePoster, String synopsis, String movieReleasedate,
+public Movie(Long id, String movieId, String name, String moviePoster, String synopsis, String movieReleasedate,
 		String movieDuration, String format, String hero, String heroine, String director, String releasedInCity,
 		String movieGenres, String language) {
 	super();
@@ -91,10 +91,10 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
-public File getMoviePoster() {
+public String getMoviePoster() {
 	return moviePoster;
 }
-public void setMoviePoster(File moviePoster) {
+public void setMoviePoster(String moviePoster) {
 	this.moviePoster = moviePoster;
 }
 public String getSynopsis() {
