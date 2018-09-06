@@ -8,23 +8,28 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.kafka.domain.Theatre;
+import com.stackroute.juggler.movieschedule.config.Producer;
 import com.stackroute.juggler.movieschedule.repository.MovieScheduleRepository;
 
 @Service
 public class MovieServiceScheduleImpl implements MovieScheduleService {
 
 	private MovieScheduleRepository movieScheduleRepo;
-	
-	static final String TOPIC = "screeningfinal";
+	private Producer kafkaProducer;
 
-	public MovieServiceScheduleImpl(MovieScheduleRepository movieScheduleRepo) {
+//	static final String TOPIC = "screeningfinal";
+	@Autowired
+	public MovieServiceScheduleImpl(MovieScheduleRepository movieScheduleRepo, Producer kafkaProducer) {
 
 		this.movieScheduleRepo = movieScheduleRepo;
+		this.kafkaProducer = kafkaProducer;
 	}
 
+	String topic = kafkaProducer.getTopic();
+	
 	@Autowired
 	private KafkaTemplate<String, MovieSchedule> kafkaTemplate;
-	
+
 	// the method to add the movie-theatre schedule
 	@Override
 	public MovieSchedule addMovieSchedule(MovieSchedule movieShow) {
@@ -39,23 +44,22 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 		return getMovies;
 
 	}
-	
-//	@Autowired
+
+	// @Autowired
 	// This is the topic name it wont be changed so "final static"
 	// private KafkaTemplate<String, MovieSchedule> kafkaTemplate;
 	// private static final String TOPIC = "testkafka";
 
 	// the method to update the existing movie-theatre schedule
 	@Override
-	public MovieSchedule updateMovieSchedule(String theatreName,MovieSchedule updateMovie) {
-//		kafkaTemplate.send(TOPIC, updateMovie);
-		if (movieScheduleRepo.getByTheatreName(theatreName)!= null) {
-			
+	public MovieSchedule updateMovieSchedule(String theatreName, MovieSchedule updateMovie) {
+		// kafkaTemplate.send(TOPIC, updateMovie);
+		if (movieScheduleRepo.getByTheatreName(theatreName) != null) {
+
 			MovieSchedule movie = movieScheduleRepo.getByTheatreName(theatreName);
-			System.out.println(""+theatreName);
-			System.out.println(""+movie.getTheatreName());
-			
-			
+			System.out.println("" + theatreName);
+			System.out.println("" + movie.getTheatreName());
+
 			movie.setMovieName(updateMovie.getMovieName());
 			movie.setId(updateMovie.getId());
 			movie.setActors(updateMovie.getActors());
@@ -72,23 +76,20 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 			movie.setShowTimings(updateMovie.getShowTimings());
 			movie.setWeekdays_Price(updateMovie.getWeekdays_Price());
 			movie.setWeekends_Price(updateMovie.getWeekends_Price());
-			System.out.println(""+movie.getTheatreName()+ ""+movie.getShowNumbers());
+			System.out.println("" + movie.getTheatreName() + "" + movie.getShowNumbers());
 			movieScheduleRepo.save(movie);
-			kafkaTemplate.send(TOPIC, movie);
-		}
-		else 
+			kafkaTemplate.send(topic, movie);
+		} else
 			System.out.println("error");
 		return updateMovie;
 	}
-	
-	
 
 	// the method to listen the message from the specified kafka topic
 	@Override
-	@KafkaListener(topics = "theatredetails", groupId = "grpid", containerFactory = "kafkaListenerContainerFactory")
+	@KafkaListener(topics = "theaterdetails", groupId = "grpid", containerFactory = "kafkaListenerContainerFactory")
 	public void consumeKafka(Theatre theatre) {
 		MovieSchedule addTheatre = new MovieSchedule();
-		
+
 		if (movieScheduleRepo.getByTheatreName(theatre.getTheatreName()) == null) {
 			String theatreName = theatre.getTheatreName();
 			String theatreId = theatre.getTheatreId();
@@ -104,7 +105,7 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 			addTheatre.setTheatreLicenseNo(theatreLicenseNo);
 			addTheatre.setNumberOfSeats(noOfSeats);
 			addTheatre.setSeats(seats);
-			
+
 			movieScheduleRepo.save(addTheatre);
 		}
 

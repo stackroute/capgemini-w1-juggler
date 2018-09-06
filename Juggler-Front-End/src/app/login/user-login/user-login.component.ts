@@ -32,7 +32,7 @@ export class UserLoginComponent implements OnInit {
     });
 
     // reset login status
-    this.authenticationService.logout();
+    
 
     // get return url from route parameters or default to '/'
     // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -57,10 +57,11 @@ export class UserLoginComponent implements OnInit {
       .subscribe(
         data => {
           this.router.navigate(["/"]);
+          location.reload();
         },
         error => {
-          // this.alertService.error(error);
-          // this.loading = false;
+          this.alertService.error(error);
+          this.loading = false;
           this.errormessage = false;
         }
       );

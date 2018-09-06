@@ -23,7 +23,7 @@ public interface MovieRepository extends Neo4jRepository<Movie, Long> {
 
 //	@Query("Match (c:City) ,(m:Movie) where c.name={name} and m.name={movieName} with m,c merge (m)-[releasedIn]->(c)")
 //	void releasedIn(@Param("name") String name, @Param("name") String movieName);
-	@Query("Match (u:User)-[:follows]->(g:Genre)<-[:isTypeOf]-(r:Movie) where u.emailId={emailId}  Match (r)-[:releasedIn]->(c:City)<-[:livesIn]-(u) return (r)")
+	@Query("Match (u:User)-[:follows]->(g:Genre)<-[:isTypeOf]-(r:Movie) where u.emailId={emailId} Match (r)-[:releasedIn]->(c:City)<-[:livesIn]-(u) return (r)")
 	List<Movie> getGenreBasedMoviesForUser(@Param("emailId") String emailId);
 
 	@Query("Match (u:User)-[:preferredLanguage]->(l:Language)<-[:LanguageType]-(r:Movie) where u.emailId={emailId}  Match (r)-[:releasedIn]->(c:City)<-[:livesIn]-(u) return (r)")

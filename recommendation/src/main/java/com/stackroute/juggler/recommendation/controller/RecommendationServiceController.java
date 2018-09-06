@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ import com.stackroute.juggler.recommendation.domain.User;
 import com.stackroute.juggler.recommendation.repositories.UserRepository;
 import com.stackroute.juggler.recommendation.services.MovieService;
 import com.stackroute.juggler.recommendation.services.UserService;
-
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1")
 public class RecommendationServiceController {

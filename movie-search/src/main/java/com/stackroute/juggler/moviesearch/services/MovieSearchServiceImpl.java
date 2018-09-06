@@ -37,7 +37,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 	// save the city with movieslist and theaterslist
 	@Override
 	public String saveCity(City city) {
-
+		
 		City cityToBeSave = cityRepository.save(city);
 		List<Movie> movies = convertcitytomovie(city);
 
@@ -54,6 +54,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		List<Movie> movies = city.getMovieList();
 		return movies;
 	}
+	
 
 	// get movies by cityName
 	@Override

@@ -17,7 +17,7 @@ public class Movie {
 	@Id
 	public String id;
 	private String movieName;
-	private File moviePoster;
+	private String moviePoster;
 	private String actors;
 	private String actress;
 	private String directors;
@@ -34,7 +34,7 @@ public class Movie {
 	}
 
 	// All Arguments constructor
-	public Movie(String id, String movieName, File moviePoster, String actors, String actress, String directors,
+	public Movie(String id, String movieName, String moviePoster, String actors, String actress, String directors,
 			String movieGenres, String synopsis, String format, String languages, String movieDuration,
 			String movieReleaseDate) {
 		this.id = id;
@@ -68,11 +68,11 @@ public class Movie {
 		this.movieName = movieName;
 	}
 
-	public File getMoviePoster() {
+	public String getMoviePoster() {
 		return moviePoster;
 	}
 
-	public void setMoviePoster(File moviePoster) {
+	public void setMoviePoster(String moviePoster) {
 		this.moviePoster = moviePoster;
 	}
 

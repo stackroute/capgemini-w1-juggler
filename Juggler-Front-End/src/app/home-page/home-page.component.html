@@ -1,9 +1,9 @@
 <!-- Search form -->
-<div class="container col-8 mt-5">
+<div class="container col-8">
     <div class="row">
         <div class="col-sm-12">
             <form>
-                <div class="row">
+                <div class="row p-5">
                     <div class="col-9">
                         <input type="text" class="form-control" placeholder="Search Movies" name="city" [(ngModel)]="city" #input>
                     </div>
@@ -15,7 +15,7 @@
         </div>
     </div>
 </div>
-
+<div class="unit">...</div>
 <!-- <p>{{movie.movieTitle}}</p> -->
 
 <!-- <mat-grid-list cols="12" rowHeight="80px">
@@ -66,3 +66,4 @@
         </div>
     </div>
 </mat-grid-list>
+<app-recommendation></app-recommendation>

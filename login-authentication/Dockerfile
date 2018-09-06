@@ -8,3 +8,4 @@ ADD ./target/login-authentication-0.0.1-SNAPSHOT.jar /usr/app/login-authenticati
 # java -jar <jar fileName>
 WORKDIR usr/app
 ENTRYPOINT ["java","-jar", "login-authentication-0.0.1-SNAPSHOT.jar"]
+EXPOSE 8070

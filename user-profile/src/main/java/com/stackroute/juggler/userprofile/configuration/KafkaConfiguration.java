@@ -16,7 +16,7 @@ import com.stackroute.juggler.kafka.domain.InputUser;
 public class KafkaConfiguration {
 
 	//Declaring Topic
-	static final String TOPIC = "details8";
+	static final String TOPIC = "details10";
 
 	// Producer factory of kafka which will hold the configuration details
 	@Bean

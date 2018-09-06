@@ -19,9 +19,7 @@ export class SearchDataService {
   
   constructor(private http: HttpClient, private router: Router) { }
   
-  //  getAllMovies(): Observable<Movie[]> {
-  //     return this.http.get<Movie[]>('http://localhost:8060/api/v1/movies');
-  //  }
+  //
   
   getByMovieCity(city: string) {
    //  return this.http.get('http://localhost:8060/api/v1/city' + '/' + city);
@@ -31,11 +29,7 @@ export class SearchDataService {
        }));
   }
    searchMoviebycity(city: string) {
-    // this.city_string = city;
-     // console.log(this.city_string + '11');
-     // return fetch (this.url3 + '/' + city)
-     //           .then(response => response.json());
-     // console.log(this.http.get(this.url3 + '/' + this.city_string));
+   
       return this.http.get(this.url3 + '/' + city)
       .pipe( map(res => this.data = res));
    }
@@ -44,11 +38,6 @@ export class SearchDataService {
     this.movie_string = movie;
     return this.http.get(this.url + '/' + this.movie_string);
    }
-  
-  getByMovieName(name:string) {
-    return this.http.get(this.url3 + '/' + name)
-      .pipe( map(res => this.data = res));
-  }
 
 }
 

@@ -26,7 +26,7 @@ public class MovieSchedule {
 	private String[] runningmovies;
 	public String id;
 	private String movieName;
-	private File moviePoster;
+	private String moviePoster;
 	private String actors;
 	private String actress;
 	private String directors;
@@ -53,7 +53,7 @@ public class MovieSchedule {
 	// All arguments constructors
 	public MovieSchedule(String theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, File seatLayout,
-			String[] screenedmovies, String[] runningmovies, String id, String movieName, File moviePoster,
+			String[] screenedmovies, String[] runningmovies, String id, String movieName, String moviePoster,
 			String actors, String actress, String directors, String movieGenres, String synopsis, String format,
 			String languages, String movieDuration, String movieReleaseDate, int showNumbers, String showTimings,
 			int weekends_Price, int weekdays_Price) {
@@ -182,11 +182,11 @@ public class MovieSchedule {
 		this.movieName = movieName;
 	}
 
-	public File getMoviePoster() {
+	public String getMoviePoster() {
 		return moviePoster;
 	}
 
-	public void setMoviePoster(File moviePoster) {
+	public void setMoviePoster(String moviePoster) {
 		this.moviePoster = moviePoster;
 	}
 
