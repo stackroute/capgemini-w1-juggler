@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecommendationService} from '../recommendation.service';
-import {  Movie } from "../movieDetails";
+// import {  Movie } from "../movieDetails";
 @Component({
   selector: 'app-recommendation',
   templateUrl: './recommendation.component.html',
@@ -14,11 +14,11 @@ export class RecommendationComponent implements OnInit {
    constructor(private recommendation:RecommendationService) { }  ngOnInit() {
     // if (localStorage.getItem("currentUserEmail") != null) {
       // this.email = localStorage.getItem("currentUserEmail");
-      this.getGenreBasedMovies();
+      
  }
  getGenreBasedMovies()
 {      console.log("inside ngOnInit getRecommendationList");
-      this.email="jyothi@email.com";
+      this.email=localStorage.getItem("currentUserEmail");
       this.recommendation.getGenreBasedMovies(this.email).subscribe(fullList => {
         this.recommended_Movies = fullList;
         console.log("inside ngOnInit getRecommendationList");
@@ -26,7 +26,7 @@ export class RecommendationComponent implements OnInit {
     }
     getLanguageBased()
 {      console.log("inside ngOnInit getRecommendationList");
-      this.email="jyothi@email.com";
+      this.email=localStorage.getItem("currentUserEmail");
       this.recommendation.getLanguageBased(this.email).subscribe(fullList => {
         this.recommended_Movies = fullList;
         console.log("inside ngOnInit getRecommendationList");
@@ -34,7 +34,7 @@ export class RecommendationComponent implements OnInit {
     }
     getLanguageGenreBasedMovies()
 {      console.log("inside ngOnInit getRecommendationList");
-      this.email="jyothi@email.com";
+      this.email=localStorage.getItem("currentUserEmail");
       this.recommendation.getLanguageGenreBasedMovies(this.email).subscribe(fullList => {
         this.recommended_Movies = fullList;
         console.log("inside ngOnInit getRecommendationList");

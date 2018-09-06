@@ -2,7 +2,6 @@ package com.stackroute.juggler.moviesearch.domain;
 
 import java.io.File;
 import java.util.List;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -44,6 +43,7 @@ public class Movie {
 		this.theatres = theatres;
 	}
 
+	// No argument constructor
 	public Movie() {
 		super();
 	}

@@ -24,9 +24,9 @@ export class HomePageComponent implements OnInit {
    constructor(private cityService: SearchDataService, private movieDetailsService: MovieDetailsService , private route: Router, private router: ActivatedRoute) { }
    searchMovies(cityName) {
     //  console.log(this.city);
-    this.cityService.searchMoviebycity(this.city)
+    this.cityService.getByMovieCity(cityName)
     .subscribe(data => {
-      this.search_result = data["movieList"];
+      this.search_result = data
     });
       //  console.log(this.search_result);
    }
