@@ -11,6 +11,16 @@
 .example-full-width {
   width: 55%;
 }
+#container {
+  display: inline-flex;
+  flex-flow: wrap;
+}
+mat-card {
+  background-size: cover;
+}
+.genre-name {
+  color: rgb(241, 36, 36);
+}
 mat-error {
   color: rgb(34, 47, 233);
 }
