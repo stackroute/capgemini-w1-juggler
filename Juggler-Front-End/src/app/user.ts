@@ -9,7 +9,7 @@ export class User {
     LanguagesKnown: string;
     dateOfBirth: string;
     location: string;
-    genre: string;
+    genre: string[];
     likes: string;
     payment_methods: string;
 }
