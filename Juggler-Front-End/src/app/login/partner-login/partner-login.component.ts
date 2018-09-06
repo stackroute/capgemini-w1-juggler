@@ -24,6 +24,7 @@ export class PartnerLoginComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private alertService: AlertService
   ) {}
+
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ["", Validators.required],
