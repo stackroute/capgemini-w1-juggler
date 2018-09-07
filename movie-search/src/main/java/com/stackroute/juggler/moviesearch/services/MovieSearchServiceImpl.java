@@ -126,9 +126,16 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 								movieschedule.getWeekends_Price(), movieschedule.getWeekdays_Price(),
 								movieschedule.getSeats(), movieschedule.getScreenedmovies(),
 								movieschedule.getRunningmovies());
+//						theatre1.setTheatreId(movieschedule.getTheatreId());
+//						theatre1.setTheatreName(movieschedule.getTheatreName());
+//						theatre1.setTheatreLocation(movieschedule.getTheatreLocation());
+//						theatre1.setSeatLayout(movieschedule.getSeatLayout());
+//						theatre1.setShowNumbers(movieschedule.getShowNumbers());
+//						String show=movieschedule.getShowTimings();
+//						theatre1.set
 						theaters.add(theatre1);
 						cityRepository.save(cities);
-						//movieRepository.save(movie);
+						  movieRepository.save(movie);
 					}
 				}
 			} else {
@@ -137,6 +144,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 						movieschedule.getShowNumbers(), movieschedule.getShowTimings(),
 						movieschedule.getWeekends_Price(), movieschedule.getWeekdays_Price(), movieschedule.getSeats(),
 						movieschedule.getScreenedmovies(), movieschedule.getRunningmovies());
+				
 				newtheater = new ArrayList<Theatre>();
 				newtheater.add(theatre1);
 				tempMovie = new Movie(movieschedule.getId(), movieschedule.getMovieName(),
@@ -147,7 +155,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 						newtheater);
 				movies.add(tempMovie);
 				cityRepository.save(cities);
-				//movieRepository.save(tempMovie);
+				movieRepository.save(tempMovie);
 			}
 		} else {
 			theater = new Theatre(movieschedule.getTheatreId(), movieschedule.getTheatreName(),
@@ -166,62 +174,13 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 
 			cities = new City(cityname, movies);
 			cityRepository.save(cities);
-//			List<Movie> moviess = convertcitytomovie(cities);
-//
-//			for (Iterator iterator = movies.iterator(); iterator.hasNext();) {
-//				Movie movieee = (Movie) iterator.next();
-//				Movie moviesaved = movieRepository.save(movieee);
-//			}
+			movieRepository.save(movie);
+	}
 
-		}
-
-	
-	
-	Theatre theater2;
-	Theatre theater3;
-	Movie movie2;
-
-	List<Theatre> theaters1 = new ArrayList<Theatre>();
-	List<Theatre> newtheater1;
-
-	String moviename = movieschedule.getMovieName();
-
-	if (movieRepository.findByMovieName(moviename) != null) {
-		logger.debug("-----checking moviename-------");
-		movie2 = movieRepository.findByMovieName(moviename);
-		theaters1 = movie2.getTheatres();
-		Iterator<Theatre> iterator1 = theaters1.iterator();
-		while (iterator1.hasNext()) {
-			theater2 = iterator1.next();
-			if (theater2.getTheatreName().equals(movieschedule.getTheatreName())) {
-				logger.debug("-------checking theatername--------");
-			} else {
-				logger.debug("-------not same theatername----");
-				theater3 = new Theatre(movieschedule.getTheatreId(), movieschedule.getTheatreName(),
-						movieschedule.getTheatreLocation(), movieschedule.getSeatLayout(),
-						movieschedule.getShowNumbers(), movieschedule.getShowTimings(),
-						movieschedule.getWeekends_Price(), movieschedule.getWeekdays_Price(),
-						movieschedule.getSeats(), movieschedule.getScreenedmovies(),
-						movieschedule.getRunningmovies());
-				theaters1.add(theater3);
-				movieRepository.save(movie2);
-			}
-		}
-	} else {
-		logger.debug("-------not same moviename-------");
-		theater2 = new Theatre(movieschedule.getTheatreId(), movieschedule.getTheatreName(),
-				movieschedule.getTheatreLocation(), movieschedule.getSeatLayout(), movieschedule.getShowNumbers(),
-				movieschedule.getShowTimings(), movieschedule.getWeekends_Price(),
-				movieschedule.getWeekdays_Price(), movieschedule.getSeats(), movieschedule.getScreenedmovies(),
-				movieschedule.getRunningmovies());
-		newtheater1 = new ArrayList<Theatre>();
-		newtheater1.add(theater2);
-		movie2 = new Movie(movieschedule.getId(), movieschedule.getMovieName(), movieschedule.getMoviePoster(),
-				movieschedule.getSynopsis(), movieschedule.getMovieReleaseDate(), movieschedule.getMovieDuration(),
-				movieschedule.getLanguages(), movieschedule.getMovieGenres(), movieschedule.getFormat(),
-				movieschedule.getActors(), movieschedule.getActress(), movieschedule.getDirectors(), newtheater1);
-	movieRepository.save(movie2);
-
-}
 	}
 }
+
+	
+	
+
+

@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Theatre {
 	@Id
 	private String theatreId;
+	private String email;
 	private String theatreLocation;
 	private String theatreCity;
 	private String theatreName;
@@ -23,7 +24,7 @@ public class Theatre {
 	private File seatLayout;
 
 	// All Arguments Constructor
-	public Theatre(String theatreId, String theatreLocation, String theatreCity, String theatreName,
+	public Theatre(String theatreId, String email, String theatreLocation, String theatreCity, String theatreName,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
 			String[] runningmovies, File seatLayout) {
 		super();
@@ -37,11 +38,11 @@ public class Theatre {
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
 		this.seatLayout = seatLayout;
+		this.email = email;
 	}
 
 	public Theatre() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	// List of getters and setters
@@ -125,13 +126,12 @@ public class Theatre {
 		this.seatLayout = seatLayout;
 	}
 
-	public void setComments(String string) {
-		// TODO Auto-generated method stub
-
+	public String getEmail() {
+		return email;
 	}
 
-	public Object getComments() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setEmail(String email) {
+		this.email = email;
 	}
+
 }

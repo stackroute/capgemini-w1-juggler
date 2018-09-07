@@ -8,16 +8,18 @@ import com.stackroute.juggler.kafka.domain.Theatre;
 //MovieScheduleService class should implement these methods for sure
 public interface MovieScheduleService {
 
-//	add the movie theater-screening details
+	// add the movie theater-screening details
 	public MovieSchedule addMovieSchedule(MovieSchedule movieSchedule);
 
-//	get the movie theater-screening details
+	// get the movie theater-screening details
 	public List<MovieSchedule> getMoviesSchedule();
 
-//	update the movie theater-screening details
-	public MovieSchedule updateMovieSchedule(String theatreName, MovieSchedule updateMovie);
+	// update the movie theater-screening details
+	public MovieSchedule updateMovieSchedule(String email, MovieSchedule updateMovie);
 
-//	consume theater details from message bus
+	// consume theater details from message bus
 	public void consumeKafka(Theatre theatre);
+	
+//	public MovieSchedule getEmailid();
 
 }

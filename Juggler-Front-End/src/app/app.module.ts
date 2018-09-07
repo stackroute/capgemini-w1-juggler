@@ -36,6 +36,8 @@ import { MovieScreeningComponent } from './movie-screening/movie-screening.compo
 import { MovieScreeningService } from './movie-screening.service';
 import { MovieDetailsService } from './moviedetails.service';
 import { RecommendationComponent } from './recommendation/recommendation.component';
+import { ProfileComponent } from './profile/profile.component'
+import { ProfileService } from './profile.service';
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
@@ -54,7 +56,8 @@ import { RecommendationComponent } from './recommendation/recommendation.compone
     LandingPageComponent,
     HomePageComponent,
     MovieScreeningComponent,
-    RecommendationComponent
+    RecommendationComponent,
+    ProfileComponent
   ],
 
   imports: [
@@ -77,7 +80,7 @@ import { RecommendationComponent } from './recommendation/recommendation.compone
     MatNativeDateModule,
     MatAutocompleteModule
   ],
-  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService],
+  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, ProfileService],
   bootstrap: [AppComponent],
   entryComponents: [ DialogComponentComponent ],
   schemas: [ NO_ERRORS_SCHEMA ]
