@@ -60,7 +60,7 @@ services:
 
   userprofile:
 
-   build: thoopalliamar/userprofile:1.0
+   image: thoopalliamar/userprofile:1.0
 
    restart: always
 
