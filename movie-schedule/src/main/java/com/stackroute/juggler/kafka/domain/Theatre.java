@@ -12,6 +12,7 @@ public class Theatre {
 
 	@Id
 	private String theatreId;
+	private String email;
 	private String theatreName;
 	private String theatreLocation;
 	private String theatreCity;
@@ -22,7 +23,7 @@ public class Theatre {
 	private String[] runningmovies;
 
 	// All arguments constructors
-	public Theatre(String theatreId, String theatreName, String theatreLocation, String theatreCity,
+	public Theatre(String theatreId, String email, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
 			String[] runningmovies) {
 
@@ -35,6 +36,7 @@ public class Theatre {
 		this.seats = seats;
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
+		this.email = email;
 	}
 
 	// List of all getters and setters
@@ -110,6 +112,14 @@ public class Theatre {
 		this.runningmovies = runningmovies;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	// default constructor
 	public Theatre() {
 
@@ -117,9 +127,9 @@ public class Theatre {
 
 	@Override
 	public String toString() {
-		return "Theatre [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreLocation="
-				+ theatreLocation + ", theatreCity=" + theatreCity + ", theatreLicenseNo=" + theatreLicenseNo
-				+ ", numberOfSeats=" + numberOfSeats + ", seats=" + seats + ", screenedmovies="
+		return "Theatre [theatreId=" + theatreId + ", email=" + email + ", theatreName=" + theatreName
+				+ ", theatreLocation=" + theatreLocation + ", theatreCity=" + theatreCity + ", theatreLicenseNo="
+				+ theatreLicenseNo + ", numberOfSeats=" + numberOfSeats + ", seats=" + seats + ", screenedmovies="
 				+ Arrays.toString(screenedmovies) + ", runningmovies=" + Arrays.toString(runningmovies) + "]";
 	}
 

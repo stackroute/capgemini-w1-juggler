@@ -83,7 +83,7 @@ export class UserRegisterComponent implements OnInit {
     this.user.password = this.f.password.value;
     this.user.mobileNo = this.f.mobileNo.value;
     this.user.location = this.f1.address.value;
-    this.user.LanguagesKnown = this.languageCtrl.value;
+    this.user.languagesKnown = this.languageCtrl.value;
     this.user.genre = this.genreOutoutList;
     // this.user.gender = this.gender.value;
     console.log(this.genreOutoutList);

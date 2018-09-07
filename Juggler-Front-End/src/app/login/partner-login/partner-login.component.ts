@@ -61,7 +61,7 @@ export class PartnerLoginComponent implements OnInit {
             this.router.navigate(["/distributor"]);
             location.reload();
           } else {
-            this.router.navigate(["/theatre"]);
+            this.router.navigate(["/profile", this.f.email.value]);
             location.reload();
           }
         },

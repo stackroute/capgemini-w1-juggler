@@ -4,7 +4,7 @@
   <div class="container">
         <div *ngIf=recommended_Movies>
           <div class="row">
-              <div *ngFor="let Movie of recommended_Movies; let i = index">
+              <div *ngFor="let MovieDetails of recommended_Movies; let i = index">
                   <div *ngIf='i < 4'>
                       <mat-grid-tile colspan="3" rowspan="4 ">
                           <div>

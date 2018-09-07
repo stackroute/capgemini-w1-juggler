@@ -1,6 +1,7 @@
 package com.stackroute.juggler.recommendation.domain;
 
 import java.io.File;
+import java.util.List;
 
 import org.neo4j.ogm.annotation.Relationship;
 import org.springframework.data.annotation.Id;
@@ -22,6 +23,7 @@ public class Movie {
 	private String releasedInCity;
 	private String movieGenres;
 	private String language;
+	private List<Theatre> theatres;
 	@Relationship(type = "releasedIn", direction = Relationship.OUTGOING)
 	private City city;
 	@Relationship(type = "isTypeOf", direction = Relationship.OUTGOING)
@@ -31,7 +33,7 @@ public class Movie {
 //// All Arguments constructor
 	public Movie(Long id, String movieId, String name, String moviePoster, String synopsis, String movieReleasedate,
 			String movieDuration, String format, String hero, String heroine, String director, String releasedInCity,
-			String movieGenres, String language, City city, Genre genre, Language languages) {
+			String movieGenres, String language, City city, Genre genre, Language languages,List<Theatre> theatres) {
 		super();
 		this.id = id;
 		this.movieId = movieId;
@@ -50,6 +52,7 @@ public class Movie {
 		this.city = city;
 		this.genre = genre;
 		this.languages = languages;
+		this.theatres = theatres;
 	}
 public Movie(Long id, String movieId, String name, String moviePoster, String synopsis, String movieReleasedate,
 		String movieDuration, String format, String hero, String heroine, String director, String releasedInCity,
@@ -174,6 +177,13 @@ public Language getLanguages() {
 }
 public void setLanguages(Language languages) {
 	this.languages = languages;
+}
+
+public List<Theatre> getTheatres() {
+	return theatres;
+}
+public void setTheatres(List<Theatre> theatres) {
+	this.theatres = theatres;
 }
 @Override
 public String toString() {

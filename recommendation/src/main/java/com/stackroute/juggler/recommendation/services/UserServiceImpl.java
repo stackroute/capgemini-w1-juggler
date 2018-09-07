@@ -38,19 +38,28 @@ public class UserServiceImpl implements UserService {
 	public void getUserNode(InputUser user) {
 		System.out.println("hello");
 		User userObj = new User();
+		System.out.println("hello1");
 		userObj.setName(user.getUserName());
 		userObj.setEmailId(user.getEmailId());
+		System.out.println("hello2");
 		userObj.setDateOfBirth(user.getDateOfBirth());
 		City city = new City(user.getLocation());
+		System.out.println("hello3");
 		userObj.setCity(city);
 		List<Genre> genres = new ArrayList<Genre>();
+		System.out.println("hello4");
 		List<Language> languages = new ArrayList<Language>();
+		System.out.println("hello5");
 		for(String s:user.getGenre()) {
+			System.out.println("hello6");
 		Genre genre=new Genre(s);
 		genres.add(genre);
+		System.out.println(genres);
 		userObj.setGenres(genres);
+		
 		}
 		for(String s:user.getLanguagesKnown()) {
+			System.out.println("hello7");
 			Language lang=new Language(s);
 			languages.add(lang);
 			userObj.setLanguages(languages);

@@ -1,7 +1,5 @@
 package com.stackroute.juggler.theatreregistration.repository;
 
-import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,8 +11,12 @@ public interface TheatreRepository extends CrudRepository<Theatre, Integer> {
 
 	// get the theatre details by theatre-name from database
 	public Theatre getByTheatreName(String theatre);
+	
+	public Theatre getByEmail(String email);
 
 	// checks if the theatre with that particular name exists or not
 	public boolean existsByTheatreName(String theatreName);
+	
+//	public Theatre getByEmail(String email);
 
 }

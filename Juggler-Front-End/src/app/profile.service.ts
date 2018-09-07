@@ -6,12 +6,9 @@ import { Theatre } from './theatre';
 @Injectable({
   providedIn: 'root'
 })
-export class TheatreService {
+export class ProfileService {
   private _url = 'http://localhost:8020';
   constructor(private http: HttpClient) {}
 
-  saveTheatre(theatre: Theatre, email: string): Observable<Theatre> {
-  //  return this.http.post<Theatre>(this._url+"registerTheatre", theatre);
-   return this.http.post<Theatre>(this._url + '/api/v1/theatre/?email=' +email, theatre);
-  }
+  
 }
