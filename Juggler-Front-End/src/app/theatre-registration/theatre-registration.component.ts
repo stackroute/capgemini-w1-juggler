@@ -89,7 +89,7 @@ export class TheatreRegistrationComponent implements OnInit {
       "," +
       this.f1.country.value;
     this.theatre.theatreName = this.f.theatreName.value;
-    const map = new Map<String, String>();
+    const map = new Map<string, number>();
     map.set(this.f2.type1.value, this.f2.n1.value);
     map.set(this.f2.type2.value, this.f2.n2.value);
     map.set(this.f2.type3.value, this.f2.n3.value);
