@@ -1,3 +1,4 @@
+
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -44,6 +45,5 @@ export const routingComponents = [
   HomePageComponent,
   TheatreRegistrationComponent,
   DistributionRegisterFormComponent,
-  MovieScreeningComponent,
-  ProfileComponent
+  MovieScreeningComponent
 ];

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm stylish-color-dark navbar-dark">
+ <nav class="navbar navbar-expand-sm stylish-color-dark navbar-dark">
   <!-- Brand -->
   <a class="navbar-brand" href="/">
     <h1 class="name">
@@ -10,11 +10,13 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <!-- Navbar links -->
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav mx-auto">
-      <li class="nav-item mx-5">
+    <li class="nav-item mx-5">
+   <h6 class="nav-link text-white"> Select city:<i href="#city" routerLink="/" class="fa fa-map-marker" aria-hidden="true"></i> </h6>
+    </li>
+     <li class="nav-item mx-5">
         <a class="nav-link text-white" href="#home" routerLink="/home"><h5>Home</h5></a>
       </li>
       <li class="nav-item mx-5">
@@ -22,7 +24,7 @@
       </li>
       <div *ngIf=userLogged>
       <li class="nav-item outline-success ml-5 my-2 my-sm-0 mr-0">
-        <a class="nav-link text-white" href="#home" routerLink="/login-user"><h5>Login</h5></a>
+        <a class="nav-link text-white" href="#home" routerLink="/login-user"> <h5>Login</h5></a>
       </li>
     </div>
     <div *ngIf=flag>
