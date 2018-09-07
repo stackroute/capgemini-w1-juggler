@@ -17,7 +17,7 @@ import com.stackroute.juggler.moviesearch.domain.Movie;
 import com.stackroute.juggler.moviesearch.services.MovieSearchServiceImpl;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/api/v1")
 public class MovieSearchController {
 MovieSearchServiceImpl searchService;
