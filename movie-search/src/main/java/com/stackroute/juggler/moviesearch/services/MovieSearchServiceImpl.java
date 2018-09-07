@@ -126,6 +126,13 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 								movieschedule.getWeekends_Price(), movieschedule.getWeekdays_Price(),
 								movieschedule.getSeats(), movieschedule.getScreenedmovies(),
 								movieschedule.getRunningmovies());
+//						theatre1.setTheatreId(movieschedule.getTheatreId());
+//						theatre1.setTheatreName(movieschedule.getTheatreName());
+//						theatre1.setTheatreLocation(movieschedule.getTheatreLocation());
+//						theatre1.setSeatLayout(movieschedule.getSeatLayout());
+//						theatre1.setShowNumbers(movieschedule.getShowNumbers());
+//						String show=movieschedule.getShowTimings();
+//						theatre1.set
 						theaters.add(theatre1);
 						cityRepository.save(cities);
 						  movieRepository.save(movie);
@@ -137,6 +144,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 						movieschedule.getShowNumbers(), movieschedule.getShowTimings(),
 						movieschedule.getWeekends_Price(), movieschedule.getWeekdays_Price(), movieschedule.getSeats(),
 						movieschedule.getScreenedmovies(), movieschedule.getRunningmovies());
+				
 				newtheater = new ArrayList<Theatre>();
 				newtheater.add(theatre1);
 				tempMovie = new Movie(movieschedule.getId(), movieschedule.getMovieName(),

@@ -1,3 +1,4 @@
+import { TestComponent } from './test/test.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'distributor', component: DistributionRegisterFormComponent },
   { path: 'screening/:theatreName', component: MovieScreeningComponent },
   { path: 'theatre', component: TheatreRegistrationComponent },
-  { path: 'contact', component: ContactComponent }
+  { path: 'contact', component: ContactComponent },
+  {path:'test',component:TestComponent}
 ];
 
 @NgModule({
