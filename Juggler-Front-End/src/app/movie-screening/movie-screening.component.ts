@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ScreeningDetails } from '../screening-details';
 import {
-  FormControl,
   Validators,
   FormGroup,
   FormBuilder
@@ -69,8 +68,8 @@ export class MovieScreeningComponent implements OnInit {
       weekends_Price: ['', Validators.required]
     });
     this.router.paramMap.subscribe((params: ParamMap) => {
-      console.log(params.get('theatreName'));
-      const ttName = (params.get('theatreName'));
+      console.log(params.get('email'));
+      const ttName = (params.get('email'));
       console.log(ttName);
       this.tName = ttName;
       console.log(this.tName);

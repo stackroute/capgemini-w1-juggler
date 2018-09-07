@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  email: string;
+
+  
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap)=>{
+      console.log(params.get('email'));
+      const ttName = (params.get('email'));
+      console.log(ttName);
+      this.email = ttName;
+      console.log(this.email)
+    });
+    
   }
 
+  addTheatre() {
+    
+    this.router.navigate(['/theatre', this.email]);
+  }
+
+  addMovie() {
+    this.router.navigate(['/screening', this.email]);
+  }
+
+  
 }

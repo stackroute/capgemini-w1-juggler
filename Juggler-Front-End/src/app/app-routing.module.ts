@@ -23,10 +23,10 @@ const routes: Routes = [
   { path: 'moviedetail', component: MoviedetailsFormComponent },
   { path: 'login-partner', component: PartnerLoginComponent },
   { path: 'distributor', component: DistributionRegisterFormComponent },
-  { path: 'screening/:theatreName', component: MovieScreeningComponent },
-  { path: 'theatre', component: TheatreRegistrationComponent },
+  { path: 'screening/:email', component: MovieScreeningComponent },
+  { path: 'theatre/:email', component: TheatreRegistrationComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'profile/:email', component: ProfileComponent}
+  { path: 'profile/:email', component: ProfileComponent }
 ];
 
 @NgModule({
