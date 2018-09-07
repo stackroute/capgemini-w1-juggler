@@ -112,11 +112,13 @@
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
       </div>
-      <div>
-        <button mat-button (click)="onSubmit()">Add Theatre</button>
-      </div>
+      <!-- <div></div> -->
+
+
+      <button mat-raised-button (click)="openDialog()">Add Theatre</button>
+
+
     </form>
   </mat-step>
-
-
 </mat-horizontal-stepper>
+

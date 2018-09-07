@@ -16,31 +16,33 @@
     </div>
 </div>
 <div class="unit">...</div>
-<!-- <p>{{movie.movieTitle}}</p> -->
 
-<!-- <mat-grid-list cols="12" rowHeight="80px">
-    <h3>Trending Movies</h3>
-    <div *ngFor="let movie of search_result">
-        <div *ngFor="let Names of movie.movieList">
-            <mat-grid-tile colspan="3" rowspan="6">
-                <mat-card class="example-card m-3">
-                    <mat-card-header>
 
-                        <mat-card-title><a>{{Names.movieName}}</a>
-                        </mat-card-title>
-
-                    </mat-card-header>
-                    <img mat-card-image routerLink="/moviedetail" src="{{Names.moviePoster}}" alt="Poster of movie" width="180" height="280">
-                    <mat-card-actions>
-                        <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">View Details</button>
-                    </mat-card-actions>
-                </mat-card>
-            </mat-grid-tile>
+<div class="container">
+       
+    <div *ngIf=search_result1>
+        <div class="row">
+            <div *ngFor="let movie of search_result1
+                    let i = index">
+                    <div *ngIf='i < 1'>
+                    <h3>movies</h3>
+                            <mat-card>
+                                <mat-card-header>
+                                    <mat-card-title>
+                                        <a>{{movie.movieName}}</a>
+                                    </mat-card-title>
+                                </mat-card-header>
+                                <img mat-card-image src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="50">
+                                <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button>
+                            </mat-card>
+                </div>
+                </div>
+            </div>
         </div>
     </div>
-</mat-grid-list> -->
 
-<mat-grid-list cols="12">
+
+<mat-grid-list cols="12"  (window:resize)="onResize($event)">
     <h3>Trending Movies</h3>
     <div class="container">
         <div *ngIf=search_result>
@@ -55,7 +57,7 @@
                                             <a>{{movie.movieName}}</a>
                                         </mat-card-title>
                                     </mat-card-header>
-                                    <img mat-card-image src="{{movie.moviePoster}} " alt="Poster of movie" height="200px" width="150px">
+                                    <img mat-card-image src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="150">
                                     <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button>
                                 </mat-card>
                             </div>
@@ -65,5 +67,15 @@
             </div>
         </div>
     </div>
+
 </mat-grid-list>
+
+
+
+
+
+
+
+
 <app-recommendation></app-recommendation>
+

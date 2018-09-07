@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MovieDataService } from '../movie-data.service';
 import { Movie } from '../movie';
 import { Router } from '@angular/router';
@@ -21,6 +21,11 @@ export class DistributionRegisterFormComponent implements OnInit {
   isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+ 
+  options: string[] = ['Bengali', 'English', 'Gujarati', 'Hindi', 'Kannada', 'Marathi', 'Malyalam', 'Telugu', 'Tamil'];
+
+  options1: string[] = ['Comedy', 'Crime', 'Historical period', ' Horror', ' Legal', 'Melodrama', 'Military', 'Romantic', 'Teen'];
+
 
   // hide = true;
   movie = new Movie();

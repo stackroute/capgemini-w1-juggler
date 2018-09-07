@@ -1,7 +1,8 @@
 <div style="text-align: center">
     <h4>
         <strong>User Registration</strong>
-    </h4> <mat-error>This field is required</mat-error>
+    </h4>
+    <!-- <mat-error>This field is required</mat-error> -->
 </div>
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
@@ -32,7 +33,7 @@
                 <input matInput placeholder="Enter Your MobileNo." formControlName="mobileNo" type="number" required>
             </mat-form-field>
 
-            
+
             <div>
                 <button mat-button matStepperNext>Next</button>
             </div>
@@ -44,9 +45,9 @@
 
     <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Fill out your address</ng-template>
+            <ng-template matStepLabel>Fill out other details</ng-template>
             <mat-form-field>
-                <input matInput placeholder="Address" formControlName="address" required>
+                <input matInput placeholder="City" formControlName="address" required>
                 <mat-error>The input is invalid</mat-error>
             </mat-form-field>
             <br>
@@ -62,40 +63,24 @@
             </div>
         </form>
     </mat-step>
-    <mat-step [stepControl]>
+    <mat-step>
         <form class="example-form">
-            <ng-template matStepLabel>Done</ng-template>
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Language" aria-label="language" [matAutocomplete]="auto" [formControl]="languageCtrl">
-                <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let language of filteredLanguages | async" [value]="language.name">
-                        <span>{{language.name}}</span>
-                    </mat-option>
-                </mat-autocomplete>
-            </mat-form-field>
-            <br>
+            <ng-template matStepLabel>Fill your recommendations</ng-template>
             <mat-form-field>
-                <mat-select placeholder="Genres" [formControl]="genres" multiple>
-                    <mat-option *ngFor="let genre of genreList" [value]="genre">{{genre}}</mat-option>
+                <mat-select placeholder="Languages" [formControl]="languageCtrl" multiple>
+                    <mat-option *ngFor="let language of languages" [value]="language">{{language}}</mat-option>
                 </mat-select>
             </mat-form-field>
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext>Next</button>
+            <br>
+            <h5>Selct your genres</h5>
+            <div id="container" *ngFor="let Names of genress">
+                <mat-card class="example-card m-3" fxFlex="row wrap" (click)="onGenreCardSelect(Names.name)" style="height: 160px; width: 120px">
+                    <img mat-card-image src="{{Names.img}}" alt="movie genre">
+                    <mat-card-content>
+                        <b class="genre-name">{{Names.name}}</b>
+                    </mat-card-content>
+                </mat-card>
             </div>
-        </form>
-    </mat-step>
-
-
-
-
-    <mat-step [stepControl]="fourthFormGroup">
-        <form [formGroup]="fourthFormGroup">
-            <ng-template matStepLabel>Select your genres</ng-template>
-            <label formArrayName="orders" *ngFor="let order of fourthFormGroup.controls.orders.controls; let i = index">
-                <input type="checkbox" [formControlName]="i"> {{orders[i].name}}
-            </label>
-            <div *ngIf="!fourthFormGroup.valid">At least one order must be selected</div>
         </form>
         You are now done.
         <div>

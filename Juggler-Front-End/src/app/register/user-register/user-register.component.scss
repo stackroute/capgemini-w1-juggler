@@ -3,10 +3,27 @@
   max-width: 500px;
   width: 100%;
 }
-
+.container {
+  border-radius: 0.5%;
+  background-color: rgb(204, 212, 219);
+  border-block-end-style: groove;
+}
 .example-full-width {
   width: 55%;
 }
+#container {
+  display: inline-flex;
+  flex-flow: wrap;
+}
+mat-card {
+  background-size: cover;
+}
+.genre-name {
+  color: rgb(241, 36, 36);
+}
+mat-error {
+  color: rgb(34, 47, 233);
+}
 label {
-  display: block;
+  display: inline-block;
 }

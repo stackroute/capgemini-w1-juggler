@@ -1,7 +1,6 @@
 package com.stackroute.juggler.moviesearch.domain;
 
 import java.util.List;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -53,6 +52,7 @@ public class City {
 		this.movieList = movieList;
 	}
 
+	// No argument constructor
 	public City() {
 		super();
 	}
