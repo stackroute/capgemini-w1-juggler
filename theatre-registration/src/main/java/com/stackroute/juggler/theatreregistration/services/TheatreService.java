@@ -15,7 +15,9 @@ public interface TheatreService {
 
 	// To get the theatre by using theatre-title from database
 	public Theatre getTheatre(String theatreTitle) throws TheatreNotFoundException;
-
+	
+	public Theatre getEmailId(String email) throws TheatreNotFoundException;
+	
 	
 
 }
