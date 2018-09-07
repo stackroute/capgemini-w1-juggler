@@ -13,18 +13,18 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import com.stackroute.juggler.kafka.domain.Theatre;
 
-//Kafka Consumer for TheatreRegistration Details
+//Kafka KafkaConsumerConfig for TheatreRegistration Details
 
 @EnableKafka
 @Configuration
-public class Consumer {
+public class KafkaConsumerConfig {
 
 	public class KafkaConsumerconfiguration {
 		
 		
 //		172.23.238.190
 
-		// Consumer factory of kafka which will hold the configuration details
+		// KafkaConsumerConfig factory of kafka which will hold the configuration details
 		@Bean
 		public ConsumerFactory<String, Theatre> consumerFactory() {
 			Map<String, Object> config = new HashMap<>();
