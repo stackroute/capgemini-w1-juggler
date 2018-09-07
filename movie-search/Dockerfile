@@ -2,8 +2,9 @@
 FROM java:8-jre
 
 # copy jar file to docker file system
-ADD ./target/movie-search-0.0.1-SNAPSHOT.jar /usr/app/movie-search-0.0.1-SNAPSHOT.jar
+ADD ./target/movie-search-1.0.0.jar /usr/app/movie-search-1.0.0.jar
 
 # java -jar <jar fileName>
 WORKDIR usr/app
-ENTRYPOINT ["java","-jar", "movie-search-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar", "movie-search-1.0.0.jar"]
+EXPOSE 8060

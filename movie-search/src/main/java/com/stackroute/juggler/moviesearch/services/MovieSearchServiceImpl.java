@@ -37,7 +37,7 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 	// save the city with movieslist and theaterslist
 	@Override
 	public String saveCity(City city) {
-		
+
 		City cityToBeSave = cityRepository.save(city);
 		List<Movie> movies = convertcitytomovie(city);
 
@@ -54,13 +54,11 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 		List<Movie> movies = city.getMovieList();
 		return movies;
 	}
-	
 
 	// get movies by cityName
 	@Override
 	public City getByCity(String city) {
-		String input = city.toLowerCase();
-		City list = cityRepository.getBycityName(input);
+		City list = cityRepository.getBycityName(city);
 		return list;
 
 	}
@@ -80,6 +78,9 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 	public void consumeKafka(MovieSchedule movieschedule) {
 
 		logger.debug("-------------started the method-----------");
+
+
+
 		boolean flag = false;
 		int i, k = 0;
 		City cities;
@@ -127,16 +128,10 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 								movieschedule.getRunningmovies());
 						theaters.add(theatre1);
 						cityRepository.save(cities);
-//						 List<Movie> mov = convertcitytomovie(cities);
-//						 for (Iterator<Movie> iterator2 = mov.iterator(); iterator2.hasNext();) {
-//						 Movie movi = (Movie) iterator2.next();
-//						 Movie moviesaved = movieRepository.save(movi);
-
-//					}
+						  movieRepository.save(movie);
+					}
 				}
-			}
-			}
-			else {
+			} else {
 				theatre1 = new Theatre(movieschedule.getTheatreId(), movieschedule.getTheatreName(),
 						movieschedule.getTheatreLocation(), movieschedule.getSeatLayout(),
 						movieschedule.getShowNumbers(), movieschedule.getShowTimings(),
@@ -152,15 +147,9 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 						newtheater);
 				movies.add(tempMovie);
 				cityRepository.save(cities);
-//				 List<Movie> mov = convertcitytomovie(cities);
-//				 for (Iterator<Movie> iterator1 = mov.iterator(); iterator1.hasNext();) {
-//				 Movie movi = (Movie) iterator1.next();
-//				 Movie moviesaved = movieRepository.save(movi);
-//			   
-//			}
-		}
+				movieRepository.save(tempMovie);
 			}
-		else {
+		} else {
 			theater = new Theatre(movieschedule.getTheatreId(), movieschedule.getTheatreName(),
 					movieschedule.getTheatreLocation(), movieschedule.getSeatLayout(), movieschedule.getShowNumbers(),
 					movieschedule.getShowTimings(), movieschedule.getWeekends_Price(),
@@ -177,19 +166,13 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 
 			cities = new City(cityname, movies);
 			cityRepository.save(cities);
-			 List<Movie> mov = convertcitytomovie(cities);
-			 for (Iterator<Movie> iterator = mov.iterator(); iterator.hasNext();) {
-			 Movie movi = (Movie) iterator.next();
-			 Movie moviesaved = movieRepository.save(movi);
-			 }
-		}
-
+			movieRepository.save(movie);
 	}
 
-	@Override
-	public City update(String cityname, List<Movie> movies) {
-		// TODO Auto-generated method stub
-		return null;
 	}
-
 }
+
+	
+	
+
+
