@@ -17,7 +17,7 @@ public class Theatre {
 	private File seatLayout;
 	private int showNumbers;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
-	private String showTimings;
+	private String[] showTimings;
 	private int weekends_Price;
 	private int weekdays_Price;
 	private Map<String, Integer> seats;
@@ -28,7 +28,7 @@ public class Theatre {
 	
 
 	public Theatre(String theatreId, String theatreName, String theatreLocation, File seatLayout, int showNumbers,
-			String showTimings, int weekends_Price, int weekdays_Price, Map<String, Integer> seats,
+			String[] showTimings, int weekends_Price, int weekdays_Price, Map<String, Integer> seats,
 			String[] screenedmovies, String[] runningmovies) {
 		super();
 		this.theatreId = theatreId;
@@ -86,11 +86,11 @@ public class Theatre {
 		this.showNumbers = showNumbers;
 	}
 
-	public String getShowTimings() {
+	public String[] getShowTimings() {
 		return showTimings;
 	}
 
-	public void setShowTimings(String showTimings) {
+	public void setShowTimings(String[] showTimings) {
 		this.showTimings = showTimings;
 	}
 
