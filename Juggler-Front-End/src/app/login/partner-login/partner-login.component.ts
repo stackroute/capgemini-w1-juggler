@@ -14,7 +14,8 @@ export class PartnerLoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-  // returnUrl: string;
+  // returnUrl: string; 
+  
   role: string;
   errormessage: Boolean = true;
   constructor(

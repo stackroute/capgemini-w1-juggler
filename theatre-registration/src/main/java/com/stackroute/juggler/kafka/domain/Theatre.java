@@ -43,14 +43,17 @@ public class Theatre {
 		this.typesOfSeats = typesOfSeats;
 		this.numberOfSeats = numberOfSeats;
 	}
+
 	public Theatre() {
 		super();
+		
 	}
 	
 	// List of getters and setters
 	public String getTheatreId() {
 		return theatreId;
 	}
+
 	public void setTheatreId(String theatreId) {
 		this.theatreId = theatreId;
 	}
@@ -63,24 +66,31 @@ public class Theatre {
 	public String getTheatreLocation() {
 		return theatreLocation;
 	}
+
 	public void setTheatreLocation(String theatreLocation) {
 		this.theatreLocation = theatreLocation;
 	}
+
 	public String getTheatreCity() {
 		return theatreCity;
 	}
+
 	public void setTheatreCity(String theatreCity) {
 		this.theatreCity = theatreCity;
 	}
+
 	public String getTheatreName() {
 		return theatreName;
 	}
+
 	public void setTheatreName(String theatreName) {
 		this.theatreName = theatreName;
 	}
+
 	public String getTheatreLicenseNo() {
 		return theatreLicenseNo;
 	}
+
 	public void setTheatreLicenseNo(String theatreLicenseNo) {
 		this.theatreLicenseNo = theatreLicenseNo;
 	}
@@ -90,21 +100,29 @@ public class Theatre {
 	public void setTotalnumberOfSeats(String totalnumberOfSeats) {
 		this.totalnumberOfSeats = totalnumberOfSeats;
 	}
+
+	
+
 	public String[] getScreenedmovies() {
 		return screenedmovies;
 	}
+
 	public void setScreenedmovies(String[] screenedmovies) {
 		this.screenedmovies = screenedmovies;
 	}
+
 	public String[] getRunningmovies() {
 		return runningmovies;
 	}
+
 	public void setRunningmovies(String[] runningmovies) {
 		this.runningmovies = runningmovies;
 	}
+
 	public File getSeatLayout() {
 		return seatLayout;
 	}
+
 	public void setSeatLayout(File seatLayout) {
 		this.seatLayout = seatLayout;
 	}

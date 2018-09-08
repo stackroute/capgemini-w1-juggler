@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchDataService } from '../search-data.service';
 import { AuthenticationService } from '../authentication.service';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -22,6 +21,7 @@ export class HeaderComponent implements OnInit {
    {this.flag = false;
     this.userLogged =true;
       }
+      
     }
       logout()
       {

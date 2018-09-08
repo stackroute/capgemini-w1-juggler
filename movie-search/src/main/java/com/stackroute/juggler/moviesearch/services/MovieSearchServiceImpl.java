@@ -74,14 +74,11 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 
 	// listening from kafka from screening microservice
 	@Override
-	@KafkaListener(topics = "screeningdetails", groupId = "search", containerFactory = "kafkaListenerContainerFactory")
+	@KafkaListener(topics = "screening-details", groupId = "search", containerFactory = "kafkaListenerContainerFactory")
 	public void consumeKafka(MovieSchedule movieschedule) {
 
 		logger.debug("-------------started the method-----------");
-
-
-
-		boolean flag = false;
+        boolean flag = false;
 		int i, k = 0;
 		City cities;
 		Movie movie;
@@ -120,23 +117,43 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 					if (theater.getTheatreName().equals(movieschedule.getTheatreName())) {
 						logger.debug("-----checking for theatre names-----");
 					} else {
-						theatre1 = new Theatre(movieschedule.getTheatreId(), movieschedule.getTheatreName(),
-								movieschedule.getTheatreLocation(), movieschedule.getSeatLayout(),
-								movieschedule.getShowNumbers(), movieschedule.getShowTimings(),
-								movieschedule.getWeekends_Price(), movieschedule.getWeekdays_Price(),
-								movieschedule.getSeats(), movieschedule.getScreenedmovies(),
-								movieschedule.getRunningmovies());
+						theatre1 = new Theatre();	
+						theatre1.setTheatreId(movieschedule.getTheatreId());
+						theatre1.setTheatreName(movieschedule.getTheatreName());
+						theatre1.setTheatreLocation(movieschedule.getTheatreLocation());
+						theatre1.setSeatLayout(movieschedule.getSeatLayout());
+						theatre1.setShowNumbers(movieschedule.getShowNumbers());
+						String show=movieschedule.getShowTimings().trim();
+						String[] showtiming=show.split(",");
+						theatre1.setShowTimings(showtiming);
+						theatre1.setWeekends_Price(movieschedule.getWeekends_Price());
+						theatre1.setWeekdays_Price(movieschedule.getWeekdays_Price());
+						theatre1.setTypesOfSeats(movieschedule.getTypesOfSeats());
+						theatre1.setNumberOfSeats(movieschedule.getNumberOfSeats());
+						theatre1.setScreenedmovies(movieschedule.getScreenedmovies());
+						theatre1.setRunningmovies(movieschedule.getRunningmovies());
 						theaters.add(theatre1);
 						cityRepository.save(cities);
 						  movieRepository.save(movie);
 					}
 				}
 			} else {
-				theatre1 = new Theatre(movieschedule.getTheatreId(), movieschedule.getTheatreName(),
-						movieschedule.getTheatreLocation(), movieschedule.getSeatLayout(),
-						movieschedule.getShowNumbers(), movieschedule.getShowTimings(),
-						movieschedule.getWeekends_Price(), movieschedule.getWeekdays_Price(), movieschedule.getSeats(),
-						movieschedule.getScreenedmovies(), movieschedule.getRunningmovies());
+				theatre1 = new Theatre();
+				theatre1 = new Theatre();	
+				theatre1.setTheatreId(movieschedule.getTheatreId());
+				theatre1.setTheatreName(movieschedule.getTheatreName());
+				theatre1.setTheatreLocation(movieschedule.getTheatreLocation());
+				theatre1.setSeatLayout(movieschedule.getSeatLayout());
+				theatre1.setShowNumbers(movieschedule.getShowNumbers());
+				String show=movieschedule.getShowTimings().trim();
+				String[] showtiming=show.split(",");
+				theatre1.setShowTimings(showtiming);
+				theatre1.setWeekends_Price(movieschedule.getWeekends_Price());
+				theatre1.setWeekdays_Price(movieschedule.getWeekdays_Price());
+				theatre1.setTypesOfSeats(movieschedule.getTypesOfSeats());
+				theatre1.setNumberOfSeats(movieschedule.getNumberOfSeats());
+				theatre1.setScreenedmovies(movieschedule.getScreenedmovies());
+				theatre1.setRunningmovies(movieschedule.getRunningmovies());
 				newtheater = new ArrayList<Theatre>();
 				newtheater.add(theatre1);
 				tempMovie = new Movie(movieschedule.getId(), movieschedule.getMovieName(),
@@ -150,12 +167,22 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 				movieRepository.save(tempMovie);
 			}
 		} else {
-			theater = new Theatre(movieschedule.getTheatreId(), movieschedule.getTheatreName(),
-					movieschedule.getTheatreLocation(), movieschedule.getSeatLayout(), movieschedule.getShowNumbers(),
-					movieschedule.getShowTimings(), movieschedule.getWeekends_Price(),
-					movieschedule.getWeekdays_Price(), movieschedule.getSeats(), movieschedule.getScreenedmovies(),
-					movieschedule.getRunningmovies());
-			theaters = new ArrayList<>();
+			theater = new Theatre();
+			theater.setTheatreId(movieschedule.getTheatreId());
+			theater.setTheatreName(movieschedule.getTheatreName());
+			theater.setTheatreLocation(movieschedule.getTheatreLocation());
+			theater.setSeatLayout(movieschedule.getSeatLayout());
+			theater.setShowNumbers(movieschedule.getShowNumbers());
+			String show=movieschedule.getShowTimings().trim();
+			String[] showtiming=show.split(",");
+			theater.setShowTimings(showtiming);
+			theater.setWeekends_Price(movieschedule.getWeekends_Price());
+			theater.setWeekdays_Price(movieschedule.getWeekdays_Price());
+			theater.setTypesOfSeats(movieschedule.getTypesOfSeats());
+			theater.setNumberOfSeats(movieschedule.getNumberOfSeats());
+			theater.setScreenedmovies(movieschedule.getScreenedmovies());
+			theater.setRunningmovies(movieschedule.getRunningmovies());
+			theaters = new ArrayList<Theatre>();
 			theaters.add(theater);
 			movie = new Movie(movieschedule.getId(), movieschedule.getMovieName(), movieschedule.getMoviePoster(),
 					movieschedule.getSynopsis(), movieschedule.getMovieReleaseDate(), movieschedule.getMovieDuration(),
@@ -163,7 +190,6 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 					movieschedule.getActors(), movieschedule.getActress(), movieschedule.getDirectors(), theaters);
 			movies = new ArrayList<>();
 			movies.add(movie);
-
 			cities = new City(cityname, movies);
 			cityRepository.save(cities);
 			movieRepository.save(movie);

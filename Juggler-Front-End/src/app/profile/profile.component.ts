@@ -16,9 +16,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap)=>{
       console.log(params.get('email'));
-      const ttName = (params.get('email'));
-      console.log(ttName);
-      this.email = ttName;
+      const email = (params.get('email'));
+      console.log(email);
+      this.email = email;
       console.log(this.email)
     });
     
@@ -32,6 +32,8 @@ export class ProfileComponent implements OnInit {
   addMovie() {
     this.router.navigate(['/screening', this.email]);
   }
+
+  
 
   
 }

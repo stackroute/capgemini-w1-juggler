@@ -15,6 +15,7 @@ public class MovieSchedule {
 
 	@Id
 	private String theatreId;
+	private String email;
 	private String theatreName;
 	private String theatreLocation;
 	private String theatreCity;
@@ -38,7 +39,6 @@ public class MovieSchedule {
 	private String movieDuration;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyy")
 	private String movieReleaseDate;
-
 	private int showNumbers;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
 	private String showTimings;
@@ -51,7 +51,7 @@ public class MovieSchedule {
 	}
 
 	// All arguments constructors
-	public MovieSchedule(String theatreId, String theatreName, String theatreLocation, String theatreCity,
+	public MovieSchedule(String theatreId, String email, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, File seatLayout,
 			String[] screenedmovies, String[] runningmovies, String id, String movieName, String moviePoster,
 			String actors, String actress, String directors, String movieGenres, String synopsis, String format,
@@ -83,6 +83,7 @@ public class MovieSchedule {
 		this.showTimings = showTimings;
 		this.weekends_Price = weekends_Price;
 		this.weekdays_Price = weekdays_Price;
+		this.email = email;
 	}
 
 	// List of all getters and setters
@@ -294,12 +295,20 @@ public class MovieSchedule {
 		this.weekdays_Price = weekdays_Price;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	@Override
 	public String toString() {
-		return "MovieSchedule [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreLocation="
-				+ theatreLocation + ", theatreCity=" + theatreCity + ", theatreLicenseNo=" + theatreLicenseNo
-				+ ", numberOfSeats=" + numberOfSeats + ", seats=" + seats + ", seatLayout=" + seatLayout
-				+ ", screenedmovies=" + Arrays.toString(screenedmovies) + ", runningmovies="
+		return "MovieSchedule [theatreId=" + theatreId + ", email=" + email + ", theatreName=" + theatreName
+				+ ", theatreLocation=" + theatreLocation + ", theatreCity=" + theatreCity + ", theatreLicenseNo="
+				+ theatreLicenseNo + ", numberOfSeats=" + numberOfSeats + ", seats=" + seats + ", seatLayout="
+				+ seatLayout + ", screenedmovies=" + Arrays.toString(screenedmovies) + ", runningmovies="
 				+ Arrays.toString(runningmovies) + ", id=" + id + ", movieName=" + movieName + ", moviePoster="
 				+ moviePoster + ", actors=" + actors + ", actress=" + actress + ", directors=" + directors
 				+ ", movieGenres=" + movieGenres + ", synopsis=" + synopsis + ", format=" + format + ", languages="

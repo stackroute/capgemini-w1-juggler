@@ -33,7 +33,7 @@ export class TheatreRegistrationComponent implements OnInit {
   thirdFormGroup: FormGroup;
   myControl = new FormControl();
   options: string[] = [
-    "Bengaluru",
+    "Bangalore",
     "Chennai",
     "Hyderabad",
     "Jaipur",
@@ -43,6 +43,7 @@ export class TheatreRegistrationComponent implements OnInit {
     "Mumbai",
     "Pune"
   ];
+
 
   theatre = new Theatre();
   constructor(
@@ -117,6 +118,8 @@ export class TheatreRegistrationComponent implements OnInit {
     this.router.navigate(["/screening",this.email]);
     console.log(this.theatre);
   }
+
+ 
   get f() {
     return this.firstFormGroup.controls;
   }
@@ -126,4 +129,8 @@ export class TheatreRegistrationComponent implements OnInit {
   get f2() {
     return this.thirdFormGroup.controls;
   }
+
+ 
 }
+
+

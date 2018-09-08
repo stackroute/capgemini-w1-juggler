@@ -29,7 +29,7 @@ public class TheatreServiceImpl implements TheatreService {
 	// saves the theatre details to database
 	@Override
 	public Theatre saveTheatre(Theatre theatre) throws TheatreAlreadyExistsException {
-//		kafkaTemplate.send(TOPIC, theatre);
+		kafkaTemplate.send(TOPIC, theatre);
 		if (!theatreRepository.existsByTheatreName(theatre.getTheatreName())) {
 			Theatre theatreSaved = theatreRepository.save(theatre);
 			return theatreSaved;
@@ -40,7 +40,7 @@ public class TheatreServiceImpl implements TheatreService {
 	// to update the theatre details
 	@Override
 	public Theatre updateTheatre(Theatre theatre) {
-//		kafkaTemplate.send(TOPIC, theatre);
+		kafkaTemplate.send(TOPIC, theatre);
 		Theatre theatreUpdated = theatreRepository.save(theatre);
 
 		return theatreUpdated;
@@ -49,6 +49,7 @@ public class TheatreServiceImpl implements TheatreService {
 	// To the theatre by using theatre title from database
 	@Override
 	public Theatre getTheatre(String theatreTitle) {
+		
 		Theatre list = theatreRepository.getByTheatreName(theatreTitle);
 		return list;
 	}
