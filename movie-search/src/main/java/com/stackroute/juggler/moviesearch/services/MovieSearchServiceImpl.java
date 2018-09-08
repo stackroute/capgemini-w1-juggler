@@ -74,14 +74,11 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 
 	// listening from kafka from screening microservice
 	@Override
-	@KafkaListener(topics = "screeningdetails", groupId = "search", containerFactory = "kafkaListenerContainerFactory")
+	@KafkaListener(topics = "screening-details", groupId = "search", containerFactory = "kafkaListenerContainerFactory")
 	public void consumeKafka(MovieSchedule movieschedule) {
 
 		logger.debug("-------------started the method-----------");
-
-
-
-		boolean flag = false;
+        boolean flag = false;
 		int i, k = 0;
 		City cities;
 		Movie movie;
@@ -131,7 +128,8 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 						theatre1.setShowTimings(showtiming);
 						theatre1.setWeekends_Price(movieschedule.getWeekends_Price());
 						theatre1.setWeekdays_Price(movieschedule.getWeekdays_Price());
-						theatre1.setSeats(movieschedule.getSeats());
+						theatre1.setTypesOfSeats(movieschedule.getTypesOfSeats());
+						theatre1.setNumberOfSeats(movieschedule.getNumberOfSeats());
 						theatre1.setScreenedmovies(movieschedule.getScreenedmovies());
 						theatre1.setRunningmovies(movieschedule.getRunningmovies());
 						theaters.add(theatre1);
@@ -152,7 +150,8 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 				theatre1.setShowTimings(showtiming);
 				theatre1.setWeekends_Price(movieschedule.getWeekends_Price());
 				theatre1.setWeekdays_Price(movieschedule.getWeekdays_Price());
-				theatre1.setSeats(movieschedule.getSeats());
+				theatre1.setTypesOfSeats(movieschedule.getTypesOfSeats());
+				theatre1.setNumberOfSeats(movieschedule.getNumberOfSeats());
 				theatre1.setScreenedmovies(movieschedule.getScreenedmovies());
 				theatre1.setRunningmovies(movieschedule.getRunningmovies());
 				newtheater = new ArrayList<Theatre>();
@@ -179,7 +178,8 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 			theater.setShowTimings(showtiming);
 			theater.setWeekends_Price(movieschedule.getWeekends_Price());
 			theater.setWeekdays_Price(movieschedule.getWeekdays_Price());
-			theater.setSeats(movieschedule.getSeats());
+			theater.setTypesOfSeats(movieschedule.getTypesOfSeats());
+			theater.setNumberOfSeats(movieschedule.getNumberOfSeats());
 			theater.setScreenedmovies(movieschedule.getScreenedmovies());
 			theater.setRunningmovies(movieschedule.getRunningmovies());
 			theaters = new ArrayList<Theatre>();
@@ -190,7 +190,6 @@ public class MovieSearchServiceImpl implements MovieSearchService {
 					movieschedule.getActors(), movieschedule.getActress(), movieschedule.getDirectors(), theaters);
 			movies = new ArrayList<>();
 			movies.add(movie);
-
 			cities = new City(cityname, movies);
 			cityRepository.save(cities);
 			movieRepository.save(movie);

@@ -23,22 +23,22 @@ export class HomePageComponent implements OnInit {
   movieDataList;
   listMovie = [];
   data: Movie;
-  test: any = 2;
-  onResize(event) {
-    const element = event.target.innerWidth;
-    console.log(element);
-    if (element < 950) {
-      this.test = 2;
-    }
+  // test: any = 2;
+  // onResize(event) {
+  //   const element = event.target.innerWidth;
+  //   console.log(element);
+  //   if (element < 950) {
+  //     this.test = 2;
+  //   }
 
-    if (element > 950) {
-      this.test = 3;
-    }
+  //   if (element > 950) {
+  //     this.test = 3;
+  //   }
 
-    if (element < 750) {
-      this.test = 1;
-    }
-  }
+  //   if (element < 750) {
+  //     this.test = 1;
+  //   }
+  // }
 
 
    constructor(private cityService: SearchDataService, private movieDetailsService: MovieDetailsService , private route: Router, private router: ActivatedRoute) { }
