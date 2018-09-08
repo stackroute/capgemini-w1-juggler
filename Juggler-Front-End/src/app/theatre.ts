@@ -5,7 +5,7 @@ export class Theatre {
     theatreName: string;
     theatreLicenseNo: string;
     numberOfSeats: string;
-    seats: Map<String, String>;
+    seats: Map<string, number>;
     // seatsType: string[];
     // seatsNum: number[];
     screenedmovies: string[];

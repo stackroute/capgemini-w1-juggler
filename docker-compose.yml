@@ -313,3 +313,15 @@ services:
 
 
 
+
+
+  juggler-front-end:
+
+   image: viship/juggler:1.0.0
+
+   container_name: juggler-front-end
+
+    ports:
+     - 4200:4200
+
+
