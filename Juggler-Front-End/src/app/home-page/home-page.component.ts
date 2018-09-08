@@ -14,21 +14,42 @@ export class HomePageComponent implements OnInit {
   search;
   // addedList;
   search_result;
+  search_result1;
   city: string;
+  movie:string;
   selectedName;
   selectedMovie: Movie;
   nameOfMovie: string;
   movieDataList;
   listMovie = [];
   data: Movie;
+  test: any = 2;
+  onResize(event) {
+    const element = event.target.innerWidth;
+    console.log(element);
+    if (element < 950) {
+      this.test = 2;
+    }
+
+    if (element > 950) {
+      this.test = 3;
+    }
+
+    if (element < 750) {
+      this.test = 1;
+    }
+  }
+
+
    constructor(private cityService: SearchDataService, private movieDetailsService: MovieDetailsService , private route: Router, private router: ActivatedRoute) { }
-   searchMovies(cityName) {
+   searchMovies(Name) {
     //  console.log(this.city);
-    this.cityService.getByMovieCity(cityName)
+    this.movie=Name;
+    this.cityService.searchMovie(this.movie)
     .subscribe(data => {
-      this.search_result = data
+      this.search_result1 = data;
     });
-      //  console.log(this.search_result);
+      console.log(this.search_result1);
    }
    ngOnInit() {
       this.router.paramMap.subscribe((params: ParamMap) => {

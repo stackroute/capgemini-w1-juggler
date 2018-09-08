@@ -35,14 +35,14 @@ public class MovieSchedule {
 	private String showTimings;
 	private int weekends_Price;
 	private int weekdays_Price;
-
+    private String email;
 	// All argument Constructor
 	public MovieSchedule(String theatreId, String theatreName, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
 			String[] runningmovies, String id, String movieName, String moviePoster, File seatLayout, String actors,
 			String actress, String directors, String movieGenres, String synopsis, String format, String languages,
 			String movieDuration, String movieReleaseDate, int showNumbers, String showTimings, int weekends_Price,
-			int weekdays_Price) {
+			int weekdays_Price,String email) {
 		super();
 		this.theatreId = theatreId;
 		this.theatreName = theatreName;
@@ -70,6 +70,7 @@ public class MovieSchedule {
 		this.showTimings = showTimings;
 		this.weekends_Price = weekends_Price;
 		this.weekdays_Price = weekdays_Price;
+		this.email=email;
 	}
 
 	// No argument constructor
@@ -284,6 +285,13 @@ public class MovieSchedule {
 
 	public void setWeekdays_Price(int weekdays_Price) {
 		this.weekdays_Price = weekdays_Price;
+	}
+	public String getemail() {
+		return email;
+	}
+
+	public void setemail(String email) {
+		this.email=email;
 	}
 
 }

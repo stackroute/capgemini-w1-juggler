@@ -21,13 +21,13 @@ export class SearchDataService {
   
   //
   
-  getByMovieCity(city: string) {
-   //  return this.http.get('http://localhost:8060/api/v1/city' + '/' + city);
-    return this.http.get('http://localhost:8060/api/v1/city' + '/' + city)
-       .pipe(map((response: Response) => {
-         return response.json;
-       }));
-  }
+  // getByMovieCity(city: string) {
+  //  //  return this.http.get('http://localhost:8060/api/v1/city' + '/' + city);
+  //   return this.http.get('http://localhost:8060/api/v1/city' + '/' + city)
+  //      .pipe(map((response: Response) => {
+  //        return response.json;
+  //      }));
+  // }
    searchMoviebycity(city: string) {
    
       return this.http.get(this.url3 + '/' + city)
@@ -35,8 +35,9 @@ export class SearchDataService {
    }
   
    searchMovie(movie: string) {
-    this.movie_string = movie;
-    return this.http.get(this.url + '/' + this.movie_string);
+   
+    return this.http.get(this.url + '/' + movie)
+    .pipe( map(res => this.data = res));
    }
 
 }

@@ -1,8 +1,8 @@
 
 <mat-grid-list cols="12">
-  <h3>Recommended Movies</h3>
+        <h2>{{title}}</h2>
   <div class="container">
-      
+        <div *ngIf=recommended_Movies>
           <div class="row">
               <div *ngFor="let Movie of recommended_Movies; let i = index">
                   <div *ngIf='i < 4'>
@@ -14,14 +14,13 @@
                                           <a>{{MovieDetails.name}}</a>
                                       </mat-card-title>
                                   </mat-card-header>
-                                  <img mat-card-image src="{{MovieDetails.moviePoster}}" alt="Poster of movie" height="150px" width="100px">
-                                  <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button>
-                              </mat-card>
+                                  <a routerLink="/moviedetail" (click)="getMovieInfo(movie)"><img mat-card-image src="{{MovieDetails.moviePoster}}" alt="Poster of movie" ></a>
+                                  </mat-card>
                           </div>
                       </mat-grid-tile>
                   </div>
               </div>
-        
+            </div>
       </div>
   </div>
 </mat-grid-list>

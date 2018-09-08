@@ -1,6 +1,4 @@
 import { City } from "./../City";
-//import { CitiesService } from './../cities.service';
-
 import { Component, OnInit } from "@angular/core";
 import {
   FormControl,
@@ -12,7 +10,6 @@ import {
 import { Theatre } from "../theatre";
 import { TheatreService } from "../theatre.service";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-// import { MyDialogComponent } from '../my-dialog/my-dialog.component';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material";
 
 // import {Observable} from 'rxjs';
@@ -26,9 +23,8 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material";
   styleUrls: ["./theatre-registration.component.scss"]
 })
 export class TheatreRegistrationComponent implements OnInit {
-  // animal: string;
-  // name: string;
-  //cities: any;
+  seatTypes: string[];
+  seatCount: number[];
   email: string;
   showFiller = false;
   isLinear = true;
@@ -48,10 +44,7 @@ export class TheatreRegistrationComponent implements OnInit {
     "Pune"
   ];
 
-  // filteredOptions: Observable<string[]>;
-
   theatre = new Theatre();
-  // tslint:disable-next-line:max-line-length
   constructor(
     private theatreService: TheatreService,
     private _formBuilder: FormBuilder,
@@ -81,9 +74,6 @@ export class TheatreRegistrationComponent implements OnInit {
       n2: [Number, Validators.required],
       n3: [Number, Validators.required]
     });
-    //   this._citiesService.getcities()
-    //     .subscribe(rescitiesData => this.cities = rescitiesData);
-    // }
     this.route.paramMap.subscribe((params: ParamMap) => {
       console.log(params.get("email"));
       const ttName = params.get("email");
@@ -93,12 +83,6 @@ export class TheatreRegistrationComponent implements OnInit {
     });
   }
   openDialog() {
-    // const dialogRef = this.dialog.open(MyDialogComponent, {
-    // });
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    // });
-
     this.theatre.email = this.email;
     this.theatre.theatreCity = this.f.City.value;
     this.theatre.theatreLicenseNo = this.f.licenseNo.value;
@@ -113,21 +97,26 @@ export class TheatreRegistrationComponent implements OnInit {
       "," +
       this.f1.country.value;
     this.theatre.theatreName = this.f.theatreName.value;
-    // tslint:disable-next-line:no-shadowed-variable
-    const map = new Map<String, String>();
-    map.set(this.f2.type1.value, this.f2.n1.value);
-    map.set(this.f2.type2.value, this.f2.n2.value);
-    map.set(this.f2.type3.value, this.f2.n3.value);
-    this.theatre.seats = map;
+    this.seatTypes = [
+      this.f2.type1.value,
+      this.f2.type2.value,
+      this.f2.type3.value
+    ];
+    this.seatCount = [
+      this.f2.n1.value,
+      this.f2.n2.value,
+      this.f2.n3.value
+    ];
+    this.theatre.typesOfSeats = this.seatTypes;
+    this.theatre.numberOfSeats = this.seatCount;
     console.log(this.theatre.theatreName);
     console.log(this.theatre);
     this.theatreService
       .saveTheatre(this.theatre, this.email)
       .subscribe(res => console.log("Saved theatre"));
-    //  this.router.navigate(['/screening', this.theatre.theatreName]);
+    this.router.navigate(["/screening",this.email]);
     console.log(this.theatre);
   }
-
   get f() {
     return this.firstFormGroup.controls;
   }
