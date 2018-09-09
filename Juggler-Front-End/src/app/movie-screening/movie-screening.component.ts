@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ScreeningDetails } from '../screening-details';
 import {
-  FormControl,
+
   Validators,
   FormGroup,
   FormBuilder
@@ -20,7 +20,7 @@ export class MovieScreeningComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  tName: string;
+  email: string;
   movies = [];
   screening = new ScreeningDetails();
   
@@ -50,12 +50,16 @@ export class MovieScreeningComponent implements OnInit {
     this.screening.directors = mve.directors;
     console.log(this.screening.movieName);
     console.log(this.screening);
-    console.log(this.tName);
+    console.log(this.email);
     console.log(this.screening.moviePoster);
     this.screeningService
-      .saveScreening(this.screening, this.tName)
+      .saveScreening(this.screening, this.email)
       .subscribe(res => console.log('Saved screening details'));
       // this.route.navigate(['/login-partner']);
+  }
+
+  clickOk(){
+    this.route.navigate(['/profile', this.email]);
   }
 
   getMovie(title: string) {
@@ -69,19 +73,16 @@ export class MovieScreeningComponent implements OnInit {
       weekends_Price: ['', Validators.required]
     });
     this.router.paramMap.subscribe((params: ParamMap) => {
-      console.log(params.get('theatreName'));
-      const ttName = (params.get('theatreName'));
-      console.log(ttName);
-      this.tName = ttName;
-      console.log(this.tName);
+      console.log(params.get('email'));
+      const email = (params.get('email'));
+      console.log(email);
+      this.email = email;
+      console.log(this.email);
     });
 
   }
   get f() {
     return this.firstFormGroup.controls;
   }
-  // get f1() {
-  //   return this.secondFormGroup.controls;
-  // }
 
 }

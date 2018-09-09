@@ -2,54 +2,6 @@ version: '2.1'
 
 services:
 
-  eureka-server:
-
-    build: eureka-server/
-
-    depends_on:
-
-      config-service:
-
-        condition: service_healthy
-
-    restart: always
-
-    network_mode: "host"
-
-    image: demo-eureka-service
-
-    hostname: localhost
-
-    ports:
-
-      - 9090:9090
-
-    healthcheck:
-
-      test: "exit 0"
-
-
-
-  config-service:
-
-   build: config-service/
-
-   restart: always
-
-   network_mode: "host"
-
-   image: demo-config-service
-
-   hostname: localhost
-
-   ports:
-
-    - 8891:8891
-
-   healthcheck:
-
-    test: "exit 0"
-
 
 
   api-gateway:
@@ -57,10 +9,6 @@ services:
    build: zuul-apigateway/
 
    depends_on:
-
-    config-service:
-
-     condition: service_healthy
 
     eureka-server:
 
@@ -82,131 +30,31 @@ services:
 
     test: "exit 0"
 
-  
 
-  login-auth:
 
-   
 
-   container_name: login-authentication-docker
 
-   depends_on:
+  eureka-server:
 
-    - mysql
+   build: eureka-server/
 
-   healthcheck:
+   restart: always
 
-    test: exit 0
+   network_mode: "host"
+
+   image: demo-eureka-service
 
    hostname: localhost
 
-   image: saishree31/login:1.0
-
-   network_mode: host
-
    ports:
 
-    - 8070:8070
-
-   restart: always
-
-
-
-  mysql:
-
-   container_name: mysql-docker
-
-   image: mysql:5.7
-
-   ports:
-
-    - 3306:3306
-
-   network_mode: host
-
-   hostname: localhost
-
-   environment:
-
-    MYSQL_ROOT_PASSWORD: root
-
-    MYSQL_DATABASE: juggler_db
-
-    MYSQL_PASSWORD: root
-    
-    MYSQL_USER: root
-
-   healthcheck:
-
-    test: exit 0
-
-
-
-  search:
-
-   image: anmi123/search:1.0
-
-   restart: always
-
-   network_mode: host
-
-   container_name: search
-
-   depends_on:
-
-    - mongo
-
-   ports:
-
-    - 8060:8060
-
-
-
-  screening:
-
-   image: sakethmaringanti/movie-schedule:1.0
-
-   restart: always
-
-   network_mode: host
-
-   container_name: screening
-
-   depends_on:
-
-     - mongo
-
-   ports:
-
-     - 8030:8030
-
-   healthcheck:
-
-     test: "exit 0"
-
-
-
-  registration:
-
-   image: leelamaithreyi/theatre-registration:1.0
-
-   restart: always
-
-   network_mode: host
-
-   container_name: spring-docker
-
-   depends_on:
-
-    - mongo
-
-   ports:
-
-    - 8020:8020
+    - 9090:9090
 
    healthcheck:
 
     test: "exit 0"
+
+
 
 
 
@@ -223,6 +71,9 @@ services:
    depends_on:
 
     - mongo
+    - eureka-server
+    - api-gateway
+    - config-service
 
    ports:
 
@@ -232,29 +83,204 @@ services:
 
     test: "exit 0"
 
-  
+  config-service:
 
-  distributor:
+   build: config-service/
 
-   image: saiteja1996/distributor:1.0
+   image: config-server
+
+   container_name: config-server
+
+   restart: always
+
+   network_mode: "host"
+
+   hostname: localhost
+
+   ports:
+
+    - 8891:8891
+
+   healthcheck:
+
+    test: "exit 0"
+
+
+
+
+  screening:
+
+   image: sakethmaringanti/movie-schedule:1.0
 
    restart: always
 
    network_mode: host
 
-   container_name: distributor
+   container_name: screening
 
    depends_on:
 
-     - mongo
+    - mongo
+    - eureka-server
+    - api-gateway
+    - config-service
 
    ports:
 
-    - 8010:8010
+    - 8030:8030
 
    healthcheck:
 
     test: "exit 0"
+
+
+
+
+  theatre:
+
+   image: leelamaithreyi/theatre-registration:1.0
+
+   restart: always
+
+   network_mode: host
+
+   container_name: theatre
+
+   depends_on:
+
+    - mongo
+    - eureka-server
+    - api-gateway
+    - config-service
+
+   ports:
+
+    - 8020:8020
+
+   healthcheck:
+
+    test: "exit 0"
+
+
+
+
+  login:
+   
+   image: saishree31/login:1.0
+   restart: always
+   mem_limit: 2g
+   environment: 
+    - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                  -XX:+UseCGroupMemoryLimitForHeap"
+   network_mode: "host"
+   hostname: localhost
+   ports:
+    - 8070:8070
+   container_name: auth
+   depends_on:
+    
+    mysql:
+     condition: service_started
+    eureka-server:
+
+     condition: service_healthy
+    api-gateway:
+
+     condition: service_healthy
+   healthcheck:
+    test: "exit 0"
+
+
+
+
+  distributor:
+   
+   image: saiteja1996/distributor:1.0
+   restart: always
+   mem_limit: 2g
+   environment: 
+    - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                  -XX:+UseCGroupMemoryLimitForHeap"
+   network_mode: "host"
+   hostname: localhost
+   ports:
+    - 8010:8010
+   container_name: distributor
+   depends_on:
+    
+    - mongo
+    - eureka-server
+    - api-gateway
+    - config-service
+   healthcheck:
+    test: "exit 0"
+
+  recommendations:
+   
+   image: jyothirmayee/recommendation-service:1.0
+   restart: always
+   mem_limit: 2g
+   environment: 
+    - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                  -XX:+UseCGroupMemoryLimitForHeap"
+   network_mode: "host"
+   hostname: localhost
+   ports:
+    - 8050:8050
+   container_name: recommendations
+   depends_on:
+    
+    - neo4j
+    - eureka-server
+    - api-gateway
+    - config-service
+   healthcheck:
+    test: "exit 0"
+
+  search:
+   
+   image: anmi123/search:1.0
+   restart: always
+   mem_limit: 2g
+   environment: 
+    - JAVA_OPTS= "-XX:+UnlockExperimentalVMOptions 
+                  -XX:+UseCGroupMemoryLimitForHeap"
+   network_mode: "host"
+   hostname: localhost
+   ports:
+    - 8060:8060
+   container_name: search
+   depends_on:
+    
+    - mongo
+    - eureka-server
+    - api-gateway
+    - config-service
+   healthcheck:
+    test: "exit 0"
+
+
+ 
+
+
+  mysql:
+   image: mysql:5.7
+   ports:
+      - 3306:3306
+   container_name: mysql
+   mem_limit: 2g
+   environment: 
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=juggler_db
+    - MYSQL_PASSWORD=root
+    - MYSQL_USER=root
+
+   network_mode: "host"
+   hostname: localhost
+   restart: always
+   healthcheck:
+     test: "exit 0"
+
 
 
 
@@ -273,16 +299,29 @@ services:
    volumes:
 
     - /usr/src/home:/data/db
-  
+
+
+  neo4j:
+   image: neo4j:latest
+   ports:
+    - "7474:7474"
+    - "7687:7687"
+   environment:
+    
+    - NEO4J_apoc_import_file_enabled=true
+    - NEO4J_dbms_shell_enabled=true
+
+
+
+
+
   juggler-front-end:
 
    image: viship/juggler:1.0.0
 
    container_name: juggler-front-end
 
-   ports:
-    - 8080:4200
+    ports:
+     - 4200:4200
 
 
-
-    

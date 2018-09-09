@@ -29,7 +29,6 @@ public class TheatreServiceImpl implements TheatreService {
 	// saves the theatre details to database
 	@Override
 	public Theatre saveTheatre(Theatre theatre) throws TheatreAlreadyExistsException {
-		// TODO Auto-generated method stub
 		kafkaTemplate.send(TOPIC, theatre);
 		if (!theatreRepository.existsByTheatreName(theatre.getTheatreName())) {
 			Theatre theatreSaved = theatreRepository.save(theatre);
@@ -41,7 +40,6 @@ public class TheatreServiceImpl implements TheatreService {
 	// to update the theatre details
 	@Override
 	public Theatre updateTheatre(Theatre theatre) {
-		// TODO Auto-generated method stub
 		kafkaTemplate.send(TOPIC, theatre);
 		Theatre theatreUpdated = theatreRepository.save(theatre);
 
@@ -51,9 +49,18 @@ public class TheatreServiceImpl implements TheatreService {
 	// To the theatre by using theatre title from database
 	@Override
 	public Theatre getTheatre(String theatreTitle) {
-		// TODO Auto-generated method stub
+		
 		Theatre list = theatreRepository.getByTheatreName(theatreTitle);
 		return list;
+	}
+
+	@Override
+	public Theatre getEmailId(String email) throws TheatreNotFoundException {
+		Theatre theatre = theatreRepository.getByEmail(email);
+//		if (theatre.getTheatreName() == null) {
+//			return "false";
+//		}
+		return theatre;
 	}
 
 }

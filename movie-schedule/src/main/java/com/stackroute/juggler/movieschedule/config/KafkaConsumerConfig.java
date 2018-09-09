@@ -13,22 +13,22 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import com.stackroute.juggler.kafka.domain.Theatre;
 
-//Kafka Consumer for TheatreRegistration Details
+//Kafka KafkaConsumerConfig for TheatreRegistration Details
 
 @EnableKafka
 @Configuration
-public class Consumer {
+public class KafkaConsumerConfig {
 
 	public class KafkaConsumerconfiguration {
 		
 		
 //		172.23.238.190
 
-		// Consumer factory of kafka which will hold the configuration details
+		// KafkaConsumerConfig factory of kafka which will hold the configuration details
 		@Bean
 		public ConsumerFactory<String, Theatre> consumerFactory() {
 			Map<String, Object> config = new HashMap<>();
-			config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.111:9092");
+			config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 			config.put(ConsumerConfig.GROUP_ID_CONFIG, "grpid");
 			config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 			config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);

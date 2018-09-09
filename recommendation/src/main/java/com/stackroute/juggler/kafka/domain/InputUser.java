@@ -140,7 +140,7 @@ public class InputUser {
 		this.password = password;
 		this.gender = gender;
 		this.dateOfBirth = dateOfBirth;
-		LanguagesKnown = languagesKnown;
+		this.LanguagesKnown = languagesKnown;
 		this.genre = genre;
 		this.location = location;
 		this.paymentMethods = paymentMethods;
