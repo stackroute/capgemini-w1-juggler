@@ -13,6 +13,7 @@ import { TheatreRegistrationComponent } from './theatre-registration/theatre-reg
 import { ContactComponent } from './contact/contact.component';
 import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TheatreDisplayComponent } from './theatre-display/theatre-display.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'screening/:email', component: MovieScreeningComponent },
   { path: 'theatre/:email', component: TheatreRegistrationComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'profile/:email', component: ProfileComponent }
+  { path: 'profile/:email', component: ProfileComponent },
+  { path: 'display-theatre',component: TheatreDisplayComponent}
 ];
 
 @NgModule({

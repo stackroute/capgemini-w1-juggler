@@ -1,0 +1,40 @@
+.flex-container {
+    display: flex;
+  flex-direction: row;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+   padding: 0px 0px;
+}
+
+.cardBg{
+    background-color: darkgrey
+}
+.title{
+ margin-top: 20px;
+ text-transform: uppercase;
+ 
+}
+.p{
+    text-decoration-color: coral;
+}
+.container{
+    margin-top: 6px;
+}
+.listOfItem{
+    padding: 10px 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.showTime{
+   
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+   
+  }
+  .hoverWrapper:hover #hoverShow1 {
+    display: block;
+   }
+   
+   .hoverWrapper #hoverShow1 {
+    display: none;
+   }

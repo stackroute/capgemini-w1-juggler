@@ -38,7 +38,9 @@ import { MovieDetailsService } from './moviedetails.service';
 import { RecommendationComponent } from './recommendation/recommendation.component';
 import { ProfileComponent } from './profile/profile.component'
 import { ProfileService } from './profile.service';
-
+import { TheatreDisplayComponent } from './theatre-display/theatre-display.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { ProfileService } from './profile.service';
     HomePageComponent,
     MovieScreeningComponent,
     RecommendationComponent,
-    ProfileComponent
+    ProfileComponent,
+    TheatreDisplayComponent
   ],
 
   imports: [
@@ -78,7 +81,9 @@ import { ProfileService } from './profile.service';
     MatDialogModule,
     // MatFileUploadModule,
     MatNativeDateModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDividerModule,
+    MatTableModule
   ],
   providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, ProfileService],
   bootstrap: [AppComponent],

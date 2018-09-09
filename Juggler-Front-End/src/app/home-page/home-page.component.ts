@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Movie } from "../movie";
 import { map } from 'rxjs/operators';
 import { MovieDetailsService } from '../moviedetails.service';
+import { MovieDisplay } from '../MovieDisplay';
 
 @Component({
   selector: 'app-home-page',
@@ -18,7 +19,7 @@ export class HomePageComponent implements OnInit {
   city: string;
   movie:string;
   selectedName;
-  selectedMovie: Movie;
+  selectedMovie: MovieDisplay;
   nameOfMovie: string;
   movieDataList;
   listMovie = [];
