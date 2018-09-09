@@ -1,6 +1,8 @@
+import { City } from "./../City";
 import { Component, OnInit } from "@angular/core";
 import {
   FormControl,
+  FormControlName,
   FormGroup,
   FormBuilder,
   Validators
@@ -8,14 +10,21 @@ import {
 import { Theatre } from "../theatre";
 import { TheatreService } from "../theatre.service";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-import { MatDialog } from "@angular/material";
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material";
 
+// import {Observable} from 'rxjs';
+// export interface DialogData {
+//   animal: string;
+//   name: string;
+// }
 @Component({
   selector: "app-theatre-registration",
   templateUrl: "./theatre-registration.component.html",
   styleUrls: ["./theatre-registration.component.scss"]
 })
 export class TheatreRegistrationComponent implements OnInit {
+  seatTypes: string[];
+  seatCount: number[];
   email: string;
   showFiller = false;
   isLinear = true;
@@ -35,7 +44,7 @@ export class TheatreRegistrationComponent implements OnInit {
     "Pune"
   ];
 
-  map2: Object;
+
   theatre = new Theatre();
   constructor(
     private theatreService: TheatreService,
@@ -89,24 +98,28 @@ export class TheatreRegistrationComponent implements OnInit {
       "," +
       this.f1.country.value;
     this.theatre.theatreName = this.f.theatreName.value;
-    const map = new Map<string, number>();
-    map.set(this.f2.type1.value, this.f2.n1.value);
-    map.set(this.f2.type2.value, this.f2.n2.value);
-    map.set(this.f2.type3.value, this.f2.n3.value);
-    this.map2 = mapToObj(map);
-    this.theatre.seats = map;
+    this.seatTypes = [
+      this.f2.type1.value,
+      this.f2.type2.value,
+      this.f2.type3.value
+    ];
+    this.seatCount = [
+      this.f2.n1.value,
+      this.f2.n2.value,
+      this.f2.n3.value
+    ];
+    this.theatre.typesOfSeats = this.seatTypes;
+    this.theatre.numberOfSeats = this.seatCount;
     console.log(this.theatre.theatreName);
     console.log(this.theatre);
     this.theatreService
       .saveTheatre(this.theatre, this.email)
       .subscribe(res => console.log("Saved theatre"));
+    this.router.navigate(["/screening",this.email]);
     console.log(this.theatre);
   }
 
-  clickOk(){
-    this.router.navigate(['/profile', this.email]);
-  }
-
+ 
   get f() {
     return this.firstFormGroup.controls;
   }
@@ -116,13 +129,8 @@ export class TheatreRegistrationComponent implements OnInit {
   get f2() {
     return this.thirdFormGroup.controls;
   }
-  
+
+ 
 }
 
-function mapToObj(strMap: any) {
-  let obj = Object.create(null);
-  for (let [k, v] of strMap) {
-    obj[k] = v; //look out! Key must be a string!
-  }
-  return obj;
- }
+

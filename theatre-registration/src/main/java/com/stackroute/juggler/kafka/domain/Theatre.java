@@ -17,34 +17,38 @@ public class Theatre {
 	private String theatreCity;
 	private String theatreName;
 	private String theatreLicenseNo;
-	private String numberOfSeats;
-	private Map<String, Integer> seats;
+	private String totalnumberOfSeats;
+	//private Map<String, Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
 	private File seatLayout;
+	private String[] typesOfSeats;
+	private int[] numberOfSeats;
 
 	// All Arguments Constructor
 	public Theatre(String theatreId, String email, String theatreLocation, String theatreCity, String theatreName,
-			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
-			String[] runningmovies, File seatLayout) {
+			String theatreLicenseNo, String totalnumberOfSeats, String[] screenedmovies, String[] runningmovies,
+			File seatLayout, String[] typesOfSeats, int[] numberOfSeats) {
 		super();
 		this.theatreId = theatreId;
+		this.email = email;
 		this.theatreLocation = theatreLocation;
 		this.theatreCity = theatreCity;
 		this.theatreName = theatreName;
 		this.theatreLicenseNo = theatreLicenseNo;
-		this.numberOfSeats = numberOfSeats;
-		this.seats = seats;
+		this.totalnumberOfSeats = totalnumberOfSeats;
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
 		this.seatLayout = seatLayout;
-		this.email = email;
+		this.typesOfSeats = typesOfSeats;
+		this.numberOfSeats = numberOfSeats;
 	}
 
 	public Theatre() {
 		super();
+		
 	}
-
+	
 	// List of getters and setters
 	public String getTheatreId() {
 		return theatreId;
@@ -53,7 +57,12 @@ public class Theatre {
 	public void setTheatreId(String theatreId) {
 		this.theatreId = theatreId;
 	}
-
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getTheatreLocation() {
 		return theatreLocation;
 	}
@@ -85,22 +94,14 @@ public class Theatre {
 	public void setTheatreLicenseNo(String theatreLicenseNo) {
 		this.theatreLicenseNo = theatreLicenseNo;
 	}
-
-	public String getNumberOfSeats() {
-		return numberOfSeats;
+	public String getTotalnumberOfSeats() {
+		return totalnumberOfSeats;
+	}
+	public void setTotalnumberOfSeats(String totalnumberOfSeats) {
+		this.totalnumberOfSeats = totalnumberOfSeats;
 	}
 
-	public void setNumberOfSeats(String numberOfSeats) {
-		this.numberOfSeats = numberOfSeats;
-	}
-
-	public Map<String, Integer> getSeats() {
-		return seats;
-	}
-
-	public void setSeats(Map<String, Integer> seats) {
-		this.seats = seats;
-	}
+	
 
 	public String[] getScreenedmovies() {
 		return screenedmovies;
@@ -125,13 +126,16 @@ public class Theatre {
 	public void setSeatLayout(File seatLayout) {
 		this.seatLayout = seatLayout;
 	}
-
-	public String getEmail() {
-		return email;
+	public String[] getTypesOfSeats() {
+		return typesOfSeats;
 	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setTypesOfSeats(String[] typesOfSeats) {
+		this.typesOfSeats = typesOfSeats;
 	}
-
+	public int[] getNumberOfSeats() {
+		return numberOfSeats;
+	}
+	public void setNumberOfSeats(int[] numberOfSeats) {
+		this.numberOfSeats = numberOfSeats;
+	}	
 }
