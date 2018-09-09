@@ -218,7 +218,7 @@ services:
 
   recommendations:
    
-   image: recommendation/
+   build: recommendation/
    restart: always
    mem_limit: 2g
    environment: 
@@ -332,7 +332,7 @@ services:
     environment:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
     network_mode: "host"
     hostname: localhost
     depends_on:

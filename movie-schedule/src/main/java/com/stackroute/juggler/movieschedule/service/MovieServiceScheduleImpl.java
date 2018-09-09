@@ -1,11 +1,12 @@
 package com.stackroute.juggler.movieschedule.service;
 
 import java.util.List;
-import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
+
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.kafka.domain.Theatre;
 import com.stackroute.juggler.movieschedule.config.Producer;
@@ -53,14 +54,14 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 
 	// the method to update the existing movie-theatre schedule
 	@Override
-	public MovieSchedule updateMovieSchedule(String theatreName, MovieSchedule updateMovie) {
+	public MovieSchedule updateMovieSchedule(String email, MovieSchedule updateMovie) {
 		// kafkaTemplate.send(TOPIC, updateMovie);
-		if (movieScheduleRepo.getByTheatreName(theatreName) != null) {
+		if (movieScheduleRepo.getByEmail(email) != null) {
 
-			MovieSchedule movie = movieScheduleRepo.getByTheatreName(theatreName);
-			System.out.println("" + theatreName);
+			MovieSchedule movie = movieScheduleRepo.getByEmail(email);
+			System.out.println("" + email);
 			System.out.println("" + movie.getTheatreName());
-
+//			movie.setEmail(updateMovie.getEmail());
 			movie.setMovieName(updateMovie.getMovieName());
 			movie.setId(updateMovie.getId());
 			movie.setActors(updateMovie.getActors());
@@ -88,26 +89,23 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 
 	// the method to listen the message from the specified kafka topic
 	@Override
-	@KafkaListener(topics = "theaterdetails", groupId = "grpid", containerFactory = "kafkaListenerContainerFactory")
+	@KafkaListener(topics = "theater-details", groupId = "grpid", containerFactory = "kafkaListenerContainerFactory")
 	public void consumeKafka(Theatre theatre) {
 		MovieSchedule addTheatre = new MovieSchedule();
 
 		if (movieScheduleRepo.getByTheatreName(theatre.getTheatreName()) == null) {
-			String theatreName = theatre.getTheatreName();
-			String theatreId = theatre.getTheatreId();
-			String theatreLocation = theatre.getTheatreLocation();
-			String theatreCity = theatre.getTheatreCity();
-			String theatreLicenseNo = theatre.getTheatreLicenseNo();
-			String noOfSeats = theatre.getNumberOfSeats();
-			Map<String, Integer> seats = theatre.getSeats();
-			addTheatre.setTheatreName(theatreName);
-			addTheatre.setTheatreLocation(theatreLocation);
-			addTheatre.setTheatreId(theatreId);
-			addTheatre.setTheatreCity(theatreCity);
-			addTheatre.setTheatreLicenseNo(theatreLicenseNo);
-			addTheatre.setNumberOfSeats(noOfSeats);
-			addTheatre.setSeats(seats);
-
+			
+			addTheatre.setEmail(theatre.getEmail());
+			addTheatre.setTheatreName(theatre.getTheatreName());
+			addTheatre.setTheatreLocation(theatre.getTheatreLocation());
+			addTheatre.setTheatreId(theatre.getTheatreId());
+			addTheatre.setTheatreCity(theatre.getTheatreCity());
+			addTheatre.setTheatreLicenseNo(theatre.getTheatreLicenseNo());
+			addTheatre.setSeatLayout(theatre.getSeatLayout());
+			addTheatre.setTypesOfSeats(theatre.getTypesOfSeats());
+			addTheatre.setNumberOfSeats(theatre.getNumberOfSeats());
+			addTheatre.setScreenedmovies(theatre.getScreenedmovies());
+			addTheatre.setRunningmovies(theatre.getRunningmovies());
 			movieScheduleRepo.save(addTheatre);
 		}
 

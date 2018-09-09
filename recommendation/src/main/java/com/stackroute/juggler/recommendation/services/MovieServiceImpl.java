@@ -107,7 +107,8 @@ public class MovieServiceImpl implements MovieService {
 		theatreObj.setShowTimings(movie.getShowTimings());
 		theatreObj.setWeekdays_Price(movie.getWeekdays_Price());
 		theatreObj.setWeekends_Price(movie.getWeekends_Price());
-		theatreObj.setSeats(movie.getSeats());
+		theatreObj.setNumberOfSeats(movie.getNumberOfSeats());
+		theatreObj.setTypesOfSeats(movie.getTypesOfSeats());
 		theatreObj.setRunningmovies(movie.getRunningmovies());
 		theatreObj.setScreenedmovies(movie.getScreenedmovies());
 		System.out.println(movieObj.toString());

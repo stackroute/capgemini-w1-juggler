@@ -16,14 +16,14 @@ import com.stackroute.juggler.kafka.domain.MovieSchedule;
 public class Producer {
 
 	// Declaring Topic
-	static final String TOPIC = "screeningdetails";
+	static final String TOPIC = "screening-details";
 	static final String TOPIC1 = "screenings";
 
 	// Producer factory of kafka which will hold the configuration details
 	@Bean
 	public ProducerFactory<String, MovieSchedule> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.43.174:9092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 

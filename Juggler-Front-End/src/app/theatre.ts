@@ -1,10 +1,23 @@
 export class Theatre {
-    theatreLocation: string;
-    theatreCity: string;
-    theatreName: string;
-    theatreLicenseNo: string;
-    numberOfSeats: string;
-    seats: Map<String, String>;
-    screenedmovies: string[];
-    runningmovies: string[];
+  email: string;
+
+  theatreLocation: string;
+
+  theatreCity: string;
+
+  theatreName: string;
+
+  theatreLicenseNo: string;
+
+  totalnumberOfSeats: string;
+
+  screenedmovies: string[];
+
+  runningmovies: string[];
+
+  seatlayout: File;
+
+  typesOfSeats: String[];
+
+  numberOfSeats: number[];
 }

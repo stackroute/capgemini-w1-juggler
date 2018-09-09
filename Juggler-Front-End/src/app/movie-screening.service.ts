@@ -37,7 +37,7 @@ export class MovieScreeningService {
     movieScreening: ScreeningDetails, tName: string
   ): Observable<ScreeningDetails> {
     return this.http.put<ScreeningDetails>(
-      this._url + '/api/v1/update/' + tName  ,
+      this._url + '/api/v1/update/?email=' + tName  ,
       movieScreening
     );
   }

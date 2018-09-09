@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ScreeningDetails } from '../screening-details';
 import {
-  FormControl,
   Validators,
   FormGroup,
   FormBuilder
@@ -20,8 +19,10 @@ export class MovieScreeningComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  tName: string;
+  email: string;
   movies = [];
+  weekendsPrice: number[];
+  weekdaysPrice: number[];
   screening = new ScreeningDetails();
   
   constructor(
@@ -34,8 +35,21 @@ export class MovieScreeningComponent implements OnInit {
   onSubmit(mve) {
     this.screening.showNumbers = this.f.show_Numbers.value;
     this.screening.showTimings = this.f.show_Timings.value;
-    this.screening.weekdays_Price = this.f.weekdays_Price.value;
-    this.screening.weekends_Price = this.f.weekends_Price.value;
+    // this.screening.weekdays_Price = this.f.weekdays_Price.value;
+    // this.screening.weekends_Price = this.f.weekends_Price.value;
+    this.weekdaysPrice = [
+      this.f.n1.value,
+      this.f.n2.value,
+      this.f.n3.value
+    ]; 
+    this.screening.weekdays_Price = this.weekdaysPrice;
+    
+    this.weekendsPrice = [
+      this.f.n4.value,
+      this.f.n5.value,
+      this.f.n6.value
+    ];
+    this.screening.weekends_Price = this.weekendsPrice;
     this.screening.id = mve.id;
     this.screening.movieName = mve.movieName;
     this.screening.moviePoster = mve.moviePoster;
@@ -50,12 +64,16 @@ export class MovieScreeningComponent implements OnInit {
     this.screening.directors = mve.directors;
     console.log(this.screening.movieName);
     console.log(this.screening);
-    console.log(this.tName);
+    console.log(this.email);
     console.log(this.screening.moviePoster);
     this.screeningService
-      .saveScreening(this.screening, this.tName)
+      .saveScreening(this.screening, this.email)
       .subscribe(res => console.log('Saved screening details'));
       // this.route.navigate(['/login-partner']);
+  }
+
+  clickOk(){
+    this.route.navigate(['/profile', this.email]);
   }
 
   getMovie(title: string) {
@@ -65,23 +83,26 @@ export class MovieScreeningComponent implements OnInit {
     this.firstFormGroup = this._formBuilder.group({
       show_Numbers: ['', Validators.required],
       show_Timings: ['', Validators.required],
-      weekdays_Price: ['', Validators.required],
-      weekends_Price: ['', Validators.required]
+      n1: [Number, Validators.required],
+      n2: [Number, Validators.required],
+      n3: [Number, Validators.required],
+      n4: [Number, Validators.required],
+      n5: [Number, Validators.required],
+      n6: [Number, Validators.required]
+      // weekdays_Price: ['', Validators.required],
+      // weekends_Price: ['', Validators.required]
     });
     this.router.paramMap.subscribe((params: ParamMap) => {
-      console.log(params.get('theatreName'));
-      const ttName = (params.get('theatreName'));
-      console.log(ttName);
-      this.tName = ttName;
-      console.log(this.tName);
+      console.log(params.get('email'));
+      const email = (params.get('email'));
+      console.log(email);
+      this.email = email;
+      console.log(this.email);
     });
 
   }
   get f() {
     return this.firstFormGroup.controls;
   }
-  // get f1() {
-  //   return this.secondFormGroup.controls;
-  // }
 
 }

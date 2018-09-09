@@ -3836,3 +3836,249 @@ Caused by: java.lang.Error: Unresolved compilation problem:
 2018-Sep-07 12:20:13.440 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.AbstractCoordinator - [Consumer clientId=consumer-7, groupId=search] Successfully joined group with generation 59
 2018-Sep-07 12:20:13.441 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-7, groupId=search] Setting newly assigned partitions []
 2018-Sep-07 12:20:13.442 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - partitions assigned: []
+2018-Sep-07 12:21:34.866 INFO  [http-nio-8060-exec-1] o.a.c.c.C.[.[.[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-Sep-07 12:21:34.889 INFO  [http-nio-8060-exec-1] o.m.d.connection - Opened connection [connectionId{localValue:11, serverValue:20}] to localhost:27017
+2018-Sep-07 12:33:34.095 INFO  [Thread-44] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6dc998fd: startup date [Fri Sep 07 12:20:11 IST 2018]; root of context hierarchy
+2018-Sep-07 12:33:34.097 INFO  [Thread-44] o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147483547
+2018-Sep-07 12:33:34.098 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService
+2018-Sep-07 12:33:34.319 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer$ListenerConsumer - Consumer stopped
+2018-Sep-07 12:33:34.319 INFO  [Thread-44] o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 0
+2018-Sep-07 12:33:34.320 INFO  [Thread-44] o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2018-Sep-07 12:33:34.321 INFO  [Thread-44] o.m.d.connection - Closed connection [connectionId{localValue:11, serverValue:20}] to localhost:27017 because the pool has been closed.
+2018-Sep-07 12:33:34.659 INFO  [restartedMain] c.s.j.m.MovieSearchApplication - Starting MovieSearchApplication on user-Latitude-3480 with PID 28613 (/home/user/Desktop/capgemini-w1-juggler/movie-search/target/classes started by user in /home/user/Desktop/capgemini-w1-juggler/movie-search)
+2018-Sep-07 12:33:34.660 DEBUG [restartedMain] c.s.j.m.MovieSearchApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-Sep-07 12:33:34.660 INFO  [restartedMain] c.s.j.m.MovieSearchApplication - No active profile set, falling back to default profiles: default
+2018-Sep-07 12:33:34.664 INFO  [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@50aafa7e: startup date [Fri Sep 07 12:33:34 IST 2018]; root of context hierarchy
+2018-Sep-07 12:33:34.995 INFO  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$fa6b4e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-Sep-07 12:33:35.061 INFO  [restartedMain] o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8060 (http)
+2018-Sep-07 12:33:35.062 INFO  [restartedMain] o.a.c.c.StandardService - Starting service [Tomcat]
+2018-Sep-07 12:33:35.062 INFO  [restartedMain] o.a.c.c.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-Sep-07 12:33:35.069 INFO  [localhost-startStop-1] o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2018-Sep-07 12:33:35.155 INFO  [localhost-startStop-1] o.m.d.cluster - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-Sep-07 12:33:35.160 INFO  [cluster-ClusterId{value='5b9222c7c511fe6fc55269b1', description='null'}-localhost:27017] o.m.d.connection - Opened connection [connectionId{localValue:12, serverValue:21}] to localhost:27017
+2018-Sep-07 12:33:35.162 INFO  [cluster-ClusterId{value='5b9222c7c511fe6fc55269b1', description='null'}-localhost:27017] o.m.d.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 0]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=353636}
+2018-Sep-07 12:33:35.181 WARN  [localhost-startStop-1] o.s.d.m.c.m.BasicMongoPersistentProperty - Customizing field name for id property not allowed! Custom name will not be considered!
+2018-Sep-07 12:33:35.198 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.198 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> fileName -> parent'
+2018-Sep-07 12:33:35.199 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.199 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> fileName -> root -> parent'
+2018-Sep-07 12:33:35.200 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> root -> fileName'
+2018-Sep-07 12:33:35.200 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.201 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> root -> parent'
+2018-Sep-07 12:33:35.201 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> root -> fileName -> parent'
+2018-Sep-07 12:33:35.202 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.202 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> fileName -> root'
+2018-Sep-07 12:33:35.203 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.203 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.204 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> parent -> fileName'
+2018-Sep-07 12:33:35.204 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> root -> parent'
+2018-Sep-07 12:33:35.205 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> parent -> root -> fileName'
+2018-Sep-07 12:33:35.205 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.206 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.206 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.207 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> root -> parent -> fileName'
+2018-Sep-07 12:33:35.207 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> parent -> root'
+2018-Sep-07 12:33:35.208 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> root -> fileName'
+2018-Sep-07 12:33:35.208 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.208 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.209 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> fileName -> parent'
+2018-Sep-07 12:33:35.209 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.210 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> parent -> fileName -> root'
+2018-Sep-07 12:33:35.210 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> parent -> root'
+2018-Sep-07 12:33:35.211 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.211 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> parent -> fileName'
+2018-Sep-07 12:33:35.212 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> fileName -> parent -> root'
+2018-Sep-07 12:33:35.212 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.213 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> fileName -> root'
+2018-Sep-07 12:33:35.213 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.214 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'parent' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.214 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'parent' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.215 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileName' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.215 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'parent' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.216 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'parent' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.216 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileName' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.217 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'root' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.217 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.218 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> fileName -> parent'
+2018-Sep-07 12:33:35.219 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.219 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> fileName -> root -> parent'
+2018-Sep-07 12:33:35.220 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> root -> fileName'
+2018-Sep-07 12:33:35.220 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.221 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> root -> parent'
+2018-Sep-07 12:33:35.221 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> root -> fileName -> parent'
+2018-Sep-07 12:33:35.222 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.222 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> fileName -> root'
+2018-Sep-07 12:33:35.223 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.223 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.224 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> parent -> fileName'
+2018-Sep-07 12:33:35.224 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> root -> parent'
+2018-Sep-07 12:33:35.224 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> parent -> root -> fileName'
+2018-Sep-07 12:33:35.225 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.225 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.226 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.226 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> root -> parent -> fileName'
+2018-Sep-07 12:33:35.227 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> parent -> root'
+2018-Sep-07 12:33:35.227 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> root -> fileName'
+2018-Sep-07 12:33:35.228 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.228 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.228 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> fileName -> parent'
+2018-Sep-07 12:33:35.229 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.229 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> parent -> fileName -> root'
+2018-Sep-07 12:33:35.230 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> parent -> root'
+2018-Sep-07 12:33:35.230 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.231 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> parent -> fileName'
+2018-Sep-07 12:33:35.231 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> fileName -> parent -> root'
+2018-Sep-07 12:33:35.232 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.232 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> fileName -> root'
+2018-Sep-07 12:33:35.232 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.233 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'parent' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.233 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'parent' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.234 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileName' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.234 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'parent' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.235 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'parent' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.235 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileName' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.235 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'root' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.236 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.236 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> fileName -> parent'
+2018-Sep-07 12:33:35.237 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.237 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> fileName -> root -> parent'
+2018-Sep-07 12:33:35.238 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> root -> fileName'
+2018-Sep-07 12:33:35.238 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.238 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> root -> parent'
+2018-Sep-07 12:33:35.239 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> root -> fileName -> parent'
+2018-Sep-07 12:33:35.239 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.240 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> fileName -> root'
+2018-Sep-07 12:33:35.240 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.241 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.241 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> parent -> fileName'
+2018-Sep-07 12:33:35.241 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> root -> parent'
+2018-Sep-07 12:33:35.242 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> parent -> root -> fileName'
+2018-Sep-07 12:33:35.242 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.243 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.243 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.244 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> root -> parent -> fileName'
+2018-Sep-07 12:33:35.244 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> parent -> root'
+2018-Sep-07 12:33:35.277 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> root -> fileName'
+2018-Sep-07 12:33:35.278 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.279 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.280 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> fileName -> parent'
+2018-Sep-07 12:33:35.280 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.281 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> parent -> fileName -> root'
+2018-Sep-07 12:33:35.283 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> parent -> root'
+2018-Sep-07 12:33:35.283 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.284 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> parent -> fileName'
+2018-Sep-07 12:33:35.284 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> fileName -> parent -> root'
+2018-Sep-07 12:33:35.284 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.284 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> fileName -> root'
+2018-Sep-07 12:33:35.285 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileSystem' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.285 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'parent' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.285 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'parent' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.286 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileName' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.286 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'parent' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.286 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'parent' in type 'Path' for path 'parent -> parent'
+2018-Sep-07 12:33:35.286 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'fileName' in type 'Path' for path 'fileName -> fileName'
+2018-Sep-07 12:33:35.287 INFO  [localhost-startStop-1] o.s.d.m.c.i.MongoPersistentEntityIndexResolver - Found cycle for field 'root' in type 'Path' for path 'root -> root'
+2018-Sep-07 12:33:35.336 INFO  [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2018-Sep-07 12:33:35.337 INFO  [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-Sep-07 12:33:35.337 INFO  [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-Sep-07 12:33:35.337 INFO  [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-Sep-07 12:33:35.337 INFO  [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-Sep-07 12:33:35.337 INFO  [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpTraceFilter' to: [/*]
+2018-Sep-07 12:33:35.337 INFO  [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-Sep-07 12:33:35.377 DEBUG [restartedMain] c.s.j.m.MovieSearchApplication - ------------searchService started--------
+2018-Sep-07 12:33:35.557 WARN  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2018-Sep-07 12:33:35.562 INFO  [restartedMain] o.s.b.a.e.w.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2018-Sep-07 12:33:35.564 INFO  [restartedMain] o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2018-Sep-07 12:33:35.564 INFO  [restartedMain] o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2018-Sep-07 12:33:35.564 INFO  [restartedMain] o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-Sep-07 12:33:35.585 INFO  [restartedMain] o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-Sep-07 12:33:35.594 INFO  [restartedMain] o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147483547
+2018-Sep-07 12:33:35.596 INFO  [restartedMain] o.a.k.c.c.ConsumerConfig - ConsumerConfig values: 
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [172.23.239.111:9092]
+	check.crcs = true
+	client.id = 
+	connections.max.idle.ms = 540000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = search
+	heartbeat.interval.ms = 3000
+	interceptor.classes = null
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 305000
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2018-Sep-07 12:33:35.599 INFO  [restartedMain] o.a.k.c.u.AppInfoParser - Kafka version : 1.0.1
+2018-Sep-07 12:33:35.599 INFO  [restartedMain] o.a.k.c.u.AppInfoParser - Kafka commitId : c0518aa65f25317e
+2018-Sep-07 12:33:35.600 INFO  [restartedMain] o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 
+2018-Sep-07 12:33:35.608 INFO  [restartedMain] o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8060 (http) with context path ''
+2018-Sep-07 12:33:35.609 INFO  [restartedMain] c.s.j.m.MovieSearchApplication - Started MovieSearchApplication in 0.974 seconds (JVM running for 1037.491)
+2018-Sep-07 12:33:35.613 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2018-Sep-07 12:33:35.933 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.AbstractCoordinator - [Consumer clientId=consumer-8, groupId=search] Discovered group coordinator 172.23.239.111:9092 (id: 2147482646 rack: null)
+2018-Sep-07 12:33:35.936 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-8, groupId=search] Revoking previously assigned partitions []
+2018-Sep-07 12:33:35.938 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - partitions revoked: []
+2018-Sep-07 12:33:35.939 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.AbstractCoordinator - [Consumer clientId=consumer-8, groupId=search] (Re-)joining group
+2018-Sep-07 12:33:37.818 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.AbstractCoordinator - [Consumer clientId=consumer-8, groupId=search] Successfully joined group with generation 61
+2018-Sep-07 12:33:37.820 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-8, groupId=search] Setting newly assigned partitions []
+2018-Sep-07 12:33:37.822 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - partitions assigned: []
+2018-Sep-07 12:35:56.614 INFO  [http-nio-8060-exec-1] o.a.c.c.C.[.[.[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-Sep-07 12:35:56.663 INFO  [http-nio-8060-exec-1] o.m.d.connection - Opened connection [connectionId{localValue:13, serverValue:22}] to localhost:27017
+2018-Sep-07 12:37:07.001 INFO  [kafka-coordinator-heartbeat-thread | search] o.a.k.c.c.i.AbstractCoordinator - [Consumer clientId=consumer-8, groupId=search] Marking the coordinator 172.23.239.111:9092 (id: 2147482646 rack: null) dead
+2018-Sep-07 12:37:12.942 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.AbstractCoordinator - [Consumer clientId=consumer-8, groupId=search] Discovered group coordinator 172.23.239.111:9092 (id: 2147482646 rack: null)
+2018-Sep-07 12:37:15.956 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-8, groupId=search] Revoking previously assigned partitions []
+2018-Sep-07 12:37:15.956 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - partitions revoked: []
+2018-Sep-07 12:37:15.956 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.AbstractCoordinator - [Consumer clientId=consumer-8, groupId=search] (Re-)joining group
+2018-Sep-07 12:37:18.128 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.AbstractCoordinator - [Consumer clientId=consumer-8, groupId=search] Successfully joined group with generation 64
+2018-Sep-07 12:37:18.132 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-8, groupId=search] Setting newly assigned partitions []
+2018-Sep-07 12:37:18.133 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer - partitions assigned: []
+2018-Sep-07 12:44:38.012 INFO  [Thread-57] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@50aafa7e: startup date [Fri Sep 07 12:33:34 IST 2018]; root of context hierarchy
+2018-Sep-07 12:44:38.073 INFO  [Thread-57] o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147483547
+2018-Sep-07 12:44:38.082 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService
+2018-Sep-07 12:44:38.092 INFO  [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer$ListenerConsumer - Consumer stopped
+2018-Sep-07 12:44:38.094 INFO  [Thread-57] o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 0
+2018-Sep-07 12:44:38.095 INFO  [Thread-57] o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2018-Sep-07 12:44:38.217 INFO  [Thread-57] o.m.d.connection - Closed connection [connectionId{localValue:13, serverValue:22}] to localhost:27017 because the pool has been closed.

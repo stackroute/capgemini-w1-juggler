@@ -1,3 +1,4 @@
+
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,6 +12,7 @@ import { PartnerLoginComponent } from './login/partner-login/partner-login.compo
 import { TheatreRegistrationComponent } from './theatre-registration/theatre-registration.component';
 import { ContactComponent } from './contact/contact.component';
 import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -22,9 +24,10 @@ const routes: Routes = [
   { path: 'moviedetail', component: MoviedetailsFormComponent },
   { path: 'login-partner', component: PartnerLoginComponent },
   { path: 'distributor', component: DistributionRegisterFormComponent },
-  { path: 'screening/:theatreName', component: MovieScreeningComponent },
-  { path: 'theatre', component: TheatreRegistrationComponent },
-  { path: 'contact', component: ContactComponent }
+  { path: 'screening/:email', component: MovieScreeningComponent },
+  { path: 'theatre/:email', component: TheatreRegistrationComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'profile/:email', component: ProfileComponent }
 ];
 
 @NgModule({
