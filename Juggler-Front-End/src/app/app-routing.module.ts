@@ -1,5 +1,6 @@
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -28,8 +29,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [BrowserModule,RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule,BrowserModule]
 })
 export class AppRoutingModule {}
 
