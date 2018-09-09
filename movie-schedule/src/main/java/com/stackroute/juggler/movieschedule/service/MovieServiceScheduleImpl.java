@@ -9,18 +9,18 @@ import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.kafka.domain.Theatre;
-import com.stackroute.juggler.movieschedule.config.Producer;
+import com.stackroute.juggler.movieschedule.config.KafkaProducerConfig;
 import com.stackroute.juggler.movieschedule.repository.MovieScheduleRepository;
 
 @Service
 public class MovieServiceScheduleImpl implements MovieScheduleService {
 
 	private MovieScheduleRepository movieScheduleRepo;
-	private Producer kafkaProducer;
+	private KafkaProducerConfig kafkaProducer;
 
 //	static final String TOPIC = "screeningfinal";
 	@Autowired
-	public MovieServiceScheduleImpl(MovieScheduleRepository movieScheduleRepo, Producer kafkaProducer) {
+	public MovieServiceScheduleImpl(MovieScheduleRepository movieScheduleRepo, KafkaProducerConfig kafkaProducer) {
 
 		this.movieScheduleRepo = movieScheduleRepo;
 		this.kafkaProducer = kafkaProducer;

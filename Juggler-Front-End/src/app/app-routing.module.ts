@@ -1,6 +1,7 @@
 
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -13,6 +14,7 @@ import { TheatreRegistrationComponent } from './theatre-registration/theatre-reg
 import { ContactComponent } from './contact/contact.component';
 import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TheatreDisplayComponent } from './theatre-display/theatre-display.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -27,12 +29,13 @@ const routes: Routes = [
   { path: 'screening/:email', component: MovieScreeningComponent },
   { path: 'theatre/:email', component: TheatreRegistrationComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'profile/:email', component: ProfileComponent }
+  { path: 'profile/:email', component: ProfileComponent },
+  { path: 'display-theatre',component: TheatreDisplayComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [BrowserModule,RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule,BrowserModule]
 })
 export class AppRoutingModule {}
 
@@ -45,5 +48,6 @@ export const routingComponents = [
   HomePageComponent,
   TheatreRegistrationComponent,
   DistributionRegisterFormComponent,
-  MovieScreeningComponent
+  MovieScreeningComponent,
+  ProfileComponent
 ];

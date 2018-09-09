@@ -49,6 +49,7 @@ public class TheatreServiceImpl implements TheatreService {
 	// To the theatre by using theatre title from database
 	@Override
 	public Theatre getTheatre(String theatreTitle) {
+		
 		Theatre list = theatreRepository.getByTheatreName(theatreTitle);
 		return list;
 	}

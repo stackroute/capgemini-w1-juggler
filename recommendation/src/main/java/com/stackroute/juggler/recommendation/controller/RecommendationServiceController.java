@@ -19,7 +19,7 @@ import com.stackroute.juggler.recommendation.domain.User;
 import com.stackroute.juggler.recommendation.repositories.UserRepository;
 import com.stackroute.juggler.recommendation.services.MovieService;
 import com.stackroute.juggler.recommendation.services.UserService;
-//@CrossOrigin("*")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1")
 public class RecommendationServiceController {

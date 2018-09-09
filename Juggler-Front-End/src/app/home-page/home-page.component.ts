@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Movie } from "../movie";
 import { map } from 'rxjs/operators';
 import { MovieDetailsService } from '../moviedetails.service';
+import { MovieDisplay } from '../MovieDisplay';
 
 @Component({
   selector: 'app-home-page',
@@ -18,27 +19,27 @@ export class HomePageComponent implements OnInit {
   city: string;
   movie:string;
   selectedName;
-  selectedMovie: Movie;
+  selectedMovie: MovieDisplay;
   nameOfMovie: string;
   movieDataList;
   listMovie = [];
   data: Movie;
-  test: any = 2;
-  onResize(event) {
-    const element = event.target.innerWidth;
-    console.log(element);
-    if (element < 950) {
-      this.test = 2;
-    }
+  // test: any = 2;
+  // onResize(event) {
+  //   const element = event.target.innerWidth;
+  //   console.log(element);
+  //   if (element < 950) {
+  //     this.test = 2;
+  //   }
 
-    if (element > 950) {
-      this.test = 3;
-    }
+  //   if (element > 950) {
+  //     this.test = 3;
+  //   }
 
-    if (element < 750) {
-      this.test = 1;
-    }
-  }
+  //   if (element < 750) {
+  //     this.test = 1;
+  //   }
+  // }
 
 
    constructor(private cityService: SearchDataService, private movieDetailsService: MovieDetailsService , private route: Router, private router: ActivatedRoute) { }

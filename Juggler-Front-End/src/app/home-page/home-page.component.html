@@ -25,14 +25,14 @@
         <div class="row">
             <div *ngFor="let movie of search_result1 let i = index">
                     <div *ngIf='i < 1'>
-                    <h3>movies</h3>
+                    <h3>Search_results</h3>
                             <mat-card>
                                 <mat-card-header>
                                     <mat-card-title>
                                         <a>{{movie.movieName}}</a>
                                     </mat-card-title>
                                 </mat-card-header>
-                                <img mat-card-image src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="50">
+                                <img mat-card-image src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="20">
                                 <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button>
                             </mat-card>
                 </div>
@@ -43,6 +43,7 @@
 
 
 <mat-grid-list cols="12"  (window:resize)="onResize($event)">
+<!-- <mat-grid-list cols="12"> -->
     <h3>Trending Movies</h3>
     <div class="container">
         <div *ngIf=search_result>

@@ -13,13 +13,13 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
 
 @Configuration
-public class Producer {
+public class KafkaProducerConfig {
 
 	// Declaring Topic
 	static final String TOPIC = "screening-details";
 	static final String TOPIC1 = "screenings";
 
-	// Producer factory of kafka which will hold the configuration details
+	// KafkaProducerConfig factory of kafka which will hold the configuration details
 	@Bean
 	public ProducerFactory<String, MovieSchedule> producerFactory() {
 		Map<String, Object> config = new HashMap<>();

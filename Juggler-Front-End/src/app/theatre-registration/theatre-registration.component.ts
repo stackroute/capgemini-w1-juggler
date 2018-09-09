@@ -10,7 +10,7 @@ import {
 import { Theatre } from "../theatre";
 import { TheatreService } from "../theatre.service";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material";
+import { MatDialog } from "@angular/material";
 
 // import {Observable} from 'rxjs';
 // export interface DialogData {
@@ -33,7 +33,7 @@ export class TheatreRegistrationComponent implements OnInit {
   thirdFormGroup: FormGroup;
   myControl = new FormControl();
   options: string[] = [
-    "Bengaluru",
+    "Bangalore",
     "Chennai",
     "Hyderabad",
     "Jaipur",

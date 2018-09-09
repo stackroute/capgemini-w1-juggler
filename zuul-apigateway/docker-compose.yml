@@ -41,10 +41,6 @@ services:
    restart: always
 
    network_mode: "host"
-   depends_on:
-    config-service:
-
-     condition: service_healthy
 
    image: demo-eureka-service
 
@@ -106,7 +102,10 @@ services:
    container_name: config-server
 
    restart: always
+   depends_on:
+    eureka-server:
 
+     condition: service_healthy
    
 
    network_mode: "host"
@@ -225,19 +224,15 @@ services:
   distributor:
    
    build: distributor/
-
    restart: always
 
    network_mode: "host"
-
    hostname: localhost
-
    ports:
     - 8010:8010
-
    container_name: distributor
-
-   depends_on:    
+   depends_on:
+    
     mongo:
      condition: service_healthy
     eureka-server:
@@ -250,12 +245,11 @@ services:
    healthcheck:
     test: "exit 0"
 
-
   recommendations:
    
    build: recommendation/
-
    restart: always
+
 
    network_mode: "host"
    hostname: localhost
