@@ -29,11 +29,11 @@
                             <mat-card>
                                 <mat-card-header>
                                     <mat-card-title>
-                                        <a>{{movie.movieName}}</a>
+                                        <h1>{{movie.movieName}}</h1>
                                     </mat-card-title>
                                 </mat-card-header>
-                                <img mat-card-image src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="1">
-                                <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button>
+                                <img mat-card-image routerLink="/moviedetail" (click)="getMovieInfo(movie)" src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="1">
+                            <!-- <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button> -->
                             </mat-card>
                 </div>
                 </div>
@@ -58,8 +58,8 @@
                                             <a>{{movie.movieName}}</a>
                                         </mat-card-title>
                                     </mat-card-header>
-                                    <img mat-card-image src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="150">
-                                    <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button>
+                                    <img mat-card-image routerLink="/moviedetail" (click)="getMovieInfo(movie)" src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="150">
+                                    <!-- <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button> -->
                                 </mat-card>
                             </div>
                         </mat-grid-tile>

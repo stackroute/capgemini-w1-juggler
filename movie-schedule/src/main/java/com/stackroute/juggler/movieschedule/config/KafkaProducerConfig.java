@@ -16,7 +16,7 @@ import com.stackroute.juggler.kafka.domain.MovieSchedule;
 public class KafkaProducerConfig {
 
 	// Declaring Topic
-	static final String TOPIC = "screeningdetails";
+	static final String TOPIC = "screening-details";
 	static final String TOPIC1 = "screenings";
 
 	// KafkaProducerConfig factory of kafka which will hold the configuration details

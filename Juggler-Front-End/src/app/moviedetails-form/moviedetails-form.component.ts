@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieDataService } from '../movie-data.service';
 import { MovieDetailsService } from '../moviedetails.service';
 import { Movie } from "../movie";
+import { MovieDisplay } from '../MovieDisplay';
 
 @Component({
   selector: 'app-moviedetails-form',
@@ -10,7 +11,7 @@ import { Movie } from "../movie";
 })
 export class MoviedetailsFormComponent implements OnInit {
   movie: any;
-  movieObject: Movie;
+  movieObject:MovieDisplay;
   constructor(private movieService: MovieDataService, private movieDetailsService: MovieDetailsService) { }
 
   getMovieInfo() {
