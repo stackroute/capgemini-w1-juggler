@@ -10,7 +10,7 @@ import {
 import { Theatre } from "../theatre";
 import { TheatreService } from "../theatre.service";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material";
+import { MatDialog } from "@angular/material";
 
 // import {Observable} from 'rxjs';
 // export interface DialogData {
@@ -43,7 +43,6 @@ export class TheatreRegistrationComponent implements OnInit {
     "Mumbai",
     "Pune"
   ];
-
 
   theatre = new Theatre();
   constructor(
@@ -115,11 +114,9 @@ export class TheatreRegistrationComponent implements OnInit {
     this.theatreService
       .saveTheatre(this.theatre, this.email)
       .subscribe(res => console.log("Saved theatre"));
-    this.router.navigate(["/screening",this.email]);
+    this.router.navigate(["/profile",this.email]);
     console.log(this.theatre);
   }
-
- 
   get f() {
     return this.firstFormGroup.controls;
   }
@@ -129,8 +126,4 @@ export class TheatreRegistrationComponent implements OnInit {
   get f2() {
     return this.thirdFormGroup.controls;
   }
-
- 
 }
-
-
