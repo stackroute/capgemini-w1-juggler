@@ -25,8 +25,9 @@
   margin-bottom: 30px;
 }
 .showTime {
+  display: inline;
   margin-left: 10px;
-  padding-left: 40px;
+  padding-left: 30px;
   padding-bottom: 10px;
 }
 .showTime:hover {
@@ -35,7 +36,12 @@
 .hoverWrapper:hover #hoverShow1 {
   display: block;
   text-transform: capitalize;
+  position: relative;
 }
+.hoverWrapper #hoverShow1 {
+  display: none;
+}
+
 .DisplayBorder {
  border-radius: 2px;
   padding-left: 1px;
@@ -46,15 +52,20 @@
   background-color: blanchedalmond;
  
 }
-.hoverWrapper #hoverShow1 {
-  display: none;
-}
+
 .CamelCase {
   text-transform: capitalize;
 }
 a.CamelCase{
     display: inline-block;
     width:100px;
+}
+#display{
+  display: inline-flex;
+}
+#spacing
+{
+  margin-left: 15px;
 }
 
 

@@ -36,26 +36,37 @@
                                   <strong>{{theatre.theatreName}}</strong>
                                 </a>
 
-                                <a href="#" class="showTime">
-                                  <strong>{{theatre.showTimings[0]}}</strong>
-                                </a>
 
-                                <a href="#" class="showTime">
-                                  <strong>{{theatre.showTimings[1]}}</strong>
-                                </a>
-                                <a href="#" class="showTime">
-                                  <strong>{{theatre.showTimings[2]}}</strong>
-                                </a>
 
+                                <div id="display" *ngFor="let showtime of theatre.showTimings">
+                                  <a href="#" class="showTime display">
+                                    <strong>{{showtime}}</strong>
+                                  </a>
+                                </div>
                                 <div id="hoverShow1">
+                                  <div id="display" *ngFor="let seat of theatre.typesOfSeats">
+                                    <a class="DisplayBorder" href="#">{{seat}}</a>
+                                  </div>
+                                  <br>
 
-                                  <a class="DisplayBorder" href="#"> {{theatre.typesOfSeats[0]}}::Rs.{{theatre.weekdays_Price[0]}}</a>
-                                  <a class="DisplayBorder" href="#">
-                                    {{theatre.typesOfSeats[1]}}::Rs.{{theatre.weekdays_Price[1]}}</a>
-                                  <a class="DisplayBorder" href="#">
-                                    {{theatre.typesOfSeats[2]}}::Rs.{{theatre.weekdays_Price[2]}}</a>
+                                  <div id="display" *ngFor="let price of theatre.weekdays_Price">
+
+                                    <a id="spacing" href="#"><p>Rs.{{price}}</p></a>
+                                  </div>
+
                                 </div>
                               </div>
+
+                              <!-- <div id="hoverShow1">
+
+                                <a class="DisplayBorder" href="#"> {{theatre.typesOfSeats[0]}}::Rs.{{theatre.weekdays_Price[0]}}</a>
+                                <a class="DisplayBorder" href="#">
+                                  {{theatre.typesOfSeats[1]}}::Rs.{{theatre.weekdays_Price[1]}}</a>
+                                <a class="DisplayBorder" href="#">
+                                  {{theatre.typesOfSeats[2]}}::Rs.{{theatre.weekdays_Price[2]}}</a>
+                              </div> -->
+
+
                             </mat-list-item>
                             <mat-divider></mat-divider>
 

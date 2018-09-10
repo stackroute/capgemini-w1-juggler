@@ -17,17 +17,22 @@ export class TheatreDisplayComponent implements OnInit {
   count: number;
   dateValue: number;
   validDate: string;
-
+  shows = [];
+  noOfShows: number;
+  prices = [];
+  priceSeats = [];
+  seats = [];
+  i: number;
   constructor(private movieDetailsService: MovieDetailsService) {}
 
   ngOnInit() {
     this.movieObject2 = this.movieDetailsService.receive();
-    this.validDate = this.movieObject2.movieReleasedate;
-    var date = new Date("this.validDate");
-    console.log(date.toDateString());
+    // this.validDate = this.movieObject2.movieReleasedate;
+    // var date = new Date("this.validDate");
+    // console.log(date.toDateString());
     this.theatreList = this.movieObject2["theatres"];
     console.log(this.theatreList);
-
+    this.shows = this.theatreList["showTimings"];
     //this.today = this.validDate.now();
     //Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
     this.today = Date.now();
