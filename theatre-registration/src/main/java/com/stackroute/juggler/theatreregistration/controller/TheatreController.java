@@ -16,7 +16,7 @@ import com.stackroute.juggler.theatreregistration.exceptions.TheatreAlreadyExist
 import com.stackroute.juggler.theatreregistration.exceptions.TheatreNotFoundException;
 import com.stackroute.juggler.theatreregistration.services.TheatreService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 
 // class level request mapping

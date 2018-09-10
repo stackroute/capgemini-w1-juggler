@@ -1,4 +1,4 @@
-package com.stackroute.juggler.movieschedule.config;
+package com.stackroute.juggler.showsheduler.configuration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,11 +13,10 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
 
 @Configuration
-public class Producer {
+public class KafkaProducer {
 
 	// Declaring Topic
-	static final String TOPIC = "screeningdetails";
-	static final String TOPIC1 = "screenings";
+	static final String TOPIC = "show-scheduler";
 
 	// Producer factory of kafka which will hold the configuration details
 	@Bean
@@ -41,9 +40,5 @@ public class Producer {
 		return TOPIC;
 	}
 	
-	// To Send Topic1
-	public static String getTopic1() {
-		return TOPIC1;
-	}
-
+ 
 }

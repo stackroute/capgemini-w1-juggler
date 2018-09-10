@@ -1,7 +1,8 @@
-package com.stackroute.juggler.movieschedule.config;
+package com.stackroute.juggler.showsheduler.configuration;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
@@ -11,36 +12,33 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
-import com.stackroute.juggler.kafka.domain.Theatre;
 
-//Kafka Consumer for TheatreRegistration Details
+import com.stackroute.juggler.kafka.domain.MovieSchedule;
+
+//Kafka Consumer for MovieSchedule Details
 
 @EnableKafka
 @Configuration
-public class Consumer {
+public class KafkaConsumer {
 
 	public class KafkaConsumerconfiguration {
-		
-		
-//		172.23.238.190
 
-		// Consumer factory of kafka which will hold the configuration details
 		@Bean
-		public ConsumerFactory<String, Theatre> consumerFactory() {
+		public ConsumerFactory<String, MovieSchedule> consumerFactory() {
 			Map<String, Object> config = new HashMap<>();
+
 			config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-			config.put(ConsumerConfig.GROUP_ID_CONFIG, "grpid");
+			config.put(ConsumerConfig.GROUP_ID_CONFIG, "schedule");
 			config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 			config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 
 			return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-					new JsonDeserializer<>(Theatre.class));
+					new JsonDeserializer<>(MovieSchedule.class));
 		}
 
-		// Template imports the configuration from consumer factory
 		@Bean
-		public ConcurrentKafkaListenerContainerFactory<String, Theatre> kafkaListenerContainerFactory() {
-			ConcurrentKafkaListenerContainerFactory<String, Theatre> factory = new ConcurrentKafkaListenerContainerFactory();
+		public ConcurrentKafkaListenerContainerFactory<String, MovieSchedule> kafkaListenerContainerFactory() {
+			ConcurrentKafkaListenerContainerFactory<String, MovieSchedule> factory = new ConcurrentKafkaListenerContainerFactory();
 			factory.setConsumerFactory(consumerFactory());
 			return factory;
 		}
