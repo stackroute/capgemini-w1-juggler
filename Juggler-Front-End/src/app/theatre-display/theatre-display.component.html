@@ -1,101 +1,81 @@
 <div class="container" cols="12">
-  <!-- <mat-grid-list cols="12"> -->
-
-  <div class="row">
-    <div class="col-sm-4">
-      <mat-card>
-        <img mat-card-image src="{{movieObject2.moviePoster}} " alt="Poster of movie" height="400" width="200">
-      </mat-card>
-    </div>
+  <div *ngIf=theatreList>
+    <div>
 
 
+      <div class="flex-container">
 
 
-    <div class="col-sm-8">
-      <div *ngIf=theatreList>
-        <div>
-          <!-- <mat-form-field class="example-full-width">
-                  <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Choose a date">
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field> -->
-          <!-- <a onmouseover="pickDate()">Pick A Date</a> -->
-
-          <!-- {{everyday|date}} -->
-
-          <div class="flex-container">
-
-            <div *ngFor="let everyday of tomorrow">
-              <mat-card class="cardBg">
-                <div class="dateCard">
-                 <a href ="#">{{everyday|date:'MMM'}} {{everyday|date:'dd'}} {{everyday|date:'EEE'}}
-                  </a> 
+        <mat-tab-group>
+          <div *ngFor="let everyday of tomorrow">
+            <mat-tab label="{{everyday|date: 'MMM'}} {{everyday|date: 'dd'}} {{everyday|date: 'EEE'}}">
+              <div class="row">
+                <div class="col-sm-4">
+                  <mat-card>
+                    <img mat-card-image src="{{movieObject2.moviePoster}} " alt="Poster of movie" height="400" width="200">
+                  </mat-card>
                 </div>
-              </mat-card>
-
-            </div>
-          </div>
-
-
-
-        </div>
-      </div>
-      <div class="title">
-        <h3>
-          <b>{{movieObject2.movieName}}</b>
-        </h3>
-      </div>
-
-      <div *ngFor="let theatre of theatreList; let i = index">
-        <div *ngIf='i < 9'>
-          <div>
-            <mat-list role="list">
-              <div class="listOfItem">
-                <mat-list-item role="listitem">
-                    <div class="hoverWrapper">
-
-                  <a>
-                    <strong>{{theatre.theatreName}}</strong>
-                  </a>
-
-                 
-                    <a href="#" class="showTime">
-                      <strong>{{theatre.showTimings[0]}}</strong>
-                    </a>
-
-                    <a href="#" class="showTime">
-                      <strong>{{theatre.showTimings[1]}}</strong>
-                    </a>
-                    <a href="#" class="showTime">
-                      <strong>{{theatre.showTimings[2]}}</strong>
-                    </a>
-                    <div id="hoverShow1">
-                    
-                     <a href="#"> {{theatre.typesOfSeats[0]}}::{{theatre.weekdays_Price[0]}}</a> <a href="#"> {{theatre.typesOfSeats[1]}}::{{theatre.weekdays_Price[1]}}</a><a href="#"> {{theatre.typesOfSeats[2]}}::{{theatre.weekdays_Price[2]}}</a>
-                    </div>
+                <div class="col-sm-8">
+                  <div class="title">
+                    <h3>
+                      <b>{{movieObject2.movieName}}</b>
+                    </h3>
                   </div>
-                </mat-list-item>
-                <mat-divider></mat-divider>
+
+                  <div *ngFor="let theatre of theatreList; let i = index">
+                    <div *ngIf='i < 9'>
+                      <div>
+                        <mat-list role="list">
+                          <div class="listOfItem">
+                            <mat-list-item role="listitem">
+                              <div class="hoverWrapper">
+
+                                <a class="CamelCase">
+                                  <strong>{{theatre.theatreName}}</strong>
+                                </a>
 
 
+                                <a href="#" class="showTime">
+                                  <strong>{{theatre.showTimings[0]}}</strong>
+                                </a>
+
+                                <a href="#" class="showTime">
+                                  <strong>{{theatre.showTimings[1]}}</strong>
+                                </a>
+                                <a href="#" class="showTime">
+                                  <strong>{{theatre.showTimings[2]}}</strong>
+                                </a>
+                                <div id="hoverShow1">
+
+                                  <a class="DisplayBorder" href="#"> {{theatre.typesOfSeats[0]}}::{{theatre.weekdays_Price[0]}}</a>
+                                  <a class="DisplayBorder" href="#">
+                                    {{theatre.typesOfSeats[1]}}::{{theatre.weekdays_Price[1]}}</a>
+                                  <a class="DisplayBorder" href="#">
+                                    {{theatre.typesOfSeats[2]}}::{{theatre.weekdays_Price[2]}}</a>
+                                </div>
+                              </div>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+
+
+                          </div>
+
+                        </mat-list>
+
+
+
+                      </div>
+
+                    </div>
+
+
+                  </div>
+                </div>
               </div>
-
-            </mat-list>
-
-
-
+            </mat-tab>
           </div>
-
-        </div>
-
+        </mat-tab-group>
 
       </div>
     </div>
   </div>
-
-
-
-
-
-  <!-- </mat-grid-list> -->
-</div>

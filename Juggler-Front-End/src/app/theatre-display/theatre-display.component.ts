@@ -37,6 +37,7 @@ export class TheatreDisplayComponent implements OnInit {
     // this.tomorrow[j]=this.today[i]+(24*60*60*1000);
     while (this.count < 7) {
       this.tomorrow[this.count] = this.dateValue;
+      
       this.dateValue = this.dateValue + 24 * 60 * 60 * 1000;
       this.count++;
     }
