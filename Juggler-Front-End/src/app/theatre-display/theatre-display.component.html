@@ -30,10 +30,11 @@
                             <mat-list-item role="listitem">
                               <div class="hoverWrapper">
 
+
+
                                 <a class="CamelCase">
                                   <strong>{{theatre.theatreName}}</strong>
                                 </a>
-
 
                                 <a href="#" class="showTime">
                                   <strong>{{theatre.showTimings[0]}}</strong>
@@ -45,13 +46,14 @@
                                 <a href="#" class="showTime">
                                   <strong>{{theatre.showTimings[2]}}</strong>
                                 </a>
+
                                 <div id="hoverShow1">
 
-                                  <a class="DisplayBorder" href="#"> {{theatre.typesOfSeats[0]}}::{{theatre.weekdays_Price[0]}}</a>
+                                  <a class="DisplayBorder" href="#"> {{theatre.typesOfSeats[0]}}::Rs.{{theatre.weekdays_Price[0]}}</a>
                                   <a class="DisplayBorder" href="#">
-                                    {{theatre.typesOfSeats[1]}}::{{theatre.weekdays_Price[1]}}</a>
+                                    {{theatre.typesOfSeats[1]}}::Rs.{{theatre.weekdays_Price[1]}}</a>
                                   <a class="DisplayBorder" href="#">
-                                    {{theatre.typesOfSeats[2]}}::{{theatre.weekdays_Price[2]}}</a>
+                                    {{theatre.typesOfSeats[2]}}::Rs.{{theatre.weekdays_Price[2]}}</a>
                                 </div>
                               </div>
                             </mat-list-item>
@@ -79,3 +81,4 @@
       </div>
     </div>
   </div>
+</div>
