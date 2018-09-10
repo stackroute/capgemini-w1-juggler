@@ -16,7 +16,7 @@ import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.movieschedule.service.MovieScheduleService;
 
 //@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1")
 public class MovieScheduleController {
