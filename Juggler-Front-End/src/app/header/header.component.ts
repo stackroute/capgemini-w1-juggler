@@ -30,6 +30,13 @@ export class HeaderComponent implements OnInit {
       location.reload();
       
       }
+
+      // for navbar
+      navbarOpen = false;
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
   // searchCity(city: string) {
   //   this.cityService.getByMovieCity(city).subscribe(data => this.citydetails = data);
   // }

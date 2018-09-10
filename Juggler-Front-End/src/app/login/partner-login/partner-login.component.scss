@@ -1,3 +1,8 @@
+.bg {
+   // background-image: url('/src/assets/images/reg bg.jpg');
+    //background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxFjs58QeFsMQKmX9jX-bTV1PK-vifeXAGt-qvLyBM36JvB8umJg')
+    background-color: #F0EDE5;
+}
 .container {
     padding-top:25px;
     padding-right: 30px;
@@ -11,6 +16,7 @@
 .mat-form-field {
     padding-left: 1px;
     padding-right: 10px;
+    color:black;
 }
 .login {  
     //color:black;
