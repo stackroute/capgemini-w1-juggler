@@ -28,7 +28,7 @@ public class KafkaConsumerConfig {
 		@Bean
 		public ConsumerFactory<String, Theatre> consumerFactory() {
 			Map<String, Object> config = new HashMap<>();
-			config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.43.174:9092");
+			config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 			config.put(ConsumerConfig.GROUP_ID_CONFIG, "grpid");
 			config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 			config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
