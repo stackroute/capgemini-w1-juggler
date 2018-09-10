@@ -1,23 +1,5 @@
-spring:
-  application:
-    name: authentication
-  datasource:
-    url: jdbc:mysql://localhost:3306/juggler_db?useSSL=false
-    username: root
-    password: root123
-    driver-class-name: com.mysql.jdbc.Driver
-  jpa:
-    hibernate:
-      ddl-auto: create
-    database-platform: org.hibernate.dialect.MySQL5Dialect
-    generate-ddl: "true"
-    show-sql: "true"
+
 server:
   port: "8070"
-eureka:
-  client:
-    register-with-eureka: "true"
-    fetch-registry: "true"
-    serviceUrl:
-      defaultZone: http://localhost:9090/eureka/
- 
+
+

@@ -1,7 +1,8 @@
 package com.stackroute.juggler.kafka.domain;
 
+import java.io.File;
 import java.util.Arrays;
-import java.util.Map;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,33 +14,40 @@ public class Theatre {
 	@Id
 	private String theatreId;
 	private String email;
-	private String theatreName;
 	private String theatreLocation;
 	private String theatreCity;
+	private String theatreName;
 	private String theatreLicenseNo;
-	private String numberOfSeats;
-	private Map<String, Integer> seats;
+	private String totalnumberOfSeats;
+	// private Map<String, Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
+	private File seatLayout;
+	private String[] typesOfSeats;
+	private int[] numberOfSeats;
 
-	// All arguments constructors
-	public Theatre(String theatreId, String email, String theatreName, String theatreLocation, String theatreCity,
-			String theatreLicenseNo, String numberOfSeats, Map<String, Integer> seats, String[] screenedmovies,
-			String[] runningmovies) {
-
+	public Theatre(String theatreId, String email, String theatreLocation, String theatreCity, String theatreName,
+			String theatreLicenseNo, String totalnumberOfSeats, String[] screenedmovies, String[] runningmovies,
+			File seatLayout, String[] typesOfSeats, int[] numberOfSeats) {
+		super();
 		this.theatreId = theatreId;
-		this.theatreName = theatreName;
+		this.email = email;
 		this.theatreLocation = theatreLocation;
 		this.theatreCity = theatreCity;
+		this.theatreName = theatreName;
 		this.theatreLicenseNo = theatreLicenseNo;
-		this.numberOfSeats = numberOfSeats;
-		this.seats = seats;
+		this.totalnumberOfSeats = totalnumberOfSeats;
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
-		this.email = email;
+		this.seatLayout = seatLayout;
+		this.typesOfSeats = typesOfSeats;
+		this.numberOfSeats = numberOfSeats;
 	}
 
-	// List of all getters and setters
+	public Theatre() {
+		super();
+	}
+
 	public String getTheatreId() {
 		return theatreId;
 	}
@@ -48,12 +56,12 @@ public class Theatre {
 		this.theatreId = theatreId;
 	}
 
-	public String getTheatreName() {
-		return theatreName;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setTheatreName(String theatreName) {
-		this.theatreName = theatreName;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getTheatreLocation() {
@@ -72,6 +80,14 @@ public class Theatre {
 		this.theatreCity = theatreCity;
 	}
 
+	public String getTheatreName() {
+		return theatreName;
+	}
+
+	public void setTheatreName(String theatreName) {
+		this.theatreName = theatreName;
+	}
+
 	public String getTheatreLicenseNo() {
 		return theatreLicenseNo;
 	}
@@ -80,20 +96,12 @@ public class Theatre {
 		this.theatreLicenseNo = theatreLicenseNo;
 	}
 
-	public String getNumberOfSeats() {
-		return numberOfSeats;
+	public String getTotalnumberOfSeats() {
+		return totalnumberOfSeats;
 	}
 
-	public void setNumberOfSeats(String numberOfSeats) {
-		this.numberOfSeats = numberOfSeats;
-	}
-
-	public Map<String, Integer> getSeats() {
-		return seats;
-	}
-
-	public void setSeats(Map<String, Integer> seats) {
-		this.seats = seats;
+	public void setTotalnumberOfSeats(String totalnumberOfSeats) {
+		this.totalnumberOfSeats = totalnumberOfSeats;
 	}
 
 	public String[] getScreenedmovies() {
@@ -112,25 +120,38 @@ public class Theatre {
 		this.runningmovies = runningmovies;
 	}
 
-	public String getEmail() {
-		return email;
+	public File getSeatLayout() {
+		return seatLayout;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setSeatLayout(File seatLayout) {
+		this.seatLayout = seatLayout;
 	}
 
-	// default constructor
-	public Theatre() {
+	public String[] getTypesOfSeats() {
+		return typesOfSeats;
+	}
 
+	public void setTypesOfSeats(String[] typesOfSeats) {
+		this.typesOfSeats = typesOfSeats;
+	}
+
+	public int[] getNumberOfSeats() {
+		return numberOfSeats;
+	}
+
+	public void setNumberOfSeats(int[] numberOfSeats) {
+		this.numberOfSeats = numberOfSeats;
 	}
 
 	@Override
 	public String toString() {
-		return "Theatre [theatreId=" + theatreId + ", email=" + email + ", theatreName=" + theatreName
-				+ ", theatreLocation=" + theatreLocation + ", theatreCity=" + theatreCity + ", theatreLicenseNo="
-				+ theatreLicenseNo + ", numberOfSeats=" + numberOfSeats + ", seats=" + seats + ", screenedmovies="
-				+ Arrays.toString(screenedmovies) + ", runningmovies=" + Arrays.toString(runningmovies) + "]";
+		return "Theatre [theatreId=" + theatreId + ", email=" + email + ", theatreLocation=" + theatreLocation
+				+ ", theatreCity=" + theatreCity + ", theatreName=" + theatreName + ", theatreLicenseNo="
+				+ theatreLicenseNo + ", totalnumberOfSeats=" + totalnumberOfSeats + ", screenedmovies="
+				+ Arrays.toString(screenedmovies) + ", runningmovies=" + Arrays.toString(runningmovies)
+				+ ", seatLayout=" + seatLayout + ", typesOfSeats=" + Arrays.toString(typesOfSeats) + ", numberOfSeats="
+				+ Arrays.toString(numberOfSeats) + "]";
 	}
 
 }
