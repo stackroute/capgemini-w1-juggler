@@ -1,4 +1,4 @@
- <nav class="navbar navbar-expand-sm stylish-color-dark navbar-dark">
+ <nav class="navbar navbar-expand-sm stylish-color-dark navbar-dark" role = "navigation">
   <!-- Brand -->
   <a class="navbar-brand" href="/">
     <h1 class="name">
@@ -7,24 +7,33 @@
   </a>
 
   <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"aria-label="Toggle navigation"  (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"  aria-controls="collapsibleNavbar" aria-expanded="false">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+
+<button class="navbar-toggler" type="button"
+          (click)="toggleNavbar()">
     <span class="navbar-toggler-icon"></span>
   </button>
+
+  
   <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+  <!-- <div class="collapse navbar-collapse show" id="collapsibleNavbar"> -->
+  <div class="collapse navbar-collapse"
+       [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav mx-auto">
-    <li class="nav-item ml-4">
+    <li class="nav-item mx-5">
    <h6 class="nav-link text-white"> Select city:<i href="#city" routerLink="/" class="fa fa-map-marker" aria-hidden="true"></i> </h6>
     </li>
-     <li class="nav-item ml-4">
-        <a class="nav-link text-white" href="#home" routerLink="/home"><h5>Home</h5></a>
+     <li class="nav-item mx-5">
+        <a class="nav-link text-white" href="#home"  routerLink="/home"> <h5> <i class="fa fa-home"></i>Home</h5></a>
       </li>
       <li class="nav-item mx-5">
-        <a class="nav-link text-white" href="#home" routerLink="/contact"><h5>Contact Us</h5></a>
+        <a class="nav-link text-white" href="#home" routerLink="/contact"><h5> <i class="fa fa-globe"></i>Contact Us</h5></a>
       </li>
       <div *ngIf=userLogged>
       <li class="nav-item outline-success ml-5 my-2 my-sm-0 mr-0">
-        <a class="nav-link text-white" href="#home" routerLink="/login-user"> <h5>Login</h5></a>
+        <a class="nav-link text-white" href="#home" routerLink="/login-user"> <h5> <i class="fa fa-fw fa-user"></i>Login</h5></a>
       </li>
     </div>
     <div *ngIf=flag>

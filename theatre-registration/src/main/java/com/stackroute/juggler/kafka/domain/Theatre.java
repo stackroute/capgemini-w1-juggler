@@ -18,14 +18,13 @@ public class Theatre {
 	private String theatreName;
 	private String theatreLicenseNo;
 	private String totalnumberOfSeats;
-	//private Map<String, Integer> seats;
+	// private Map<String, Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
 	private File seatLayout;
 	private String[] typesOfSeats;
 	private int[] numberOfSeats;
 
-	// All Arguments Constructor
 	public Theatre(String theatreId, String email, String theatreLocation, String theatreCity, String theatreName,
 			String theatreLicenseNo, String totalnumberOfSeats, String[] screenedmovies, String[] runningmovies,
 			File seatLayout, String[] typesOfSeats, int[] numberOfSeats) {
@@ -46,10 +45,8 @@ public class Theatre {
 
 	public Theatre() {
 		super();
-		
 	}
-	
-	// List of getters and setters
+
 	public String getTheatreId() {
 		return theatreId;
 	}
@@ -57,12 +54,15 @@ public class Theatre {
 	public void setTheatreId(String theatreId) {
 		this.theatreId = theatreId;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getTheatreLocation() {
 		return theatreLocation;
 	}
@@ -94,14 +94,14 @@ public class Theatre {
 	public void setTheatreLicenseNo(String theatreLicenseNo) {
 		this.theatreLicenseNo = theatreLicenseNo;
 	}
+
 	public String getTotalnumberOfSeats() {
 		return totalnumberOfSeats;
 	}
+
 	public void setTotalnumberOfSeats(String totalnumberOfSeats) {
 		this.totalnumberOfSeats = totalnumberOfSeats;
 	}
-
-	
 
 	public String[] getScreenedmovies() {
 		return screenedmovies;
@@ -126,16 +126,21 @@ public class Theatre {
 	public void setSeatLayout(File seatLayout) {
 		this.seatLayout = seatLayout;
 	}
+
 	public String[] getTypesOfSeats() {
 		return typesOfSeats;
 	}
+
 	public void setTypesOfSeats(String[] typesOfSeats) {
 		this.typesOfSeats = typesOfSeats;
 	}
+
 	public int[] getNumberOfSeats() {
 		return numberOfSeats;
 	}
+
 	public void setNumberOfSeats(int[] numberOfSeats) {
 		this.numberOfSeats = numberOfSeats;
-	}	
+	}
+
 }

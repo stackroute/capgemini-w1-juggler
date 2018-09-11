@@ -24,7 +24,7 @@ public class TheatreServiceImpl implements TheatreService {
 	@Autowired
 	// This is the topic name it wont be changed so "final static"
 	private KafkaTemplate<String, Theatre> kafkaTemplate;
-	private static final String TOPIC = "theaterdetails";
+	private static final String TOPIC = "theater-details";
 
 	// saves the theatre details to database
 	@Override
@@ -40,7 +40,7 @@ public class TheatreServiceImpl implements TheatreService {
 	// to update the theatre details
 	@Override
 	public Theatre updateTheatre(Theatre theatre) {
-		kafkaTemplate.send(TOPIC, theatre);
+//		kafkaTemplate.send(TOPIC, theatre);
 		Theatre theatreUpdated = theatreRepository.save(theatre);
 
 		return theatreUpdated;

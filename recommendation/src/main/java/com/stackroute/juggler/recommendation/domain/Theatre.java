@@ -5,7 +5,6 @@ import java.util.Map;
 import org.springframework.data.annotation.Id;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-
 // Domain object for theater details
 public class Theatre {
 	@Id
@@ -17,36 +16,36 @@ public class Theatre {
 	private int showNumbers;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
 	private String showTimings;
-	private int weekends_Price;
-	private int weekdays_Price;
-	private Map<String, Integer> seats;
+	private int[] weekends_Price;
+	private int[] weekdays_Price;
+	private String[] typesOfSeats;
+	private int[] numberOfSeats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
 
-	// All Arguments constructor
-	
-
-	public Theatre(String theatreId, String theatreName, String theatreLocation,String theatreCity, File seatLayout, int showNumbers,
-			String showTimings, int weekends_Price, int weekdays_Price, Map<String, Integer> seats,
-			String[] screenedmovies, String[] runningmovies) {
+	public Theatre(String theatreId, String theatreName, String theatreLocation, String theatreCity, File seatLayout,
+			int showNumbers, String showTimings, int[] weekends_Price, int[] weekdays_Price, String[] typesOfSeats,
+			int[] numberOfSeats, String[] screenedmovies, String[] runningmovies) {
 		super();
 		this.theatreId = theatreId;
 		this.theatreName = theatreName;
 		this.theatreLocation = theatreLocation;
-		this.theatreCity=theatreCity;
+		this.theatreCity = theatreCity;
 		this.seatLayout = seatLayout;
 		this.showNumbers = showNumbers;
 		this.showTimings = showTimings;
 		this.weekends_Price = weekends_Price;
 		this.weekdays_Price = weekdays_Price;
-		this.seats = seats;
+		this.typesOfSeats = typesOfSeats;
+		this.numberOfSeats = numberOfSeats;
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
 	}
 
-	// List of all getters and setters
+	public Theatre() {
+		super();
+	}
 
-	
 	public String getTheatreId() {
 		return theatreId;
 	}
@@ -103,28 +102,36 @@ public class Theatre {
 		this.showTimings = showTimings;
 	}
 
-	public int getWeekends_Price() {
+	public int[] getWeekends_Price() {
 		return weekends_Price;
 	}
 
-	public void setWeekends_Price(int weekends_Price) {
+	public void setWeekends_Price(int[] weekends_Price) {
 		this.weekends_Price = weekends_Price;
 	}
 
-	public int getWeekdays_Price() {
+	public int[] getWeekdays_Price() {
 		return weekdays_Price;
 	}
 
-	public void setWeekdays_Price(int weekdays_Price) {
+	public void setWeekdays_Price(int[] weekdays_Price) {
 		this.weekdays_Price = weekdays_Price;
 	}
 
-	public Map<String, Integer> getSeats() {
-		return seats;
+	public String[] getTypesOfSeats() {
+		return typesOfSeats;
 	}
 
-	public void setSeats(Map<String, Integer> seats) {
-		this.seats = seats;
+	public void setTypesOfSeats(String[] typesOfSeats) {
+		this.typesOfSeats = typesOfSeats;
+	}
+
+	public int[] getNumberOfSeats() {
+		return numberOfSeats;
+	}
+
+	public void setNumberOfSeats(int[] numberOfSeats) {
+		this.numberOfSeats = numberOfSeats;
 	}
 
 	public String[] getScreenedmovies() {
@@ -142,11 +149,5 @@ public class Theatre {
 	public void setRunningmovies(String[] runningmovies) {
 		this.runningmovies = runningmovies;
 	}
-	
-	// No argument constructor
-	public Theatre() {
-		super();
-	}
-
 
 }
