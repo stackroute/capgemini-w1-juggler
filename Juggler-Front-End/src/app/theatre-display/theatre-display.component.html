@@ -22,40 +22,42 @@
                       <mat-list role="list">
                         <div class="listOfItem">
                           <mat-list-item role="listitem">
-                          </mat-list-item>
-                          <div class="hoverWrapper">
-                            <a class="CamelCase">
-                              <strong>{{theatre.theatreName}}</strong>
-                            </a>
-                            <div id="display" *ngFor="let showtime of theatre.showTimings">
-                              <a href="#" class="showTime display">
-                                <strong>{{showtime}}</strong>
-                              </a>
-                            </div>
-                            <div id="hoverShow1">
-                              <div id="display" *ngFor="let seat of theatre.typesOfSeats">
-                                <a class="DisplayBorder" href="#">{{seat}}</a>
-                              </div>
-                              <br>
-                              <div *ngIf="determineDay(everyday|date: 'EEE');else notWeekend">
-                                <div id="display" *ngFor="let price of theatre.weekends_Price">
-                                  <a id="spacing" href="#">
-                                    Rs.{{price}}
-                                  </a>
 
-                                </div>
+                            <div class="hoverWrapper">
+                              <a class="CamelCase">
+                                <strong>{{theatre.theatreName}}</strong>
+                              </a>
+                              <div id="display" *ngFor="let showtime of theatre.showTimings">
+                                <a href="#" class="showTime display">
+                                  <strong>{{showtime}}</strong>
+                                </a>
                               </div>
-                              <br>
-                              <ng-template #notWeekend>
+                              <div id="hoverShow1">
+                                <div id="display" *ngFor="let seat of theatre.typesOfSeats">
+                                  <a class="DisplayBorder" href="#">{{seat}}</a>
+                                </div>
+                                <br>
+                                <div *ngIf="determineDay(everyday|date: 'EEE');else notWeekend">
+                                  <div id="display" *ngFor="let price of theatre.weekends_Price">
+                                    <a id="spacing" href="#">
+                                      Rs.{{price}}
+                                    </a>
+
+                                  </div>
+                                </div>
+                                <br>
+                                <ng-template #notWeekend>
                                   <div id="display" *ngFor="let price of theatre.weekdays_Price">
-                                      <a id="spacing" href="#">
-                                        Rs.{{price}}
-                                      </a>
-    
-                                    </div>
-                              </ng-template>
+                                    <a id="spacing" href="#">
+                                      Rs.{{price}}
+                                    </a>
+
+                                  </div>
+                                </ng-template>
+                              </div>
                             </div>
-                          </div>
+                          </mat-list-item>
+                          <mat-divider></mat-divider>
                         </div>
                       </mat-list>
                     </div>
