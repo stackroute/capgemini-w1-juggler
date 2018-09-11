@@ -23,6 +23,8 @@ export class TheatreDisplayComponent implements OnInit {
   priceSeats = [];
   seats = [];
   i: number;
+  weekday: boolean;
+  weekend: boolean;
   constructor(private movieDetailsService: MovieDetailsService) {}
 
   ngOnInit() {
@@ -36,8 +38,10 @@ export class TheatreDisplayComponent implements OnInit {
     //this.today = this.validDate.now();
     //Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
     this.today = Date.now();
+    // console.log(this.today);
     this.count = 0;
     this.dateValue = this.today;
+
     // this.tomorrow[j]=this.today[i]+(24*60*60*1000);
     while (this.count < 7) {
       this.tomorrow[this.count] = this.dateValue;
@@ -45,5 +49,14 @@ export class TheatreDisplayComponent implements OnInit {
       this.dateValue = this.dateValue + 24 * 60 * 60 * 1000;
       this.count++;
     }
+  }
+  determineDay(day) {
+    if (day === "Sat" || day === "Sun") 
+    this.weekend = true;
+    else
+     this.weekend = false;
+    return this.weekend;
+
+
   }
 }
