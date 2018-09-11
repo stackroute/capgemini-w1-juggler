@@ -56,7 +56,7 @@ export class UserLoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(["/"]);
+          this.router.navigate(["/home"]);
           location.reload();
         },
         error => {
