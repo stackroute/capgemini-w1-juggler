@@ -12,7 +12,11 @@ public interface MovieService {
 //	Movie saveMovie(Movie movie);
 	public void getMovieNode(MovieSchedule movie);
 
-	List<Movie> getGenreLanguageBasedMoviesForUser(String emailId); 
+	List<Movie> getGenreLanguageBasedMoviesForUser(String emailId);
+
+	public List<Movie> getGenreBasedMoviesForUser(String emailId);
+
+	public List<Movie> getLanguageBasedMoviesForUser(String emailId); 
 	
 //	public Movie findByName(String name);
 //	public Movie findById(int id);

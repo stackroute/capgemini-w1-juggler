@@ -2,10 +2,8 @@ package com.stackroute.juggler.moviesearch.domain;
 
 import java.io.File;
 import java.util.Map;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Document
@@ -19,19 +17,18 @@ public class Theatre {
 	private File seatLayout;
 	private int showNumbers;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
-	private String showTimings;
-	private int weekends_Price;
-	private int weekdays_Price;
-	private Map<String, Integer> seats;
+	private String[] showTimings;
+	private int[] weekends_Price;
+	private int[] weekdays_Price;
 	private String[] screenedmovies;
 	private String[] runningmovies;
+	private String[] typesOfSeats;
+	private int[] numberOfSeats;
 
 	// All Arguments constructor
-	
-
 	public Theatre(String theatreId, String theatreName, String theatreLocation, File seatLayout, int showNumbers,
-			String showTimings, int weekends_Price, int weekdays_Price, Map<String, Integer> seats,
-			String[] screenedmovies, String[] runningmovies) {
+			String[] showTimings, int[] weekends_Price, int[] weekdays_Price, String[] screenedmovies,
+			String[] runningmovies, String[] typesOfSeats, int[] numberOfSeats) {
 		super();
 		this.theatreId = theatreId;
 		this.theatreName = theatreName;
@@ -41,13 +38,18 @@ public class Theatre {
 		this.showTimings = showTimings;
 		this.weekends_Price = weekends_Price;
 		this.weekdays_Price = weekdays_Price;
-		this.seats = seats;
 		this.screenedmovies = screenedmovies;
 		this.runningmovies = runningmovies;
+		this.typesOfSeats = typesOfSeats;
+		this.numberOfSeats = numberOfSeats;
+	}
+
+	// No argument constructor
+	public Theatre() {
+		super();
 	}
 
 	// List of all getters and setters
-
 	public String getTheatreId() {
 		return theatreId;
 	}
@@ -88,36 +90,28 @@ public class Theatre {
 		this.showNumbers = showNumbers;
 	}
 
-	public String getShowTimings() {
+	public String[] getShowTimings() {
 		return showTimings;
 	}
 
-	public void setShowTimings(String showTimings) {
+	public void setShowTimings(String[] showTimings) {
 		this.showTimings = showTimings;
 	}
 
-	public int getWeekends_Price() {
+	public int[] getWeekends_Price() {
 		return weekends_Price;
 	}
 
-	public void setWeekends_Price(int weekends_Price) {
+	public void setWeekends_Price(int[] weekends_Price) {
 		this.weekends_Price = weekends_Price;
 	}
 
-	public int getWeekdays_Price() {
+	public int[] getWeekdays_Price() {
 		return weekdays_Price;
 	}
 
-	public void setWeekdays_Price(int weekdays_Price) {
+	public void setWeekdays_Price(int[] weekdays_Price) {
 		this.weekdays_Price = weekdays_Price;
-	}
-
-	public Map<String, Integer> getSeats() {
-		return seats;
-	}
-
-	public void setSeats(Map<String, Integer> seats) {
-		this.seats = seats;
 	}
 
 	public String[] getScreenedmovies() {
@@ -135,11 +129,21 @@ public class Theatre {
 	public void setRunningmovies(String[] runningmovies) {
 		this.runningmovies = runningmovies;
 	}
-	
 
-	public Theatre() {
-		super();
+	public String[] getTypesOfSeats() {
+		return typesOfSeats;
 	}
 
+	public void setTypesOfSeats(String[] typesOfSeats) {
+		this.typesOfSeats = typesOfSeats;
+	}
+
+	public int[] getNumberOfSeats() {
+		return numberOfSeats;
+	}
+
+	public void setNumberOfSeats(int[] numberOfSeats) {
+		this.numberOfSeats = numberOfSeats;
+	}
 
 }

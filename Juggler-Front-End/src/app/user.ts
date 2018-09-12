@@ -6,10 +6,10 @@ export class User {
     mobileNo: number;
     password: string;
     gender: string;
-    LanguagesKnown: string;
+    languagesKnown: string[];
     dateOfBirth: string;
     location: string;
-    genre: string;
+    genre: string[];
     likes: string;
     payment_methods: string;
 }

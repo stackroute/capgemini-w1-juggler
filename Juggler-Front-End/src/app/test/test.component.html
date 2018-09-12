@@ -1,0 +1,22 @@
+<p>
+  test works!
+</p>
+Types Of Seats:::
+<mat-form-field>
+  <input matInput name="input" placeholder="ex:3" formControlName="type1" type="text" required>
+  <mat-error>Required</mat-error>
+</mat-form-field>
+<button class="btn-block btn-info form-control" (click)="searchMovies()">Ok</button>
+
+<div *ngIf=search_result1>
+  <div class="row">
+    <div *ngFor="let movie of search_result1">
+
+      <h3>movies</h3>
+      <mat-form-field>
+        <input matInput placeholder="type1" formControlName="type1" type="text" required>
+        <mat-error>Required</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

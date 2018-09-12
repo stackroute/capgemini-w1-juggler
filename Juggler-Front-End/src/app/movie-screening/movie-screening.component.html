@@ -15,12 +15,42 @@
         <input matInput placeholder="Enter Show Timings" formControlName="show_Timings" type="text" required>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
+      <!-- <mat-form-field class="example-full-width">
         <input matInput placeholder="Enter Weekdays Price" type="text" formControlName="weekdays_Price" required>
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Enter Weekends Price" formControlName="weekends_Price" type="text" required>
-      </mat-form-field>
+      </mat-form-field> -->
+      Enter Weekdays Price
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Platnium" formControlName="n1" type="number" required>
+          <mat-error>The input is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Gold" formControlName="n2" type="number" required>
+          <mat-error>The input is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Silver" formControlName="n3" type="number" required>
+          <mat-error>The input is invalid</mat-error>
+        </mat-form-field>
+      </div>
+      Enter Week Price
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Platnium" formControlName="n4" type="number" required>
+          <mat-error>The input is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Gold" formControlName="n5" type="number" required>
+          <mat-error>The input is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Silver" formControlName="n6" type="number" required>
+          <mat-error>The input is invalid</mat-error>
+        </mat-form-field>
+      </div>
       <div>
         <button mat-button matStepperNext type="submit">Next</button>
       </div>
@@ -51,7 +81,7 @@
           <div class="col-sm-12">
             <div class="card mt-5 mb-5">
               <div class="card-header">
-                <strong> {{movie.movieName}}</strong>
+                <strong> {{movie.movieName}} </strong>
               </div>
               <div class="card-body">
                 <div class="row">
@@ -112,6 +142,8 @@
           </div>
         </div>
       </div>
+      
     </form>
+    <button mat-button (click)="clickOk()">Ok</button>
   </mat-step>
 </mat-horizontal-stepper>

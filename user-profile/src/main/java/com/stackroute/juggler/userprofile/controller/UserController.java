@@ -42,6 +42,8 @@ public class UserController {
 		// InputUser userobj = null;
 		try {
 			InputUser userobj = userService.saveUser(inputUser);
+			System.out.println(inputUser.getLanguagesKnown());
+			System.out.println(inputUser.getDateOfBirth());
 			logger.info("movie is saved into database");
 			return new ResponseEntity<InputUser>(userobj, HttpStatus.CREATED);
 		} catch (ProfileAlreadyExitsException m) {

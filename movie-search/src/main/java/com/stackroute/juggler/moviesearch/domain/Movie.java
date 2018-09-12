@@ -2,7 +2,6 @@ package com.stackroute.juggler.moviesearch.domain;
 
 import java.io.File;
 import java.util.List;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,7 +15,7 @@ public class Movie {
 	private String synopsis;
 	private String movieReleasedate;
 	private String movieDuration;
-	private String language;
+	private String languages;
 	private String movieGenre;
 	private String format;
 	private String hero;
@@ -26,7 +25,7 @@ public class Movie {
 
 	// All Arguments constructor
 	public Movie(String movieId, String movieName, String moviePoster, String synopsis, String movieReleasedate,
-			String movieDuration, String language, String movieGenre, String format, String hero, String heroine,
+			String movieDuration, String languages, String movieGenre, String format, String hero, String heroine,
 			String director, List<Theatre> theatres) {
 		super();
 		this.movieId = movieId;
@@ -35,7 +34,7 @@ public class Movie {
 		this.synopsis = synopsis;
 		this.movieReleasedate = movieReleasedate;
 		this.movieDuration = movieDuration;
-		this.language = language;
+		this.languages = languages;
 		this.movieGenre = movieGenre;
 		this.format = format;
 		this.hero = hero;
@@ -44,6 +43,7 @@ public class Movie {
 		this.theatres = theatres;
 	}
 
+	// No argument constructor
 	public Movie() {
 		super();
 	}
@@ -97,12 +97,12 @@ public class Movie {
 		this.movieDuration = movieDuration;
 	}
 
-	public String getLanguage() {
-		return language;
+	public String getLanguages() {
+		return languages;
 	}
 
-	public void setLanguage(String language) {
-		this.language = language;
+	public void setLanguage(String languages) {
+		this.languages = languages;
 	}
 
 	public String getMovieGenre() {

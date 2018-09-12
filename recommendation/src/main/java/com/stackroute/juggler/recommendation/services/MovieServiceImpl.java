@@ -11,6 +11,7 @@ import com.stackroute.juggler.recommendation.domain.City;
 import com.stackroute.juggler.recommendation.domain.Genre;
 import com.stackroute.juggler.recommendation.domain.Language;
 import com.stackroute.juggler.recommendation.domain.Movie;
+import com.stackroute.juggler.recommendation.domain.Theatre;
 import com.stackroute.juggler.recommendation.repositories.MovieRepository;
 
 @Service
@@ -73,7 +74,7 @@ public class MovieServiceImpl implements MovieService {
 //	}
 
 	@Override
-	@KafkaListener(groupId = "movie", topics = "screeningdetails", containerFactory = "movieKafkaListenerContainerFactory")
+	@KafkaListener(groupId = "movie", topics = "screenings", containerFactory = "movieKafkaListenerContainerFactory")
 	public void getMovieNode(MovieSchedule movie) {
 		System.out.println("1");
 		Movie movieObj = new Movie();
@@ -96,20 +97,34 @@ public class MovieServiceImpl implements MovieService {
 		movieObj.setLanguages(langObj);
 		Genre genreObj = new Genre(movie.getMovieGenres());
 		movieObj.setGenre(genreObj);
+		Theatre theatreObj=new Theatre();
+		theatreObj.setTheatreId(movie.getTheatreId());
+		theatreObj.setTheatreName(movie.getTheatreName());
+		theatreObj.setTheatreLocation(movie.getTheatreLocation());
+		theatreObj.setTheatreCity(movie.getTheatreCity());
+		theatreObj.setSeatLayout(movie.getSeatLayout());
+		theatreObj.setShowNumbers(movie.getShowNumbers());
+		theatreObj.setShowTimings(movie.getShowTimings());
+		theatreObj.setWeekdays_Price(movie.getWeekdays_Price());
+		theatreObj.setWeekends_Price(movie.getWeekends_Price());
+		theatreObj.setNumberOfSeats(movie.getNumberOfSeats());
+		theatreObj.setTypesOfSeats(movie.getTypesOfSeats());
+		theatreObj.setRunningmovies(movie.getRunningmovies());
+		theatreObj.setScreenedmovies(movie.getScreenedmovies());
 		System.out.println(movieObj.toString());
 		movieRepository.save(movieObj);
 		System.out.println("final");
 	}
-//	@Override
-//	public List<Movie> getGenreBasedMoviesForUser(String emailId) {
-//		System.out.println("serviceimpl");
-//		return movieRepository.getGenreBasedMoviesForUser(emailId);
-//	}
-//
-//	@Override
-//	public List<Movie> getLanguageBasedMoviesForUser(String emailId) {
-//		return movieRepository.getLanguageBasedMoviesForUser(emailId);
-//	}
+	@Override
+	public List<Movie> getGenreBasedMoviesForUser(String emailId) {
+		System.out.println("serviceimpl");
+		return movieRepository.getGenreBasedMoviesForUser(emailId);
+	}
+
+	@Override
+	public List<Movie> getLanguageBasedMoviesForUser(String emailId) {
+		return movieRepository.getLanguageBasedMoviesForUser(emailId);
+	}
 
 	
 	

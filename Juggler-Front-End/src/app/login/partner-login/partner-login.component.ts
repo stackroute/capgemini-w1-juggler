@@ -14,7 +14,8 @@ export class PartnerLoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-  // returnUrl: string;
+  // returnUrl: string; 
+  
   role: string;
   errormessage: Boolean = true;
   constructor(
@@ -57,12 +58,17 @@ export class PartnerLoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(["/home"]);
-          location.reload();
+          if (this.role == "Distributor") {
+            this.router.navigate(["/distributor"]);
+            location.reload();
+          } else {
+            this.router.navigate(["/profile", this.f.email.value]);
+            location.reload();
+          }
         },
         error => {
-          // this.alertService.error(error);
-          // this.loading = false;
+          this.alertService.error(error);
+          this.loading = false;
           this.errormessage = false;
         }
       );

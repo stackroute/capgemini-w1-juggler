@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService {
 	public InputUser saveUser(InputUser inputUser) throws ProfileAlreadyExitsException {
 		if (userRepository.findByUserId(inputUser.getUserId()) == null) {
 			kafkaTemplate.send(topic, inputUser);
+			kafkaTemplate.send("details11", inputUser);
 			// This is because we dont want to save the password in the userprofile database
 			inputUser.setPassword(null);
 			InputUser userSaved = userRepository.save(inputUser);

@@ -43,5 +43,7 @@ public interface MovieRepository extends Neo4jRepository<Movie, String> {
 //			@Param("languageName") String languageName);
 	@Query("Match (u:User)-[:follows]->(g:Genre)<-[:isTypeOf]-(r:Movie) where u.emailId={emailId} Match (r)-[:releasedIn]->(c:City)<-[:livesIn]-(u)  Match (r)-[:LanguageType]->(l:Language)<-[:preferredLanguage]-(u) return (r)")
     public List<Movie> getGenreLanguageBasedMoviesForUser(@Param("emailId") String emailId);
-	
+	@Query("Match (u:User)-[:preferredLanguage]->(l:Language)<-[:LanguageType]-(r:Movie) where u.emailId={emailId} Match (r)-[:releasedIn]->(c:City)<-[:livesIn]-(u) return (r)")
+	List<Movie> getLanguageBasedMoviesForUser(@Param("emailId") String emailId);
+
 }

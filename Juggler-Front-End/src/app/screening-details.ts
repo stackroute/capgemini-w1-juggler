@@ -13,8 +13,8 @@ export class ScreeningDetails {
   languages: string;
   showNumbers: number;
   showTimings: String;
-  weekends_Price: number;
-  weekdays_Price: number;
+  weekends_Price: number[];
+  weekdays_Price: number[];
   // weekends_Price: Map<String, number>;
   // weekdays_Price: Map<String, number>;
 }
