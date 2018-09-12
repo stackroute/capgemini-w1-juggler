@@ -51,5 +51,6 @@ export const routingComponents = [
   TheatreRegistrationComponent,
   DistributionRegisterFormComponent,
   MovieScreeningComponent,
-  ProfileComponent
+  ProfileComponent,
+  SeatlayoutComponent
 ];
