@@ -25,14 +25,12 @@ import com.stackroute.juggler.recommendation.domain.User;
 import com.stackroute.juggler.recommendation.repositories.UserRepository;
 import com.stackroute.juggler.recommendation.services.MovieService;
 import com.stackroute.juggler.recommendation.services.UserService;
-
-
-@CrossOrigin("https//localhost:4200")
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1")
 public class RecommendationServiceController {
 
-	private MovieService movieService;
+	 MovieService movieService;
 private UserRepository userRepository;
 	private UserService userService;
 

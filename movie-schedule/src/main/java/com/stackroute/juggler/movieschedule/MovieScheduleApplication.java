@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@EnableDiscoveryClient // for eureka server to find this application
+@EnableDiscoveryClient 
 @SpringBootApplication
 public class MovieScheduleApplication {
 

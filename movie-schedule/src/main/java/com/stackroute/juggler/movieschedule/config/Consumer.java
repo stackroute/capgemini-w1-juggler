@@ -24,6 +24,7 @@ public class Consumer {
 		
 //		172.23.238.190
 
+		// Consumer factory of kafka which will hold the configuration details
 		@Bean
 		public ConsumerFactory<String, Theatre> consumerFactory() {
 			Map<String, Object> config = new HashMap<>();
@@ -36,6 +37,7 @@ public class Consumer {
 					new JsonDeserializer<>(Theatre.class));
 		}
 
+		// Template imports the configuration from consumer factory
 		@Bean
 		public ConcurrentKafkaListenerContainerFactory<String, Theatre> kafkaListenerContainerFactory() {
 			ConcurrentKafkaListenerContainerFactory<String, Theatre> factory = new ConcurrentKafkaListenerContainerFactory();

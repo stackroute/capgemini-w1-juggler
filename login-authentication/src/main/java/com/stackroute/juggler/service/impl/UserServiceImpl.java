@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
 	// Listen the details from the kafka
 	@Override
-	@KafkaListener(topics = "details8", groupId = "user")
+	@KafkaListener(topics = "details10", groupId = "user")
 	public void consumeKafka(InputUser inputUser) {
 
 		User user = new User();

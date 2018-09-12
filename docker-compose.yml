@@ -86,7 +86,7 @@ services:
 
   login-auth:
 
-   build: login-authentication/
+   
 
    container_name: login-authentication-docker
 
@@ -100,7 +100,7 @@ services:
 
    hostname: localhost
 
-   image: login
+   image: saishree31/login:1.0
 
    network_mode: host
 
@@ -133,6 +133,8 @@ services:
     MYSQL_DATABASE: juggler_db
 
     MYSQL_PASSWORD: root
+    
+    MYSQL_USER: root
 
    healthcheck:
 

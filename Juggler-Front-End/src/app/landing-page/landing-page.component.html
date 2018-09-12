@@ -1,0 +1,39 @@
+<mat-grid-list cols="12" rowHeight="80px" fxLayout="row wrap">
+    <h3>Trending Movies</h3>
+    <div *ngFor="let movie of movies">
+        <mat-grid-tile colspan="3" rowspan="6">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title><a>{{movie.movieTitle}}</a></mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="{{movie.movieposter}}" alt="Poster of movie">
+                <mat-card-actions>
+                    <button mat-button routerLink="/moviedetail">Movie Details</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+    </div>
+</mat-grid-list>
+<!-- <div *ngFor="let movie of movies" fxLayout="row wrap" fxLayout="row" fxLayout.xs="column">
+    <md-card>
+        <mat-card-header>
+            <mat-card-title><a>{{movie.movieTitle}}</a></mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{movie.movieposter}}" alt="Poster of movie">
+        <mat-card-actions>
+            <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">Movie Details</button>
+        </mat-card-actions>
+    </md-card>
+</div> -->
+<!-- <div class="container">
+    <div fxLayout="row" fxLayout.xs="column" fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
+        <mat-card class="card-picture" *ngFor="let movie of movies">
+            <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+                <span fxFlex="80%">{{movie.movieTitle}}</span>
+                <mat-icon fxFlex="10%">mode_edit</mat-icon>
+            <mat-icon fxFlex="10%">delete</mat-icon>
+            </mat-card-title>
+            <img mat-card-image src="{{movie.movieposter}}" alt="Poster of movie">
+        </mat-card>
+    </div>
+</div> -->

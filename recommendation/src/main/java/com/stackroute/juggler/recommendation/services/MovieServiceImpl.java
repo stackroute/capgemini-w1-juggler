@@ -73,7 +73,7 @@ public class MovieServiceImpl implements MovieService {
 //	}
 
 	@Override
-	@KafkaListener(groupId = "movie", topics = "screeningfinal", containerFactory = "movieKafkaListenerContainerFactory")
+	@KafkaListener(groupId = "movie", topics = "screeningdetails", containerFactory = "movieKafkaListenerContainerFactory")
 	public void getMovieNode(MovieSchedule movie) {
 		System.out.println("1");
 		Movie movieObj = new Movie();
