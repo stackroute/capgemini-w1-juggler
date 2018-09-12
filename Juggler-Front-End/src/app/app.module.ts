@@ -43,6 +43,7 @@ import { TheatreDisplayComponent } from './theatre-display/theatre-display.compo
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
 import { TestComponent } from './test/test.component';
+import { SeatlayoutComponent } from './seatlayout/seatlayout.component';
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { TestComponent } from './test/test.component';
     RecommendationComponent,
     ProfileComponent,
     TheatreDisplayComponent,
-    TestComponent
+    TestComponent,
+    SeatlayoutComponent
   ],
 
   imports: [

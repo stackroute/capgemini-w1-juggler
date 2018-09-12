@@ -30,9 +30,9 @@ public class MovieServiceImpl implements MovieService {
 //
 //		return movieRepository.findByGenres(genre);
 //	}
-	public Movie findByName(String name) {
-		return movieRepository.findByName(name);
-	}
+//	public Movie findByName(String name) {
+//		return movieRepository.findByName(name);
+//	}
 
 //	public Movie findById(int id) {
 //		return movieRepository.findById(id);
@@ -43,20 +43,20 @@ public class MovieServiceImpl implements MovieService {
 //	movieRepository.releasedIn(cityName, movieId);		
 //	}
 
-	@Override
-	public List<Movie> getMoviesByGenre(String genreName) {
-		return movieRepository.getMoviesByGenre(genreName);
-	}
-//
+//	@Override
+//	public List<Movie> getMoviesByGenre(String genreName) {
+//		return movieRepository.getMoviesByGenre(genreName);
+//	}
+
 //	@Override
 //	public List<Movie> getMoviesByCity(String name) {
 //		return movieRepository.getMoviesByCity(name);
 //	}
 //
-	@Override
-	public List<Movie> getMovieByCityGenre(String name, String genreName) {
-		return movieRepository.getMovieByCityGenre(name, genreName);
-	}
+//	@Override
+//	public List<Movie> getMovieByCityGenre(String name, String genreName) {
+//		return movieRepository.getMovieByCityGenre(name, genreName);
+//	}
 
 //	@Override
 //	public void releasedIn(String cityName, int movieId) {
@@ -126,11 +126,13 @@ public class MovieServiceImpl implements MovieService {
 		return movieRepository.getLanguageBasedMoviesForUser(emailId);
 	}
 
+	
+	
 	@Override
-	public List<Movie> getGenreLanguageBasedMoviesForUser(String emailId) {
-		return movieRepository.getGenreLanguageBasedMoviesForUser(emailId);
-	}
-
+    public List<Movie> getGenreLanguageBasedMoviesForUser(String emailId) {
+        return movieRepository.getGenreLanguageBasedMoviesForUser(emailId);
+    }
+	
 //	@Override
 //	public List<Movie> getByGenreAgeCity(String userName, String genreName, String cityName) {
 //		return movieRepository.getByGenreAgeCity(userName, genreName, cityName);
