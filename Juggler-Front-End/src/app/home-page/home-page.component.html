@@ -6,7 +6,6 @@
                 <div class="row p-5">
                     <div class="col-12">
                         <input type="text" class="form-control" placeholder="Search movies" name="city">
-
                         <button type="submit" class="btn-block btn-info form-control" (click)="searchMovies()"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
@@ -30,7 +29,6 @@
                         </mat-card-header>
                         <img mat-card-image routerLink="/moviedetail" (click)="getMovieInfo(movie)" src="{{movie.moviePoster}} " alt="Poster of movie"
                             height="200" width="1">
-                        <!-- <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button> -->
                     </mat-card>
                 </div>
             </div>
@@ -38,9 +36,7 @@
     </div>
 </div>
 
-
 <mat-grid-list cols="12" (window:resize)="onResize($event)">
-    <!-- <mat-grid-list cols="12"> -->
     <h3>Trending Movies</h3>
     <div class="container">
         <div *ngIf=search_result>
@@ -57,7 +53,6 @@
                                     </mat-card-header>
                                     <img mat-card-image routerLink="/moviedetail" (click)="getMovieInfo(movie)" src="{{movie.moviePoster}} " alt="Poster of movie"
                                         height="200" width="150">
-                                    <!-- <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button> -->
                                 </mat-card>
                             </div>
                         </mat-grid-tile>
@@ -66,7 +61,6 @@
             </div>
         </div>
     </div>
-
 </mat-grid-list>
 
 <app-recommendation></app-recommendation>

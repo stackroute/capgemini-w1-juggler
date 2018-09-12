@@ -15,7 +15,6 @@ export class UserLoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-  // returnUrl: string;
   errormessage: Boolean = true;
   constructor(
     private formBuilder: FormBuilder,
@@ -24,25 +23,16 @@ export class UserLoginComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private alertService: AlertService
   ) {}
-
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: [null, Validators.required],
       password: [null, Validators.required]
     });
-
-    // reset login status
-    
-
-    // get return url from route parameters or default to '/'
-    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
-
   // convenience getter for easy access to form fields
   get f() {
     return this.loginForm.controls;
   }
-
   onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
