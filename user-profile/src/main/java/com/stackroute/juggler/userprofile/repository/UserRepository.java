@@ -11,5 +11,6 @@ import com.stackroute.juggler.kafka.domain.InputUser;
 public interface UserRepository extends MongoRepository<InputUser,Integer> {
 
 	//These are the defined methods to be used when handling with database
-	InputUser findByUserId(String string);
+	public InputUser findByUserId(String string);
+	public InputUser findByEmailId(String string);
 }

@@ -1,15 +1,17 @@
 <!-- Search form -->
-<div class="container col-8">
+<div class="container col-12">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-lg-12">
             <form>
                 <div class="row p-5">
-                    <div class="col-9">
-                        <input type="text" class="form-control" placeholder="Search Movies" name="city" [(ngModel)]="city" #input>
+                    <div class="col-12">
+                        <input type="text" class="form-control" placeholder="Search movies" name="city" [(ngModel)]="city" #input>
+                    
+                        <button type="submit" class="btn-block btn-info form-control" (click)="searchMovies(input.value)"><i class="fa fa-search"></i></button>
                     </div>
-                    <div class="col-3">
-                        <button class="btn-block btn-info form-control" (click)="searchMovies(input.value)">Search</button>
-                    </div>
+                    <!-- <div class="col-1">
+                        <button type="submit" class="btn-block btn-info form-control" (click)="searchMovies(input.value)"><i class="fa fa-search"></i></button>
+                    </div> -->
                 </div>
             </form>
         </div>
@@ -17,7 +19,7 @@
 </div>
 
 <div class="unit">...</div>
-
+ 
 
 <div class="container">
        
@@ -25,15 +27,15 @@
         <div class="row">
             <div *ngFor="let movie of search_result1 let i = index">
                     <div *ngIf='i < 1'>
-                    <h3>movies</h3>
+                    <h3>Search_results</h3>
                             <mat-card>
                                 <mat-card-header>
                                     <mat-card-title>
-                                        <a>{{movie.movieName}}</a>
+                                        <h1>{{movie.movieName}}</h1>
                                     </mat-card-title>
                                 </mat-card-header>
-                                <img mat-card-image src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="50">
-                                <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button>
+                                <img mat-card-image routerLink="/moviedetail" (click)="getMovieInfo(movie)" src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="1">
+                            <!-- <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button> -->
                             </mat-card>
                 </div>
                 </div>
@@ -43,6 +45,7 @@
 
 
 <mat-grid-list cols="12"  (window:resize)="onResize($event)">
+<!-- <mat-grid-list cols="12"> -->
     <h3>Trending Movies</h3>
     <div class="container">
         <div *ngIf=search_result>
@@ -57,8 +60,8 @@
                                             <a>{{movie.movieName}}</a>
                                         </mat-card-title>
                                     </mat-card-header>
-                                    <img mat-card-image src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="150">
-                                    <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button>
+                                    <img mat-card-image routerLink="/moviedetail" (click)="getMovieInfo(movie)" src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="150">
+                                    <!-- <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button> -->
                                 </mat-card>
                             </div>
                         </mat-grid-tile>

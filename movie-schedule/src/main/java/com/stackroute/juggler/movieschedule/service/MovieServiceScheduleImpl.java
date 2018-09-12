@@ -9,18 +9,18 @@ import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.kafka.domain.Theatre;
-import com.stackroute.juggler.movieschedule.config.Producer;
+import com.stackroute.juggler.movieschedule.config.KafkaProducerConfig;
 import com.stackroute.juggler.movieschedule.repository.MovieScheduleRepository;
 
 @Service
 public class MovieServiceScheduleImpl implements MovieScheduleService {
 
 	private MovieScheduleRepository movieScheduleRepo;
-	private Producer kafkaProducer;
+	private KafkaProducerConfig kafkaProducer;
 
 //	static final String TOPIC = "screeningfinal";
 	@Autowired
-	public MovieServiceScheduleImpl(MovieScheduleRepository movieScheduleRepo, Producer kafkaProducer) {
+	public MovieServiceScheduleImpl(MovieScheduleRepository movieScheduleRepo, KafkaProducerConfig kafkaProducer) {
 
 		this.movieScheduleRepo = movieScheduleRepo;
 		this.kafkaProducer = kafkaProducer;
@@ -89,7 +89,7 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 
 	// the method to listen the message from the specified kafka topic
 	@Override
-	@KafkaListener(topics = "theaterdetails", groupId = "grpid", containerFactory = "kafkaListenerContainerFactory")
+	@KafkaListener(topics = "theater-details", groupId = "grpid", containerFactory = "kafkaListenerContainerFactory")
 	public void consumeKafka(Theatre theatre) {
 		MovieSchedule addTheatre = new MovieSchedule();
 
@@ -101,9 +101,11 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 			addTheatre.setTheatreId(theatre.getTheatreId());
 			addTheatre.setTheatreCity(theatre.getTheatreCity());
 			addTheatre.setTheatreLicenseNo(theatre.getTheatreLicenseNo());
+			addTheatre.setSeatLayout(theatre.getSeatLayout());
+			addTheatre.setTypesOfSeats(theatre.getTypesOfSeats());
 			addTheatre.setNumberOfSeats(theatre.getNumberOfSeats());
-			addTheatre.setSeats(theatre.getSeats());
-
+			addTheatre.setScreenedmovies(theatre.getScreenedmovies());
+			addTheatre.setRunningmovies(theatre.getRunningmovies());
 			movieScheduleRepo.save(addTheatre);
 		}
 
