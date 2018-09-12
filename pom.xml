@@ -35,6 +35,6 @@
 		<module>recommendation</module>
 		<module>login-authentication</module>
 
-         <module>Rsvp</module>
+         <module>rsvp</module>
 	</modules>
 </project>
