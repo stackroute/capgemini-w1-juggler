@@ -1,3 +1,4 @@
+package com.stackroute.juggler.rsvp;
 //package com.stackroute.juggler.Rsvp;
 //
 //import org.junit.Test;
