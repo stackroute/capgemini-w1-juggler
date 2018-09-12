@@ -10,12 +10,12 @@ import { Movie } from './movie';
 })
 export class MovieScreeningService {
   // public tName;
-  private _url = 'http://localhost:8030';
+  private _url = 'http://172.23.239.112:8030';
   constructor(private http: HttpClient, private router: ActivatedRoute) {}
 
   getMovies(title: string) {
     return fetch(
-      'http://localhost:8010/api/v1/getbytitle/movie/?movieTitle=' + title
+      'http://172.23.239.112:8010/api/v1/getbytitle/movie/?movieTitle=' + title
     ).then(response => response.json());
   }
 

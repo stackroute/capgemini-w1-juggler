@@ -8,10 +8,10 @@ import { map } from 'rxjs/operators';
 })
 export class RecommendationService {
 
-  private recommended_url = "http://localhost:8050/recommendation/api/v1/";
- private genrebasedmovies_url = "http://localhost:8050/api/v1/getGenreBasedMoviesForUser/";
- private languagebasedmovies_url = "http://localhost:8050/api/v1/getLanguageBasedMoviesForUser/";
- private languagegenrebased_url = "http://localhost:8050/api/v1/getGenreLanguageBasedMoviesForUser/"; 
+  private recommended_url = "http://172.23.239.112:8050/recommendation/api/v1/";
+ private genrebasedmovies_url = "http://172.23.239.112:8050/api/v1/getGenreBasedMoviesForUser/";
+ private languagebasedmovies_url = "http://172.23.239.112:8050/api/v1/getLanguageBasedMoviesForUser/";
+ private languagegenrebased_url = "http://172.23.239.112:8050/api/v1/getGenreLanguageBasedMoviesForUser/"; 
  constructor(private http:HttpClient) { } 
 
 getGenreBasedMovies(emailId): Observable<MovieDetails[]> {

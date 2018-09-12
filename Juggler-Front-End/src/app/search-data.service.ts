@@ -14,8 +14,8 @@ export class SearchDataService {
   data: any;
   private city_string: string;
   private movie_string: string;
-  private url = 'http://localhost:8060/api/v1/movie';
-  private url3 = 'http://localhost:8060/api/v1/city';
+  private url = 'http://172.23.239.112:8060/api/v1/movie';
+  private url3 = 'http://172.23.239.112:8060/api/v1/city';
   
   constructor(private http: HttpClient, private router: Router) { }
   
