@@ -31,8 +31,8 @@ const routes: Routes = [
   { path: 'theatre/:email', component: TheatreRegistrationComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'profile/:email', component: ProfileComponent },
-  { path: 'display-theatre',component: TheatreDisplayComponent},
-  {path: 'seat-layout',component:SeatlayoutComponent}
+  { path: 'display-theatre',component: TheatreDisplayComponent },
+  { path: 'seat-layout',component: SeatlayoutComponent }
 ];
 
 @NgModule({
@@ -52,5 +52,7 @@ export const routingComponents = [
   DistributionRegisterFormComponent,
   MovieScreeningComponent,
   ProfileComponent,
+  MoviedetailsFormComponent,
+  TheatreDisplayComponent,
   SeatlayoutComponent
 ];

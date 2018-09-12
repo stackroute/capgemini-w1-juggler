@@ -40,6 +40,7 @@ export class HomePageComponent implements OnInit {
   //     this.test = 1;
   //   }
   // }
+  
   onResize(event) {}
 
    constructor(private cityService: SearchDataService, private movieDetailsService: MovieDetailsService , private route: Router, private router: ActivatedRoute) { }

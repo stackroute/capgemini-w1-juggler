@@ -28,27 +28,27 @@
                                 <strong>{{theatre.theatreName}}</strong>
                               </a>
                               <div id="display" *ngFor="let showtime of theatre.showTimings">
-                                <a href="#" class="showTime display">
-                                  <strong>{{showtime}}</strong>
+                                <a class="showTime display">
+                                  <strong routerLink="/seat-layout">{{showtime}}</strong>
                                 </a>
                               </div>
+
                               <div id="hoverShow1">
                                 <div id="display" *ngFor="let seat of theatre.typesOfSeats">
-                                  <a class="DisplayBorder" href="#">{{seat}}</a>
+                                  <a class="DisplayBorder" routerLink="/seat-layout">{{seat}}</a>
                                 </div>
                                 <br>
                                 <div *ngIf="determineDay(everyday|date: 'EEE');else notWeekend">
                                   <div id="display" *ngFor="let price of theatre.weekends_Price">
-                                    <a id="spacing" href="#">
+                                    <a id="spacing" routerLink="/seat-layout">
                                       Rs.{{price}}
                                     </a>
-
                                   </div>
                                 </div>
                                 <br>
                                 <ng-template #notWeekend>
                                   <div id="display" *ngFor="let price of theatre.weekdays_Price">
-                                    <a id="spacing" href="#">
+                                    <a id="spacing" routerLink="/seat-layout">
                                       Rs.{{price}}
                                     </a>
 

@@ -5,9 +5,9 @@
             <form>
                 <div class="row p-5">
                     <div class="col-12">
-                        <input type="text" class="form-control" placeholder="Search movies" name="city" [(ngModel)]="city" #input>
+                        <input type="text" class="form-control" placeholder="Search movies" name="city">
                     
-                        <button type="submit" class="btn-block btn-info form-control" (click)="searchMovies(input.value)"><i class="fa fa-search"></i></button>
+                        <button type="submit" class="btn-block btn-info form-control" (click)="searchMovies()"><i class="fa fa-search"></i></button>
                     </div>
                     <!-- <div class="col-1">
                         <button type="submit" class="btn-block btn-info form-control" (click)="searchMovies(input.value)"><i class="fa fa-search"></i></button>
@@ -31,7 +31,7 @@
                             <mat-card>
                                 <mat-card-header>
                                     <mat-card-title>
-                                        <h1>{{movie.movieName}}</h1>
+                                        <a><b>{{movie.movieName}}</b></a>
                                     </mat-card-title>
                                 </mat-card-header>
                                 <img mat-card-image routerLink="/moviedetail" (click)="getMovieInfo(movie)" src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="1">
@@ -57,7 +57,7 @@
                                 <mat-card>
                                     <mat-card-header>
                                         <mat-card-title>
-                                            <a>{{movie.movieName}}</a>
+                                            <a><b>{{movie.movieName}}</b></a>
                                         </mat-card-title>
                                     </mat-card-header>
                                     <img mat-card-image routerLink="/moviedetail" (click)="getMovieInfo(movie)" src="{{movie.moviePoster}} " alt="Poster of movie" height="200" width="150">
@@ -81,4 +81,5 @@
 
 
 <app-recommendation></app-recommendation>
+
 
