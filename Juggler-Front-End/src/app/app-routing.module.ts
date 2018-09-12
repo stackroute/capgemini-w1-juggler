@@ -15,6 +15,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TheatreDisplayComponent } from './theatre-display/theatre-display.component';
+import { SeatlayoutComponent } from './seatlayout/seatlayout.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'theatre/:email', component: TheatreRegistrationComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'profile/:email', component: ProfileComponent },
-  { path: 'display-theatre',component: TheatreDisplayComponent}
+  { path: 'display-theatre',component: TheatreDisplayComponent},
+  {path: 'seat-layout',component:SeatlayoutComponent}
 ];
 
 @NgModule({
@@ -49,5 +51,6 @@ export const routingComponents = [
   TheatreRegistrationComponent,
   DistributionRegisterFormComponent,
   MovieScreeningComponent,
-  ProfileComponent
+  ProfileComponent,
+  SeatlayoutComponent
 ];

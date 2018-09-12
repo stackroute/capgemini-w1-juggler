@@ -1,64 +1,71 @@
 .flex-container {
-    display: flex;
+  display: flex;
   flex-direction: row;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-   padding: 0px 0px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  padding: 0px 0px;
 }
 
-.cardBg{
-    background-color: darkgrey
+.cardBg {
+  background-color: darkgrey;
 }
-.title{
- margin-top: 20px;
- text-transform: uppercase;
- 
+.title {
+  margin-top: 20px;
+  text-transform: uppercase;
 }
-.p{
-    text-decoration-color: coral;
+.p {
+  text-decoration-color: coral;
 }
-.container{
-    margin-top: 6px;
-    border-block-end-color: black
+.container {
+  margin-top: 6px;
+  border-block-end-color: black;
 }
-.listOfItem{
-    padding: 10px 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+.listOfItem {
+  padding: 10px 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
-.showTime{
-   
-    margin-left: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-   
-  }
-  .showTime:hover{
-      color:green;
-  }
-  .hoverWrapper:hover #hoverShow1 {
-    display: block;
-    text-transform: capitalize; 
-   
+.showTime {
+  display: inline;
+  margin-left: 10px;
+  padding-left: 30px;
+  padding-bottom: 10px;
+}
+.showTime:hover {
+  color: green;
+}
+.hoverWrapper:hover #hoverShow1 {
+  display: block;
+  text-transform: capitalize;
+  position: relative;
+}
+.hoverWrapper #hoverShow1 {
+  display: none;
+}
 
-   }
-   .DisplayBorder{
-    padding-left: 1px;
-    padding-right: 1px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    margin:2px 2px;
-    border:1px solid darkgrey;
-   }
-   .hoverWrapper #hoverShow1 {
-    display: none;
-   }
-  .CamelCase{
-    text-transform: capitalize; 
-  }
-  .mat-list-item{
-      width: 40%
-  }
+.DisplayBorder {
+ border-radius: 2px;
+  padding-left: 1px;
+  padding-right: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin: 2px 2px;
+  background-color: blanchedalmond;
  
- 
- 
-  
+}
+
+.CamelCase {
+  text-transform: capitalize;
+}
+a.CamelCase{
+    display: inline-block;
+    width:100px;
+}
+#display{
+  display: inline-flex;
+}
+#spacing
+{
+  margin-left: 15px;
+}
+
+
