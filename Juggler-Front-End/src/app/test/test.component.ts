@@ -11,8 +11,8 @@ export class TestComponent implements OnInit {
 
   ngOnInit() {
   }
-  searchMovies(input){
-this.search_result1=input;
+  searchMovies(){
+// this.search_result1=input;
 console.log(this.search_result1);
   }
 }

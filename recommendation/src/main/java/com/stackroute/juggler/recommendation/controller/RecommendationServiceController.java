@@ -35,17 +35,17 @@ private UserRepository userRepository;
 		this.userService = userService;
 	}
 
-
-	@GetMapping("/getMoviesByGenre/{genreName}")
-	public ResponseEntity<?> getMoviesByGenre(@PathVariable String genreName) {
-		return new ResponseEntity<List<Movie>>(movieService.getMoviesByGenre(genreName), HttpStatus.OK);
-	}
-
-	@GetMapping("/getMoviesByCityGenre/{cityName}&{genreName}")
-	public ResponseEntity<List<Movie>> getMovieByCityGenre(@PathVariable String cityName,
-			@PathVariable String genreName) {
-		return new ResponseEntity<List<Movie>>(movieService.getMovieByCityGenre(cityName, genreName), HttpStatus.OK);
-	}
+//
+//	@GetMapping("/getMoviesByGenre/{genreName}")
+//	public ResponseEntity<?> getMoviesByGenre(@PathVariable String genreName) {
+//		return new ResponseEntity<List<Movie>>(movieService.getMoviesByGenre(genreName), HttpStatus.OK);
+//	}
+//
+//	@GetMapping("/getMoviesByCityGenre/{cityName}&{genreName}")
+//	public ResponseEntity<List<Movie>> getMovieByCityGenre(@PathVariable String cityName,
+//			@PathVariable String genreName) {
+//		return new ResponseEntity<List<Movie>>(movieService.getMovieByCityGenre(cityName, genreName), HttpStatus.OK);
+//	}
 
 
 

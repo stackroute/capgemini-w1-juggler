@@ -87,7 +87,7 @@ import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
     MatNativeDateModule,
     MatAutocompleteModule,
     MatDividerModule,
-    MatTableModule,
+    MatTableModule
   ],
   providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, ProfileService,
     Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
