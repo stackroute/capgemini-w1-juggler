@@ -43,6 +43,7 @@ import { TheatreDisplayComponent } from './theatre-display/theatre-display.compo
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
 import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
+import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 
 @NgModule({
@@ -64,7 +65,8 @@ import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
     RecommendationComponent,
     ProfileComponent,
     TheatreDisplayComponent,
-    RSVPEventComponent
+    RSVPEventComponent,
+    RsvpEventsListComponent
   ],
 
   imports: [

@@ -61,8 +61,12 @@ export class PartnerLoginComponent implements OnInit {
           if (this.role == "Distributor") {
             this.router.navigate(["/distributor"]);
             location.reload();
-          } else {
+          } else if(this.role == "Theatre Owner") {
             this.router.navigate(["/profile", this.f.email.value]);
+            location.reload();
+          }
+          else {
+            this.router.navigate(["/rsvp-events"]);
             location.reload();
           }
         },

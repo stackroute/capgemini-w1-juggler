@@ -54,6 +54,13 @@
         <input matInput placeholder="Event duration" formControlName="eventDuration" type="text" required>
         <mat-error>Required/Invalid Input</mat-error>
       </mat-form-field>
+
+<mat-form-field class="example-full-width">
+        <mat-label><i><b>Enter Event Location</b></i></mat-label>
+        <input matInput placeholder="Event location" formControlName="eventLocation" type="text" required>
+        <mat-error>Required/Invalid Input</mat-error>
+      </mat-form-field>
+
         <div>
         <button mat-button matStepperPrevious><b>Back</b></button>
         <button mat-button matStepperNext><b>Next</b></button>
@@ -89,177 +96,12 @@
         <button mat-button (click)="stepper.reset()"><b>Reset</b></button>
       </div>
        <div>
-      <button mat-raised-button (click)="openDialog()"><b>Add Event</b></button>
+      <button mat-raised-button (click)="saveEvent()"><b>Save</b></button>
      </div>
     </form>
    </mat-step> 
 </mat-horizontal-stepper>
 
-  <!-- <form [formGroup]="eventForm" (ngSubmit)="onSubmit()"> -->
-
-  <!-- creatorOfEvent 
-  <div class="form-group">
-    <label for="creator">Event creator:</label>
-    <input
-      id="creator"
-      type="text"
-      class="form-control"
-      formControlName="creator">
-      <div
-      *ngIf="formErrors.creator"
-      class="small text-danger formErrors"
-      [innerHTML]="formErrors.name">
-    </div>
-  </div>-->
 
 
- <!-- Event Name -->
- <!-- <div class="form-group">
-    <label for="name">Event name:</label>
-    <input
-      id="name"
-      type="text"
-      class="form-control"
-      formControlName="name">
-      <div
-      *ngIf="formErrors.name"
-      class="small text-danger formErrors"
-      [innerHTML]="formErrors.name">
-    </div>
-  </div> -->
-
-  <!-- event type -->
-  <!-- <div class="form-group">
-    <label for="type">Event type:</label>
-    <input
-      id="type"
-      type="text"
-      class="form-control"
-      formControlName="type">
-      <div
-      *ngIf="formErrors.name"
-      class="small text-danger formErrors"
-      [innerHTML]="formErrors.name">
-    </div>
-  </div> -->
-
-  <!-- number of days  -->
-  <!-- event type -->
-  <!-- <div class="form-group">
-    <label for="type">Number of days:</label>
-    <input
-      id="type"
-      type="text"
-      class="form-control"
-      formControlName="type">
-      <div
-      *ngIf="formErrors.name"
-      class="small text-danger formErrors"
-      [innerHTML]="formErrors.name">
-    </div>
-  </div>
-
-
-  <div
-    formGroupName="datesGroup"
-    [ngClass]="{'has-danger': eventForm.get('datesGroup').errors}">
-    <div class="row"> -->
-      <!-- Start date -->
-      <!-- <div class="form-group col-sm-12 col-md-6">
-        <label for="startDate">Start Date</label>
-        <input
-          id="startDate"
-          type="text"
-          class="form-control"
-          formControlName="startDate"
-          [placeholder]="ef.dateFormat">
-          
-        <div
-          *ngIf="formErrors.datesGroup.startDate"
-          class="small text-danger formErrors"
-          [innerHTML]="formErrors.datesGroup.startDate">
-        </div>
-      </div> -->
-
-      <!-- Start time -->
-      <!-- <div class="form-group col-sm-12 col-md-6">
-        <label for="startTime">Start Time</label>
-        <input
-          id="startTime"
-          type="text"
-          class="form-control"
-          formControlName="startTime"
-          [placeholder]="ef.timeFormat">
-          
-        <div
-          *ngIf="formErrors.datesGroup.startTime"
-          class="small text-danger formErrors"
-          [innerHTML]="formErrors.datesGroup.startTime">
-        </div>
-      </div>
-    </div> -->
-
-    
-      
-  <!-- event duration -->
-  <!-- <div class="form-group">
-    <label for="duration">Event duration:</label>
-    <input
-      id="duration"
-      type="text"
-      class="form-control"
-      formControlName="duration">
-      <div
-      *ngIf="formErrors.duration"
-      class="small text-danger formErrors"
-      [innerHTML]="formErrors.duration">
-    </div>
-  </div> -->
-
-  <!-- Description: event synopsis -->
-  <!-- <div class="form-group">
-    <label for="description">Description:</label>
-    <textarea
-      id="description"
-      class="form-control"
-      rows="3"
-      formControlName="description">
-    </textarea>
-    <div
-      *ngIf="formErrors.description"
-      class="small text-danger formErrors"
-      [innerHTML]="formErrors.description">
-    </div>
-  </div> -->
-
-  <!-- emailId -->
   
-  <!-- <div class="form-group">
-    <label for="email">Email:</label>
-    <input
-      id="email"
-      type="email"
-      class="form-control"
-      formControlName="email">
-      <div
-      *ngIf="formErrors.email"
-      class="small text-danger formErrors"
-      [innerHTML]="formErrors.email">
-    </div>
-  </div> -->
-
-<!-- phone number -->
- <!--<div class="form-group">
-    <label for="email">Phone number:</label>
-    <input
-      id="number"
-      type="number"
-      class="form-control"
-      formControlName="number">
-      <div
-      *ngIf="formErrors.number"
-      class="small text-danger formErrors"
-      [innerHTML]="formErrors.number">
-    </div>
-  </div>
-  </form> -->
