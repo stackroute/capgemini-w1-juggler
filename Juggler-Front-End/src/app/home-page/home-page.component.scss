@@ -2,25 +2,18 @@
   //  background-color:rebeccapurple;
     background-color:white;
 }
-.mat-card-title { text-transform: uppercase;}
-
-
- form input[type=text]{
+form input[type=text]{
     padding-left: 0px;
     font-size: 17px;
    // border: 1px solid grey;
     float: left;
     width: 90%;
-   
- }
- 
- form button {
-    float: left;
-    width:37px;
-    padding: 11px; 
-    color: white;
-    //font-size: 17px;
-   // border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
+}
+form button {
+  float: left;
+  width:37px;
+  padding: 11px; 
+  color: white;
+  border-left: none;
+  cursor: pointer;
 }

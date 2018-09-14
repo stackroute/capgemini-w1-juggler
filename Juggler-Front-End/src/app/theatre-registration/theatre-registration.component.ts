@@ -1,4 +1,3 @@
-import { City } from "./../City";
 import { Component, OnInit } from "@angular/core";
 import {
   FormControl,
@@ -12,11 +11,6 @@ import { TheatreService } from "../theatre.service";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { MatDialog } from "@angular/material";
 
-// import {Observable} from 'rxjs';
-// export interface DialogData {
-//   animal: string;
-//   name: string;
-// }
 @Component({
   selector: "app-theatre-registration",
   templateUrl: "./theatre-registration.component.html",

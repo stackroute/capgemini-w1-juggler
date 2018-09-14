@@ -10,6 +10,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -20,7 +21,7 @@ import com.stackroute.juggler.emailservice.domain.EmailDetails;
 public class NotificationService {
 	private JavaMailSender javaMailSender;
 	private SpringTemplateEngine templateEngine;
-@Autowired
+	@Autowired
 	public NotificationService(JavaMailSender javaMailSender, SpringTemplateEngine templateEngine) {
 		super();
 		this.javaMailSender = javaMailSender;
@@ -28,14 +29,12 @@ public class NotificationService {
 	}
 
 	public void sendNotification(EmailDetails emailDetails) throws MessagingException {
-//		MimeMessage message = javaMailSender.createMimeMessage();
-//        MimeMessageHelper helper = new MimeMessageHelper(message,
-//                MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
-//                StandardCharsets.UTF_8.name());
+	//	MimeMessage message = javaMailSender.createMimeMessage();
+	//  MimeMessageHelper helper = new MimeMessageHelper(message,
+	//  MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
+	//  StandardCharsets.UTF_8.name());
 		Context context = new Context();
-      
         String html = templateEngine.process("mailtemplate", context);
-
 		System.out.println("service1");
 		SimpleMailMessage mail= new SimpleMailMessage();
 		System.out.println("service2");

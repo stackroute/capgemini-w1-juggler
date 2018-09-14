@@ -1,7 +1,6 @@
 package com.stackroute.juggler.emailservice.controller;
 
 import javax.mail.MessagingException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,15 +22,14 @@ public EmailServiceController(NotificationService notificationService) {
 		this.notificationService = notificationService;
 	}
 
-//String[] mailIds= {"jyothirmayee.24.6.1997@gmail.com"};
-//mailIds[0]="jyothirmayee.24.6.1997@gmail.com";
-@PostMapping("/sendEmail")
-public String sendInvitations(@RequestBody EmailDetails emailDetails) throws MessagingException {
-	System.out.println("controller1");
+	//String[] mailIds= {"jyothirmayee.24.6.1997@gmail.com"};
+	//mailIds[0]="jyothirmayee.24.6.1997@gmail.com";
+	@PostMapping("/sendEmail")
+	public String sendInvitations(@RequestBody EmailDetails emailDetails) throws MessagingException {
+		System.out.println("controller1");
 		notificationService.sendNotification(emailDetails);
 		System.out.println("controller2");
-return "Thank you for registering";
-	
-}
+		return "Thank you for registering";
+	}
 
 }
