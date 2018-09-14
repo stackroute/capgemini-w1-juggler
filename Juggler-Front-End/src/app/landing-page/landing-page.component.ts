@@ -24,6 +24,7 @@ export class LandingPageComponent implements OnInit {
   // constructor(private cityService: SearchDataService, private router: Router) { }
 
   ngOnInit() {
+    
       const dialogRef = setTimeout(()=>this.dialog.open(DialogComponentComponent, {
         width: '70%', height: '30%',
         position: {top: '10%', left: '15%'},

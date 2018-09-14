@@ -15,7 +15,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TheatreDisplayComponent } from './theatre-display/theatre-display.component';
-
+import {RSVPEventComponent} from './rsvp-event/rsvp-event.component';
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'home', component: HomePageComponent },
@@ -30,9 +30,10 @@ const routes: Routes = [
   { path: 'theatre/:email', component: TheatreRegistrationComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'profile/:email', component: ProfileComponent },
-  { path: 'display-theatre',component: TheatreDisplayComponent}
+  { path: 'display-theatre',component: TheatreDisplayComponent},
+  { path:'rsvp', component: RSVPEventComponent }
 ];
-
+  
 @NgModule({
   imports: [BrowserModule,RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule,BrowserModule]
@@ -49,5 +50,6 @@ export const routingComponents = [
   TheatreRegistrationComponent,
   DistributionRegisterFormComponent,
   MovieScreeningComponent,
-  ProfileComponent
+  ProfileComponent,
+  RSVPEventComponent
 ];

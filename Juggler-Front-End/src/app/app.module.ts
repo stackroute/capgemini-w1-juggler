@@ -42,7 +42,9 @@ import { ProfileService } from './profile.service';
 import { TheatreDisplayComponent } from './theatre-display/theatre-display.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
+import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +63,8 @@ import {MatTableModule} from '@angular/material/table';
     MovieScreeningComponent,
     RecommendationComponent,
     ProfileComponent,
-    TheatreDisplayComponent
+    TheatreDisplayComponent,
+    RSVPEventComponent
   ],
 
   imports: [
@@ -84,7 +87,7 @@ import {MatTableModule} from '@angular/material/table';
     MatNativeDateModule,
     MatAutocompleteModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
   ],
   providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, ProfileService,
     Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],

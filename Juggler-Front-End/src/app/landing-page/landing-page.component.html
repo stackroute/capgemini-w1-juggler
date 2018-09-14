@@ -1,7 +1,9 @@
-<mat-grid-list cols="12" rowHeight="80px" fxLayout="row wrap">
-    <h3>Trending Movies</h3>
-    <div *ngFor="let movie of movies">
-        <mat-grid-tile colspan="3" rowspan="6">
+<div class="container">
+<h3>Trending Movies</h3>
+<mat-grid-list cols="14" rowHeight="75px" fxLayout="row wrap" >
+ 
+    <div *ngFor="let movie of movies" id="container">
+        <mat-grid-tile colspan="3" rowspan="5">
             <mat-card class="example-card">
                 <mat-card-header>
                     <mat-card-title><a>{{movie.movieTitle}}</a></mat-card-title>
@@ -12,8 +14,9 @@
                 </mat-card-actions>
             </mat-card>
         </mat-grid-tile>
-    </div>
+    </div> 
 </mat-grid-list>
+</div>
 <!-- <div *ngFor="let movie of movies" fxLayout="row wrap" fxLayout="row" fxLayout.xs="column">
     <md-card>
         <mat-card-header>
