@@ -1,9 +1,7 @@
 package com.stackroute.juggler.rsvp.domain;
 
-import javax.persistence.Id;
-
 public class EventDetails {
-@Id
+
 private String id;	
 private String creatorOfEvent;
 private String eventName;
