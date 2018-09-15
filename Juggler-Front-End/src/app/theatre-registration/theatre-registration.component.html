@@ -4,7 +4,6 @@
   </h4>
 </div>
 
-
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
@@ -24,7 +23,6 @@
         <input matInput placeholder="Enter Theatre Capacity" formControlName="Capacity" type="number" required>
         <mat-error>Required/Invalid Input</mat-error>
       </mat-form-field>
-
       <mat-form-field class="example-full-width">
         <mat-label>Enter Theatre City</mat-label>
         <input matInput placeholder="Enter Theatre City" type="text" formControlName="City" [matAutocomplete]="auto" required>
@@ -43,17 +41,14 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Step </ng-template>
-
       <mat-form-field class="example-half-width">
         <input matInput placeholder="Address" formControlName="address" type="text" required>
         <mat-error>Required/The input is invalid</mat-error>
       </mat-form-field>
-
       <mat-form-field class="example-half-width">
         <input matInput placeholder="city" formControlName="city" required>
         <mat-error>Required/The input is invalid</mat-error>
       </mat-form-field>
-
       <mat-form-field class="example-half-width">
         <input matInput placeholder="state" formControlName="state" required>
         <mat-error>Required/The input is invalid</mat-error>
@@ -76,7 +71,6 @@
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Step </ng-template>
-
       Types Of Seats
       <div>
         <mat-form-field>
@@ -92,7 +86,6 @@
           <mat-error>Required</mat-error>
         </mat-form-field>
       </div>
-
       Number of seats
       <div>
         <mat-form-field>
@@ -112,11 +105,9 @@
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
       </div>
-       <div>
-      <button mat-raised-button (click)="openDialog()">Add Theatre</button>
-     </div> 
-
+      <div>
+        <button mat-raised-button (click)="openDialog()">Add Theatre</button>
+      </div>
     </form>
   </mat-step>
 </mat-horizontal-stepper>
-

@@ -1,26 +1,26 @@
-
 <mat-grid-list cols="12">
-        <h2>{{title}}</h2>
-  <div class="container">
+    <h2>{{title}}</h2>
+    <div class="container">
         <div *ngIf=recommended_Movies>
-          <div class="row">
-              <div *ngFor="let MovieDetails of recommended_Movies; let i = index">
-                  <div *ngIf='i < 4'>
-                      <mat-grid-tile colspan="3" rowspan="4 ">
-                          <div>
-                              <mat-card>
-                                  <mat-card-header>
-                                      <mat-card-title>
-                                          <a>{{MovieDetails.name}}</a>
-                                      </mat-card-title>
-                                  </mat-card-header>
-                                  <a routerLink="/moviedetail" (click)="getMovieInfo(movie)"><img mat-card-image src="{{MovieDetails.moviePoster}}" alt="Poster of movie" ></a>
-                                  </mat-card>
-                          </div>
-                      </mat-grid-tile>
-                  </div>
-              </div>
+            <div class="row">
+                <div *ngFor="let MovieDetails of recommended_Movies; let i = index">
+                    <div *ngIf='i < 4'>
+                        <mat-grid-tile colspan="3" rowspan="4 ">
+                            <div>
+                                <mat-card>
+                                    <mat-card-header>
+                                        <mat-card-title>
+                                            <a>{{MovieDetails.name}}</a>
+                                        </mat-card-title>
+                                    </mat-card-header>
+                                    <a routerLink="/moviedetail" (click)="getMovieInfo(movie)"><img mat-card-image src="{{MovieDetails.moviePoster}}"
+                                            alt="Poster of movie"></a>
+                                </mat-card>
+                            </div>
+                        </mat-grid-tile>
+                    </div>
+                </div>
             </div>
-      </div>
-  </div>
+        </div>
+    </div>
 </mat-grid-list>

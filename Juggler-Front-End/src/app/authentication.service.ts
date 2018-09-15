@@ -12,7 +12,7 @@ export class AuthenticationService {
     }
 
     loginUser(email: string, password: string ) {
-        return this.http.post<any>('http://localhost:8070/api/v1/juggler/user/login', {email: email, password: password, role: 'user'})
+        return this.http.post<any>('http://172.23.239.112:8070/api/v1/juggler/user/login', {email: email, password: password, role: 'user'})
             // this is just the HTTP call,
             // we still need to handle the reception of the token
             // .shareReplay();
@@ -45,5 +45,5 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
         localStorage.removeItem('currentUserEmail');
-    }
+    } 
 }

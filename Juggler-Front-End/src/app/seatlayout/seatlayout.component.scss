@@ -1,0 +1,83 @@
+.screen {
+  display: block;
+  text-align: center;
+  font-family: cursive;
+  margin-top: 20px;
+  background-color: grey;
+  margin-left: 40%;
+  width: 250px;
+}
+.bookButton button {
+  margin-left: 40%;
+  display: block;
+  width: 120px;
+  background-color: blue;
+  height: 40px;
+}
+.bookButton {
+  display: block;
+  margin-top: 40px;
+}
+.ArenaLayout {
+  border: solid 5px lightgoldenrodyellow;
+  width: 400px;
+  height: 470px;
+  margin-left: 30%;
+  background-color: rgb(207, 199, 199);
+  margin: auto;
+}
+.seat {
+  width: 24px;
+  height: 18px;
+  float: left;
+  border-radius: 10%;
+  background-color: whitesmoke;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 3%;
+  margin-left: 4%;
+  margin-bottom: 3%;
+}
+
+.seatPassage {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  float: left;
+  border-radius: 4px;
+}
+.available {
+  background-color: lightgray;
+}
+/* .divisions
+{
+   margin-top:3%;
+   margin-left:4%;
+   margin-bottom:3%;
+   margin-right:4%;
+   
+} */
+.name {
+  margin: 0;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  background-color: black;
+  height: 50px;
+}
+h2 {
+  color: whitesmoke;
+  float: left;
+}
+.seat:hover {
+  background-color: green;
+}
+.booked {
+  background-color: grey;
+}
+.selected {
+  background-color: grey;
+}
+.blocked {
+  background-color: rgb(139, 137, 137);
+  pointer-events: none;
+}
