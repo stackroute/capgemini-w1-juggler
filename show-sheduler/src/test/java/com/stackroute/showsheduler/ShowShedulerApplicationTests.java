@@ -1,13 +1,13 @@
-//package com.stackroute.juggler.Rsvp;
+//package com.stackroute.showsheduler;
 //
 //import org.junit.Test;
 //import org.junit.runner.RunWith;
 //import org.springframework.boot.test.context.SpringBootTest;
 //import org.springframework.test.context.junit4.SpringRunner;
-//
+																																												//
 //@RunWith(SpringRunner.class)
 //@SpringBootTest
-//public class RsvpApplicationTests {
+//public class ShowShedulerApplicationTests {
 //
 //	@Test
 //	public void contextLoads() {

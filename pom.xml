@@ -34,7 +34,7 @@
 		<module>user-profile</module>
 		<module>recommendation</module>
 		<module>login-authentication</module>
-
+		<module>show-sheduler</module>
          <module>rsvp</module>
 	</modules>
 </project>

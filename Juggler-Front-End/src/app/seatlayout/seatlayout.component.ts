@@ -3,6 +3,8 @@ import { Http } from '@angular/http';
 import { HttpErrorResponse, JsonpClientBackend } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { BookingDetailsService } from '../booking-details.service';
+import { FullBookingDetails } from '../FullBookingDetails';
 declare var $: any;
 
 
@@ -32,12 +34,14 @@ export class SeatlayoutComponent implements OnInit {
   division = [];
 // division1 = [];
   seatname = [];
+bookingDetail:FullBookingDetails;
 
 
-
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private detailService:BookingDetailsService) {}
 
   ngOnInit() {
+   this.bookingDetail= this.detailService.receive();
+   console.log(this.bookingDetail);
     this.id = [];
     console.log('hi');
     this.seatname = ['A', 'B', 'C', 'D' , 'E' , 'F', 'G', 'H', 'I', 'J'];

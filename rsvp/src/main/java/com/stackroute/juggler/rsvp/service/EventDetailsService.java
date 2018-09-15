@@ -10,7 +10,7 @@ public interface EventDetailsService {
 	
 	public EventDetails saveEvent(EventDetails eventDetails);
 	
-	public EventDetails getEvent(String emailId);
+	public List<EventDetails> getEvent(String emailId);
 	
 	public EventDetails eventData(String eventName);
 	
