@@ -28,6 +28,7 @@ export class RSVPEventComponent implements OnInit {
   guests:string;
   invitemail:string;
   emailInvite:string[];
+  email:string;
   constructor(
     private rsvpService: RsvpService,
     private _formBuilder: FormBuilder,
@@ -54,7 +55,7 @@ export class RSVPEventComponent implements OnInit {
 
     this.rsvpForm3 = this._formBuilder.group({
       Description: ["", Validators.required],
-      emailId: ["", Validators.required],
+     // emailId: ["", Validators.required],
       invitiesMail: ["", Validators.required],
       phoneNo: ["", Validators.required]
     });
@@ -68,6 +69,8 @@ export class RSVPEventComponent implements OnInit {
   get f2() {
     return this.rsvpForm3.controls;
   }
+
+  
 
   saveEvent() {
     this.event.creatorOfEvent = this.f.creatorName.value;
@@ -83,8 +86,10 @@ export class RSVPEventComponent implements OnInit {
     this.event.eventLocation = this.f1.eventLocation.value;
 
     this.event.eventSynopsis = this.f2.Description.value;
-    this.event.emailId = this.f2.emailId.value;
-    
+    //this.event.emailId = this.f2.emailId.value;
+    this.email=localStorage.getItem("currentUserEmail");
+    this.event.emailId=this.email;
+    console.log(this.email); 
     this.invitemail= this.f2.invitiesMail.value;
     this.emailInvite=this.invitemail.split(",");
     this.event.invitiesMail = this.emailInvite;
@@ -95,7 +100,8 @@ export class RSVPEventComponent implements OnInit {
         .subscribe(res => console.log("Saved event"));
       this.router.navigate(["/rsvp/events"]);
       console.log(this.event);
-     } 
+     }  
+
 
     // this.rsvpService.saveEvent(this.event).subscribe(data => {
     //   this.event2 = data;
