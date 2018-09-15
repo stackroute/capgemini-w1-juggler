@@ -12,6 +12,15 @@ private String eventName;
 private String eventType;
 private String guestsofEvent[];
 private String eventDate;
+private String eventLocation;
+public String getEventLocation() {
+	return eventLocation;
+}
+
+public void setEventLocation(String eventLocation) {
+	this.eventLocation = eventLocation;
+}
+
 private int noOfDays;
 public int getNoOfDays() {
 	return noOfDays;
@@ -124,7 +133,7 @@ public void setPhoneNo(double phoneNo) {
 }
 		
 public EventDetails(String id,String creatorOfEvent, String eventName, String eventType, String[] guestsofEvent, String eventDate,
-		int noOfDays,String eventTime, String duration, String eventSynopsis, String emailId, String[] invitiesMail,
+		String eventLocation,int noOfDays,String eventTime, String duration, String eventSynopsis, String emailId, String[] invitiesMail,
 		double phoneNo) {
 	super();
 	this.id=id;
@@ -133,6 +142,7 @@ public EventDetails(String id,String creatorOfEvent, String eventName, String ev
 	this.eventType = eventType;
 	this.guestsofEvent = guestsofEvent;
 	this.eventDate = eventDate;
+	this.eventLocation=eventLocation;
 	this.noOfDays=noOfDays;
 	this.eventTime = eventTime;
 	this.duration = duration;

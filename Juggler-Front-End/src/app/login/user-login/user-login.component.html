@@ -1,29 +1,8 @@
 <div class="bg">
-<<<<<<< HEAD
-<div class="container col-sm-4">
-<div class="bg1">
-<img src="https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/128/User_Accounts.png" alt="user icon" height=40px>
-  <!-- <h2>Login</h2> -->
-  <h2></h2>
- </div>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-   <div class="form-group col-lg-9">
-   <div class="alert alert-danger" *ngIf="!errormessage" >
- <h6><b><i>Email or password is incorrect.</i></b></h6>
-</div>
-</div> 
- <!-- <div class="form-group col-lg-5"> -->
-    <div class="md-form col-md-10">
-  <i class="fa fa-envelope prefix"></i>  
-      <input type="email" placeholder="Email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
-      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-        <div *ngIf="f.email.errors.required">Email is required</div>
-      </div>
-=======
+
   <div class="container col-sm-4 mt-10">
     <div class="bg1 mx-auto">
       <img src="https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/128/User_Accounts.png" alt="Italian Trulli">
->>>>>>> 1ade91f20576879233ff6617a358cd3ef44f39d5
     </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group col-lg-9">
@@ -45,7 +24,7 @@
         />
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
           <div *ngIf="f.password.errors.required">Password is required</div>
-        </div>
+        </div> 
       </div>
       <div class="login">
         <button [disabled]="loading" class="btn btn-primary"> <b> Login</b></button>

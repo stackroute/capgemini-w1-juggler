@@ -14,8 +14,9 @@ import { ContactComponent } from './contact/contact.component';
 import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TheatreDisplayComponent } from './theatre-display/theatre-display.component';
-import {RSVPEventComponent} from './rsvp-event/rsvp-event.component';
+import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
 import { SeatlayoutComponent } from './seatlayout/seatlayout.component';
+import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'profile/:email', component: ProfileComponent },
   { path: 'rsvp', component: RSVPEventComponent },
   { path: 'display-theatre',component: TheatreDisplayComponent },
-  { path: 'seat-layout',component: SeatlayoutComponent }
+  { path: 'seat-layout',component: SeatlayoutComponent },
+  { path: 'rsvp/events',component:RsvpEventsListComponent}
 ];
   
 @NgModule({
@@ -56,5 +58,6 @@ export const routingComponents = [
   RSVPEventComponent,
   MoviedetailsFormComponent,
   TheatreDisplayComponent,
-  SeatlayoutComponent
+  SeatlayoutComponent,
+  RsvpEventsListComponent
 ];

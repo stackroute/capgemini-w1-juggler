@@ -5,10 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
+import org.springframework.data.redis.serializer.GenericToStringSerializer;
 
 import com.stackroute.juggler.ticketengine.domain.Show;
 
 @SpringBootApplication
+@EnableRedisRepositories
 public class TicketEngineApplication {
 	
 	@Bean
@@ -17,13 +20,15 @@ public class TicketEngineApplication {
 	}
 	
 	@Bean
-	public RedisTemplate<String, Show> redisTemplate() {
-		RedisTemplate<String, Show> redisTemplate = new RedisTemplate<>();
+	public RedisTemplate<String, Object> redisTemplate() {
+		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
 		redisTemplate.setConnectionFactory(jedisConnectionFactory());
+		redisTemplate.setValueSerializer(new GenericToStringSerializer<Object>(Object.class));
 		return redisTemplate;
 	}
 	
 	public static void main(String[] args) {
 		SpringApplication.run(TicketEngineApplication.class, args);
 	}
+
 }
