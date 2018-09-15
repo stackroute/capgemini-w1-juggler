@@ -33,11 +33,11 @@ public class EventDetailsServiceImpl implements EventDetailsService {
 		return  savedEvent;
 	}
 
-	@Override
-	public EventDetails getEvent(String emailId) {
-		EventDetails existingEvent=eventRepository.getByEmailId(emailId);
-		return existingEvent;
-	}
+//	@Override
+//	public List<EventDetails> getEvent(String emailId) {
+//		List<EventDetails> existingEvent=eventRepository.getByEmailId(emailId);
+//		return existingEvent;
+//	}
 
 	@Override
 	public EventDetails eventData(String eventName) {
@@ -49,6 +49,13 @@ public class EventDetailsServiceImpl implements EventDetailsService {
 	public List<EventDetails> getDetails() {
 		List<EventDetails> eventDetailsList = (List<EventDetails>)eventRepository.findAll();
 		return eventDetailsList;
+	}
+
+	@Override
+	public List<EventDetails> getEvent(String emailId) {
+		// TODO Auto-generated method stub
+		List<EventDetails> eventList=eventRepository.getByEmailId(emailId);
+		return eventList;
 	}
 	
 

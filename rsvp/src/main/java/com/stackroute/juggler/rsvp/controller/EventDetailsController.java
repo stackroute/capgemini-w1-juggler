@@ -37,11 +37,16 @@ public class EventDetailsController {
 		EventDetails savedEvent = eventDetailsService.saveEvent(eventDetails);
 		return new ResponseEntity<EventDetails>(savedEvent, HttpStatus.OK);
 	}
+//	@RequestMapping(value = "/event/get", method = RequestMethod.GET)
+//	public ResponseEntity<?> getEvent(@RequestParam String emailId) {
+//	 
+//		EventDetails existingEvent = eventDetailsService.getEvent(emailId);
+//		return new ResponseEntity<EventDetails>(existingEvent, HttpStatus.OK);
+//	}
 	@RequestMapping(value = "/event/get", method = RequestMethod.GET)
-	public ResponseEntity<?> getEvent(@RequestParam String emailId) {
-	 
-		EventDetails existingEvent = eventDetailsService.getEvent(emailId);
-		return new ResponseEntity<EventDetails>(existingEvent, HttpStatus.OK);
+	public ResponseEntity<?> getEvent(@RequestParam String emailId){
+		List<EventDetails>existingEvent =eventDetailsService.getEvent(emailId);
+		return new ResponseEntity<List<EventDetails>>(existingEvent, HttpStatus.OK);
 	}
 	@RequestMapping(value = "/event/name", method = RequestMethod.GET)
 	public ResponseEntity<?> giveEvent(@RequestParam String eventName) {
