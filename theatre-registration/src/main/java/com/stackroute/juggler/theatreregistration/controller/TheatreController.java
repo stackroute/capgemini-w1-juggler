@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stackroute.juggler.kafka.domain.Theatre;
@@ -16,7 +17,7 @@ import com.stackroute.juggler.theatreregistration.exceptions.TheatreAlreadyExist
 import com.stackroute.juggler.theatreregistration.exceptions.TheatreNotFoundException;
 import com.stackroute.juggler.theatreregistration.services.TheatreService;
 
-//@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "*")
 @RestController
 
 // class level request mapping
@@ -31,29 +32,62 @@ public class TheatreController {
 		this.theatreService = theatreService;
 
 	}
+	
 
-	@Autowired
-	private KafkaTemplate<String, Theatre> kafkaTemplate; // This is the topic name it wont be changed so "final
-															// static"
-	private static final String TOPIC = "testkafka";
-
+	// // saves the theatre details
+	// @RequestMapping(value = "/theatre", method = RequestMethod.POST)
+	// public ResponseEntity<?> saveTheatre(@RequestBody Theatre theatre) throws
+	// TheatreAlreadyExistsException {
+	//
+	// Theatre theatreobj = null;
+	//
+	// kafkaTemplate.send(TOPIC, theatre);
+	// // This is to save
+	// try {
+	// theatreobj = theatreService.saveTheatre(theatre);
+	// System.out.println(theatreobj.getSeats());
+	// return new ResponseEntity<Theatre>(theatreobj, HttpStatus.OK);
+	// } catch (TheatreAlreadyExistsException m) {
+	// String result = m.getMessage();
+	// return new ResponseEntity<String>(result, HttpStatus.OK);
+	// }
+	//
+	// }
 	// saves the theatre details
 	@RequestMapping(value = "/theatre", method = RequestMethod.POST)
-	public ResponseEntity<?> saveTheatre(@RequestBody Theatre theatre) throws TheatreAlreadyExistsException {
+	public ResponseEntity<?> saveTheatre(@RequestBody Theatre theatre, @RequestParam String email)
+			throws TheatreAlreadyExistsException {
 
 		Theatre theatreobj = null;
-
-		kafkaTemplate.send(TOPIC, theatre);
+		// System.out.println(theatre.getTheatreCity());
+		// System.out.println(theatre.getSeats());
+		// kafkaTemplate.send(TOPIC, theatre);
 		// This is to save
 		try {
+
+			theatre.setEmail(email);
+			System.out.println(theatre.getEmail());
 			theatreobj = theatreService.saveTheatre(theatre);
-			System.out.println(theatreobj.getSeats());
+			// System.out.println(theatreobj.getSeats());
 			return new ResponseEntity<Theatre>(theatreobj, HttpStatus.OK);
 		} catch (TheatreAlreadyExistsException m) {
 			String result = m.getMessage();
 			return new ResponseEntity<String>(result, HttpStatus.OK);
 		}
 
+	}
+
+	// To get theatre details using EmailId of the owner
+	@RequestMapping(value = "/theater", method = RequestMethod.GET)
+	public ResponseEntity<?> getByEmailId(@RequestParam String email) throws TheatreNotFoundException {
+		Theatre list = null;
+		try {
+			list = theatreService.getEmailId(email);
+			return new ResponseEntity<Theatre>(list, HttpStatus.OK);
+		} catch (TheatreNotFoundException m) {
+			String result = m.getMessage();
+			return new ResponseEntity<String>(result, HttpStatus.OK);
+		}
 	}
 
 	// get the particular theatre from database by using theatre name

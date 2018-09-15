@@ -24,7 +24,7 @@ public class KafkaConsumerConfig {
 	public ConsumerFactory<String, InputUser> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.190:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "user");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -43,7 +43,7 @@ public class KafkaConsumerConfig {
 	public ConsumerFactory<String, MovieSchedule> movieConsumerFactory() {
 		Map<String, Object> movieConfig = new HashMap<>();
 
-		movieConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.190:9092");
+		movieConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		movieConfig.put(ConsumerConfig.GROUP_ID_CONFIG, "movie");
 		movieConfig.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		movieConfig.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);

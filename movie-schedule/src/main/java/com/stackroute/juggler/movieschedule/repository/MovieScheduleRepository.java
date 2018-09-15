@@ -13,5 +13,7 @@ public interface MovieScheduleRepository extends MongoRepository<MovieSchedule, 
 	public MovieSchedule getByTheatreName(String theatreName);
 	
 	public MovieSchedule getByTheatreId(String theatreId);
-
+	
+	public MovieSchedule getByEmail(String email);
+//	public boolean getEmail(String email);
 }

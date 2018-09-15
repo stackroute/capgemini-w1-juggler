@@ -2,6 +2,12 @@ package com.stackroute.juggler.showsheduler.domain;
 
 public class TriggerMessage {
 
+	@Override
+	public String toString() {
+		return "TriggerMessage [TheatreName=" + TheatreName + ", DateToStop=" + DateToStop + ", SlotToStop="
+				+ SlotToStop + "]";
+	}
+
 	private String TheatreName;
 	private String DateToStop;
 	private String SlotToStop;

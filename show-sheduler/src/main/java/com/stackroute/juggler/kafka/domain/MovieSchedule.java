@@ -1,8 +1,6 @@
 package com.stackroute.juggler.kafka.domain;
 
 import java.io.File;
-import java.util.Map;
-import java.lang.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

@@ -1,4 +1,5 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -36,7 +37,11 @@ import { MovieScreeningComponent } from './movie-screening/movie-screening.compo
 import { MovieScreeningService } from './movie-screening.service';
 import { MovieDetailsService } from './moviedetails.service';
 import { RecommendationComponent } from './recommendation/recommendation.component';
-
+import { ProfileComponent } from './profile/profile.component'
+import { ProfileService } from './profile.service';
+import { TheatreDisplayComponent } from './theatre-display/theatre-display.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
   declarations: [
@@ -54,7 +59,9 @@ import { RecommendationComponent } from './recommendation/recommendation.compone
     LandingPageComponent,
     HomePageComponent,
     MovieScreeningComponent,
-    RecommendationComponent
+    RecommendationComponent,
+    ProfileComponent,
+    TheatreDisplayComponent
   ],
 
   imports: [
@@ -75,9 +82,12 @@ import { RecommendationComponent } from './recommendation/recommendation.compone
     MatDialogModule,
     // MatFileUploadModule,
     MatNativeDateModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDividerModule,
+    MatTableModule
   ],
-  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService],
+  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, ProfileService,
+    Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
   entryComponents: [ DialogComponentComponent ],
   schemas: [ NO_ERRORS_SCHEMA ]

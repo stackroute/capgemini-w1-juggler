@@ -19,7 +19,7 @@ import com.stackroute.juggler.recommendation.domain.User;
 import com.stackroute.juggler.recommendation.repositories.UserRepository;
 import com.stackroute.juggler.recommendation.services.MovieService;
 import com.stackroute.juggler.recommendation.services.UserService;
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1")
 public class RecommendationServiceController {
@@ -34,49 +34,7 @@ private UserRepository userRepository;
 		this.movieService = movieService;
 		this.userService = userService;
 	}
-//	@KafkaListener(topics = "movieLikes", groupId = "user")
-//	@RequestMapping(value = "/save", method = RequestMethod.POST)
-//	public ResponseEntity<User> saveUser(User user) {
-//		User savedMovie=userRepository.save(user);
-//		return new ResponseEntity<User> (savedMovie,HttpStatus.OK);
-//	}
-	
-	
-//@RequestMapping(value = "/genrecityage", method = RequestMethod.POST)
-//public ResponseEntity<?> getByGenreAgeCity(@PathVariable String userName,@PathVariable List<String> genreNames,@PathVariable String cityName){
-//	List<Movie> movies = new ArrayList<>();
-//	if(genreNames!=null) {
-//		for(String genreName:genreNames) {
-//		movies.addAll(movieRepository.getByGenreAgeCity(userName, genreName, cityName));
-//}
-//	}
-//	return new ResponseEntity<List<Movie>>(movies,HttpStatus.OK);
-//}
 
-//@RequestMapping(value = "/save", method = RequestMethod.POST)
-//public ResponseEntity<Movie> saveMovie(Movie movie) {
-//	Movie savedMovie=movieService.save(movie);
-//	return new ResponseEntity<Movie> (savedMovie,HttpStatus.OK);
-//}	
-//@RequestMapping(value = "/{genre}", method = RequestMethod.GET)
-//public ResponseEntity<?> getByGenre(@PathVariable("genre") String genre){
-//	List<Movie> movies = new ArrayList<>();
-//	movies.addAll(movieRepository.findByGenres(genre));
-//	System.out.println("Hello");
-//	return new ResponseEntity<List<Movie>>(movies,HttpStatus.OK);
-//}
-
-//@RequestMapping(value = "/getall", method = RequestMethod.GET)
-//public ResponseEntity<?> getAllMovies(){
-//	List<Movie> getAllmovies = new ArrayList<Movie>();
-//    getAllmovies= (List<Movie>) movieService.findAll();
-//    System.out.println("Hello");
-//	return new ResponseEntity<List<Movie>>(getAllmovies,HttpStatus.OK);	
-//}
-//	@GetMapping("/getLanguageOfUser/{userName}")
-//	public ResponseEntity<?> getLanguageOfUser(@PathVariable String userName) {
-//		return new ResponseEntity<Language>(userService.getLanguageOfUser(userName), HttpStatus.OK);
-//	}
 
 	@GetMapping("/getMoviesByGenre/{genreName}")
 	public ResponseEntity<?> getMoviesByGenre(@PathVariable String genreName) {
@@ -89,28 +47,7 @@ private UserRepository userRepository;
 		return new ResponseEntity<List<Movie>>(movieService.getMovieByCityGenre(cityName, genreName), HttpStatus.OK);
 	}
 
-//	@GetMapping("/getMoviesByCity/{cityName}")
-//	public ResponseEntity<?> getMoviesByCity(@PathVariable String cityName) {
-//		return new ResponseEntity<List<Movie>>(movieService.getMoviesByCity(cityName), HttpStatus.OK);
-//	}
-//
-//	@GetMapping("/getMoviesByCityLanguage/{cityName}&{languageName}")
-//	public ResponseEntity<List<Movie>> getMovieByCityLanguage(@PathVariable String cityName,
-//			@PathVariable String languageName) {
-//		System.out.println("hello");
-//		 List<Movie> cityLangMovies = movieService.getMovieByCityLanguage(cityName, languageName);
-//		
-//		 return new ResponseEntity<List<Movie>>(cityLangMovies,
-//				HttpStatus.OK);
-//	}
-//
-//	@GetMapping("/getMoviesByCityGenreLanguage/{cityName}&{genreName}&{languageName}")
-//	public ResponseEntity<List<Movie>> getMovieByCityGenreLanguage(@PathVariable String cityName,
-//			@PathVariable String genreName, @PathVariable String languageName) {
-//		System.out.println("hello");
-//		return new ResponseEntity<List<Movie>>(
-//				movieService.getMovieByCityGenreLanguage(cityName, genreName, languageName), HttpStatus.OK);
-//	}
+
 
 	@GetMapping("/getGenreBasedMoviesForUser/{emailId}")
 	public ResponseEntity<List<Movie>> getGenreBasedMoviesForUser(@PathVariable String emailId) {

@@ -1,17 +1,2 @@
----
-spring:
-  data:
-    neo4j:
-      username: neo4j
-      password: baby@8686
-  application:
-    name: movie-recommendation
 server:
   port: "8050"
-eureka:
-  client:
-    register-with-eureka: "true"
-    fetch-registry: "true"
-    serviceUrl:
-      defaultZone: http://localhost:9090/eureka/
-...

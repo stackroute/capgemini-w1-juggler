@@ -16,6 +16,5 @@ public interface MovieSearchService {
 
 	public void consumeKafka(MovieSchedule movieschedule);
 
-	public City update(String cityname, List<Movie> movies);
-
+	
 }

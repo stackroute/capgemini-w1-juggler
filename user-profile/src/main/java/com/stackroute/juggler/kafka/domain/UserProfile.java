@@ -93,7 +93,7 @@ public class UserProfile {
 		super();
 		this.userId = userd;
 		this.dateOfBirth = dateOfBirth;
-		LanguagesKnown = languagesKnown;
+		this.LanguagesKnown = languagesKnown;
 		this.genre = genre;
 		this.location = location;
 		this.paymentMethods = paymentMethods;
