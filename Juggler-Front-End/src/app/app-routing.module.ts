@@ -19,6 +19,7 @@ import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
 import { SeatlayoutComponent } from './seatlayout/seatlayout.component';
 import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { RsvpAcceptComponent } from './rsvp-accept/rsvp-accept.component';
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'home', component: HomePageComponent },
@@ -38,7 +39,8 @@ const routes: Routes = [
   { path: 'seat-layout',component: SeatlayoutComponent },
 { path: 'payment-page',component: PaymentPageComponent},  
 { path: 'rsvp/events',component:RsvpEventsListComponent},
-  { path: 'billing',component:BillingComponent }
+  { path: 'billing',component:BillingComponent },
+  {path:'rsvp/accept',component:RsvpAcceptComponent}
 ];
   
 @NgModule({
@@ -64,5 +66,6 @@ export const routingComponents = [
   SeatlayoutComponent,
   PaymentPageComponent,
   RsvpEventsListComponent,
-  BillingComponent
+  BillingComponent,
+  RsvpAcceptComponent
 ];

@@ -1,0 +1,23 @@
+<div class="background">
+<mat-grid-list cols="2">
+  <!-- <button  mat-raised-button color="primary" (click)=accept()>Accept</button> -->
+  <mat-grid-tile >
+    <button   mat-flat-button color="primary" [disabled]="flagAccept"  (click)="accept()">Accept</button>
+<h3 *ngIf="flagAccept && !flagReject" >You have accepted the invitation</h3>
+    <!-- <div *ngIf="flagAccept">
+      <button mat-button [disabled]="flagReject" (click)=reDecline()>Reject</button>
+
+    </div> -->
+  </mat-grid-tile>
+  <!-- <button mat-raised-button color="secondary" (click)=reject()>Reject</button> -->
+
+  <mat-grid-tile >
+    <button  mat-flat-button color="primary" [disabled]="flagReject"  (click)=reject()>Reject</button>
+    <h3 *ngIf="flagReject">You have Rejected the invitation</h3>
+    <!-- <div *ngIf="flagReject">
+      <button mat-button [disabled]="flagAccept" (click)=reAccept()>Accept</button>
+
+    </div> -->
+  </mat-grid-tile>
+</mat-grid-list>
+</div>

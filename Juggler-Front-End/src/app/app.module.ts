@@ -50,6 +50,8 @@ import { PaymentService } from './paymentservice';
 import { PaymentDialogComponent } from './payment-page/payment-dialog/payment-dialog.component';
 import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
 import { PromocodeService } from './promocode.service';
+import { RsvpAcceptComponent } from './rsvp-accept/rsvp-accept.component';
+
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 
 @NgModule({
@@ -75,7 +77,8 @@ import { PromocodeService } from './promocode.service';
     RsvpEventsListComponent,
     PaymentPageComponent,
     PaymentDialogComponent,
-    BillingComponent
+    BillingComponent,
+    RsvpAcceptComponent
   ],
 
   imports: [
