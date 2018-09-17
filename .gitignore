@@ -1,6 +1,7 @@
 ######################
 # Project Specific
 ######################
+
 /build/www/**
 /src/test/javascript/coverage/
 /src/test/javascript/PhantomJS*/
@@ -8,6 +9,7 @@
 ######################
 # Node
 ######################
+
 /node/
 node_tmp/
 node_modules/
@@ -35,6 +37,15 @@ local.properties
 .settings/
 .loadpath
 .factorypath
+.settings
+.mvn
+target/
+target/*
+logs
+logs.*
+mvn
+mvnw.*
+
 /src/main/resources/rebel.xml
 
 # External tool builders
