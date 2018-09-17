@@ -34,5 +34,6 @@
 		<module>user-profile</module>
 		<module>recommendation</module>
 		<module>login-authentication</module>
+		<module>payment</module>
 	</modules>
 </project>

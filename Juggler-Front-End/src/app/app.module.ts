@@ -4,6 +4,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {HttpModule} from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,7 @@ import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form
 import { AuthenticationService } from './authentication.service';
 import { AlertService } from './alert.service';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatAutocompleteModule } from '@angular/material';
 import { MatCardModule, MatNativeDateModule } from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -42,6 +43,11 @@ import { ProfileService } from './profile.service';
 import { TheatreDisplayComponent } from './theatre-display/theatre-display.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { PaymentService } from './paymentservice';
+import { PaymentDialogComponent } from './payment-page/payment-dialog/payment-dialog.component'
+import { BillingComponent } from './billing/billing.component';
+import { PromocodeService } from './promocode.service';
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 @NgModule({
   declarations: [
@@ -61,13 +67,17 @@ import {MatTableModule} from '@angular/material/table';
     MovieScreeningComponent,
     RecommendationComponent,
     ProfileComponent,
-    TheatreDisplayComponent
+    TheatreDisplayComponent,
+    PaymentPageComponent,
+    PaymentDialogComponent,
+    BillingComponent
   ],
 
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    HttpModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
@@ -86,10 +96,10 @@ import {MatTableModule} from '@angular/material/table';
     MatDividerModule,
     MatTableModule
   ],
-  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, ProfileService,
-    Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, PaymentService, ProfileService, PromocodeService,
+    Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent],
-  entryComponents: [ DialogComponentComponent ],
+  entryComponents: [ DialogComponentComponent, PaymentDialogComponent ],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }
