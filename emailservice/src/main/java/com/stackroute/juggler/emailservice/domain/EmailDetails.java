@@ -3,7 +3,7 @@ package com.stackroute.juggler.emailservice.domain;
 import java.util.Arrays;
 
 public class EmailDetails {
-	 private String toEmailId;	 
+	 private String[] toEmailId;	 
 	 private String[] emailCc; 	 
 	 private String subject;	 
 	 private String body;
@@ -11,17 +11,17 @@ public class EmailDetails {
 	public EmailDetails() {
 		super();
 	}
-	public EmailDetails(String toEmailId, String[] emailCc, String subject, String body) {
+	public EmailDetails(String[] toEmailId, String[] emailCc, String subject, String body) {
 		super();
 		this.toEmailId = toEmailId;
 		this.emailCc = emailCc;
 		this.subject = subject;
 		this.body = body;
 	}
-	public String getToEmailId() {
+	public String[] getToEmailId() {
 		return toEmailId;
 	}
-	public void setToEmailId(String toEmailId) {
+	public void setToEmailId(String[] toEmailId) {
 		this.toEmailId = toEmailId;
 	}
 	public String[] getEmailCc() {

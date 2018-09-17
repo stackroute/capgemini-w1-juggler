@@ -2,7 +2,6 @@ package com.stackroute.juggler.rsvp.config;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -16,14 +15,14 @@ import com.stackroute.juggler.rsvp.domain.EventDetails;
 
 @Configuration
 public class KafkaConfiguration {
-	static final String TOPIC = "detailsevent";
+	static final String TOPIC = "eventdetails1";
 
 	// Producer factory of kafka which will hold the configuration details
 	@Bean
 	public ProducerFactory<String, EventDetails> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.111:9092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 

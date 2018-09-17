@@ -7,7 +7,7 @@ target/
 .project
 .settings
 .springBeans
-
+.bin
 ### NetBeans ###
 nbproject/private/
 build/
