@@ -1,3 +1,4 @@
+import { BillingComponent } from './billing/billing.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -35,7 +36,9 @@ const routes: Routes = [
   { path: 'rsvp', component: RSVPEventComponent },
   { path: 'display-theatre',component: TheatreDisplayComponent },
   { path: 'seat-layout',component: SeatlayoutComponent },
-  { path: 'rsvp/events',component:RsvpEventsListComponent}
+  { path: 'rsvp/events',component:RsvpEventsListComponent},
+{path:'billing',component:BillingComponent}
+
 ];
   
 @NgModule({

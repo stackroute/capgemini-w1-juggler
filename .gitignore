@@ -45,6 +45,9 @@ logs
 logs.*
 mvnw
 mvnw.*
+bin
+.bin
+.bin/*
 
 /src/main/resources/rebel.xml
 

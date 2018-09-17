@@ -1,3 +1,4 @@
+import { BillingComponent } from './billing/billing.component';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -45,7 +46,7 @@ import {MatTableModule} from '@angular/material/table';
 import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
 import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
-
+import {billingcomponent}
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,7 @@ import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.com
     ProfileComponent,
     TheatreDisplayComponent,
     RSVPEventComponent,
-    RsvpEventsListComponent
+    RsvpEventsListComponent,BillingComponent
   ],
 
   imports: [
