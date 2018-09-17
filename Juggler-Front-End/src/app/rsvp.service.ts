@@ -8,8 +8,8 @@ import {Event} from "./event";
 })
 export class RsvpService {
   data:any;
-  private _url = "http://localhost:9094/api/v1/event";
-  movies_url="http://localhost:9094/api/v1/event/get/";
+  private _url = "http://172.23.239.112:9094/api/v1/event";
+  movies_url="http://172.23.239.112:9094/api/v1/event/get/";
   //private _url = "http://172.23.239.115:9094;
   event=new Event();
   constructor(private http: HttpClient) {}

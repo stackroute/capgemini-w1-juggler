@@ -27,7 +27,7 @@ export class AuthenticationService {
             }));
     }
     loginPartner(email: string, password: string, role: string) {
-        return this.http.post<any>('http://localhost:8070/api/v1/juggler/user/login', {email: email, password: password, role: role})
+        return this.http.post<any>('http://172.23.239.112:8070/api/v1/juggler/user/login', {email: email, password: password, role: role})
             // this is just the HTTP call,
             // we still need to handle the reception of the token
             // .shareReplay();
