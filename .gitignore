@@ -39,11 +39,11 @@ local.properties
 .factorypath
 .settings
 .mvn
-target/
+target
 target/*
 *.logs
 *.logs.*
-mvn
+mvnw
 mvnw.*
 
 /src/main/resources/rebel.xml
