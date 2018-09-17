@@ -35,10 +35,10 @@ public class PromocodesServiceImpl implements PromocodesService {
 		return promocodes;
 	}
 
-	@Override
-	public String delete(String code) {
-    reomocoderepo.deleteById(code);
-		return "deleted";
-	}
+//	@Override
+//	public String delete(String code) {
+//    reomocoderepo.deleteById(code);
+//		return "deleted";
+//	}
 
 }

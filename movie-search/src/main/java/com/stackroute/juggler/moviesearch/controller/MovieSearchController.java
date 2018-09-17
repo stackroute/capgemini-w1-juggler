@@ -33,7 +33,8 @@ MovieSearchServiceImpl searchService;
 
 	}
 	@RequestMapping(value = "/city/{cityName}", method = RequestMethod.GET, produces = { "application/json" })
-	public ResponseEntity<?> getCityByName(@PathVariable String cityName) {
+	public ResponseEntity<?> getCityByName(@PathVariable 
+			String cityName) {
 		City city=searchService.getByCity(cityName);
 		return new ResponseEntity<City>(city,HttpStatus.OK);
 

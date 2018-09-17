@@ -8,6 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication
 public class PromocodesApplication {
 
+	// This is the main entry point of the application
 	public static void main(String[] args) {
 		SpringApplication.run(PromocodesApplication.class, args);
 	}

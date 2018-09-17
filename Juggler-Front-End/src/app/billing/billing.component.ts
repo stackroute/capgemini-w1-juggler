@@ -1,4 +1,4 @@
-// import { PromoCode } from './../PromoCode';
+
 import { PromocodeService } from "./../promocode.service";
 import { Component, OnInit } from "@angular/core";
 
@@ -68,7 +68,7 @@ export class BillingComponent implements OnInit {
         }
         break;
       case 20:
-        if (value1 >= 100) {
+        if (value1 >= 200) {
           this.flag = true;
         } else {
           this.flag = false;

@@ -1,4 +1,4 @@
-
+import { BillingComponent } from './billing/billing.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,9 +15,10 @@ import { ContactComponent } from './contact/contact.component';
 import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TheatreDisplayComponent } from './theatre-display/theatre-display.component';
+import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
+import { SeatlayoutComponent } from './seatlayout/seatlayout.component';
+import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
-import { BillingComponent } from './billing/billing.component';
-
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'home', component: HomePageComponent },
@@ -32,11 +33,14 @@ const routes: Routes = [
   { path: 'theatre/:email', component: TheatreRegistrationComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'profile/:email', component: ProfileComponent },
-  { path: 'display-theatre',component: TheatreDisplayComponent},
-  { path: 'payment-page',component: PaymentPageComponent},
-  { path: 'checkout',component: BillingComponent}
+  { path: 'rsvp', component: RSVPEventComponent },
+  { path: 'display-theatre',component: TheatreDisplayComponent },
+  { path: 'seat-layout',component: SeatlayoutComponent },
+{ path: 'payment-page',component: PaymentPageComponent},  
+{ path: 'rsvp/events',component:RsvpEventsListComponent},
+  { path: 'billing',component:BillingComponent }
 ];
-
+  
 @NgModule({
   imports: [BrowserModule,RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule,BrowserModule]
@@ -54,6 +58,11 @@ export const routingComponents = [
   DistributionRegisterFormComponent,
   MovieScreeningComponent,
   ProfileComponent,
+  RSVPEventComponent,
+  MoviedetailsFormComponent,
+  TheatreDisplayComponent,
+  SeatlayoutComponent,
   PaymentPageComponent,
+  RsvpEventsListComponent,
   BillingComponent
 ];

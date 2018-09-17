@@ -43,29 +43,24 @@
 }
 
 .DisplayBorder {
- border-radius: 2px;
+  border-radius: 2px;
   padding-left: 1px;
   padding-right: 1px;
   padding-top: 1px;
   padding-bottom: 1px;
   margin: 2px 2px;
   background-color: blanchedalmond;
- 
 }
-
 .CamelCase {
   text-transform: capitalize;
 }
-a.CamelCase{
-    display: inline-block;
-    width:100px;
+a.CamelCase {
+  display: inline-block;
+  width: 100px;
 }
-#display{
+#display {
   display: inline-flex;
 }
-#spacing
-{
+#spacing {
   margin-left: 15px;
 }
-
-

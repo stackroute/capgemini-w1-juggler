@@ -1,55 +1,37 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ScreeningDetails } from '../screening-details';
-import {
-
-  Validators,
-  FormGroup,
-  FormBuilder
-} from '@angular/forms';
-import { MovieScreeningService } from '../movie-screening.service';
-import { Router, ParamMap, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from "@angular/core";
+import { ScreeningDetails } from "../screening-details";
+import { Validators, FormGroup, FormBuilder } from "@angular/forms";
+import { MovieScreeningService } from "../movie-screening.service";
+import { Router, ParamMap, ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-movie-screening',
-  templateUrl: './movie-screening.component.html',
-  styleUrls: ['./movie-screening.component.scss']
+  selector: "app-movie-screening",
+  templateUrl: "./movie-screening.component.html",
+  styleUrls: ["./movie-screening.component.scss"]
 })
 export class MovieScreeningComponent implements OnInit {
   title: string;
   isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-
   email: string;
   movies = [];
   weekendsPrice: number[];
   weekdaysPrice: number[];
   screening = new ScreeningDetails();
-  
+
   constructor(
     private screeningService: MovieScreeningService,
     private _formBuilder: FormBuilder,
     private route: Router,
     private router: ActivatedRoute
   ) {}
-
   onSubmit(mve) {
     this.screening.showNumbers = this.f.show_Numbers.value;
     this.screening.showTimings = this.f.show_Timings.value;
-    // this.screening.weekdays_Price = this.f.weekdays_Price.value;
-    // this.screening.weekends_Price = this.f.weekends_Price.value;
-    this.weekdaysPrice = [
-      this.f.n1.value,
-      this.f.n2.value,
-      this.f.n3.value
-    ]; 
+    this.weekdaysPrice = [this.f.n1.value, this.f.n2.value, this.f.n3.value];
     this.screening.weekdays_Price = this.weekdaysPrice;
-    
-    this.weekendsPrice = [
-      this.f.n4.value,
-      this.f.n5.value,
-      this.f.n6.value
-    ];
+    this.weekendsPrice = [this.f.n4.value, this.f.n5.value, this.f.n6.value];
     this.screening.weekends_Price = this.weekendsPrice;
     this.screening.id = mve.id;
     this.screening.movieName = mve.movieName;
@@ -69,41 +51,34 @@ export class MovieScreeningComponent implements OnInit {
     console.log(this.screening.moviePoster);
     this.screeningService
       .saveScreening(this.screening, this.email)
-      .subscribe(res => console.log('Saved screening details'));
-      // this.route.navigate(['/login-partner']);
+      .subscribe(res => console.log("Saved screening details"));
   }
-
-  clickOk(){
-    this.route.navigate(['/profile', this.email]);
+  clickOk() {
+    this.route.navigate(["/profile", this.email]);
   }
-
   getMovie(title: string) {
     this.screeningService.getMovies(title).then(re => (this.movies = re));
   }
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-      show_Numbers: ['', Validators.required],
-      show_Timings: ['', Validators.required],
+      show_Numbers: ["", Validators.required],
+      show_Timings: ["", Validators.required],
       n1: [Number, Validators.required],
       n2: [Number, Validators.required],
       n3: [Number, Validators.required],
       n4: [Number, Validators.required],
       n5: [Number, Validators.required],
       n6: [Number, Validators.required]
-      // weekdays_Price: ['', Validators.required],
-      // weekends_Price: ['', Validators.required]
     });
     this.router.paramMap.subscribe((params: ParamMap) => {
-      console.log(params.get('email'));
-      const email = (params.get('email'));
+      console.log(params.get("email"));
+      const email = params.get("email");
       console.log(email);
       this.email = email;
       console.log(this.email);
     });
-
   }
   get f() {
     return this.firstFormGroup.controls;
   }
-
 }

@@ -1,3 +1,4 @@
+import { BillingComponent } from './billing/billing.component';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -43,12 +44,14 @@ import { ProfileService } from './profile.service';
 import { TheatreDisplayComponent } from './theatre-display/theatre-display.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
+import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { PaymentService } from './paymentservice';
-import { PaymentDialogComponent } from './payment-page/payment-dialog/payment-dialog.component'
-import { BillingComponent } from './billing/billing.component';
+import { PaymentDialogComponent } from './payment-page/payment-dialog/payment-dialog.component';
+import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
 import { PromocodeService } from './promocode.service';
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +71,8 @@ import { PromocodeService } from './promocode.service';
     RecommendationComponent,
     ProfileComponent,
     TheatreDisplayComponent,
+    RSVPEventComponent,
+    RsvpEventsListComponent,
     PaymentPageComponent,
     PaymentDialogComponent,
     BillingComponent

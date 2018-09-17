@@ -4,17 +4,18 @@ import org.springframework.data.annotation.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+//domain object for promocodes
 @Document
 public class Promocodes {
 	@Id
-	public String codeId;
+	public int codeId;
 	public String code;
 	public String image;
 	public String description;
 	public int amount;
 
 	// All Arguments constructor
-	public Promocodes(String codeId, String code, String image, String description, int amount) {
+	public Promocodes(int codeId, String code, String image, String description, int amount) {
 		super();
 		this.codeId = codeId;
 		this.code = code;
@@ -53,11 +54,11 @@ public class Promocodes {
 		this.image = image;
 	}
 
-	public String getCodeId() {
+	public int getCodeId() {
 		return codeId;
 	}
 
-	public void setCodeId(String codeId) {
+	public void setCodeId(int codeId) {
 		this.codeId = codeId;
 	}
 
@@ -68,7 +69,5 @@ public class Promocodes {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
 
 }
