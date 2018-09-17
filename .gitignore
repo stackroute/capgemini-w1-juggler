@@ -48,6 +48,7 @@ mvnw.*
 bin
 .bin
 .bin/*
+.git/objects
 
 /src/main/resources/rebel.xml
 

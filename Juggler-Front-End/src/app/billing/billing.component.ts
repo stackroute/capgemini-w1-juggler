@@ -1,4 +1,4 @@
-import { PromoCode } from "./../PromoCode";
+
 import { PromocodeService } from "./../promocode.service";
 import { Component, OnInit } from "@angular/core";
 
