@@ -41,8 +41,8 @@ local.properties
 .mvn
 target/
 target/*
-logs
-logs.*
+*.logs
+*.logs.*
 mvn
 mvnw.*
 
