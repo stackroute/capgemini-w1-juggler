@@ -1,4 +1,4 @@
-package com.stackroute.juggler.showsheduler.domain;
+package com.stackroute.juggler.kafka.domain;
 
 public class TriggerMessage {
 

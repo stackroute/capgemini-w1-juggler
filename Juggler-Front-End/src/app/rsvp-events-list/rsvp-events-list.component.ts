@@ -14,10 +14,12 @@ export class RsvpEventsListComponent implements OnInit {
 
   getEvents(){  
     this.email = localStorage.getItem("currentUserEmail");
+    console.log(this.email);
      this.rsvpService.searchEvent(this.email).subscribe(data => {
       this.search_result1 = data;
+      console.log( this.search_result1);
      });
-    console.log(this.search_result1+"abc");
+    
   
 }
 }  

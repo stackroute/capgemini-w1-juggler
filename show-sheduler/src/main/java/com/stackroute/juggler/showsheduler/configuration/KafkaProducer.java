@@ -12,7 +12,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.stackroute.juggler.showsheduler.domain.TriggerMessage;
+import com.stackroute.juggler.kafka.domain.TriggerMessage;
 
 @Configuration
 public class KafkaProducer {
