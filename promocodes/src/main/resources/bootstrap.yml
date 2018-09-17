@@ -1,6 +1,6 @@
-#spring:
-# cloud:
-#   config:
-#     uri: http://localhost:8891
-# application:
-#   name: promocodes
+spring:
+ cloud:
+   config:
+     uri: http://localhost:8891
+ application:
+   name: promocodes

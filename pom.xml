@@ -34,6 +34,17 @@
         </dependency>
         </dependencies>
 
+<dependencies>
+<dependency>
+           <groupId>io.micrometer</groupId>
+           <artifactId>micrometer-core</artifactId>
+       </dependency>
+       <!-- Micrometer Prometheus registry -->
+       <dependency>
+           <groupId>io.micrometer</groupId>
+           <artifactId>micrometer-registry-prometheus</artifactId>
+       </dependency>
+</dependencies>
 	<modules>
 		<module>config-service</module>
 		<module>eureka-server</module>

@@ -1,28 +1,25 @@
- 
- .container {
-   height:100%;
-   width:100%;
- }
- .example-card {
-  display: inline-flex;
-  flex-flow: row wrap;
+// .container {
+//   height: 100%;
+//   width: 100%;
+// }
+// .example-card {
+//   display: inline-flex;
+//   flex-flow: row wrap;
+// }
+// .mat-card img {
+//   object-fit: cover;
+// }
 
- }
- .mat-card img{
-  object-fit: cover;
-
- }
- 
 .example-header-image {
-      background-size: cover;
-  }
-  .card-picture {
-    width: 23%;
-    margin-bottom: 2%;
-  }
-  .img {
-    width: 100%;
-    margin-bottom: 18%;
-    display:flex;
-    flex-flow: row wrap;
-  }
+  background-size: cover;
+}
+.card-picture {
+  width: 23%;
+  margin-bottom: 2%;
+}
+.img {
+  width: 100%;
+  margin-bottom: 18%;
+  // display: flex;
+  // flex-flow: row wrap;
+}
