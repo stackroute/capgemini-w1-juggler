@@ -1,10 +1,45 @@
+<div class="unit">
+    <h4><b>RSVP Events</b></h4>
+    <div class="container">
+        <div *ngIf=!isvalid>
+            <p>No current events available</p>
+        </div>
+        <div *ngIf=search_result1>
+            <div class="row">
+                <div class="col-lg-6" *ngFor="let item of search_result1">
+                    <!-- <div class="col-xs-6 searchResultItem"> -->
 
-<h5>RSVP Events</h5>
+                    <mat-card class="card">
+                        <mat-card-header>
+                            <mat-card-title class="title">
+                                <a><b>{{item.eventName}}</b></a>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <ul style="list-style: none;">
+                            <li>Event creator: {{item.creatorOfEvent}}</li>
+                            <li> Event Name: {{item.eventName}}</li>
+                            <li> Event Type: {{item.eventType}} </li>
+                            <li> Date of Event: {{item.eventDate}} </li>
+                            <li> Time: {{item.eventTime}} </li>
+                            <li> Guest: [{{item.guestsofEvent}}]</li>
+                            <li> Location: {{item.eventLocation}} </li>
+                            <li> Event duration: {{item.duration}} </li>
+                            <li> Days: {{item.noOfDays}} </li>
+                            <li> Description:{{item. eventSynopsis}} </li>
+                            <li> Event mailId: {{item.emailId}} </li>
+                            <li> Invities:[ {{item. invitiesMail}} ]</li>
+                            <li> Contact: {{item.phoneNo}} </li>
+                        </ul>
+                    </mat-card>
 
-<div>
-<button><a routerLink="/rsvp"> Add Event</a></button>
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div>
-<button  (click)="getEvents()"> Events</button>
+
+    <div class="bt">
+
+        <button><a routerLink="/rsvp"> Add Event</a></button>
+    </div>
 </div>

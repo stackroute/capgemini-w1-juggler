@@ -63,6 +63,8 @@ services:
    build: user-profile/
 
    restart: always
+   environment:
+    KAFKA_IP: 172.23.239.111
 
    network_mode: host
 

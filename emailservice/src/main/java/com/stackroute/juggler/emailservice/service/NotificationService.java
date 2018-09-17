@@ -30,15 +30,15 @@ public class NotificationService {
 
 	EmailDetails emailDetails = new EmailDetails();
 	String emailBody;
-	String msg;
-
+	
+String url="www.google.co.in";
 	@KafkaListener(topics = "eventdetails1", groupId = "event")
 	public void getEventDetails(EventDetails event) {
 		System.out.println("geteventdetails");
 		emailDetails.setToEmailId(event.getInvitiesMail());
 		emailDetails.setBody(event.getEventSynopsis());
 		System.out.println(emailDetails.toString());
-		msg = "abcd" + "" + emailDetails.toString();
+		
 	}
 
 	public void sendNotification() throws MessagingException {
@@ -64,7 +64,7 @@ public class NotificationService {
 		helper.setTo(emailDetails.getToEmailId());
 		helper.setSubject("Event Invitation");
 		this.emailBody = "Hi," + emailDetails.getBody();
-		helper.setText("<html><head><body> <h3>Hi,</h3><p>"+ emailBody +"</p><div>\n"
+		helper.setText("<html><head><body> <h3>Hi,</h3><p>"+ emailBody +"</p> <a>"+ url +"</a><div>\n"
 				+ "        <button mat-button matStepperPrevious>Accept</button><button mat-button matStepperPrevious>Decline</button></body></head></html>",
 				true);
 		System.out.println(message.toString());
