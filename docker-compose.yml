@@ -2,12 +2,59 @@ version: '2.1'
 
 services:
 
+  api-gateway:
+   build: zuul-apigateway/
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+   restart: always
+   network_mode: "host"
+   image: demo-zuul-service
+   hostname: localhost
+   ports:
+    - 8092:8092
+   healthcheck:
+    test: "exit 0"
+
+  eureka-server:
+   build: eureka-server/
+   restart: always
+   network_mode: "host"
+   image: demo-eureka-service
+   hostname: localhost
+   ports:
+    - 9090:9090
+   healthcheck:
+    test: "exit 0"
+
+  config-service:
+   build: config-service/
+   image: config-server
+   container_name: config-server
+   restart: always
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+   network_mode: "host"
+   hostname: localhost
+   ports:
+    - 8891:8891
+   healthcheck:
+    test: "exit 0"
+
 
   rsvp:
    build: rsvp/
    restart: always
    network_mode: "host"
    hostname: localhost
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+    api-gateway:
+     condition: service_healthy
+    config-service:
+     condition: service_healthy
    ports:
     - 9094:9094
    container_name: rsvp
@@ -19,6 +66,13 @@ services:
    restart: always
    network_mode: "host"
    hostname: localhost
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+    api-gateway:
+     condition: service_healthy
+    config-service:
+     condition: service_healthy
    ports:
     - 8051:8051
    container_name: email
@@ -32,7 +86,13 @@ services:
    restart: always
    network_mode: host
    container_name: userprofile
-
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+    api-gateway:
+     condition: service_healthy
+    config-service:
+     condition: service_healthy
    ports:
     - 8040:8040
    healthcheck:
@@ -45,7 +105,13 @@ services:
    restart: always
    network_mode: host
    container_name: screening
-
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+    api-gateway:
+     condition: service_healthy
+    config-service:
+     condition: service_healthy
    ports:
     - 8030:8030
    healthcheck:
@@ -56,7 +122,13 @@ services:
    restart: always
    network_mode: host
    container_name: theatre
-
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+    api-gateway:
+     condition: service_healthy
+    config-service:
+     condition: service_healthy
    ports:
     - 8020:8020
    healthcheck:
@@ -70,7 +142,13 @@ services:
    ports:
     - 8070:8070
    container_name: auth
-
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+    api-gateway:
+     condition: service_healthy
+    config-service:
+     condition: service_healthy
    healthcheck:
     test: "exit 0"
 
@@ -79,6 +157,13 @@ services:
    restart: always
    network_mode: "host"
    hostname: localhost
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+    api-gateway:
+     condition: service_healthy
+    config-service:
+     condition: service_healthy
    ports:
     - 8010:8010
    container_name: distributor
@@ -91,6 +176,13 @@ services:
    restart: always
    network_mode: "host"
    hostname: localhost
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+    api-gateway:
+     condition: service_healthy
+    config-service:
+     condition: service_healthy
    ports:
     - 8050:8050
    container_name: recommendations
@@ -103,10 +195,92 @@ services:
    restart: always
    network_mode: "host"
    hostname: localhost
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+    api-gateway:
+     condition: service_healthy
+    config-service:
+     condition: service_healthy
    ports:
     - 8060:8060
    container_name: search
 
+   healthcheck:
+    test: "exit 0"
+
+  mysql:
+   image: mysql:5.7
+   ports:
+      - 3306:3306
+   container_name: mysql
+   mem_limit: 2g
+   environment: 
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=juggler_db
+    - MYSQL_PASSWORD=root
+    - MYSQL_USER=root
+   network_mode: "host"
+   hostname: localhost
+   restart: always
+   healthcheck:
+    test: "exit 0"
+
+  mongo:
+   image: mongo
+   network_mode: host
+   container_name: spring-mongo
+   ports:
+    - 27017:27017
+   volumes:
+    - /usr/src/home:/data/db
+   healthcheck:
+    test: "exit 0"
+
+  neo4j:
+   image: neo4j:latest
+   ports:
+    - "7474:7474"
+    - "7687:7687"
+   environment:
+    
+    - NEO4J_apoc_import_file_enabled=true
+    - NEO4J_dbms_shell_enabled=true
+   healthcheck:
+    test: "exit 0"
+
+  juggler-front-end:
+   image: viship/juggler:1.0.0
+   container_name: juggler-front-end
+   ports:
+    - 4200:4200
+   healthcheck:
+    test: "exit 0"
+
+  zookeeper:
+   image: wurstmeister/zookeeper
+   ports:
+    - "2181:2181"
+   network_mode: "host"
+   hostname: localhost
+   restart: always
+   healthcheck:
+    test: "exit 0"
+
+  kafka:
+   image: wurstmeister/kafka
+   ports:
+    - "9092:9092"
+   environment:
+    KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+    KAFKA_LISTENERS: PLAINTEXT://localhost:9092
+    KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
+   network_mode: "host"
+   hostname: localhost
+   depends_on:
+    zookeeper:
+     condition: service_healthy      
+   restart: always
    healthcheck:
     test: "exit 0"
 

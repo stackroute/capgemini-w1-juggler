@@ -6,7 +6,7 @@ import com.stackroute.juggler.kafka.domain.User;
 
 //using crudrepo to add into database
 @Repository
-public interface UserDao extends CrudRepository<User, Long> {
+public interface UserRepo extends CrudRepository<User, Long> {
 	User save(User user);
 
 	// find data fom database by email and number

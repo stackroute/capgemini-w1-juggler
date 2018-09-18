@@ -25,7 +25,7 @@ public class KafkaConfig {
 	public ConsumerFactory<String,EventDetails > consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.111:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.16:9092");
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "event");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);

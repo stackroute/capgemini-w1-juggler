@@ -5,14 +5,14 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import com.stackroute.juggler.kafka.domain.InputUser;
 import com.stackroute.juggler.kafka.domain.User;
-import com.stackroute.juggler.repository.UserDao;
+import com.stackroute.juggler.repository.UserRepo;
 import com.stackroute.juggler.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserDao userDao;
+	private UserRepo userDao;
 
 	public User save(User user) {
 		return userDao.save(user);
