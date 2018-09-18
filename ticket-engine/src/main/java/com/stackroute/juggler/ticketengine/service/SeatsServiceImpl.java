@@ -26,22 +26,22 @@ public class SeatsServiceImpl implements SeatsService {
 	@Override
 	public Seats save(Seats seats) {
 		seats = seatsRepo.save(seats);
-
-		Show show = showInfoRepo.getById(seats.getShowId());
-		for (int i : seats.getSeats()) {
-			try {
-			if (show.getSeats().get(i).equals("blocked")) {
-				throw new Exception("Seat No: " + i + " is already blocked");
-			} else if (show.getSeats().get(i).equals("booked")) {
-				throw new Exception("Seat No: " + i + " is already booked");
-			} else {
-				show.getSeats().put(i, "blocked");
-			}
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		showInfoRepo.save(show);
+		
+//		Show show = showInfoRepo.getById(seats.getId());
+//		for (int i : seats.getSeats()) {
+//			try {
+//			if (show.getSeats().get(i).equals("blocked")) {
+//				throw new Exception("Seat No: " + i + " is already blocked");
+//			} else if (show.getSeats().get(i).equals("booked")) {
+//				throw new Exception("Seat No: " + i + " is already booked");
+//			} else {
+//				show.getSeats().put(i, "blocked");
+//			}
+//			} catch(Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		showInfoRepo.save(show);
 	    return seats;
 	}
 

@@ -11,32 +11,69 @@ public class Seats {
 	@Id
 	private String id;
     
-	private String showId;
+	private String showSlot;
+	private String theatreName;
+	private String movieName;
+	private String date;
+	private LayoutInfo seatLayout;
 	private List<Integer> seats;
-	private String status;
-	private String userName;
-	private String guestUserEmailId;
-	private int movieEventId;
-    
+	private List<Integer> blockedSeats;
+	private List<Integer> bookedSeats;
+
 	public Seats() {}
 
-	public Seats(String id, String showId, List<Integer> seats, String status, String userName, String guestUserEmailId,
-			int movieEventId) {
+	public Seats(String id, String showSlot, String theatreName, String movieName, String date, LayoutInfo seatLayout,
+			List<Integer> seats, List<Integer> blockedSeats, List<Integer> bookedSeats) {
+		super();
 		this.id = id;
-		this.showId = showId;
+		this.showSlot = showSlot;
+		this.theatreName = theatreName;
+		this.movieName = movieName;
+		this.date = date;
+		this.seatLayout = seatLayout;
 		this.seats = seats;
-		this.status = status;
-		this.userName = userName;
-		this.guestUserEmailId = guestUserEmailId;
-		this.movieEventId = movieEventId;
+		this.blockedSeats = blockedSeats;
+		this.bookedSeats = bookedSeats;
 	}
 
-	public String getShowId() {
-		return showId;
+	public String getId() {
+		return id;
 	}
 
-	public void setShowId(String showId) {
-		this.showId = showId;
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getShowSlot() {
+		return showSlot;
+	}
+
+	public void setShowSlot(String showSlot) {
+		this.showSlot = showSlot;
+	}
+
+	public String getTheatreName() {
+		return theatreName;
+	}
+
+	public void setTheatreName(String theatreName) {
+		this.theatreName = theatreName;
+	}
+
+	public String getMovieName() {
+		return movieName;
+	}
+
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public List<Integer> getSeats() {
@@ -47,42 +84,35 @@ public class Seats {
 		this.seats = seats;
 	}
 
-	public String getStatus() {
-		return status;
+	public List<Integer> getBlockedSeats() {
+		return blockedSeats;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setBlockedSeats(List<Integer> blockedSeats) {
+		this.blockedSeats = blockedSeats;
 	}
 
-	public String getUserName() {
-		return userName;
+	public List<Integer> getBookedSeats() {
+		return bookedSeats;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setBookedSeats(List<Integer> bookedSeats) {
+		this.bookedSeats = bookedSeats;
+	}
+	
+	public LayoutInfo getSeatLayout() {
+		return seatLayout;
 	}
 
-	public String getGuestUserEmailId() {
-		return guestUserEmailId;
-	}
-
-	public void setGuestUserEmailId(String guestUserEmailId) {
-		this.guestUserEmailId = guestUserEmailId;
-	}
-
-	public int getMovieEventId() {
-		return movieEventId;
-	}
-
-	public void setMovieEventId(int movieEventId) {
-		this.movieEventId = movieEventId;
+	public void setSeatLayout(LayoutInfo seatLayout) {
+		this.seatLayout = seatLayout;
 	}
 
 	@Override
 	public String toString() {
-		return "Seats [id=" + id + ", showId=" + showId + ", seats=" + seats + ", status=" + status + ", userName="
-				+ userName + ", guestUserEmailId=" + guestUserEmailId + ", movieEventId=" + movieEventId + "]";
+		return "Seats [id=" + id + ", showSlot=" + showSlot + ", theatreName=" + theatreName + ", movieName="
+				+ movieName + ", date=" + date + ", seatLayout=" + seatLayout + ", seats=" + seats + ", blockedSeats="
+				+ blockedSeats + ", bookedSeats=" + bookedSeats + "]";
 	}
 	
 }

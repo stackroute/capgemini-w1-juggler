@@ -11,10 +11,8 @@
         <mat-form-field>
           <input matInput placeholder="Enter Promo Code, If Available" #input>
         </mat-form-field>
-        <button mat-stroked-button color="warn" (click)="promo(input.value)" (click)="basicModal.show()">Apply</button>
+        <button mat-stroked-button color="warn" (click)="promo(input.value)">Apply</button>
       </div>
-
-
       <mat-grid-list cols="12">
         <div class="container">
           <div *ngIf=result>
@@ -68,37 +66,12 @@
           </div>
         </ng-template>
 
-        <button mat-flat-button color="warn">Proceed to checkout</button>
+        <button mat-flat-button color="warn" routerLink="/payment-page">Proceed to checkout</button>
 
       </div>
     </div>
 
   </div>
-</div>
-<div>
-
-  <mat-accordion>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Personal data
-        </mat-panel-title>
-        <mat-panel-description>
-          Type your name and age
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-
-      <mat-form-field>
-        <input matInput placeholder="First name">
-      </mat-form-field>
-
-      <mat-form-field>
-        <input matInput placeholder="Age">
-      </mat-form-field>
-    </mat-expansion-panel>
-  </mat-accordion>
-
 </div>
 
 

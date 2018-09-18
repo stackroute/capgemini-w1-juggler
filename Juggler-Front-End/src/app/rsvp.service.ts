@@ -1,28 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from "rxjs/operators";
+import "rxjs/add/operator/map";
 import {Event} from "./event";
 @Injectable({ 
   providedIn: 'root'
 })
 export class RsvpService {
-  data:any;
-  private _url = "http://172.23.239.112:9094/api/v1/event";
-  movies_url="http://172.23.239.112:9094/api/v1/event/get/";
+  data: any;
+  private _url = "http://localhost:9094/api/v1/event";
+  movies_url = "http://localhost:9094/api/v1/event/get/?emailId=";
   //private _url = "http://172.23.239.115:9094;
-  event=new Event();
+  //event:Object;
   constructor(private http: HttpClient) {}
 
   // saveEvent(event): Observable<Event> {
   //  return this.http.post<Event>(this._url, event);
   //  //return this.http.post<Event>(this._url + "/api/v1/event", event);
   // }
-   saveEvent(event:Event): Observable<Event> {
-    return this.http.post<Event>(
-      this._url,
-      event
-    );
+  saveEvent(event: Event): Observable<Event> {
+    return this.http.post<Event>(this._url, event);
   }
 
   // getEvents(email): Observable<Event> {
@@ -30,13 +27,13 @@ export class RsvpService {
   //   return this.http.get<>(this.movies_url + '/' + "?emailid= email");
   // }
 
-
   searchEvent(email: string) {
-    return this.http
-      .get(this.movies_url + "/" +"?emailId" + "=" + email)
-      .pipe(map(res => (this.data = res)));
+    console.log(email + " in service");
+    // http://localhost:9094/api/v1/event/get/?emailId=zyx@gmail.com
+    console.log("data is " + this.data);
+    return this.http.get(this.movies_url + email).map(res => (this.data = res));
   }
-}   
+}
 
 
  
