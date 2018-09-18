@@ -5,8 +5,8 @@
             <form>
                 <div class="row p-5">
                     <div class="col-12">
-                        <input type="text" class="form-control" placeholder="Search movies" name="city">
-                        <button type="submit" class="btn-block btn-info form-control" (click)="searchMovies()"><i class="fa fa-search"></i></button>
+                        <input type="text" class="form-control" placeholder="Search movies" name="city" #input>
+                        <button type="submit" class="btn-block btn-info form-control" (click)="searchMovies(input.value)"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </form>

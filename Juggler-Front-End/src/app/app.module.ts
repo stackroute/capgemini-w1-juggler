@@ -1,9 +1,11 @@
+import { BillingComponent } from './billing/billing.component';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {HttpModule} from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +16,7 @@ import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form
 import { AuthenticationService } from './authentication.service';
 import { AlertService } from './alert.service';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatAutocompleteModule } from '@angular/material';
 import { MatCardModule, MatNativeDateModule } from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -43,7 +45,11 @@ import { TheatreDisplayComponent } from './theatre-display/theatre-display.compo
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
 import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { PaymentService } from './paymentservice';
+import { PaymentDialogComponent } from './payment-page/payment-dialog/payment-dialog.component';
 import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
+import { PromocodeService } from './promocode.service';
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 
 @NgModule({
@@ -66,13 +72,17 @@ import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.com
     ProfileComponent,
     TheatreDisplayComponent,
     RSVPEventComponent,
-    RsvpEventsListComponent
+    RsvpEventsListComponent,
+    PaymentPageComponent,
+    PaymentDialogComponent,
+    BillingComponent
   ],
 
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    HttpModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
@@ -91,10 +101,10 @@ import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.com
     MatDividerModule,
     MatTableModule
   ],
-  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, ProfileService,
-    Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, PaymentService, ProfileService, PromocodeService,
+    Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent],
-  entryComponents: [ DialogComponentComponent ],
+  entryComponents: [ DialogComponentComponent, PaymentDialogComponent ],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }

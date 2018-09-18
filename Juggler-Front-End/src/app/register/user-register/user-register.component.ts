@@ -18,7 +18,7 @@ export interface Language {
   styleUrls: ["./user-register.component.scss"]
 })
 export class UserRegisterComponent implements OnInit {
-  isLinear = false;
+  isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   fourthFormGroup: FormGroup;

@@ -1,3 +1,4 @@
+import { BillingComponent } from './billing/billing.component';
 import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +18,7 @@ import { TheatreDisplayComponent } from './theatre-display/theatre-display.compo
 import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
 import { SeatlayoutComponent } from './seatlayout/seatlayout.component';
 import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
-
+import { PaymentPageComponent } from './payment-page/payment-page.component';
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'home', component: HomePageComponent },
@@ -35,7 +36,9 @@ const routes: Routes = [
   { path: 'rsvp', component: RSVPEventComponent },
   { path: 'display-theatre',component: TheatreDisplayComponent },
   { path: 'seat-layout',component: SeatlayoutComponent },
-  { path: 'rsvp/events',component:RsvpEventsListComponent}
+{ path: 'payment-page',component: PaymentPageComponent},  
+{ path: 'rsvp/events',component:RsvpEventsListComponent},
+  { path: 'billing',component:BillingComponent }
 ];
   
 @NgModule({
@@ -59,5 +62,7 @@ export const routingComponents = [
   MoviedetailsFormComponent,
   TheatreDisplayComponent,
   SeatlayoutComponent,
-  RsvpEventsListComponent
+  PaymentPageComponent,
+  RsvpEventsListComponent,
+  BillingComponent
 ];
