@@ -51,9 +51,8 @@ import { PaymentDialogComponent } from './payment-page/payment-dialog/payment-di
 import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
 import { PromocodeService } from './promocode.service';
 import { RsvpAcceptComponent } from './rsvp-accept/rsvp-accept.component';
-
-import { RecomondationMovieDisplayComponent } from './recomondation-movie-display/recomondation-movie-display.component';
 import { RecommondationThetareDisplayComponent } from './recommondation-thetare-display/recommondation-thetare-display.component';
+import { RecomondationMovieDisplayComponent } from './recomondation-movie-display/recomondation-movie-display.component';
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 

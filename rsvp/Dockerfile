@@ -7,4 +7,4 @@ ADD ./target/Rsvp-0.0.1-SNAPSHOT.jar /usr/app/Rsvp-0.0.1-SNAPSHOT.jar
 # java -jar <jar fileName>
 WORKDIR usr/app
 ENTRYPOINT ["java","-jar", "Rsvp-0.0.1-SNAPSHOT.jar"]
-EXPOSE 9094
+EXPOSE 9075
