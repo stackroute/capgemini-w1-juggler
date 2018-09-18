@@ -152,6 +152,60 @@ services:
    healthcheck:
     test: "exit 0"
 
+  promocode:   
+   build: promocode/
+   restart: always
+   network_mode: "host"
+   hostname: localhost
+   ports:
+    - 9096:9096
+   container_name: promocode
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+    api-gateway:
+     condition: service_healthy
+    config-service:
+     condition: service_healthy
+   healthcheck:
+    test: "exit 0"
+
+  payment:   
+   build: payment/
+   restart: always
+   network_mode: "host"
+   hostname: localhost
+   ports:
+    - 8031:8031
+   container_name: payment
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+    api-gateway:
+     condition: service_healthy
+    config-service:
+     condition: service_healthy
+   healthcheck:
+    test: "exit 0"
+
+  booking:   
+   build: ticket-engine/
+   restart: always
+   network_mode: "host"
+   hostname: localhost
+   ports:
+    - 8888:8888
+   container_name: booking
+   depends_on:
+    eureka-server:
+     condition: service_healthy
+    api-gateway:
+     condition: service_healthy
+    config-service:
+     condition: service_healthy
+   healthcheck:
+    test: "exit 0"
+
   distributor:   
    build: distributor/
    restart: always

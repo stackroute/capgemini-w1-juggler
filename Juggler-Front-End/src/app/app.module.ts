@@ -83,6 +83,7 @@ import { RecomondationMovieDisplayComponent } from './recomondation-movie-displa
     RsvpAcceptComponent,
     RecomondationMovieDisplayComponent,
     RecommondationThetareDisplayComponent
+   
   ],
 
   imports: [

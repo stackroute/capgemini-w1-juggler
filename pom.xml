@@ -45,8 +45,11 @@
 		<module>user-profile</module>
 		<module>recommendation</module>
 		<module>login-authentication</module>
-               <module>rsvp</module>
-               <module>emailservice</module>
-	       <module>payment</module>
+                <module>rsvp</module>
+                <module>emailservice</module>
+	        <module>payment</module>
+                <module>ticket-engine</module>
+                <module>show-sheduler</module>
+                <module>promocodes</module>
 </modules>
 </project>

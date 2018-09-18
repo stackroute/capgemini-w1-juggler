@@ -42,9 +42,10 @@ const routes: Routes = [
   { path: 'payment-page',component: PaymentPageComponent},  
   { path: 'rsvp/events',component:RsvpEventsListComponent},
   { path: 'billing',component:BillingComponent },
-  { path:'rsvp/accept',component:RsvpAcceptComponent },
-  { path:'rec/theatre',component:RecommondationThetareDisplayComponent },
-  {  path:'rec/movie',component:RecomondationMovieDisplayComponent }
+  {path:'rsvp/accept',component:RsvpAcceptComponent},
+  {path:'rec/movie',component:RecomondationMovieDisplayComponent},
+  {path:'rec/theatre',component:RecommondationThetareDisplayComponent}
+
 ];
   
 @NgModule({
