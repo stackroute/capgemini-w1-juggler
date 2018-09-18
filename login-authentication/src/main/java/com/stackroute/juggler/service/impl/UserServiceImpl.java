@@ -3,6 +3,7 @@ package com.stackroute.juggler.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
+
 import com.stackroute.juggler.kafka.domain.InputUser;
 import com.stackroute.juggler.kafka.domain.User;
 import com.stackroute.juggler.repository.UserDao;

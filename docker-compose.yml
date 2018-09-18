@@ -3,113 +3,47 @@ version: '2.1'
 services:
 
 
-  rsvp:
-   build: rsvp/
-   restart: always
-   network_mode: "host"
-   hostname: localhost
-   ports:
-    - 9094:9094
-   container_name: rsvp
-   healthcheck:
-    test: "exit 0"
 
-  email:
-   build: emailservice/
-   restart: always
-   network_mode: "host"
-   hostname: localhost
-   ports:
-    - 8051:8051
-   container_name: email
-   healthcheck:
-    test: "exit 0"
+ api-gateway:
+  build: zuul-apigateway/
+  depends_on:
+   eureka-server:
+    condition: service_healthy
+  restart: always
+  network_mode: "host"
+  image: demo-zuul-service
+  hostname: localhost
+  ports:
+   - 8092:8092
+  healthcheck:
+   test: "exit 0"
+
+ eureka-server:
+  build: eureka-server/
+  restart: always
+  network_mode: "host"
+  depends_on:
+   config-service:
+    condition: service_healthy
+  image: demo-eureka-service
+  hostname: localhost
+  ports:
+   - 9090:9090
+  healthcheck:
+   test: "exit 0"
 
 
 
-  userprofile:
-   build: user-profile/
-   restart: always
-   network_mode: host
-   container_name: userprofile
+ config-service:
+  build: config-service/
+  image: config-server
+  container_name: config-server
+  restart: always
+  network_mode: "host"
+  hostname: localhost
+  ports:
+   - 8891:8891
+  healthcheck:
+   test: "exit 0"
 
-   ports:
-    - 8040:8040
-   healthcheck:
-    test: "exit 0"
 
- 
-
-  screening:
-   build: movie-schedule/
-   restart: always
-   network_mode: host
-   container_name: screening
-
-   ports:
-    - 8030:8030
-   healthcheck:
-    test: "exit 0"
-
-  theatre:
-   build: theatre-registration/
-   restart: always
-   network_mode: host
-   container_name: theatre
-
-   ports:
-    - 8020:8020
-   healthcheck:
-    test: "exit 0"
-
-  login:   
-   build: login-authentication/
-   restart: always
-   network_mode: "host"
-   hostname: localhost
-   ports:
-    - 8070:8070
-   container_name: auth
-
-   healthcheck:
-    test: "exit 0"
-
-  distributor:   
-   build: distributor/
-   restart: always
-   network_mode: "host"
-   hostname: localhost
-   ports:
-    - 8010:8010
-   container_name: distributor
-
-   healthcheck:
-    test: "exit 0"
-
-  recommendations:
-   build: recommendation/
-   restart: always
-   network_mode: "host"
-   hostname: localhost
-   ports:
-    - 8050:8050
-   container_name: recommendations
-
-   healthcheck:
-    test: "exit 0"
-
-  search:
-   build: movie-search/
-   restart: always
-   network_mode: "host"
-   hostname: localhost
-   ports:
-    - 8060:8060
-   container_name: search
-
-   healthcheck:
-    test: "exit 0"
-
-  
-
-  
