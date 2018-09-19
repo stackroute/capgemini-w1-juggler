@@ -7,7 +7,12 @@ export class Theatre {
   totalnumberOfSeats: string;
   screenedmovies: string[];
   runningmovies: string[];
-  seatlayout: File;
+  seatlayout;
   typesOfSeats: String[];
   numberOfSeats: number[];
+  totalRow: number;
+  totalCol: number;
+  rowValues: Array<number>;
+  colValues: Array<number>;
+
 }

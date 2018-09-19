@@ -75,17 +75,23 @@ h2 {
   background-color: grey;
 }
 .selected {
-  background-color: grey;
+  background-color: blue;
 }
 .blocked {
   background-color: rgb(139, 137, 137);
   pointer-events: none;
 }
-.container{
-background-color:black;
-width: 100%;
-}
-.col-sm-4{
-  color: white;
- font-size: 150%;
+
+
+.col-sm-3{
+  text-align: center;
+  text-decoration: aqua;
+  color:white;
+  background-color: rgb(223, 52, 89);
+height: 40px;
+text-transform: capitalize;
+ width: 300px;
+ padding: 10px;
+ border: 1px solid black;
+ 
 }
