@@ -7,9 +7,10 @@ import { map } from "rxjs/operators";
 })
 export class PromocodeService {
   data: any;
-  // private url = "http://172.23.239.47:9096/api/v1/promocodes";
+  // private url = "http://172.23.239.118:9096/api/v1/promocodes";
 
-  // private url1 = "http://172.23.239.47:9096/api/v1/promocode";
+  // private url1 = "http://172.23.239.118:9096/api/v1/promocode";
+
   private url = "http://10.20.1.15:9080/api/v1/promocodes";
   private url1 = "http://10.20.1.15:9080/api/v1/promocode";
   constructor(private http: HttpClient, private router: Router) {}

@@ -1,0 +1,106 @@
+global: 
+  scrape_interval: 10s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['10.20.1.16:9090']
+    
+  - job_name: 'grafana'
+    static_configs:
+      - targets: ['10.20.1.16:3000']
+    
+  - job_name: 'eureka-server'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9083']
+  
+  - job_name: 'apigateway'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9085']
+
+  - job_name: 'config-server'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9084']
+  
+  - job_name: 'theatre'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9071']
+      
+  - job_name: 'distributor'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9070']
+    
+  - job_name: 'login'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9074']
+   
+      
+  - job_name: 'userprofile'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9073']
+      
+  - job_name: 'recommendations'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9078']
+  
+  - job_name: 'movie-schedule'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9072']
+  
+      
+  - job_name: 'movie-search'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9077']
+      
+  - job_name: 'email-service'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9077']
+      
+  - job_name: 'payment'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9077']
+      
+  - job_name: 'promocodes'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9077']
+      
+  - job_name: 'rsvp'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9077']
+            
+  - job_name: 'ticket-engine'
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['10.20.1.15:9077']
+          
+      
+      

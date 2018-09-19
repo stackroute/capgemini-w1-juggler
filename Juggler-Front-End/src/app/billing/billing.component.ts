@@ -24,7 +24,7 @@ export class BillingComponent implements OnInit {
       this.bool = false;
       // console.log(this.bool);
     });
-    // console.log(this.result1);
+     console.log(this.result);
   }
 
   promo(code) {
