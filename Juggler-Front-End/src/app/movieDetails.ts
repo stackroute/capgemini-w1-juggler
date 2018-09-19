@@ -13,4 +13,5 @@ export class MovieDetails {
   public directors: string[];
   public movieGenres: string[];
   public languages: string[];
+  theatres;
 }
