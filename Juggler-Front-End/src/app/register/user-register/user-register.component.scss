@@ -4,7 +4,9 @@
   width: 100%;
    float:right;
 }
-
+.total {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w8vxZggMFIGOxrQh_5ZDkjSwDTMkXQpvUagVsJsNLPMSRygB");
+}
 
 .container {
   border-radius: 0.5%;
@@ -13,6 +15,7 @@
 }
 .example-full-width {
   width: 55%;
+  display:flex;
 }
 #container {
   display: inline-flex;

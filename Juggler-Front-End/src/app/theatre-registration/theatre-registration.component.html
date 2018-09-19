@@ -2,13 +2,13 @@
 <div class="registration">
 <div style="text-align: center">
   <h4>
-    <strong>Wanna Register? Get Started Now..!!</strong>
+    <strong>Theatre Registration!!</strong>
   </h4>
 </div> 
 
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
+    <form  [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Step </ng-template>
       <mat-form-field class="example-full-width">
         <mat-label>Enter Theatre Name</mat-label>
@@ -16,7 +16,7 @@
         <mat-error>This field is required</mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <mat-label>Enter Theatre LicenseNo</mat-label>
+        <mat-label>Enter Theatre License No.</mat-label>
         <input matInput placeholder="Enter Theatre licenseNoeNo" formControlName="licenseNo" type="text" required>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
@@ -73,10 +73,12 @@
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Step </ng-template>
-      
-      <div class="seatType">
+
+    
+      <div class="seatType"> 
         
          <b>Types Of Seats: </b>
+         <br>
         <mat-form-field class="seats">
           <input matInput placeholder="type1" formControlName="type1" type="text" required>
           <mat-error>Required</mat-error>
@@ -89,10 +91,12 @@
           <input matInput placeholder="type3" formControlName="type3" type="text" required>
           <mat-error>Required</mat-error>
         </mat-form-field>
+      
       </div>
       
       <div class="seatType">
         <b>Number of seats:</b>
+        <br>
         <mat-form-field class="seats">
           <input matInput placeholder="n1" formControlName="n1" type="number" required>
           <mat-error>The input is invalid</mat-error>
@@ -106,20 +110,25 @@
           <mat-error>The input is invalid</mat-error>
         </mat-form-field>
       
+      </div>
+     
       <!-- <br> Seat Layout -->
+      
      <div class="layout">
        <b>Seat Layout:</b>
-       <mat-form-field class="seats">
+       <br>
+       <mat-form-field class="seatRow">
          <input matInput placeholder="no. of rows" formControlName="noofrows" type="number" required>
          <mat-error>The input is invalid</mat-error>
        </mat-form-field>
        
-       <mat-form-field class="seats">
+       <mat-form-field class="seatRow">
          <input matInput placeholder="no. of cols" formControlName="noofcols" type="number" required>
          <mat-error>The input is invalid</mat-error>
        </mat-form-field>
        </div>
-     </div>
+       
+       
       <div class= "button-color">
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
@@ -127,6 +136,8 @@
       <div class="add-theatre">
         <button mat-raised-button (click)="openDialog()">Add Theatre</button>
       </div>
+      
+     
     </form>
   </mat-step>
 </mat-horizontal-stepper>

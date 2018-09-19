@@ -39,14 +39,14 @@ export class RecommondationThetareDisplayComponent {
 
   ngOnInit() {
     this.movieObject2 = this.movieDetailsService.receiveData();
-    console.log(this.movieObject2);
+    console.log(this.movieObject2+"abcdefghijkl");
 
     // this.validDate = this.movieObject2.movieReleasedate;
     // var date = new Date("this.validDate");
     // console.log(date.toDateString());
 
     this.theatreList = this.movieObject2["theatres"];
-    console.log(this.theatreList);
+    console.log(this.theatreList+"67676");
     this.shows = this.theatreList["showTimings"];
 
     //this.today = this.validDate.now();
