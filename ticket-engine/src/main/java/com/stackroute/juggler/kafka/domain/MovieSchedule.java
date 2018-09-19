@@ -4,10 +4,6 @@ import java.io.File;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-
-/*This domain object is used to listen to the details 
- * sent into kafka by the screening service*/
-
 public class MovieSchedule {
 
 	private String theatreId;
@@ -41,15 +37,11 @@ public class MovieSchedule {
 	private String showTimings;
 	private int[] weekends_Price;
 	private int[] weekdays_Price;
-
 	
-	
-	//No Args Constructer
 	public MovieSchedule() {
+		super();
 	}
-
 	
-	//All Args Constructer
 	public MovieSchedule(String theatreId, String email, String theatreLocation, String theatreCity, String theatreName,
 			String theatreLicenseNo, String totalnumberOfSeats, String[] screenedmovies, String[] runningmovies,
 			File seatLayout, String[] typesOfSeats, int[] numberOfSeats, String id, String movieName,
@@ -87,8 +79,6 @@ public class MovieSchedule {
 		this.weekdays_Price = weekdays_Price;
 	}
 
-	
-	//Getters and Setters
 	public String getTheatreId() {
 		return theatreId;
 	}

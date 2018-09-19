@@ -10,8 +10,8 @@ export class PromocodeService {
   // private url = "http://172.23.239.47:9096/api/v1/promocodes";
 
   // private url1 = "http://172.23.239.47:9096/api/v1/promocode";
-  private url = "http://localhost:9096/api/v1/promocodes";
-  private url1 = "http://localhost:9096/api/v1/promocode";
+  private url = "http://172.23.239.112:9096/api/v1/promocodes";
+  private url1 = "http://172.23.239.112:9096/api/v1/promocode";
   constructor(private http: HttpClient, private router: Router) {}
 
   amount: number;

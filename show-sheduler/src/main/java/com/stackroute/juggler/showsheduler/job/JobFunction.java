@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import com.stackroute.juggler.kafka.domain.TriggerMessage;
 import com.stackroute.juggler.showsheduler.configuration.KafkaProducer;
-import com.stackroute.juggler.showsheduler.domain.TriggerMessage;
 
 @Service
 public class JobFunction implements Job {
@@ -40,21 +40,16 @@ public class JobFunction implements Job {
 
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
-//		System.out.println("000000000000000000000");
 		JobDataMap dataMap = context.getJobDetail().getJobDataMap();
 		String name = dataMap.getString("theatreName");
-//		System.out.println("1111111" + name);
 		String slot = dataMap.getString("slot");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		Date date = new Date();
 		String dateString = dateFormat.format(date);
 		System.out.println(dateString);
-		TriggerMessage message = new TriggerMessage(name,dateString,slot);
-//		System.out.println("message is " + message);
+		TriggerMessage message = new TriggerMessage(name, dateString, slot);
 		String messageStr = message.toString();
 		String topic = KafkaProducer.TOPIC;
-		// objectKafkaTemplate.send(topic, message);
-//		 kafkaTemplate.send(topic, messageStr);
 		objectKafkaTemplate.send(topic, message);
 	}
 }

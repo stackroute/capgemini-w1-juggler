@@ -3,9 +3,21 @@
   <script src="/webjars/jquery/jquery.min.js"></script>
   <script src="seatlayout.component.ts"></script>
 </head>
-<div class="name">
-  <h2>Geethagovindam</h2>
-</div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        {{bookingDetail.nameOfMovie}}
+      </div>
+      <div class="col-sm-4">
+       {{bookingDetail.screeningTime}}
+      </div>
+      <div class="col-sm-4">
+        {{bookingDetail.theaterName}},{{bookingDetail.theatreLocation}}
+      </div>
+    </div>
+  </div>
+
 <p class="seats">Select number of seats:
   <select (change)="selectChangeHandler($event)">
       <option value="1">1</option>
@@ -46,5 +58,5 @@
   All Eyes here
 </div>
 <div class="bookButton">
-  <button mat-raised-button color="primary" (click)="bookticket()" routerLink="/billing" >Proceed to pay</button>
+  <button mat-raised-button color="primary" (click)="bookticket()" routerLink="/billing">Proceed to pay</button>
 </div>

@@ -1,16 +1,15 @@
-<div>
-<div style="text-align: center">
-  <h4><i><b>Choose your city</b></i></h4>
-</div>
 <!-- <div class="d-flex justify-content-center align-items-center"> -->
-  <div class="text-center">
-  <a type="button" mdbBtn color="secondary" outline="true" (click)="searchMovies(city[0])">Bangalore
-  </a>
-  <a type="button" mdbBtn color="primary" outline="true" (click)="searchMovies(city[1])">Hyderabad
-  </a>
-  <a type="button" mdbBtn color="info" outline="true" (click)="searchMovies(city[2])">Mumbai
-  </a>
-  <a type="button" mdbBtn color="success" outline="true" (click)="searchMovies(city[3])">Chennai
-  </a>
-</div>
+<div class="popup text-center">
+    <a type="button" outline="true" (click)="searchMovies(city[0])">
+        <img class="picture" src="https://www.kobster.com/static/img/city/bengaluru.png" />
+    </a>
+    <a type="button" outline="true" (click)="searchMovies(city[1])">
+        <img class="picture" src="https://www.kobster.com/static/img/city/hyderabad.png" />
+    </a>
+    <a type="button" outline="true" (click)="searchMovies(city[2])">
+        <img class="picture" src="https://www.kobster.com/static/img/city/mumbai.png" />
+    </a>
+    <a type="button" outline="true" (click)="searchMovies(city[3])">
+        <img class="picture" src="https://www.kobster.com/static/img/city/chennai.png" />
+    </a>
 </div>

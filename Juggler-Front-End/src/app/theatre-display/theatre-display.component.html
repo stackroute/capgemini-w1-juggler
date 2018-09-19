@@ -1,4 +1,4 @@
-<div class="container col-sm-12">
+ <div class="container" cols="12">
   <div *ngIf=theatreList>
     <div>
       <div class="flex-container">
@@ -23,12 +23,12 @@
                         <div class="listOfItem">
                           <mat-list-item role="listitem">
                             <div class="hoverWrapper">
-                              <a class="CamelCase">
+                              <a class="CamelCase" >
                                 <strong>{{theatre.theatreName}}</strong>
                               </a>
                               <div id="display" *ngFor="let showtime of theatre.showTimings">
                                 <a class="showTime display" routerLink="/seat-layout" (click)="saveShow(theatre,showtime)">
-                                  <strong>{{showtime}}</strong>
+                                  <strong >{{showtime}}</strong>
                                 </a>
                               </div>
                               <div id="hoverShow1">
@@ -68,3 +68,24 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- <ngb-tabset class="tabset1">
+    <ngb-tab title="Tab 1">
+        <ng-template ngbTabContent>
+            Tab 1
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Tab 2">
+        <ng-template ngbTabContent>
+            Tab 2
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset> -->
+
+
+ 
+
+
+
