@@ -25,17 +25,17 @@ export class UserRegisterComponent implements OnInit {
   languageCtrl = new FormControl;
   genderGroup: string[] = ["Male", "Female"];
   gender;
-
-  genress = [
-    { id: 1, name: "Thriller", img: "assets/images/Thriller.jpeg" },
-    { id: 2, name: "Fiction", img: "assets/images/Fiction.jpeg" },
-    { id: 3, name: "Horror", img: "assets/images/Horror.jpeg" },
-    { id: 4, name: "Romance", img: "assets/images/Romance.jpeg"},
-    { id: 5, name: "Drama", img: "assets/images/Drama.png"},
-    { id: 6, name: "Crime", img: "assets/images/Crime.jpeg"},
-    { id: 7, name: "Action", img: "assets/images/Action.jpeg"},
-    { id: 8, name: "SuperHeroes", img: "assets/images/Super-Heroes.jpeg"}
-  ];
+  genre = new FormControl();
+  genreList = [
+    {id:1, name:"Thriller", card:"card1", click:"card1", img:"assets/images/Thriller.jpeg"},
+    {id:2,name:"Fiction", card:"card2", click:"card2", img:"assets/images/Fiction.jpeg" },
+    {id:3,name:"Horror", card:"card3", click:"card3", img:"assets/images/Horror.jpeg"},
+    {id:4,name:"Romance", card:"card4", click:"card4", img:"assets/images/Romance.jpeg"},
+    {id:5,name:"Drama", card:"card5", click:"card5", img:"assets/images/Drama.png"},
+    {id:6,name:"Crime", card:"card6", click:"card6", img:"assets/images/Crime.jpeg"},
+    {id:7,name:"Action", card:"card7", click:"card7", img:"assets/images/Action.jpeg"},
+    {id:8,name:"SuperHeroes", card:"card8", click:"card8", img:"assets/images/Super-Heroes.jpeg"}
+];
   genreOutoutList: Array<string> = []; 
 
   user = new User();
@@ -54,10 +54,21 @@ export class UserRegisterComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private router: Router
   ) { }
-  onGenreCardSelect(genre: any) {
-    this.genreOutoutList.push(genre);
-    console.log(this.genreOutoutList);
-  }
+  // onGenreCardSelect(genre: any) {
+  //   this.genreOutoutList.push(genre);
+  //   console.log(this.genreOutoutList);
+  // }
+  onclick(id,card,genres){ 
+    if(document.getElementById(card).style.opacity == "0.3"){
+      document.getElementById(card).style.opacity= "1";
+      this.genreOutoutList.pop();
+    }
+    else{
+      document.getElementById(card).style.opacity="0.3";
+      this.genreOutoutList.push(genres)
+}
+console.log(this.genreOutoutList);
+}
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       userName: ["", Validators.required],

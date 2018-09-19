@@ -22,7 +22,7 @@ public class Seats {
 
 	public Seats() {}
 
-	public Seats(String id, String showSlot, String theatreName, String movieName, String date, LayoutInfo seatLayout,
+	public Seats( String id, String showSlot, String theatreName, String movieName, String date, LayoutInfo seatLayout,
 			List<Integer> seats, List<Integer> blockedSeats, List<Integer> bookedSeats) {
 		super();
 		this.id = id;

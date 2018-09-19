@@ -23,22 +23,22 @@
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Enter Your MobileNo." formControlName="mobileNo" type="number" required>
             </mat-form-field>
-            <div>
-                <button mat-button matStepperNext>Next</button>
-            </div>
-        </form>
-    </mat-step>
 
-    <mat-step [stepControl]="secondFormGroup">
+        </form>
+        <!-- </mat-step> -->
+
+        <!-- <mat-step [stepControl]="secondFormGroup"> -->
         <form [formGroup]="secondFormGroup">
             <ng-template matStepLabel>Fill out other details</ng-template>
-            <mat-form-field>
+            <mat-form-field class="example-full-width">
                 <input matInput placeholder="City" formControlName="address" required>
                 <mat-error>The input is invalid</mat-error>
             </mat-form-field>
             <br>
             <mat-radio-group class="example-radio-group">
-                <label><h5>Gender:</h5></label>
+                <label>
+                    <h5>Gender:</h5>
+                </label>
                 <mat-radio-button class="example-radio-button mx-2" *ngFor="let gender of genderGroup" [value]="gender">
                     {{gender}}
                 </mat-radio-button>
@@ -58,23 +58,40 @@
                 </mat-select>
             </mat-form-field>
             <br>
-            <h5>Selct your genres</h5>
-            <div id="container" *ngFor="let Names of genress">
-                <mat-card class="example-card m-3" fxFlex="row wrap" (click)="onGenreCardSelect(Names.name)" style="height: 160px; width: 120px">
-                    <img mat-card-image src="{{Names.img}}" alt="movie genre">
-                    <mat-card-content>
-                        <b class="genre-name">{{Names.name}}</b>
-                    </mat-card-content>
+            <h5>Select your genres</h5>
+            <div id="container" *ngFor="let genre of genreList; let i = index">
+                <mat-card class="example-card s-2" fxFlex="row wrap" id="{{genre.card}}" class="option-cards" (click)="onclick(genre.id,genre.click,genre.name)">
+                    <div class="genre-cards">
+                        <img mat-card-image src="{{genre.img}}" alt="movie genre">
+                        <mat-card-content class="genre-name">{{genre.name}}</mat-card-content>
+                    </div>
                 </mat-card>
             </div>
-        </form>
-        You are now done.
-        <div>
+            <!-- <div id="container" *ngFor="let Names of genreList; let i = index">
+                <mat-card class="example-card s-2" fxFlex="row wrap" (click)="onclick(Names.id,Names.click,Names.name)" style="height: 160px; width: 120px">
+                    <div class="genre-cards"> <img mat-card-image src="{{Names.img}}" alt="movie genre">
+                        <mat-card-content>
+                            <b class="genre-name">{{Names.name}}</b>
+                        </mat-card-content>
+                    </div>
+                </mat-card>
+                <div *ngIf='i == 4' >
+               <b> <hr> </b> 
+                </div>
+            </div> -->
+            <!-- </form> -->
+
+            <!-- <div class="form-buttons1"> -->
+            <br>
+            You are now done.
+            <br>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button (click)="stepper.reset()">Reset</button>
-        </div>
-        <div>
+            <!-- </div> -->
+            <!-- <div class="form-buttons2"> -->
+            <br>
             <button mat-button (click)="addUser()">Add User</button>
-        </div>
+            <!-- </div> -->
+        </form>
     </mat-step>
 </mat-horizontal-stepper>

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.ticketengine.domain.Seats;
-import com.stackroute.juggler.ticketengine.domain.Show;
 import com.stackroute.juggler.ticketengine.repository.SeatsRepository;
 import com.stackroute.juggler.ticketengine.repository.ShowInfoRepository;
 
@@ -42,6 +41,7 @@ public class SeatsServiceImpl implements SeatsService {
 //			}
 //		}
 //		showInfoRepo.save(show);
+		System.out.println("hi");
 	    return seats;
 	}
 
@@ -53,6 +53,11 @@ public class SeatsServiceImpl implements SeatsService {
 	@Override
 	public Optional<Seats> getById(String id) {
 		return seatsRepo.findById(id);
+	}
+	
+	@Override
+	public Optional<Seats> getByName(String name) {
+		return seatsRepo.getByTheatreName(name);
 	}
 
 	@Override
@@ -66,7 +71,7 @@ public class SeatsServiceImpl implements SeatsService {
 	}
 
 	@Override
-	public Iterable<Seats> getAll() {
+	public List<Seats> getAll() {
 		return seatsRepo.findAll();
 	}
 
