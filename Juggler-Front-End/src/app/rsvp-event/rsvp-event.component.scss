@@ -4,12 +4,13 @@
    -webkit-animation-duration: 1s;
        animation-duration: 1s;
        -webkit-animation-name: SkrrrPaPaPum;
-       animation-name: SkrrrPapaPum;  }
+       animation-name: SkrrrPapaPum;
+        }
  .container {
-   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w8vxZggMFIGOxrQh_5ZDkjSwDTMkXQpvUagVsJsNLPMSRygB
-https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w8vxZggMFIGOxrQh_5ZDkjSwDTMkXQpvUagVsJsNLPMSRygB
-");
- }  @keyframes SkrrrPapaPum {
+   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w8vxZggMFIGOxrQh_5ZDkjSwDTMkXQpvUagVsJsNLPMSRygB");
+
+ } 
+  @keyframes SkrrrPapaPum {
    0% {
      transform: scale(0.1);
      opacity: 0;
@@ -22,4 +23,3 @@ https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w8vxZggMFIGOxrQh_5ZDkjSw
      transform: scale(1);
    }
  }
-Message Input
