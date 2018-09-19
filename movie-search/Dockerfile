@@ -7,4 +7,4 @@ ADD ./target/movie-search-1.0.0.jar /usr/app/movie-search-1.0.0.jar
 # java -jar <jar fileName>
 WORKDIR usr/app
 ENTRYPOINT ["java","-jar", "movie-search-1.0.0.jar"]
-EXPOSE 8060
+EXPOSE 9077

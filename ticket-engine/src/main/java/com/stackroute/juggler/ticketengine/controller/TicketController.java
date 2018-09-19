@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import com.stackroute.juggler.ticketengine.domain.Show;
 import com.stackroute.juggler.ticketengine.repository.ShowInfoRepository;
 import com.stackroute.juggler.ticketengine.service.SeatsService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/ticket")
 public class TicketController {

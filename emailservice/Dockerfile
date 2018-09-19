@@ -7,4 +7,4 @@ ADD ./target/emailservice-0.0.1-SNAPSHOT.jar /usr/app/emailservice-0.0.1-SNAPSHO
 # java -jar <jar fileName>
 WORKDIR usr/app
 ENTRYPOINT ["java","-jar", "emailservice-0.0.1-SNAPSHOT.jar"]
-EXPOSE 8051
+EXPOSE 9076

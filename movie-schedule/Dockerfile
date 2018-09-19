@@ -7,4 +7,4 @@ ADD ./target/movie-schedule-1.0.0.jar /usr/app/movie-schedule-1.0.0.jar
 # java -jar <jar fileName>
 WORKDIR usr/app
 ENTRYPOINT ["java","-jar", "movie-schedule-1.0.0.jar"]
-EXPOSE 8030
+EXPOSE 9072
