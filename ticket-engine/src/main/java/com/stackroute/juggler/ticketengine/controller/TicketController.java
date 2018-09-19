@@ -3,6 +3,7 @@ package com.stackroute.juggler.ticketengine.controller;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,9 +21,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.juggler.ticketengine.domain.Seats;
+import com.stackroute.juggler.ticketengine.domain.Seat;
 import com.stackroute.juggler.ticketengine.domain.Show;
-import com.stackroute.juggler.ticketengine.repository.ShowInfoRepository;
+import com.stackroute.juggler.ticketengine.repository.ShowRepository;
 import com.stackroute.juggler.ticketengine.service.SeatsService;
 
 @CrossOrigin("*")
@@ -30,85 +31,26 @@ import com.stackroute.juggler.ticketengine.service.SeatsService;
 @RequestMapping("/api/v1/ticket")
 public class TicketController {
 
-	private ShowInfoRepository showInfoRepo;
+
 	private SeatsService seatService;
 	private final SimpMessagingTemplate template;
 
 	@Autowired
-	public TicketController(ShowInfoRepository showInfoRepo, SeatsService seatService, SimpMessagingTemplate template) {
-		this.showInfoRepo = showInfoRepo;
+	public TicketController( SeatsService seatService, SimpMessagingTemplate template) {
+		
 		this.template = template;
 		this.seatService = seatService;
 	}
 
-	@GetMapping("/")
-	public String message() {
-		System.out.println("Hai.....Welcome");
-		return "Hello....it's working";
-	}
-
-	@MessageMapping("/message")
-	@SendTo("/movie")
-	public Seats seats(Seats seats) {
-
-		return new Seats();
-	}
-
-	@PostMapping("/seats")
-	public ResponseEntity<?> saveSeats(@RequestBody Seats seats) {
-		return new ResponseEntity<Seats>(seatService.save(seats), HttpStatus.OK);
-	}
-
-	@GetMapping("/allSeats")
-	public ResponseEntity<?> getAllSeats() {
-		return new ResponseEntity<List<Seats>>(seatService.getAll(), HttpStatus.OK);
-	}
-
-	@GetMapping("/seats/name/{name}/{date}/{slot}")
-	public ResponseEntity<?> getSeatByName(@PathVariable String name, @PathVariable String date,
-			@PathVariable String slot) {
-		List<Seats> seats = seatService.getAll();
-		for (Iterator iterator = seats.iterator(); iterator.hasNext();) {
-			Seats seats2 = (Seats) iterator.next();
-			if (seats2.getTheatreName().equals(name) && seats2.getDate().equals(date)
-					&& seats2.getShowSlot().equals(slot)) {
-				return new ResponseEntity<Seats>(seats2, HttpStatus.OK);
-			}
-		}
-		return new ResponseEntity<String>("seatService.getByName(name).get()", HttpStatus.OK);
-	}
-
-	@GetMapping("/seats/{id}")
-	public ResponseEntity<?> getSeatById(@PathVariable String id) {
-		return new ResponseEntity<Seats>(seatService.getById(id).get(), HttpStatus.OK);
-	}
-
-	@DeleteMapping("/seats/{id}")
-	public ResponseEntity<?> delBlockedSeats(@PathVariable String id) {
-		seatService.delete(id);
-		return new ResponseEntity<String>("Deleted", HttpStatus.OK);
-	}
-
-	@PostMapping("/show")
-	public ResponseEntity<?> save(@RequestBody Show show) {
-		showInfoRepo.save(show);
-		return new ResponseEntity<Show>(show, HttpStatus.OK);
-	}
-
-	@PutMapping("/show")
-	public ResponseEntity<?> update(@RequestBody Show show) {
-		showInfoRepo.update(show);
-		return new ResponseEntity<Show>(show, HttpStatus.OK);
-	}
-
-	@GetMapping("/shows")
-	public ResponseEntity<?> getAllShows() {
-		return new ResponseEntity<Map<String, Show>>(showInfoRepo.findAll(), HttpStatus.OK);
-	}
-
-	@GetMapping("/show/{id}")
-	public ResponseEntity<?> getById(@PathVariable String id) {
-		return new ResponseEntity<Show>(showInfoRepo.getById(id), HttpStatus.OK);
-	}
-
+	   @PostMapping("/Seat")
+	    public ResponseEntity<?> saveSeats(@PathVariable String showId) {
+		   Show localShow = new Show();
+		   localShow =seatService.getById(showId);
+		   Seat seatlocal = new Seat();
+		   seatlocal = seatService.findById(showId);
+		   seatlocal.setBlockedSeats(localShow.getBookedSeats());
+		    
+		   return new ResponseEntity<Seat>(seatlocal, HttpStatus.OK);
+		   
+	    }
 }

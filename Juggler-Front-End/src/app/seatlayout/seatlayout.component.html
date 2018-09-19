@@ -32,13 +32,13 @@
   <div class="rows" *ngFor="let row of totalRow; let i=index">
     <div class="columns" *ngFor="let col of totalCol">
       <!-- <div *ngIf="col!=passage[0] && col!=passage[1] && row!=rowPassage; else Passage"> -->
-        <div class="seat" (click)="onclick(row,col)">
-          {{seatname[i]}} {{col}}
+      <div class="seat" (click)="onclick(row,col)">
+        {{seatname[i]}} {{col}}
+      </div>
+      <ng-template #SeatBlocked>
+        <div class="seat blocked">
         </div>
-        <ng-template #SeatBlocked>
-          <div class="seat blocked">
-          </div>
-        </ng-template>
+      </ng-template>
       <!-- </div> -->
 
       <ng-template #SeatAvailable>

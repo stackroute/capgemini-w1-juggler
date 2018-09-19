@@ -1,25 +1,23 @@
 package com.stackroute.juggler.ticketengine.service;
 
-import java.util.List;
-import java.util.Optional;
+import java.text.ParseException;
 
-import com.stackroute.juggler.ticketengine.domain.Seats;
+import com.stackroute.juggler.kafka.domain.MovieSchedule;
+import com.stackroute.juggler.kafka.domain.TicketDetails;
+import com.stackroute.juggler.ticketengine.domain.Seat;
+import com.stackroute.juggler.ticketengine.domain.Show;
 
 public interface SeatsService {
-	
-	public Seats save(Seats seats);
-	
-	public Seats update(Seats seats);
-	
-	public Optional<Seats> getById(String id);
-	
-	public void delete(String id);
 
-	public List<Seats> getAll();
+	public void getDetails(MovieSchedule movieSchedule) throws ParseException;
+
+	public Show getById(String showId);
+
+	public Seat findById(String showId);
+
+	public void getBookedSeats(TicketDetails ticketDetails);
 	
-	public void removeAll();
 	
-	public Optional<Seats> getByName(String name);
 	
 }
 
