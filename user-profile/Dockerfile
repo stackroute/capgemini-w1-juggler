@@ -7,3 +7,4 @@ ADD ./target/user-profile-0.0.1-SNAPSHOT.jar /usr/app/user-profile-0.0.1-SNAPSHO
 # java -jar <jar fileName>
 WORKDIR usr/app
 ENTRYPOINT ["java","-jar", "user-profile-0.0.1-SNAPSHOT.jar"]
+EXPOSE 9073

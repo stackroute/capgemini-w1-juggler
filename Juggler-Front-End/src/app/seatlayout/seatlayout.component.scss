@@ -20,7 +20,7 @@
 }
 .ArenaLayout {
   border: solid 5px lightgoldenrodyellow;
-  width: 400px;
+  width: 420px;
   height: 470px;
   margin-left: 30%;
   background-color: rgb(207, 199, 199);
@@ -81,3 +81,14 @@ h2 {
   background-color: rgb(139, 137, 137);
   pointer-events: none;
 }
+.spanBox {
+  display: inline-block; 
+  width: 15px;
+  height: 15px;
+  padding: 1px 3px; 
+  border: 4px double white;
+  background-color:#ddd;
+  margin-top: 2%;
+  
+}
+

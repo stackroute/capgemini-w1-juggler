@@ -7,4 +7,4 @@ ADD ./target/promocodes-1.0.0.jar /usr/app/promocodes-1.0.0.jar
 # java -jar <jar fileName>
 WORKDIR usr/app
 ENTRYPOINT ["java","-jar", "promocodes-1.0.0.jar"]
-EXPOSE 9096
+EXPOSE 9080

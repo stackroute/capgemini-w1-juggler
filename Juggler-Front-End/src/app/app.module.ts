@@ -53,6 +53,8 @@ import { PromocodeService } from './promocode.service';
 import { RsvpAcceptComponent } from './rsvp-accept/rsvp-accept.component';
 import { RecommondationThetareDisplayComponent } from './recommondation-thetare-display/recommondation-thetare-display.component';
 import { RecomondationMovieDisplayComponent } from './recomondation-movie-display/recomondation-movie-display.component';
+import { RsvpService } from './rsvp.service';
+import { TicketEngineService } from './ticket-engine.service';
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 
@@ -109,7 +111,7 @@ import { RecomondationMovieDisplayComponent } from './recomondation-movie-displa
     MatDividerModule,
     MatTableModule
   ],
-  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, PaymentService, ProfileService, PromocodeService,
+  providers: [ AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService,TicketEngineService ,PaymentService, ProfileService, PromocodeService, RsvpService,
     Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent],
   entryComponents: [ DialogComponentComponent, PaymentDialogComponent ],

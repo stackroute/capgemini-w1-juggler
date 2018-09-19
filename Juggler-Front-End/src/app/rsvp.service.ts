@@ -1,3 +1,5 @@
+
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -31,7 +33,9 @@ export class RsvpService {
     console.log(email + " in service");
     // http://localhost:9094/api/v1/event/get/?emailId=zyx@gmail.com
     console.log("data is " + this.data);
-    return this.http.get(this.movies_url + email).map(res => (this.data = res));
+    return this.http
+    .get(this.movies_url + email)
+    .pipe(map(res => (this.data = res)));
   }
 }
 

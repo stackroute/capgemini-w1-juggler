@@ -2,10 +2,13 @@
   min-width: 150px;
   max-width: 500px;
   width: 100%;
+   float:right;
 }
+
+
 .container {
   border-radius: 0.5%;
-  background-color: rgb(204, 212, 219);
+  background-color:white;
   border-block-end-style: groove;
 }
 .example-full-width {
@@ -26,4 +29,25 @@ mat-error {
 }
 label {
   display: inline-block;
+}
+.example-full-width{
+  width: 51%;
+  padding-right: 15%
+}
+.second-form{
+  width: 51%;
+  float: left;
+  padding-right: 40%
+}
+.genre-cards{
+  padding-right: 10%;
+  padding-bottom: 10%
+}
+.genre-break{
+margin-bottom: 20px
+}
+.option-cards{
+  margin: 5%;
+  width: 120px;
+  height: 160px;
 }
