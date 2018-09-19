@@ -3,7 +3,6 @@ package com.stackroute.juggler.theatreregistration.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +16,7 @@ import com.stackroute.juggler.theatreregistration.exceptions.TheatreAlreadyExist
 import com.stackroute.juggler.theatreregistration.exceptions.TheatreNotFoundException;
 import com.stackroute.juggler.theatreregistration.services.TheatreService;
 
-//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")
 @RestController
 
 // class level request mapping
@@ -32,7 +31,6 @@ public class TheatreController {
 		this.theatreService = theatreService;
 
 	}
-	
 
 	// // saves the theatre details
 	// @RequestMapping(value = "/theatre", method = RequestMethod.POST)

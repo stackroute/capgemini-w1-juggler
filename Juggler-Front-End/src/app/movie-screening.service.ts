@@ -8,12 +8,12 @@ import { ActivatedRoute, ParamMap } from "@angular/router";
   providedIn: "root"
 })
 export class MovieScreeningService {
-  private _url = "http://172.23.239.112:8030";
+  private _url = "http://10.20.1.15:9072";
   constructor(private http: HttpClient, private router: ActivatedRoute) {}
 
   getMovies(title: string) {
     return fetch(
-      "http://172.23.239.112:8010/api/v1/getbytitle/movie/?movieTitle=" + title
+      "http://10.20.1.15:9072/api/v1/getbytitle/movie/?movieTitle=" + title
     ).then(response => response.json());
   }
 

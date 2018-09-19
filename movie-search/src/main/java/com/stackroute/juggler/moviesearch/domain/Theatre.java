@@ -1,9 +1,8 @@
 package com.stackroute.juggler.moviesearch.domain;
 
-import java.io.File;
-import java.util.Map;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Document
@@ -14,7 +13,7 @@ public class Theatre {
 	private String theatreId;
 	private String theatreName;
 	private String theatreLocation;
-	private File seatLayout;
+	private Seats seatLayout;
 	private int showNumbers;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
 	private String[] showTimings;
@@ -26,7 +25,7 @@ public class Theatre {
 	private int[] numberOfSeats;
 
 	// All Arguments constructor
-	public Theatre(String theatreId, String theatreName, String theatreLocation, File seatLayout, int showNumbers,
+	public Theatre(String theatreId, String theatreName, String theatreLocation, Seats seatLayout, int showNumbers,
 			String[] showTimings, int[] weekends_Price, int[] weekdays_Price, String[] screenedmovies,
 			String[] runningmovies, String[] typesOfSeats, int[] numberOfSeats) {
 		super();
@@ -74,11 +73,11 @@ public class Theatre {
 		this.theatreLocation = theatreLocation;
 	}
 
-	public File getSeatLayout() {
+	public Seats getSeatLayout() {
 		return seatLayout;
 	}
 
-	public void setSeatLayout(File seatLayout) {
+	public void setSeatLayout(Seats seatLayout) {
 		this.seatLayout = seatLayout;
 	}
 

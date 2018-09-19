@@ -17,7 +17,7 @@ import { AuthenticationService } from './authentication.service';
 import { AlertService } from './alert.service';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
-import { MatAutocompleteModule } from '@angular/material';
+import { MatAutocompleteModule, MatExpansionModule } from '@angular/material';
 import { MatCardModule, MatNativeDateModule } from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
@@ -47,7 +47,6 @@ import {MatTableModule} from '@angular/material/table';
 import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { PaymentService } from './paymentservice';
-import { PaymentDialogComponent } from './payment-page/payment-dialog/payment-dialog.component';
 import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
 import { PromocodeService } from './promocode.service';
 import { RsvpAcceptComponent } from './rsvp-accept/rsvp-accept.component';
@@ -78,7 +77,6 @@ import { TestComponent } from './test/test.component';
     RSVPEventComponent,
     RsvpEventsListComponent,
     PaymentPageComponent,
-    PaymentDialogComponent,
     BillingComponent,
     RsvpAcceptComponent,
     RecMovDisplayComponent,
@@ -103,6 +101,7 @@ import { TestComponent } from './test/test.component';
     MatFormFieldModule,
     MatGridListModule,
     MatDialogModule,
+    MatExpansionModule,
     // MatFileUploadModule,
     MatNativeDateModule,
     MatAutocompleteModule,
@@ -110,9 +109,9 @@ import { TestComponent } from './test/test.component';
     MatTableModule
   ],
   providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, PaymentService, ProfileService, PromocodeService,
-    Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
+    Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
-  entryComponents: [ DialogComponentComponent, PaymentDialogComponent ],
+  entryComponents: [ DialogComponentComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }
