@@ -5,6 +5,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProfileService {
-  private _url = 'http://172.23.239.112:8020';
+  private _url = 'http://10.20.1.15:9073';
   constructor(private http: HttpClient) {}
 }
