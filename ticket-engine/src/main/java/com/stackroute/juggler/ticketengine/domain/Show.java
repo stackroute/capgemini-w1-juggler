@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.springframework.data.annotation.Id;
 
-public class Show implements Serializable,leela {
+public class Show implements Serializable{
 
 	private static final long serialVersionUID = 1L;
     

@@ -10,6 +10,7 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { MatDialog } from "@angular/material";
 import { Event } from "../event";
 import { RsvpService } from "../rsvp.service";
+import { Alert } from "selenium-webdriver";
 @Component({
   selector: "app-rsvp-event",
   templateUrl: "./rsvp-event.component.html",
@@ -24,11 +25,11 @@ export class RSVPEventComponent implements OnInit {
   myControl = new FormControl();
   event = new Event();
   event2 = new Event();
-  guestArray:string[];
-  guests:string;
-  invitemail:string;
-  emailInvite:string[];
-  email:string;
+  guestArray: string[];
+  guests: string;
+  invitemail: string;
+  emailInvite: string[];
+  email: string;
   constructor(
     private rsvpService: RsvpService,
     private _formBuilder: FormBuilder,
@@ -55,7 +56,7 @@ export class RSVPEventComponent implements OnInit {
 
     this.rsvpForm3 = this._formBuilder.group({
       Description: ["", Validators.required],
-     // emailId: ["", Validators.required],
+      // emailId: ["", Validators.required],
       invitiesMail: ["", Validators.required],
       phoneNo: ["", Validators.required]
     });
@@ -70,15 +71,13 @@ export class RSVPEventComponent implements OnInit {
     return this.rsvpForm3.controls;
   }
 
-  
-
   saveEvent() {
     this.event.creatorOfEvent = this.f.creatorName.value;
     this.event.eventName = this.f.eventName.value;
     this.event.eventType = this.f.eventType.value;
     this.guests = this.f.eventGuest.value;
-    this.guestArray=this.guests.split(",");
-    this.event.guestsofEvent=this.guestArray;
+    this.guestArray = this.guests.split(",");
+    this.event.guestsofEvent = this.guestArray;
     this.event.eventDate = this.f1.eventDate.value;
     this.event.eventTime = this.f1.eventTime.value;
     this.event.duration = this.f1.eventDuration.value;
@@ -87,24 +86,24 @@ export class RSVPEventComponent implements OnInit {
 
     this.event.eventSynopsis = this.f2.Description.value;
     //this.event.emailId = this.f2.emailId.value;
-    this.email=localStorage.getItem("currentUserEmail");
-    this.event.emailId=this.email;
-    console.log(this.email); 
-    this.invitemail= this.f2.invitiesMail.value;
-    this.emailInvite=this.invitemail.split(",");
+    this.email = localStorage.getItem("currentUserEmail");
+    this.event.emailId = this.email;
+    console.log(this.email);
+    this.invitemail = this.f2.invitiesMail.value;
+    this.emailInvite = this.invitemail.split(",");
     this.event.invitiesMail = this.emailInvite;
     this.event.phoneNo = this.f2.phoneNo.value;
 
     this.rsvpService
-        .saveEvent(this.event)
-        .subscribe(res => console.log("Saved event"));
-      this.router.navigate(["/rsvp/events"]);
-      console.log(this.event);
-     }  
+      .saveEvent(this.event)
+      .subscribe(res => console.log("Saved event"));
+    this.router.navigate(["/rsvp/events"]);
 
+    console.log(this.event);
+    alert("data saved");
+  }
 
-    // this.rsvpService.saveEvent(this.event).subscribe(data => {
-    //   this.event2 = data;
-    // });
-  
+  // this.rsvpService.saveEvent(this.event).subscribe(data => {
+  //   this.event2 = data;
+  // });
 }

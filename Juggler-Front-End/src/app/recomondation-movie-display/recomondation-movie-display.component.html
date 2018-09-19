@@ -1,0 +1,48 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card mt-5 mb-5">
+          <div class="card-header">
+            <strong> {{movieObject.name}}</strong>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-5">
+                <img src={{movieObject.moviePoster}} class="img-fluid" height="400%" width="200%">
+              </div>
+              <div class="col-sm-7">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <strong>Summary: </strong> {{movieObject.synopsis}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>language: </strong> {{movieObject.language}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Genre: </strong>
+                    {{movieObject.movieGenres.name}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Director: </strong>
+                    {{movieObject.director}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Crew: </strong>
+                    {{movieObject.hero}},{{movieObject.heroine}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Duration: </strong>
+                    {{movieObject.movieReleasedate}}
+                  </li>
+                  <li class="list-group-item">
+                    <button mat-raised-button color="primary" routerLink="/rec/theatre">Book Now</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

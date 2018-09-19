@@ -1,8 +1,8 @@
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="rsvpForm1"> 
-  
+  <mat-step [stepControl]="rsvpForm1">
+
     <form [formGroup]="rsvpForm1">
-     
+
       <mat-form-field class="example-full-width">
         <mat-label><i><b>Enter Event creator</b></i></mat-label>
         <input matInput placeholder="event creator name" formControlName="eventName" type="text" required>
@@ -18,8 +18,8 @@
         <input matInput placeholder="Event type" formControlName="eventType" type="text" required>
         <mat-error>Required/Invalid Input</mat-error>
       </mat-form-field>
-      
-<mat-form-field class="example-full-width">
+
+      <mat-form-field class="example-full-width">
         <mat-label><i><b>Enter guest of event</b></i></mat-label>
         <input matInput placeholder="Event guest" formControlName="eventGuest" type="text" required>
         <mat-error>Required/Invalid Input</mat-error>
@@ -30,9 +30,9 @@
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="rsvpForm2"> 
+  <mat-step [stepControl]="rsvpForm2">
     <form [formGroup]="rsvpForm2">
-<mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width">
         <mat-label><i><b>Enter Event date</b></i></mat-label>
         <input matInput placeholder="Event date" formControlName="eventDate" type="text" required>
         <mat-error>Required/Invalid Input</mat-error>
@@ -43,36 +43,36 @@
         <mat-error>Required/Invalid Input</mat-error>
       </mat-form-field>
 
-<mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width">
         <mat-label><i><b>Enter number of days</b></i></mat-label>
         <input matInput placeholder="no. of days" formControlName="eventDays" type="number" required>
         <mat-error>Required/Invalid Input</mat-error>
       </mat-form-field>
 
-<mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width">
         <mat-label><i><b>Enter Event duration</b></i></mat-label>
         <input matInput placeholder="Event duration" formControlName="eventDuration" type="text" required>
         <mat-error>Required/Invalid Input</mat-error>
       </mat-form-field>
 
-<mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width">
         <mat-label><i><b>Enter Event Location</b></i></mat-label>
         <input matInput placeholder="Event location" formControlName="eventLocation" type="text" required>
         <mat-error>Required/Invalid Input</mat-error>
       </mat-form-field>
 
-        <div>
+      <div>
         <button mat-button matStepperPrevious><b>Back</b></button>
         <button mat-button matStepperNext><b>Next</b></button>
       </div>
     </form>
   </mat-step>
 
-<mat-step [stepControl]="rsvpForm3"> 
+  <mat-step [stepControl]="rsvpForm3">
     <form [formGroup]="rsvpForm3">
-<mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width">
         <mat-label><i><b>Enter Event Description</b></i></mat-label>
-        
+
         <textarea matInput placeholder="Event description" formControlName="Description" type="text" required></textarea>
         <mat-error>Required/Invalid Input</mat-error>
       </mat-form-field>
@@ -91,17 +91,13 @@
         <input matInput placeholder="Phone number" formControlName="phoneNo" type="number" required>
         <mat-error>Required/Invalid Input</mat-error>
       </mat-form-field>
-<div>
+      <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()"><b>Reset</b></button>
       </div>
-       <div>
-      <button mat-raised-button (click)="saveEvent()"><b>Save</b></button>
-     </div>
+      <div>
+        <button mat-raised-button (click)="saveEvent()"><b>Save</b></button>
+      </div>
     </form>
-   </mat-step> 
+  </mat-step>
 </mat-horizontal-stepper>
-
-
-
-  
