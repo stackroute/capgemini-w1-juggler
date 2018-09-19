@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { PaymentService } from "../paymentservice";
 import { MatDialog } from "@angular/material";
+import { PromocodeService } from "../promocode.service";
 
 @Component({
   selector: "app-payment-page",
@@ -12,7 +13,7 @@ export class PaymentPageComponent implements OnInit {
   expiryMonth: string;
   expiryYear: string;
   cvc: string;
-  amount = 50;
+  amount = this.amt.amount;
   token: string;
   msg: string;
   chargeId: string;
@@ -20,6 +21,7 @@ export class PaymentPageComponent implements OnInit {
   // fileNameRef: MatDialogRef<PaymentDialogComponent>;
   constructor(
     private paymentService: PaymentService,
+    private amt: PromocodeService,
     public dialog: MatDialog
   ) {}
   chargeCreditCard() {
@@ -33,13 +35,9 @@ export class PaymentPageComponent implements OnInit {
       (status: number, response: any) => {
         if (status === 200) {
           this.token = response.id;
+          console.log(this.amount);
           this.paymentService.chargeCard(this.token, this.amount);
           this.msg = "Transaction Success";
-          // this.dialog.open(PaymentDialogComponent, {
-          //   data: {
-          //     msg: this.msg
-          //   }
-          // });
           console.log(this.token);
           if (this.token == null) {
             this.msg =
@@ -48,11 +46,6 @@ export class PaymentPageComponent implements OnInit {
         } else {
           console.log(response.error.message);
           this.msg = "Transaction Failed Because " + response.error.message;
-          // this.dialog.open(PaymentDialogComponent, {
-          //   data: {
-          //     msg: this.msg
-          //   }
-          // });
         }
       }
     );

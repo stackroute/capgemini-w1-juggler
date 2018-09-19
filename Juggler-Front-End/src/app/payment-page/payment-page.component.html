@@ -26,7 +26,9 @@
               data-stripe="cvc" maxlength="3" required>
           </mat-form-field>
         </div>
-        <button mat-button type="submit" [disabled]="!myForm.form.valid" (click)="chargeCreditCard()" style="border-radius:8px;height:40px; width: 100%;">Pay Now ₹.{{amount}}</button>
+        <button type="submit" [disabled]="!myForm.form.valid" (click)="chargeCreditCard()" style="border-radius:8px;height:40px">Submit
+
+        </button>
         <br>
         <br>
         <p style="color:green">{{msg}}</p>
