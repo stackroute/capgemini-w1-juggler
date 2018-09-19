@@ -75,16 +75,16 @@ export class RecommondationThetareDisplayComponent {
     this.selectedDetails.nameOfMovie = this.movieObject2.name;
     this.selectedDetails.moviePoster = this.movieObject2.moviePoster;
     this.selectedDetails.synopsis = this.movieObject2.synopsis;
-    this.selectedDetails.movieReleasedate = this.movieObject2.movieReleasedate;
+    this.selectedDetails.movieReleasedate = this.movieObject2.movieReleaseDate;
     this.selectedDetails.movieDuration = this.movieObject2.movieDuration;
     this.selectedDetails.format = this.movieObject2.format;
     while(this.movieObject2.movieGenres[this.i]!=null)  {
       this.movieGenre =
         this.movieGenre + " " + this.movieObject2.movieGenres[this.i];
     }
-    while(this.movieObject2.language[this.j]!=null)
+    while(this.movieObject2.movielanguage[this.j]!=null)
      {
-      this.movieLang = this.movieLang + " " + this.movieObject2.language[this.j];
+      this.movieLang = this.movieLang + " " + this.movieObject2.languages[this.j];
     }
     this.selectedDetails.movieGenre = this.movieGenre;
     this.selectedDetails.languages = this.movieLang;

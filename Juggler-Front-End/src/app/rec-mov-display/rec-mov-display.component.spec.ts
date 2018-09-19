@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PaymentDialogComponent } from './payment-dialog.component';
+import { RecMovDisplayComponent } from './rec-mov-display.component';
 
-describe('PaymentDialogComponent', () => {
-  let component: PaymentDialogComponent;
-  let fixture: ComponentFixture<PaymentDialogComponent>;
+describe('RecMovDisplayComponent', () => {
+  let component: RecMovDisplayComponent;
+  let fixture: ComponentFixture<RecMovDisplayComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PaymentDialogComponent ]
+      declarations: [ RecMovDisplayComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PaymentDialogComponent);
+    fixture = TestBed.createComponent(RecMovDisplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

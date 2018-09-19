@@ -18,6 +18,7 @@ export class SearchDataService {
       .get(this.url3 + "/" + city)
       .pipe(map(res => (this.data = res)));
   }
+  
 
   searchMovie(movie: string) {
     return this.http

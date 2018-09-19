@@ -1,55 +1,61 @@
 <head>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="/webjars/jquery/jquery.min.js"></script>
-  <!-- <script src="seatlayout.component.ts"></script> -->
+  <script src="seatlayout.component.ts"></script>
 </head>
-<!-- <div class="name">
-  <h2>Geethagovindam</h2>
-</div> -->
-<!-- <p class="seats">Select number of seats:
-  <select (change)="selectChangeHandler($event)">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-  </select>
-</p> -->
 
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        {{bookingDetail.nameOfMovie}}
+      </div>
+      <div class="col-sm-4">
+       {{bookingDetail.screeningTime}}
+      </div>
+      <div class="col-sm-4">
+        {{bookingDetail.theaterName}},{{bookingDetail.theatreLocation}}
+      </div>
+    </div>
+  </div>
+
+<p class="seats">Select number of seats:
+  <select (change)="selectChangeHandler($event)">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+  </select>
+</p>
 <div class="ArenaLayout">
   <div class="rows" *ngFor="let row of totalRow; let i=index">
-    <div class="columns" *ngFor="let col of totalCol">
-      <!-- <div *ngIf="col!=passage[0] && col!=passage[1] && row!=rowPassage; else Passage"> -->
-      <div class="seat" (click)="onclick(row,col)">
-        {{seatname[i]}}{{col+1}}
-      </div>
-      <ng-template #SeatBlocked>
-        <div class="seat blocked">
-        </div>
-      </ng-template>
-    </div>
+      <div class="columns" *ngFor="let col of totalCol">
+          <div *ngIf="col!=passage[0] && col!=passage[1] && row!=rowPassage; else Passage">
+              <div class="seat" (click)="onclick(row,col)">
+                  {{seatname[i]}} {{col}}
+              </div>
+              <ng-template #SeatBlocked>
+                  <div class="seat blocked">
+                    </div>
+              </ng-template>
+          </div>
 
-    <ng-template #SeatAvailable>
-      <div class="seat available">
+          <ng-template #SeatAvailable>
+              <div class="seat available">
+                </div>
+          </ng-template>
       </div>
-    </ng-template>
+      <ng-template #Passage>
+          <div class="seatPassage">
+          </div>
+      </ng-template>
   </div>
-  <ng-template #Passage>
-    <div class="seatPassage">
-    </div>
-  </ng-template>
 </div>
-<!-- </div> -->
 
 
 <div class="screen">
   All Eyes here
-</div>
-<div>
-  <span class="spanBox" style='Background-color:grey'></span><label>Selected Seats</label>
-  <span class="spanBox" style='Background-color:red'></span><label>Reserved Seats</label>
-  <span class="spanBox"></span><label>Empty Seats</label>
 </div>
 <div class="bookButton">
   <button mat-raised-button color="primary" (click)="bookticket()" routerLink="/billing">Proceed to pay</button>
