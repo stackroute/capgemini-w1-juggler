@@ -34,6 +34,7 @@
     "md-dialog": "0.0.1-alpha.1",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.3.1",
+    "stompjs": "^2.3.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
