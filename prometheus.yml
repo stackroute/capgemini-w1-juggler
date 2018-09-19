@@ -76,31 +76,31 @@ scrape_configs:
     metrics_path: /actuator/prometheus
     scrape_interval: 5s
     static_configs:
-      - targets: ['10.20.1.15:9077']
+      - targets: ['10.20.1.15:9076']
       
   - job_name: 'payment'
     metrics_path: /actuator/prometheus
     scrape_interval: 5s
     static_configs:
-      - targets: ['10.20.1.15:9077']
+      - targets: ['10.20.1.15:9081']
       
   - job_name: 'promocodes'
     metrics_path: /actuator/prometheus
     scrape_interval: 5s
     static_configs:
-      - targets: ['10.20.1.15:9077']
+      - targets: ['10.20.1.15:9080']
       
   - job_name: 'rsvp'
     metrics_path: /actuator/prometheus
     scrape_interval: 5s
     static_configs:
-      - targets: ['10.20.1.15:9077']
+      - targets: ['10.20.1.15:9075']
             
   - job_name: 'ticket-engine'
     metrics_path: /actuator/prometheus
     scrape_interval: 5s
     static_configs:
-      - targets: ['10.20.1.15:9077']
+      - targets: ['10.20.1.15:9079']
           
       
       
