@@ -15,5 +15,9 @@ public interface ShowInfoRepository {
 	public void delete(String id);
 	
 	public Show getById(String id);
+
+//	List<Show> getAll();
+
+//	Show deleteByScheduler(String theatreName, String date, String slot);
 	
 }
