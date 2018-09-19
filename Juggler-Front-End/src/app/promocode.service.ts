@@ -10,10 +10,12 @@ export class PromocodeService {
   // private url = "http://172.23.239.47:9096/api/v1/promocodes";
 
   // private url1 = "http://172.23.239.47:9096/api/v1/promocode";
-  private url = "http://172.23.239.112:9096/api/v1/promocodes";
-  private url1 = "http://172.23.239.112:9096/api/v1/promocode";
+  private url = "http://10.20.1.15:9080/api/v1/promocodes";
+  private url1 = "http://10.20.1.15:9080/api/v1/promocode";
   constructor(private http: HttpClient, private router: Router) {}
 
+  amount: number;
+  
   
   getpromos() {
     return this.http.get(this.url).pipe(map(res => (this.data = res)));

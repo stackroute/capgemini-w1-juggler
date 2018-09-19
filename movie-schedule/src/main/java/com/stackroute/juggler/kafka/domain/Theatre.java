@@ -1,8 +1,5 @@
 package com.stackroute.juggler.kafka.domain;
 
-import java.io.File;
-import java.util.Arrays;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -22,13 +19,13 @@ public class Theatre {
 	// private Map<String, Integer> seats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
-	private File seatLayout;
+	private Seats seatLayout;
 	private String[] typesOfSeats;
 	private int[] numberOfSeats;
 
 	public Theatre(String theatreId, String email, String theatreLocation, String theatreCity, String theatreName,
 			String theatreLicenseNo, String totalnumberOfSeats, String[] screenedmovies, String[] runningmovies,
-			File seatLayout, String[] typesOfSeats, int[] numberOfSeats) {
+			Seats seatLayout, String[] typesOfSeats, int[] numberOfSeats) {
 		super();
 		this.theatreId = theatreId;
 		this.email = email;
@@ -120,11 +117,11 @@ public class Theatre {
 		this.runningmovies = runningmovies;
 	}
 
-	public File getSeatLayout() {
+	public Seats getSeatLayout() {
 		return seatLayout;
 	}
 
-	public void setSeatLayout(File seatLayout) {
+	public void setSeatLayout(Seats seatLayout) {
 		this.seatLayout = seatLayout;
 	}
 
@@ -142,16 +139,6 @@ public class Theatre {
 
 	public void setNumberOfSeats(int[] numberOfSeats) {
 		this.numberOfSeats = numberOfSeats;
-	}
-
-	@Override
-	public String toString() {
-		return "Theatre [theatreId=" + theatreId + ", email=" + email + ", theatreLocation=" + theatreLocation
-				+ ", theatreCity=" + theatreCity + ", theatreName=" + theatreName + ", theatreLicenseNo="
-				+ theatreLicenseNo + ", totalnumberOfSeats=" + totalnumberOfSeats + ", screenedmovies="
-				+ Arrays.toString(screenedmovies) + ", runningmovies=" + Arrays.toString(runningmovies)
-				+ ", seatLayout=" + seatLayout + ", typesOfSeats=" + Arrays.toString(typesOfSeats) + ", numberOfSeats="
-				+ Arrays.toString(numberOfSeats) + "]";
 	}
 
 }

@@ -12,7 +12,7 @@ public class Theatre {
 	private String theatreName;
 	private String theatreLocation;
 	private String theatreCity;
-	private File seatLayout;
+	private Seats seatLayout;
 	private int showNumbers;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
 	private String showTimings;
@@ -23,7 +23,7 @@ public class Theatre {
 	private String[] screenedmovies;
 	private String[] runningmovies;
 
-	public Theatre(String theatreId, String theatreName, String theatreLocation, String theatreCity, File seatLayout,
+	public Theatre(String theatreId, String theatreName, String theatreLocation, String theatreCity, Seats seatLayout,
 			int showNumbers, String showTimings, int[] weekends_Price, int[] weekdays_Price, String[] typesOfSeats,
 			int[] numberOfSeats, String[] screenedmovies, String[] runningmovies) {
 		super();
@@ -78,11 +78,11 @@ public class Theatre {
 		this.theatreCity = theatreCity;
 	}
 
-	public File getSeatLayout() {
+	public Seats getSeatLayout() {
 		return seatLayout;
 	}
 
-	public void setSeatLayout(File seatLayout) {
+	public void setSeatLayout(Seats seatLayout) {
 		this.seatLayout = seatLayout;
 	}
 

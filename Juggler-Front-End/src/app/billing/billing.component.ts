@@ -16,8 +16,7 @@ export class BillingComponent implements OnInit {
   result1 = null;
   bool;
 
-  constructor(private promoService: PromocodeService) {}
-
+  constructor(private promoService: PromocodeService, private payment: PromocodeService) {}
   ngOnInit() {
     this.result1=null;
     this.promoService.getpromos().subscribe(data => {
@@ -88,6 +87,9 @@ export class BillingComponent implements OnInit {
     if (this.flag == true) {
       this.value = value1 - value2;
     }
+    this.payment.amount = this.value;
+    console.log(this.value);
+    
     return this.flag;
   }
   // openVerticallyCentered(content) {

@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.payment.domain.TicketDetails;
+import com.stackroute.kafka.domain.TicketDetails;
 import com.stackroute.payment.service.PaymentServiceImpl;
+import com.stripe.exception.CardException;
 import com.stripe.model.Charge;
 import com.stripe.model.Refund;
 
@@ -28,7 +29,7 @@ public class PaymentController {
 	}
 
 	@PostMapping("/charge")
-	public Charge chargeCard(HttpServletRequest request) throws Exception {
+	public Charge chargeCard(HttpServletRequest request) throws CardException{
 		String token = request.getHeader("token");
 		Double amount = Double.parseDouble(request.getHeader("amount"));
 		return this.stripeClient.chargeNewCard(token, amount);
