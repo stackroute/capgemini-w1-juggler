@@ -1,11 +1,15 @@
 import { Component, OnInit } from "@angular/core";
-import { Http } from "@angular/http";
-import { HttpErrorResponse, JsonpClientBackend } from "@angular/common/http";
-import { Observable } from "rxjs";
+// import { Http } from "@angular/http";
+// import { HttpErrorResponse, JsonpClientBackend } from "@angular/common/http";
+// import { Observable, FactoryOrValue } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
 import { FullBookingDetails } from "../FullBookingDetails";
+import { TicketEngineService } from "../ticket-engine.service";
+import * as Stomp from 'stompjs';
+import * as SockJS from 'sockjs-client';
 declare var $: any;
+
 
 @Component({
   selector: "app-seatlayout",
@@ -13,37 +17,55 @@ declare var $: any;
   styleUrls: ["./seatlayout.component.scss"]
 })
 export class SeatlayoutComponent implements OnInit {
-  selectedvalue;
-  seatingValue = [];
-  totalRow = [];
-  totalCol = [];
-  jsonRow: any[];
+  public selectedvalue;
+  public seatingValue = [];
+  public totalRow = [];
+  public totalCol = [];
+  public jsonRow: any[];
   public id: any[];
   public seatNum: any[];
-  platinumrows = [];
-  goldrows = [];
-  silverrows = [];
-  passage = [];
-  buttonColor: string;
-  x = [];
-  y = [];
+  public platinumrows = [];
+  public goldrows = [];
+  public silverrows = [];
+  public passage = [];
+  public buttonColor: string;
+  public x = [];
+  public y = [];
   data: any;
   rowPassage;
   division = [];
-  // division1 = [];
+  blockedseats: any[];
+seating = [];
   seatname = [];
   bookingDetail: FullBookingDetails;
 
+  private serverUrl = 'http://172.23.239.47:9079/websocket';
+  private stompClient;
+
   constructor(
     private http: HttpClient,
-    private detailService: BookingDetailsService
-  ) {}
+    private detailService: BookingDetailsService,
+    private ticketengineService: TicketEngineService
+  ) {
+    // this.webSocketConnect();
+  }
+
+  // webSocketConnect() {
+  //   var socket = new SockJS(this.serverUrl);
+  //   this.stompClient = Stomp.over(socket);
+  //   this.stompClient.connect({}, function(frame) {
+  //     console.log('Connected: ' + frame);
+  //     // this.stompClient.subscribe('/movie', )
+  //   })
+  // }
 
   ngOnInit() {
+   
     this.bookingDetail = this.detailService.receive();
     console.log(this.bookingDetail);
     this.id = [];
-    console.log("hi");
+    this.seating = [];
+    console.log("inside ngonit");
     this.seatname = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
     this.http.get("assets/layout.json").subscribe(result => {
       this.jsonRow = result as string[];
@@ -56,23 +78,26 @@ export class SeatlayoutComponent implements OnInit {
       this.rowPassage = this.jsonRow[1].passageRow;
       this.createseating();
     });
+     this.ticketengineService.getseatDetails().subscribe(res=> {
+        this.blockedseats=res
+       
+      console.log(this.blockedseats);
+    });   
   }
+
   bookticket() {}
-  selectChangeHandler(event: any) {
-    this.selectedvalue = event.target.value;
-    console.log(this.selectedvalue);
-  }
+  // selectChangeHandler(event: any) {
+  //   this.selectedvalue = event.target.value;
+  //   console.log(this.selectedvalue);
+  // }
   onclick(x, y) {
-    this.id.push(x * 10 + y);
+    this.id.push(x * 10 + y + 1);
     this.id.sort();
     console.log(this.id);
     this.seatselect();
   }
   seatselect() {
-    for (let j = 0; j < this.id.length; j++) {
-      for (let i = 0; i < this.selectedvalue; i++) {}
-    }
-    console.log(this.id + "selected");
+  
   }
   seatstatus(row, col) {
     // const seatnumber = ((row * 10) + col + 1);
@@ -95,7 +120,6 @@ export class SeatlayoutComponent implements OnInit {
         }
       }
     }
-
     $(function() {
       $(".seat").on("click", function() {
         if ($(this).hasClass("selected")) {
