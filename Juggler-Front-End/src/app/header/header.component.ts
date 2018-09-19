@@ -13,6 +13,8 @@ export class HeaderComponent implements OnInit {
   constructor(private cityService: SearchDataService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
+    
+    
     if(localStorage.getItem("currentUser")!== null)
    {this.flag = true;
     this.userLogged =false;
