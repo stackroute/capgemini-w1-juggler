@@ -1,6 +1,6 @@
 .registration {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w8vxZggMFIGOxrQh_5ZDkjSwDTMkXQpvUagVsJsNLPMSRygB")
-}
+ }
 h4{
   padding-top: 0.7%;
 }
@@ -15,12 +15,14 @@ h4{
   width: 51%;
   padding-left: 4%;
   padding-right: 24%;
+  display: flex;
 }
 
 .example-half-width {
   width:61%;
   padding-left: 36%;
   // padding-right: 2%;
+  display:flex;
 }
  .mt-btn {
    padding-left: 35%;
@@ -30,25 +32,34 @@ h4{
 
 .seats {
   padding-left: 2%;
-  width:13%;
+  //width:13%;
 
 }
 .seatType {
- padding-left: 32%;
+ padding-left: 29%;
+ padding-top: 2%
  
 }
 .button-color {
-  padding-left: 30%;
+  padding-left: 42%;
+  padding-top: 2%;
 }
 .button-color button {
   color:#004B8D;
+}
+.layout {
+  padding-left: 29%;
+  padding-top: 3%;
 }
  .layout b {
   padding-right:3%;
 }
 .add-theatre {
   padding-top: 2%;
-  padding-left: 34%;
+  padding-left: 44%;
  
 
+}
+.seatRow {
+  padding-left: 4%;
 }

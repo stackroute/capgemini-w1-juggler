@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
 import { FullBookingDetails } from "../FullBookingDetails";
 import * as Stomp from 'stompjs';
-import * as SockJS from 'sockjs-client';
+import * as SockJS from  'sockjs-client';
 declare var $: any;
 
 @Component({
@@ -41,23 +41,23 @@ export class SeatlayoutComponent implements OnInit {
     private http: HttpClient,
     private detailService: BookingDetailsService
   ) {
-    this.webSocketConnect();
+    // this.webSocketConnect();
   }
 
-  webSocketConnect() {
-    var socket = new SockJS(this.serverUrl);
-    this.stompClient = Stomp.over(socket);
-    this.stompClient.connect(
-      {},
-      function(frame) {
-        console.log("Connected: " + frame);
-        this.stompClient.subscribe("/movie", function(seats) {
-          console.log(seats);
-          // this.blockedseats = seats
-        });
-      }
-    );
-  }
+  // webSocketConnect() {
+  //   var socket = new SockJS(this.serverUrl);
+  //   this.stompClient = Stomp.over(socket);
+  //   this.stompClient.connect(
+  //     {},
+  //     function(frame) {
+  //       console.log("Connected: " + frame);
+  //       this.stompClient.subscribe("/movie", function(seats) {
+  //         console.log(seats);
+  //         // this.blockedseats = seats
+  //       });
+  //     }
+  //   );
+  // }
   ngOnInit() {
     this.bookingDetail = this.detailService.receive();
     console.log(this.bookingDetail);
