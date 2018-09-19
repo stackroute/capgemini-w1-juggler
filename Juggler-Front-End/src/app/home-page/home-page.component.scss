@@ -1,19 +1,42 @@
+
 .unit {
   //  background-color:rebeccapurple;
     background-color:white;
 }
-form input[type=text]{
+.mat-card-title { text-transform: uppercase;}
+
+
+ form input[type=text]{
     padding-left: 0px;
     font-size: 17px;
-   // border: 1px solid grey;
+   border: 3px solid grey;
     float: left;
-    width: 90%;
+    width: 50%;
+   
+ }
+ 
+ form button {
+  text-align: center;
+    float: left;
+    width:100px;
+    padding: 11px; 
+  color:white;
+  background-color: black;
+    //font-size: 17px;
+   // border: 1px solid grey;
+
+    border-left: none;
+    cursor: pointer;
 }
-form button {
-  float: left;
-  width:37px;
-  padding: 11px; 
-  color: white;
-  border-left: none;
-  cursor: pointer;
+
+
+form button:hover{
+  border: 0;
+  box-shadow: none;
+  border-left: solid 1px #ccc;
+}
+
+.card-header {
+  text-transform: capitalize;
+  text-align: center;
 }

@@ -51,10 +51,8 @@ import { PaymentDialogComponent } from './payment-page/payment-dialog/payment-di
 import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
 import { PromocodeService } from './promocode.service';
 import { RsvpAcceptComponent } from './rsvp-accept/rsvp-accept.component';
-import { RecommondationThetareDisplayComponent } from './recommondation-thetare-display/recommondation-thetare-display.component';
-import { RecomondationMovieDisplayComponent } from './recomondation-movie-display/recomondation-movie-display.component';
-import { RsvpService } from './rsvp.service';
-import { TicketEngineService } from './ticket-engine.service';
+import { RecMovDisplayComponent } from './rec-mov-display/rec-mov-display.component';
+import { TestComponent } from './test/test.component';
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 
@@ -83,8 +81,8 @@ import { TicketEngineService } from './ticket-engine.service';
     PaymentDialogComponent,
     BillingComponent,
     RsvpAcceptComponent,
-    RecomondationMovieDisplayComponent,
-    RecommondationThetareDisplayComponent
+    RecMovDisplayComponent,
+    TestComponent
    
   ],
 
@@ -111,7 +109,7 @@ import { TicketEngineService } from './ticket-engine.service';
     MatDividerModule,
     MatTableModule
   ],
-  providers: [ AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService,TicketEngineService ,PaymentService, ProfileService, PromocodeService, RsvpService,
+  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, PaymentService, ProfileService, PromocodeService,
     Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent],
   entryComponents: [ DialogComponentComponent, PaymentDialogComponent ],
