@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
 import { FullBookingDetails } from "../FullBookingDetails";
 import * as Stomp from 'stompjs';
-import * as SockJS from 'sockjs-client';
+import * as SockJS from  'sockjs-client';
 declare var $: any;
 
 @Component({

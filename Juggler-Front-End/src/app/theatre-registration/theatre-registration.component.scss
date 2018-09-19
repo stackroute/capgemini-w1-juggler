@@ -1,19 +1,65 @@
+.registration {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w8vxZggMFIGOxrQh_5ZDkjSwDTMkXQpvUagVsJsNLPMSRygB")
+ }
+h4{
+  padding-top: 0.7%;
+}
 .example-form {
   min-width: 150px;
   max-width: 500px;
   width: 100%;
+  //background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJYpANAFX7keUuTcY3GlFeqUonqriquGgcKbUXwzm8d-BO4NOicA");
 }
 
 .example-full-width {
-  width: 100%;
+  width: 51%;
+  padding-left: 4%;
+  padding-right: 24%;
+  display: flex;
 }
 
-// .example-half-width {
-//   width: 65%;
-// }
-// .total{
-//   background-image:url("https://steamuserimages-a.akamaihd.net/ugc/364032107039475236/FF4DDB7CCE4EAE877EEF7E50A5428DFA27EA4226/");
-// }
-.container{
-  opacity: 0.4;
-  filter: alpha(opacity=30);}
+.example-half-width {
+  width:61%;
+  padding-left: 36%;
+  // padding-right: 2%;
+  display:flex;
+}
+ .mt-btn {
+   padding-left: 35%;
+   padding-top: 2%;
+   color:#004B8D;
+ }
+
+.seats {
+  padding-left: 2%;
+  //width:13%;
+
+}
+.seatType {
+ padding-left: 29%;
+ padding-top: 2%
+ 
+}
+.button-color {
+  padding-left: 42%;
+  padding-top: 2%;
+}
+.button-color button {
+  color:#004B8D;
+}
+.layout {
+  padding-left: 29%;
+  padding-top: 3%;
+}
+ .layout b {
+  padding-right:3%;
+}
+.add-theatre {
+  padding-top: 2%;
+  padding-left: 44%;
+ 
+
+}
+.seatRow {
+  padding-left: 4%;
+}
