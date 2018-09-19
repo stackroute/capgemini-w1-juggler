@@ -7,12 +7,8 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.GenericToStringSerializer;
-
-<<<<<<< HEAD
 //import com.stackroute.juggler.ticketengine.domain.Show;
 
-=======
->>>>>>> 604ef2adb4e74ada5ad6f37b8572b2913af69664
 @SpringBootApplication
 @EnableRedisRepositories
 public class TicketEngineApplication {
