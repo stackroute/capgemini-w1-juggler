@@ -109,9 +109,6 @@ export class TheatreDisplayComponent {
     console.log(this.flag);
     return this.flag;
   }
-  checkDevice(){
-
- }
 
   saveShow(theatre, showtime: string, Selecteddate) {
    this.valueDate= String(Selecteddate.getDate())+"/"+String(Selecteddate.getMonth())+"/"+String(Selecteddate.getFullYear());

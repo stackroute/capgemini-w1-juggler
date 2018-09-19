@@ -39,9 +39,9 @@ export class LandingPageComponent implements OnInit {
   ngOnInit() {
     const dialogRef = setTimeout(() =>
       this.dialog.open(DialogComponentComponent, {
-        width: "75%",
-        height: "50%",
-        position: { top: "10%", left: "13%" }
+        width: "85%",
+        height: "45%",
+        position: { top: "10%", left: "10%" }
       })
     );
     // dialogRef.afterClosed().subscribe(result => {
