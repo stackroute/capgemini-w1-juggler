@@ -51,7 +51,7 @@ public class TicketController {
 	@SendTo("/movie")
 	public Seats seats(Seats seats) {
 
-		return seats;
+		return new Seats();
 	}
 
 	@PostMapping("/seats")
