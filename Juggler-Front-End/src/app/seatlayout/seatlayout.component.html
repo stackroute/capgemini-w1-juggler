@@ -4,19 +4,22 @@
   <script src="seatlayout.component.ts"></script>
 </head>
 
-<!-- <div class="container">
+<div>
   <div class="row">
-    <div class="col-sm-4">
-      {{bookingDetail.nameOfMovie}}
+    <div  class="col-sm-3">
+      <b>{{bookingDetail.nameOfMovie}}</b>
     </div>
-    <div class="col-sm-4">
-      {{bookingDetail.screeningTime}}
+    <div class="col-sm-3">
+      <b> {{bookingDetail.screeningTime}}</b>
     </div>
-    <div class="col-sm-4">
-      {{bookingDetail.theaterName}},{{bookingDetail.theatreLocation}}
+    <div class="col-sm-3">
+      <b> {{bookingDetail.theaterName}},{{bookingDetail.theatreLocation}}</b>
+    </div>
+    <div class="col-sm-3">
+      <b>{{bookingDetail.languages}},{{bookingDetail.format}}</b>
     </div>
   </div>
-</div> -->
+</div>
 
 <p class="seats">Select number of seats:
   <select (change)="selectChangeHandler($event)">
@@ -31,15 +34,15 @@
 <div class="ArenaLayout">
   <div class="rows" *ngFor="let row of totalRow; let i=index">
     <div class="columns" *ngFor="let col of totalCol">
-      <!-- <div *ngIf="col!=passage[0] && col!=passage[1] && row!=rowPassage; else Passage"> -->
-      <div class="seat" (click)="onclick(row,col)">
-        {{seatname[i]}} {{col}}
-      </div>
-      <ng-template #SeatBlocked>
-        <div class="seat blocked">
+      <div *ngIf="col!=passage[0] && col!=passage[1] && row!=rowPassage; else Passage">
+        <div class="seat" (click)="onclick(row,col)">
+          {{seatname[i]}} {{col}}
         </div>
-      </ng-template>
-      <!-- </div> -->
+        <ng-template #SeatBlocked>
+          <div class="seat blocked">
+          </div>
+        </ng-template>
+      </div>
 
       <ng-template #SeatAvailable>
         <div class="seat available">

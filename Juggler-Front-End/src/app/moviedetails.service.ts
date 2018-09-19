@@ -19,13 +19,14 @@ export class MovieDetailsService {
   }
   sendData(movieObject: MovieDetails) {
     this.movieData = movieObject;
+    console.log(this.movieData);
   }
   receive() {
     console.log("receive" + this.data.movieName);
     return this.data;
   }
   receiveData() {
-    console.log("receive" + this.data.movieName);
+    console.log("receive" + this.movieData.name);
     return this.movieData;
   }
 }

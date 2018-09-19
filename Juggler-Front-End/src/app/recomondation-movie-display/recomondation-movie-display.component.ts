@@ -12,7 +12,10 @@ movieObject:MovieDetails;
   constructor(private movieDetailsService: MovieDetailsService) { }
 
   ngOnInit() {
+    console.log("jyothirmayi");
     this.movieObject=this.movieDetailsService.receiveData();
+    console.log(this.movieObject+"abcdefg");
+    
   }
 
 }

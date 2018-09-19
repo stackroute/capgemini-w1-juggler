@@ -34,35 +34,32 @@ export class SeatlayoutComponent implements OnInit {
   division = [];
   // division1 = [];
   seatname = [];
-
   bookingDetail: FullBookingDetails;
   private serverUrl = "http://172.23.239.47:9079/websocket";
   private stompClient;
-
   constructor(
     private http: HttpClient,
     private detailService: BookingDetailsService
   ) {
-    this.webSocketConnect();
+    // this.webSocketConnect();
   }
 
-  webSocketConnect() {
-    var socket = new SockJS(this.serverUrl);
-    this.stompClient = Stomp.over(socket);
-    const that = this;
-    that.stompClient.connect(
-      {},
-      function(frame) {
-        console.log("Connected: " + frame);
-        that.stompClient.subscribe("/movie", (seats) => {
-          console.log(seats);
-          // this.blockedseats = seats
-        });
-      }
-    );
-  }
+  // webSocketConnect() {
+  //   var socket = new SockJS(this.serverUrl);
+  //   this.stompClient = Stomp.over(socket);
+  //   this.stompClient.connect(
+  //     {},
+  //     function(frame) {
+  //       console.log("Connected: " + frame);
+  //       this.stompClient.subscribe("/movie", function(seats) {
+  //         console.log(seats);
+  //         // this.blockedseats = seats
+  //       });
+  //     }
+  //   );
+  // }
   ngOnInit() {
-    // this.bookingDetail = this.detailService.receive();
+    this.bookingDetail = this.detailService.receive();
     console.log(this.bookingDetail);
     this.id = [];
     console.log("hi");

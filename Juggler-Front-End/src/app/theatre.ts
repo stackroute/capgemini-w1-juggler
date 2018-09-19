@@ -10,4 +10,8 @@ export class Theatre {
   seatlayout: File;
   typesOfSeats: String[];
   numberOfSeats: number[];
+  totalRow: number;
+ totalCol: number;
+ rowValues: Array<number>;
+ colValues: Array<number>;
 }
