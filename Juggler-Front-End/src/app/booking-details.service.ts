@@ -12,7 +12,7 @@ public booking:FullBookingDetails;
     this.booking = bookedData;
   }
   receive() {
-    //  console.log("receive" + this.booking.nameOfMovie);
+   console.log("receive" + this.booking.nameOfMovie);
     return this.booking;
   }
 }

@@ -1,13 +1,13 @@
 package com.stackroute.juggler.ticketengine.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
+import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.ticketengine.domain.Seats;
-import com.stackroute.juggler.ticketengine.domain.Show;
 import com.stackroute.juggler.ticketengine.repository.SeatsRepository;
 import com.stackroute.juggler.ticketengine.repository.ShowInfoRepository;
 
@@ -68,6 +68,15 @@ public class SeatsServiceImpl implements SeatsService {
 	@Override
 	public Iterable<Seats> getAll() {
 		return seatsRepo.findAll();
+	}
+
+	@Override
+	@KafkaListener(topics = "screenings", groupId = "ticketed", containerFactory = "kafkaListenerContainerFactory")
+	public void kafkaListen(MovieSchedule mveSchedule) {
+		MovieSchedule mve = new MovieSchedule();
+		mve = mveSchedule;
+		System.out.println(mve.getEmail());
+		
 	}
 
 }

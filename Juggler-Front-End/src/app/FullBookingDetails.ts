@@ -13,4 +13,6 @@ export class FullBookingDetails {
   theaterName: string;
   theatreLocation: string;
   emailId: string;
+  // seatNum:string[];
+  // numberOfTickets:string[];
 }

@@ -1,7 +1,7 @@
 <head>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="/webjars/jquery/jquery.min.js"></script>
-  <!-- <script src="seatlayout.component.ts"></script> -->
+  <script src="seatlayout.component.ts"></script>
 </head>
 <!-- <div class="name">
   <h2>Geethagovindam</h2>
@@ -20,37 +20,42 @@
 <div class="ArenaLayout">
   <div class="rows" *ngFor="let row of totalRow; let i=index">
     <div class="columns" *ngFor="let col of totalCol">
-      <!-- <div *ngIf="col!=passage[0] && col!=passage[1] && row!=rowPassage; else Passage"> -->
-      <div class="seat" (click)="onclick(row,col)">
-        {{seatname[i]}}{{col+1}}
-      </div>
-      <ng-template #SeatBlocked>
+      <div *ngIf="seatStatus(row,col); else SeatAvailable">
+        <!-- <div *ngIf="col!=passage[0] && col!=passage[1] && row!=rowPassage; else Passage"> -->
         <div class="seat blocked">
+          <!-- {{seatname[i]}}{{col+1}} -->
+        </div>
+        <ng-template #SeatBlocked>
+          <div class="seat blocked">
+          </div>
+        </ng-template>
+         </div>   
+      <ng-template #SeatAvailable>
+        <div class="seat available" (click)="onclick(row,col)">
         </div>
       </ng-template>
     </div>
-
-    <ng-template #SeatAvailable>
-      <div class="seat available">
-      </div>
-    </ng-template>
   </div>
-  <ng-template #Passage>
-    <div class="seatPassage">
-    </div>
-  </ng-template>
 </div>
-<!-- </div> -->
 
 
 <div class="screen">
   All Eyes here
 </div>
-<div>
-  <span class="spanBox" style='Background-color:grey'></span><label>Selected Seats</label>
-  <span class="spanBox" style='Background-color:red'></span><label>Reserved Seats</label>
-  <span class="spanBox"></span><label>Empty Seats</label>
-</div>
+<!-- <div>
+  <span class="spanBox" style='Background-color:grey'></span>
+  <label>Selected Seats</label>
+  <span class="spanBox" style='Background-color:red'></span>
+  <label>Reserved Seats</label>
+  <span class="spanBox"></span>
+  <label>Empty Seats</label>
+</div> -->
 <div class="bookButton">
-  <button mat-raised-button color="primary" (click)="bookticket()" routerLink="/billing">Proceed to pay</button>
+  <button mat-raised-button color="primary" (click)="sendMessage()" routerLink="/billing">Proceed to pay</button>
 </div>
+<!-- <div *ngIf="seatSelected(); else disableButton" class="bookButton">
+  <button mat-raised-button color="primary" routerLink="/billing" routerLinkActive="active" (click)="bookticket()">Proceed</button>
+</div>
+<ng-template #disableButton>
+  <button style="margin:0 auto; display: block; margin-bottom: .5%;" mat-raised-button disabled color="primary">Proceed</button>
+</ng-template>s -->

@@ -1,6 +1,8 @@
 
 import { PromocodeService } from "./../promocode.service";
 import { Component, OnInit } from "@angular/core";
+import { BookingDetailsService } from "../booking-details.service";
+import { FullBookingDetails } from "../FullBookingDetails";
 
 @Component({
   selector: "app-billing",
@@ -15,10 +17,14 @@ export class BillingComponent implements OnInit {
   show: boolean = true;
   result1 = null;
   bool;
+  bookingDetail: FullBookingDetails;
 
-  constructor(private promoService: PromocodeService) {}
+  constructor(private promoService: PromocodeService,
+    private detailService: BookingDetailsService,
+  ) {}
 
   ngOnInit() {
+    
     this.result1=null;
     this.promoService.getpromos().subscribe(data => {
       this.result = data;

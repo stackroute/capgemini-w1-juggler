@@ -1,13 +1,18 @@
 export class Layout {
-    showSlot: String;
-    TheatreName: String;
-    movieName:String;
-    date:String;
-    totalRows: number;
-    totalCols: number;
-    rowValues: number[];
-    colValues: number[];
-    seats: number[];
+    showid: string;
+    city: string;
+    movieName: string;
+    theatreName: string;
+    bookingDate: number;
+    releseDate: Date;
+    showDate: Date;
+    slot: string;
+    status: Boolean;
     blockedSeats: number[];
     bookedSeats: number[];
+    totalRow: number;
+    totalCol: number;
+    rowValues: number[];
+    colValues: number[];
+
 }
