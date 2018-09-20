@@ -3,8 +3,22 @@
   <script src="/webjars/jquery/jquery.min.js"></script>
   <script src="seatlayout.component.ts"></script>
 </head>
-<!-- <div class="name">
-  <h2>Geethagovindam</h2>
+
+<!-- <div>
+  <div class="row">
+    <div  class="col-sm-3">
+      <b>{{bookingDetail.nameOfMovie}}</b>
+    </div>
+    <div class="col-sm-3">
+      <b> {{bookingDetail.screeningTime}}</b>
+    </div>
+    <div class="col-sm-3">
+      <b> {{bookingDetail.theaterName}},{{bookingDetail.theatreLocation}}</b>
+    </div>
+    <div class="col-sm-3">
+      <b>{{bookingDetail.languages}},{{bookingDetail.format}}</b>
+    </div>
+  </div>
 </div> -->
 <!-- <p class="seats">Select number of seats:
   <select (change)="selectChangeHandler($event)">
@@ -29,7 +43,7 @@
           <div class="seat blocked">
           </div>
         </ng-template>
-         </div>   
+      </div>
       <ng-template #SeatAvailable>
         <div class="seat available" (click)="onclick(row,col)">
         </div>

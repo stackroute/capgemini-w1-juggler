@@ -1,24 +1,16 @@
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  padding: 0px 0px;
-}
+// .flex-container {
+//   display: flex;
+//   flex-direction: row;
+//   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+//   padding: 0px 0px;
+// }
 
-.cardBg {
-  background-color: darkgrey;
-}
-.title {
-  margin-top: 20px;
-  text-transform: uppercase;
-}
-.p {
-  text-decoration-color: coral;
-}
+
+
 .container {
   margin-top: 6px;
   border-block-end-color: black;
-  display: flex;
+  
 }
 .listOfItem {
   padding: 10px 10px;
@@ -62,6 +54,15 @@ a.CamelCase {
 #display {
   display: inline-flex;
 }
-#spacing {
-  margin-left: 15px;
+// #spacing {
+//   margin-left: 15px;
+// }
+.card{
+  margin-top: 20px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.headings{
+  font-family: 'Padauk', sans-serif;
 }

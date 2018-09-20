@@ -1,0 +1,49 @@
+// .container {
+//     position: relative;
+//     width: 100%;
+    
+// }
+.bg {
+opacity: 0.9;
+filter: alpha(opacity=2);
+}
+// .container img {
+//     width: 100%;
+//     height: auto;
+// }
+
+ .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+   width:200px;
+}
+.class2{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;  
+}
+
+.container .btn:hover {
+    background-color: black;
+}

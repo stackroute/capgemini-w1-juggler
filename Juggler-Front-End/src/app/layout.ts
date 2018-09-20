@@ -14,5 +14,4 @@ export class Layout {
     totalCol: number;
     rowValues: number[];
     colValues: number[];
-
 }

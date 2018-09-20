@@ -3,76 +3,117 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm-8">
       <div class="heading">
-        <h3>Apply Promo Code</h3>
+        <h3 class="headings">Apply Promo Code</h3>
       </div>
       <div class="example-container">
         <mat-form-field>
           <input matInput placeholder="Enter Promo Code, If Available" #input>
         </mat-form-field>
-        <button mat-stroked-button color="warn" (click)="promo(input.value)">Apply</button>
+        <button mat-stroked-button color="warn" (click)="promo(input.value)" (click)="basicModal.show()">Apply</button>
       </div>
-      <mat-grid-list cols="12">
-        <div class="container">
-          <div *ngIf=result>
-            <div class="row">
-              <div *ngFor="let promos of result">
-                <mat-grid-tile colspan="3" rowspan="4">
-                  <div>
-                    <div class="view overlay">
-                      <img mat-card-image src="{{promos.image}}" class="img-fluid " alt="promo poster" height="500" width="300">
-                      <div class="mask flex-center rgba-black-strong">
-                        <p class="white-text">
-                          {{promos.code}}
-                          <br> {{promos.description}}
-                        </p>
-                      </div>
+
+      <br>
+      <div *ngIf=result>
+        <strong>
+          <h3 class="headings">Applicable Promos</h3>
+        </strong>
+        <div class="row">
+          <div class="col-sm-4" *ngFor="let promos of result; let i = index">
+            <div *ngIf="i < 9">
+              <div class="card mt-3 mb-3">
+                <div class="card-header text-center">
+                  <b>{{promos.code}}</b>
+                </div>
+                <div class="card-body">
+                  <div class="view overlay">
+                    <img class="card-img-top img-fluid" src="{{promos.image}}" alt="{{promos.code}}" (click)="promo(promos.code)" style="height: 200px">
+                    <div class="mask flex-center rgba-black-strong">
+                      <p class="white-text">
+                        {{promos.code}}
+                        <br> {{promos.description}}
+                      </p>
                     </div>
-                    <button mat-flat-button (click)="promo(promos.code)">Apply</button>
                   </div>
-                </mat-grid-tile>
+                  <button mat-flat-button (click)="promo(promos.code)">Apply</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <!-- <mat-grid-list cols="12">
+              <div class="container">
+                <div *ngIf=result>
+                  <div class="row">
+                    <div *ngFor="let promos of result">
+                      <mat-grid-tile colspan="3" rowspan="4">
+                        <div>
+                          <div class="view overlay">
+                            <img mat-card-image src="{{promos.image}}" class="img-fluid " alt="promo poster" height="500" width="300">
+                            <div class="mask flex-center rgba-black-strong">
+                              <p class="white-text">
+                                {{promos.code}}
+                                <br> {{promos.description}}
+                              </p>
+                            </div>
+                          </div>
+                          <button mat-flat-button (click)="promo(promos.code)">Apply</button>
+                        </div>
+                      </mat-grid-tile>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+            
+            </mat-grid-list> -->
 
 
-      </mat-grid-list>
+
+
     </div>
-    <div class="col-sm">
 
+
+    <div class="col-sm-4">
       <div class="billing">
-        <i class="fa fa-ticket" style="font-size: 24px">Ticket</i>
-        <br>
-        <h3>Payment Summery</h3>
-        <p>Ticket Amount : 500</p>
-        <div *ngIf="result1!=null; else notbool">
-          <div *ngIf="formula(500,result1.amount); else notshow">
-            <p>promocode applied : {{result1.amount}}</p>
-            <a> Final Amount : {{value}}</a>
+        <div class="card mt-5 mb-5">
+          <div class="card-header">
+            <i class="fa fa-ticket" style="font-size: 24px">Ticket</i>
+            <br>
+            <h3  class="headings">Payment Summery</h3>
           </div>
-          <ng-template #notshow>
-            <p>This promocode is not applicable </p>
+          <div class="card-body">
+            <p>Ticket Amount : 500</p>
+            <div *ngIf="result1!=null; else notbool">
+              <div *ngIf="formula(500,result1.amount); else notshow">
+                <p>promocode applied : {{result1.amount}}</p>
+                <a> Final Amount : {{value}}</a>
+              </div>
+              <ng-template #notshow>
+                <p>This promocode is not applicable </p>
 
 
-          </ng-template>
+              </ng-template>
+            </div>
+            <ng-template #notbool>
+              <div *ngIf="bool">
+                <!-- <p>This promocode is not valid</p>  -->
+                <p>This promocode is not valid</p>
+
+              </div>
+            </ng-template>
+          </div>
         </div>
-        <ng-template #notbool>
-          <div *ngIf="bool">
-            <!-- <p>This promocode is not valid</p>  -->
-            <p>This promocode is not valid</p>
-
-          </div>
-        </ng-template>
-
         <button mat-flat-button color="warn" routerLink="/payment-page">Proceed to checkout</button>
+
 
       </div>
     </div>
-
   </div>
 </div>
+
 
 
 

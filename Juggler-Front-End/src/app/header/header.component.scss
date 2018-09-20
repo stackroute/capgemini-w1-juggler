@@ -9,11 +9,10 @@
 //     // background: chocolate;
 //     padding: 0%;
 // }
-// .h5{
+// h5{
 //     text-align: center;
 //     text-orientation: sideways;
 // }
- 
 // li{
     // align-content: center;
     // background: blue;
@@ -22,3 +21,36 @@
     // margin-left: 0px;
     // height: 80px;
 // }
+.nav-item h5:hover{
+    background-color: grey;  
+}
+.navbar{
+ height: 55px;
+}
+
+
+.input{
+    font-size: 15px;
+ 
+ 
+    width: 70%;
+    height: 37px;
+    float:left;
+ }
+ 
+.btn-block{
+    
+  color: white;
+  background-color:rgb(235, 121, 80);
+  float:left;
+    width:60px;
+}
+.input:focus {
+  color:rgb(235, 128, 90);
+  
+}
+.btn-block:hover{
+  border: 0;
+  box-shadow: none;
+  border-left: solid 2px #ccc;
+}

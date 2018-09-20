@@ -1,7 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-// import { Http } from "@angular/http";
-// import { HttpErrorResponse, JsonpClientBackend } from "@angular/common/http";
-// import { Observable, FactoryOrValue } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
 import { FullBookingDetails } from "../FullBookingDetails";
@@ -9,8 +6,6 @@ import { TicketEngineService } from "../ticket-engine.service";
 import * as Stomp from "stompjs";
 import * as SockJS from "sockjs-client";
 import { Layout } from "../layout";
-import { collectExternalReferences } from "@angular/compiler";
-import { log } from "util";
 declare var $: any;
 
 @Component({
@@ -61,38 +56,19 @@ export class SeatlayoutComponent implements OnInit {
     this.blockedSeatsArray = [];
     console.log("inside ngonit");
     this.seatname = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
-    // this.totalRow.length = 10;
-    // this.totalCol.length = 10;
-    // console.log(this.totalCol);
-    // this.totalRow = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    // this.totalCol = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    // this.createseating();
-    // this.http.get("assets/layout.json").subscribe(result => {
-    //   this.jsonRow = result as string[];
-    //   this.division = this.jsonRow[0].division;
-    // this.totalRow.length = this.jsonRow[0].totalRow;
-    // this.totalCol.length = this.jsonRow[1].totalCol;
-    // console.log(this.totalCol);
-    // this.totalRow = this.jsonRow[0].Values;
-    // this.totalCol = this.jsonRow[1].Values;
-    //   this.passage = this.jsonRow[2].passageCol;
-    //   this.rowPassage = this.jsonRow[1].passageRow;
-    //   this.createseating();
-    // });
     this.ticketengineService.getseatDetails().subscribe(data => {
       this.json = data;
       this.totalRow.length = this.json.totalRow;
       this.totalCol.length = this.json.totalCol;
-      this.totalRow=this.json.rowValues;
-      this.totalCol=this.json.colValues;
-      this.blockedSeatsArray=this.blockedSeats;
-      this.bookedSeats=this.bookedSeats;
+      this.totalRow = this.json.rowValues;
+      this.totalCol = this.json.colValues;
+      this.blockedSeatsArray = this.blockedSeats;
+      this.bookedSeats = this.bookedSeats;
       console.log(this.totalRow);
       console.log(this.totalCol);
-      console.log( this.blockedSeatsArray);
-      console.log( this.bookedSeats);
+      console.log(this.blockedSeatsArray);
+      console.log(this.bookedSeats);
       this.createseating();
-
     });
   }
 
@@ -119,16 +95,8 @@ export class SeatlayoutComponent implements OnInit {
       showId: "pvr701:00bangalore",
       blockedSeats: this.blockedSeatsArray
     });
-    // let data = "hi";
     this.stompClient.send("/app/message", {}, data);
-
   }
-
-  // bookticket() {}
-  // selectChangeHandler(event: any) {
-  //   this.selectedvalue = event.target.value;
-  //   console.log(this.selectedvalue);
-  // }
 
   onclick(x, y) {
     let selected = x * 10 + y + 1;

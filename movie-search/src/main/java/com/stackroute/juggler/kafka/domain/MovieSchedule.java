@@ -1,23 +1,22 @@
 package com.stackroute.juggler.kafka.domain;
 
-import java.io.File;
-import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.stackroute.juggler.moviesearch.domain.Seats;
 
 //Domain object for data from screening service
 public class MovieSchedule {
 	private String theatreId;
+	private String theatreName;
 	private String email;
 	private String theatreLocation;
 	private String theatreCity;
-	private String theatreName;
 	private String theatreLicenseNo;
 	private String totalnumberOfSeats;
-	private String[] screenedmovies;
-	private String[] runningmovies;
-	private File seatLayout;
+	private Seats seatLayout;
 	private String[] typesOfSeats;
 	private int[] numberOfSeats;
+	private String[] screenedmovies;
+	private String[] runningmovies;
 	public String id;
 	private String movieName;
 	private String moviePoster;
@@ -38,29 +37,30 @@ public class MovieSchedule {
 	private int[] weekends_Price;
 	private int[] weekdays_Price;
 
+	// default constructor
 	public MovieSchedule() {
 		super();
 	}
 
-	public MovieSchedule(String theatreId, String email, String theatreLocation, String theatreCity, String theatreName,
-			String theatreLicenseNo, String totalnumberOfSeats, String[] screenedmovies, String[] runningmovies,
-			File seatLayout, String[] typesOfSeats, int[] numberOfSeats, String id, String movieName,
+	public MovieSchedule(String theatreId, String theatreName, String email, String theatreLocation, String theatreCity,
+			String theatreLicenseNo, String totalnumberOfSeats, Seats seatLayout, String[] typesOfSeats,
+			int[] numberOfSeats, String[] screenedmovies, String[] runningmovies, String id, String movieName,
 			String moviePoster, String actors, String actress, String directors, String movieGenres, String synopsis,
 			String format, String languages, String movieDuration, String movieReleaseDate, int showNumbers,
 			String showTimings, int[] weekends_Price, int[] weekdays_Price) {
 		super();
 		this.theatreId = theatreId;
+		this.theatreName = theatreName;
 		this.email = email;
 		this.theatreLocation = theatreLocation;
 		this.theatreCity = theatreCity;
-		this.theatreName = theatreName;
 		this.theatreLicenseNo = theatreLicenseNo;
 		this.totalnumberOfSeats = totalnumberOfSeats;
-		this.screenedmovies = screenedmovies;
-		this.runningmovies = runningmovies;
 		this.seatLayout = seatLayout;
 		this.typesOfSeats = typesOfSeats;
 		this.numberOfSeats = numberOfSeats;
+		this.screenedmovies = screenedmovies;
+		this.runningmovies = runningmovies;
 		this.id = id;
 		this.movieName = movieName;
 		this.moviePoster = moviePoster;
@@ -87,6 +87,14 @@ public class MovieSchedule {
 		this.theatreId = theatreId;
 	}
 
+	public String getTheatreName() {
+		return theatreName;
+	}
+
+	public void setTheatreName(String theatreName) {
+		this.theatreName = theatreName;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -111,14 +119,6 @@ public class MovieSchedule {
 		this.theatreCity = theatreCity;
 	}
 
-	public String getTheatreName() {
-		return theatreName;
-	}
-
-	public void setTheatreName(String theatreName) {
-		this.theatreName = theatreName;
-	}
-
 	public String getTheatreLicenseNo() {
 		return theatreLicenseNo;
 	}
@@ -135,27 +135,11 @@ public class MovieSchedule {
 		this.totalnumberOfSeats = totalnumberOfSeats;
 	}
 
-	public String[] getScreenedmovies() {
-		return screenedmovies;
-	}
-
-	public void setScreenedmovies(String[] screenedmovies) {
-		this.screenedmovies = screenedmovies;
-	}
-
-	public String[] getRunningmovies() {
-		return runningmovies;
-	}
-
-	public void setRunningmovies(String[] runningmovies) {
-		this.runningmovies = runningmovies;
-	}
-
-	public File getSeatLayout() {
+	public Seats getSeatLayout() {
 		return seatLayout;
 	}
 
-	public void setSeatLayout(File seatLayout) {
+	public void setSeatLayout(Seats seatLayout) {
 		this.seatLayout = seatLayout;
 	}
 
@@ -173,6 +157,22 @@ public class MovieSchedule {
 
 	public void setNumberOfSeats(int[] numberOfSeats) {
 		this.numberOfSeats = numberOfSeats;
+	}
+
+	public String[] getScreenedmovies() {
+		return screenedmovies;
+	}
+
+	public void setScreenedmovies(String[] screenedmovies) {
+		this.screenedmovies = screenedmovies;
+	}
+
+	public String[] getRunningmovies() {
+		return runningmovies;
+	}
+
+	public void setRunningmovies(String[] runningmovies) {
+		this.runningmovies = runningmovies;
 	}
 
 	public String getId() {

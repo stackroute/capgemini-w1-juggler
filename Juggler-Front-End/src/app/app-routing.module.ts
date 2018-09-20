@@ -1,25 +1,26 @@
-import { BillingComponent } from './billing/billing.component';
-import { MoviedetailsFormComponent } from './moviedetails-form/moviedetails-form.component';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { UserRegisterComponent } from './register/user-register/user-register.component';
-import { PartnerRegisterComponent } from './register/partner-register/partner-register.component';
-import { DistributionRegisterFormComponent } from './distribution-registerform/distribution-registerform.component';
-import { UserLoginComponent } from './login/user-login/user-login.component';
-import { PartnerLoginComponent } from './login/partner-login/partner-login.component';
-import { TheatreRegistrationComponent } from './theatre-registration/theatre-registration.component';
-import { ContactComponent } from './contact/contact.component';
-import { MovieScreeningComponent } from './movie-screening/movie-screening.component';
-import { ProfileComponent } from './profile/profile.component';
-import { TheatreDisplayComponent } from './theatre-display/theatre-display.component';
-import { RSVPEventComponent } from './rsvp-event/rsvp-event.component';
-import { SeatlayoutComponent } from './seatlayout/seatlayout.component';
-import { RsvpEventsListComponent } from './rsvp-events-list/rsvp-events-list.component';
-import { PaymentPageComponent } from './payment-page/payment-page.component';
-import { RsvpAcceptComponent } from './rsvp-accept/rsvp-accept.component';
+import { BillingComponent } from "./billing/billing.component";
+import { MoviedetailsFormComponent } from "./moviedetails-form/moviedetails-form.component";
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { Routes, RouterModule } from "@angular/router";
+import { LandingPageComponent } from "./landing-page/landing-page.component";
+import { HomePageComponent } from "./home-page/home-page.component";
+import { UserRegisterComponent } from "./register/user-register/user-register.component";
+import { PartnerRegisterComponent } from "./register/partner-register/partner-register.component";
+import { DistributionRegisterFormComponent } from "./distribution-registerform/distribution-registerform.component";
+import { UserLoginComponent } from "./login/user-login/user-login.component";
+import { PartnerLoginComponent } from "./login/partner-login/partner-login.component";
+import { TheatreRegistrationComponent } from "./theatre-registration/theatre-registration.component";
+import { ContactComponent } from "./contact/contact.component";
+import { MovieScreeningComponent } from "./movie-screening/movie-screening.component";
+import { ProfileComponent } from "./profile/profile.component";
+import { TheatreDisplayComponent } from "./theatre-display/theatre-display.component";
+import { RSVPEventComponent } from "./rsvp-event/rsvp-event.component";
+import { SeatlayoutComponent } from "./seatlayout/seatlayout.component";
+import { RsvpEventsListComponent } from "./rsvp-events-list/rsvp-events-list.component";
+import { PaymentPageComponent } from "./payment-page/payment-page.component";
+import { RsvpAcceptComponent } from "./rsvp-accept/rsvp-accept.component";
+import { TestComponent } from "./test/test.component";
 import { RecomondationMovieDisplayComponent } from './recomondation-movie-display/recomondation-movie-display.component';
 import { RecommondationThetareDisplayComponent } from './recommondation-thetare-display/recommondation-thetare-display.component';
 const routes: Routes = [
@@ -39,12 +40,13 @@ const routes: Routes = [
   { path: 'rsvp', component: RSVPEventComponent },
   { path: 'display-theatre',component: TheatreDisplayComponent },
   { path: 'seat-layout',component: SeatlayoutComponent },
-  { path: 'payment-page',component: PaymentPageComponent},  
-  { path: 'rsvp/events',component:RsvpEventsListComponent},
+{ path: 'payment-page',component: PaymentPageComponent},  
+{ path: 'rsvp/events',component:RsvpEventsListComponent},
   { path: 'billing',component:BillingComponent },
-  { path:'rsvp/accept',component:RsvpAcceptComponent },
-  { path:'rec/movie',component:RecomondationMovieDisplayComponent },
-  { path:'rec/theatre',component:RecommondationThetareDisplayComponent }
+  {path:'rsvp/accept',component:RsvpAcceptComponent},
+  {path:'test',component:TestComponent},
+  {path:'rec/movie',component:RecomondationMovieDisplayComponent},
+  {path:'rec/theatre',component:RecommondationThetareDisplayComponent}
 ];
   
 @NgModule({

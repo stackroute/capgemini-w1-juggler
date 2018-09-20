@@ -2,14 +2,20 @@
   min-width: 150px;
   max-width: 500px;
   width: 100%;
+   float:right;
 }
+.total {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w8vxZggMFIGOxrQh_5ZDkjSwDTMkXQpvUagVsJsNLPMSRygB");
+}
+
 .container {
   border-radius: 0.5%;
-  background-color: rgb(204, 212, 219);
+  background-color:white;
   border-block-end-style: groove;
 }
 .example-full-width {
   width: 55%;
+  display:grid;
 }
 #container {
   display: inline-flex;
@@ -26,4 +32,50 @@ mat-error {
 }
 label {
   display: inline-block;
+}
+.example-full-width{
+  width: 51%;
+  padding-right: 15%
+}
+.second-form{
+  width: 51%;
+  float: left;
+  padding-right: 40%
+}
+.genre-cards{
+  padding-right: 10%;
+  padding-bottom: 10%
+}
+.genre-break{
+margin-bottom: 20px
+}
+.option-cards{
+  margin: 5%;
+  width: 120px;
+  height: 160px;
+}
+.form-buttons1 {
+  padding-top: 1%;
+  padding-left: 15%;
+  
+  color:#4C6A92;
+}
+.form-buttons1 button {
+  //padding-right: 3%;
+  margin: 8px;
+}
+.form-buttons2 {
+  padding-left: 26%;
+  padding-top: 0%;
+  color:#4C6A92
+}
+.option {
+  color:#4C6A92;
+  padding-left: 23%;
+}
+.heading {
+  padding-top: 1.5%;
+}
+.headings{
+  font-family: 'Padauk', sans-serif;
 }

@@ -53,4 +53,10 @@ public class Seats {
 		this.colValues = colValues;
 	}
 
+	@Override
+	public String toString() {
+		return "Seats [totalRow=" + totalRow + ", totalCol=" + totalCol + ", rowValues=" + rowValues + ", colValues="
+				+ colValues + "]";
+	}
+
 }
