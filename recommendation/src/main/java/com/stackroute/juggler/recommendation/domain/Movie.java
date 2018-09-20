@@ -191,9 +191,8 @@ public String toString() {
 			+ ", synopsis=" + synopsis + ", movieReleasedate=" + movieReleasedate + ", movieDuration=" + movieDuration
 			+ ", format=" + format + ", hero=" + hero + ", heroine=" + heroine + ", director=" + director
 			+ ", releasedInCity=" + releasedInCity + ", movieGenres=" + movieGenres + ", language=" + language
-			+ ", theatres=" + theatres + ", city=" + city + ", genre=" + genre + ", languages=" + languages + "]";
+			+ ", city=" + city + ", genre=" + genre + ", languages=" + languages + "]";
 }
-
 
 	
 	
