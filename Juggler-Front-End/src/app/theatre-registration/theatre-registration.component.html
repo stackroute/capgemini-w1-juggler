@@ -1,13 +1,14 @@
-<div class="total">
+
+<div class="registration">
 <div style="text-align: center">
   <h4>
-    <strong>Wanna Register? Get Started Now..!!</strong>
+    <strong>Theatre Registration!!</strong>
   </h4>
-</div>
+</div> 
 
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
+    <form  [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Step </ng-template>
       <mat-form-field class="example-full-width">
         <mat-label>Enter Theatre Name</mat-label>
@@ -15,7 +16,7 @@
         <mat-error>This field is required</mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <mat-label>Enter Theatre LicenseNo</mat-label>
+        <mat-label>Enter Theatre License No.</mat-label>
         <input matInput placeholder="Enter Theatre licenseNoeNo" formControlName="licenseNo" type="text" required>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
@@ -33,7 +34,7 @@
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
-      <div>
+      <div class="button-color">
         <button mat-button matStepperNext>Next</button>
       </div>
     </form>
@@ -62,7 +63,7 @@
         <input matInput placeholder="country" formControlName="country" required>
         <mat-error>Required/The input is invalid</mat-error>
       </mat-form-field>
-      <div>
+      <div class="mt-btn">
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div>
@@ -72,43 +73,71 @@
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Step </ng-template>
-      Types Of Seats
-      <div>
-        <mat-form-field>
+
+    
+      <div class="seatType"> 
+        
+         <b>Types Of Seats: </b>
+         <br>
+        <mat-form-field class="seats">
           <input matInput placeholder="type1" formControlName="type1" type="text" required>
           <mat-error>Required</mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="seats">
           <input matInput placeholder="type2" formControlName="type2" type="text" required>
           <mat-error>Required</mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field  class="seats">
           <input matInput placeholder="type3" formControlName="type3" type="text" required>
           <mat-error>Required</mat-error>
         </mat-form-field>
+      
       </div>
-      Number of seats
-      <div>
-        <mat-form-field>
+      
+      <div class="seatType">
+        <b>Number of seats:</b>
+        <br>
+        <mat-form-field class="seats">
           <input matInput placeholder="n1" formControlName="n1" type="number" required>
           <mat-error>The input is invalid</mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="seats">
           <input matInput placeholder="n2" formControlName="n2" type="number" required>
           <mat-error>The input is invalid</mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="seats">
           <input matInput placeholder="n3" formControlName="n3" type="number" required>
           <mat-error>The input is invalid</mat-error>
         </mat-form-field>
+      
       </div>
-      <div>
+     
+      <!-- <br> Seat Layout -->
+      
+     <div class="layout">
+       <b>Seat Layout:</b>
+       <br>
+       <mat-form-field class="seatRow">
+         <input matInput placeholder="no. of rows" formControlName="noofrows" type="number" required>
+         <mat-error>The input is invalid</mat-error>
+       </mat-form-field>
+       
+       <mat-form-field class="seatRow">
+         <input matInput placeholder="no. of cols" formControlName="noofcols" type="number" required>
+         <mat-error>The input is invalid</mat-error>
+       </mat-form-field>
+       </div>
+       
+       
+      <div class= "button-color">
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
       </div>
-      <div>
+      <div class="add-theatre">
         <button mat-raised-button (click)="openDialog()">Add Theatre</button>
       </div>
+      
+     
     </form>
   </mat-step>
 </mat-horizontal-stepper>

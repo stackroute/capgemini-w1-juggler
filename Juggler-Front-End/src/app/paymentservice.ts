@@ -11,7 +11,7 @@ export class PaymentService {
     const headers = new Headers({ token: token, amount: amount });
     this.http
       .post(
-        "http://localhost:9081/api/v1/payment/charge",
+        "http://10.20.1.15:9081/api/v1/payment/charge",
         {},
         { headers: headers }
       )
@@ -19,7 +19,7 @@ export class PaymentService {
         console.log(resp);
         if (resp != null) {
           this.http
-            .post("http://localhost:9081/api/v1/payment/ticket", {})
+            .post("http://10.20.1.15:9081/api/v1/payment/ticket", {})
             .subscribe(response => {
               console.log(response);
             });
@@ -29,7 +29,7 @@ export class PaymentService {
 
   refundCard() {
     this.http
-      .post("http://localhost:9081/api/v1/payment/refund", {})
+      .post("http://10.20.1.15:9081/api/v1/payment/refund", {})
       .subscribe(res => {
         console.log(res);
       });

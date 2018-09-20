@@ -13,4 +13,5 @@ export class FullBookingDetails {
   theaterName: string;
   theatreLocation: string;
   emailId: string;
+  selectedDate:string;
 }

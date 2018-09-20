@@ -2,18 +2,15 @@ package com.stackroute.juggler.ticketengine.repository;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.stackroute.juggler.ticketengine.domain.Seats;
+import com.stackroute.juggler.ticketengine.domain.Seat;
 
 @Repository
-public interface SeatsRepository extends CrudRepository<Seats, String>{
-
-	public Optional<Seats> getByTheatreName(String name);
+public interface SeatsRepository extends CrudRepository<Seat, String>{
 	
-	public List<Seats> findAll();
+	public List<Seat> findAll();
 	
 }
 
