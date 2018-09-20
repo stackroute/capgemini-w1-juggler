@@ -5,8 +5,8 @@ import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
 import { FullBookingDetails } from "../FullBookingDetails";
-import * as Stomp from 'stompjs';
-import * as SockJS from 'sockjs-client';
+import * as Stomp from "stompjs";
+import * as SockJS from "sockjs-client";
 declare var $: any;
 
 @Component({
@@ -35,32 +35,53 @@ export class SeatlayoutComponent implements OnInit {
   // division1 = [];
   seatname = [];
   bookingDetail: FullBookingDetails;
+  showSlot;
+  blockedSeats;
+  bookedSeats;
+
+
   private serverUrl = "http://172.23.239.47:9079/websocket";
   private stompClient;
   constructor(
     private http: HttpClient,
     private detailService: BookingDetailsService
   ) {
-    // this.webSocketConnect();
+    this.webSocketConnect();
   }
 
-  // webSocketConnect() {
-  //   var socket = new SockJS(this.serverUrl);
-  //   this.stompClient = Stomp.over(socket);
-  //   this.stompClient.connect(
-  //     {},
-  //     function(frame) {
-  //       console.log("Connected: " + frame);
-  //       this.stompClient.subscribe("/movie", function(seats) {
-  //         console.log(seats);
-  //         // this.blockedseats = seats
-  //       });
-  //     }
-  //   );
-  // }
+  webSocketConnect() {
+    var socket = new SockJS(this.serverUrl);
+    this.stompClient = Stomp.over(socket);
+    var that = this;
+    that.stompClient.connect(
+      {},
+      function(frame) {
+        console.log("Connected: " + frame);
+        that.stompClient.subscribe("/movie", message => {
+          // if (message.body) {
+          //   $(".movie").append(
+          //     '<div class="message">' + message.body + "</div>"
+          //   );
+          //   console.log(message.body);
+          // }
+        });
+      }
+    );
+  }
+
+  sendMessage(message) {
+    let data = JSON.stringify({
+      'showSlot':this.showSlot,
+      'blockedSeats':this.blockedSeats,
+      'bookedSeats':this.bookedSeats
+    })
+    this.stompClient.send("/app/message", {}, data);
+
+    // $("#input").val("");
+  }
   ngOnInit() {
-    this.bookingDetail = this.detailService.receive();
-    console.log(this.bookingDetail);
+    // this.bookingDetail = this.detailService.receive();
+    // console.log(this.bookingDetail);
     this.id = [];
     console.log("hi");
     this.seatname = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
@@ -82,7 +103,22 @@ export class SeatlayoutComponent implements OnInit {
     console.log(this.selectedvalue);
   }
   onclick(x, y) {
-    this.id.push(x * 10 + y);
+    let value = x * 10 + y;
+    if(this.id.length){
+    this.id.forEach(element => {
+        console.log("entered inside loop");
+        if (element == value) {
+          console.log("element already exists");
+          return;
+        } else {
+          console.log("inside second else");
+          this.id.push(value);
+        }
+        value=null;
+      });
+    this.id.push(value);
+    }
+    this.id.push(value);
     this.id.sort();
     console.log(this.id);
     this.seatselect();

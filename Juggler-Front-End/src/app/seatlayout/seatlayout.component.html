@@ -4,7 +4,7 @@
   <script src="seatlayout.component.ts"></script>
 </head>
 
-<div>
+<!-- <div>
   <div class="row">
     <div  class="col-sm-3">
       <b>{{bookingDetail.nameOfMovie}}</b>
@@ -19,7 +19,7 @@
       <b>{{bookingDetail.languages}},{{bookingDetail.format}}</b>
     </div>
   </div>
-</div>
+</div> -->
 
 <p class="seats">Select number of seats:
   <select (change)="selectChangeHandler($event)">
@@ -62,4 +62,21 @@
 </div>
 <div class="bookButton">
   <button mat-raised-button color="primary" (click)="bookticket()" routerLink="/billing">Proceed to pay</button>
+</div>
+
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <div class="chat-container">
+    <div class="movie">
+      <div class="message"></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <input id="input" type="text" #input>
+  <button class="send" (click)="sendMessage(input.value)">Click
+  </button>
 </div>
