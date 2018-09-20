@@ -5,8 +5,8 @@ import { Movie } from "../movie";
 import { MovieDisplay } from "../MovieDisplay";
 import { FullBookingDetails } from "../FullBookingDetails";
 import { BookingDetailsService } from "../booking-details.service";
-import { BreakpointObserver } from "@angular/cdk/layout";
-
+import { Router } from "@angular/router";
+import { BookingLayoutService } from "../booking-layout.service";
 @Component({
   selector: "app-theatre-display",
   templateUrl: "./theatre-display.component.html",
@@ -17,6 +17,7 @@ export class TheatreDisplayComponent {
   theatreList: Theatre;
   selectedDetails = new FullBookingDetails();
   today: number;
+  Id:string;
   tomorrow = [];
   count: number;
   dateValue: number;
@@ -38,7 +39,9 @@ export class TheatreDisplayComponent {
   public devWidth;
   constructor(
     private movieDetailsService: MovieDetailsService,
-    private detailService: BookingDetailsService
+    private detailService: BookingDetailsService,
+    private bookingLayoutService:BookingLayoutService,
+    private router:Router
   ) {}
 
   ngOnInit() {
@@ -55,9 +58,14 @@ export class TheatreDisplayComponent {
     const month = Number(this.a[1]);
     const day = Number(this.a[0]);
     var startDate = new Date(year, month-1, day);
+    var onDate=new Date();
     console.log(startDate);
     var endDate = new Date(startDate.getTime() + 7 * 24 * 60 * 60 * 1000);
-    this.minDate = startDate;
+    if(startDate<onDate)
+    this.minDate = onDate;
+    else
+    this.minDate=startDate
+    
     // this.minDate = new Date(2000, 0, 1);
     // this.maxDate = new Date(2020, 0, 1);
     console.log(this.minDate,this.maxDate);
@@ -104,7 +112,8 @@ export class TheatreDisplayComponent {
 
   saveShow(theatre, showtime: string, Selecteddate) {
    this.valueDate= String(Selecteddate.getDate())+"/"+String(Selecteddate.getMonth())+"/"+String(Selecteddate.getFullYear());
-    console.log(this.valueDate+"sai");
+  
+   console.log(this.valueDate+"sai");
     this.selectedDetails.nameOfMovie = this.movieObject2.movieName;
     this.selectedDetails.moviePoster = this.movieObject2.moviePoster;
     this.selectedDetails.synopsis = this.movieObject2.synopsis;
@@ -122,6 +131,9 @@ export class TheatreDisplayComponent {
       this.selectedDetails.theaterName,
       this.selectedDetails.screeningTime
     );
+    this.Id=this.selectedDetails.theaterName+""+Selecteddate.getDate()+""+this.selectedDetails.screeningTime
+    this.bookingLayoutService.saveTickeDetails(this.Id)
+    .subscribe(res => console.log("Saved event"));
     console.log(this.selectedDetails);
     this.detailService.send(this.selectedDetails);
   }
