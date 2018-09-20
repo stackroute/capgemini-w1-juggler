@@ -1,32 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, AfterViewInit } from '@angular/core';
 import { SearchDataService } from '../search-data.service';
 import { AuthenticationService } from '../authentication.service';
-import { Router, ActivatedRoute, ParamMap } from "@angular/router";
+import { DialogComponentComponent } from '../landing-page/dialog-component/dialog-component.component';
+import { SharingDataService } from '../sharing-data.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  
+  name:string
   citydetails: any;
   flag:boolean;
   userLogged:boolean;
-  city: string;
-;
-  constructor(private cityService: SearchDataService, private authenticationService: AuthenticationService, private router: ActivatedRoute) { }
-
+  citySelected:boolean=false;
+  constructor(private cityService: SearchDataService, private authenticationService: AuthenticationService, private sharingDataService:SharingDataService) { }
+ 
   ngOnInit() {
     
     
 
     if(localStorage.getItem("currentUser")!== null)
-   {this.flag = true;
+   {
+     this.flag = true;
     this.userLogged =false;
   }
     else
    {this.flag = false;
     this.userLogged =true;
       }
+    
       
     }
       logout()
@@ -46,4 +50,9 @@ export class HeaderComponent implements OnInit {
   // searchCity(city: string) {
   //   this.cityService.getByMovieCity(city).subscribe(data => this.citydetails = data);
   // }
+  displayCityName(){
+    this.citySelected=true;
+    this.name=this.sharingDataService.sendCityName();
+    //location.reload();
+  }
 }
