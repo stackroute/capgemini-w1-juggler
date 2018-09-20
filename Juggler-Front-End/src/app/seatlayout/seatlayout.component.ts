@@ -6,10 +6,11 @@ import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
 import { FullBookingDetails } from "../FullBookingDetails";
 import { TicketEngineService } from "../ticket-engine.service";
-import * as Stomp from 'stompjs';
-import * as SockJS from 'sockjs-client';
+import * as Stomp from "stompjs";
+import * as SockJS from "sockjs-client";
+import { find } from "rxjs/operators";
+import { element } from "protractor";
 declare var $: any;
-
 
 @Component({
   selector: "app-seatlayout",
@@ -39,7 +40,7 @@ export class SeatlayoutComponent implements OnInit {
   seatname = [];
   bookingDetail: FullBookingDetails;
 
-  private serverUrl = "http://172.23.239.47:9079/websocket";
+  private serverUrl = "http://172.23.239.47:9079/socket";
   private stompClient;
 
   constructor(
@@ -51,27 +52,29 @@ export class SeatlayoutComponent implements OnInit {
   }
 
   webSocketConnect() {
-    var socket = new SockJS(this.serverUrl);
+    let socket = new SockJS(this.serverUrl);
     this.stompClient = Stomp.over(socket);
     let that = this;
-    that.stompClient.connect(
+    this.stompClient.connect(
       {},
       function(frame) {
         console.log("Connected: " + frame);
-        that.stompClient.subscribe("/movie", seats => {
+        that.stompClient.subscribe("/chat", seats => {
           this.blockedseats = seats;
-          // if(message.body) {
-          //   $(".chat").append("<div class='message'>"+message.body+"</div>")
           console.log(1111);
-          console.log(this.blockedseats+1111);
-          // }
+          console.log(this.blockedseats);
         });
       }
     );
   }
 
+  sendMessage(message) {
+    this.stompClient.send("/app/message", {}, message);
+    $("#input").val("");
+    console.log("inside the sendMessage");
+  }
+
   ngOnInit() {
-   
     this.bookingDetail = this.detailService.receive();
     console.log(this.bookingDetail);
     this.id = [];
@@ -143,3 +146,4 @@ export class SeatlayoutComponent implements OnInit {
     });
   }
 }
+

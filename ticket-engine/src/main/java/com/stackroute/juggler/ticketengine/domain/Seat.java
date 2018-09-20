@@ -6,8 +6,6 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
-import com.stackroute.juggler.kafka.domain.Seats;
-
 @RedisHash("Seats")
 public class Seat {
 

@@ -3,9 +3,9 @@ package com.stackroute.juggler.ticketengine.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.stackroute.juggler.ticketengine.domain.Show;
+import com.stackroute.juggler.ticketengine.domain.RedisObject;
 
 @Repository
-public interface ShowRepository extends CrudRepository<Show, String>{
+public interface RedisRepo extends CrudRepository<RedisObject, String> {
 
 }

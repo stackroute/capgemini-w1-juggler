@@ -2,7 +2,6 @@ package com.stackroute.juggler.ticketengine.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Optional;
@@ -33,7 +32,7 @@ public class SeatsServiceImpl implements SeatsService {
 	@KafkaListener(topics = "screening-ticket", groupId = "ticket")
 	public void getDetails(MovieSchedule movieSchedule) throws ParseException {
 		MovieSchedule movielocal = new MovieSchedule();
-
+//		RedisObject show =new RedisObject()
 		movielocal = movieSchedule;
 
 		for (int i = 0; i < 7; i++) {
