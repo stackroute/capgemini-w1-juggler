@@ -1,5 +1,6 @@
 package com.stackroute.juggler.kafka.domain;
 
+import java.io.File;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stackroute.juggler.recommendation.domain.Seats;
