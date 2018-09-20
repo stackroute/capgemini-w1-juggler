@@ -1,4 +1,4 @@
-package com.stackroute.payment.service;
+package com.stackroute.juggler.payment.service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
-import com.stackroute.kafka.domain.TicketDetails;
-import com.stackroute.payment.Repository.PaymentRepository;
-import com.stackroute.payment.config.KafkaProducerConfig;
+import com.stackroute.juggler.kafka.domain.TicketDetails;
+import com.stackroute.juggler.payment.Repository.PaymentRepository;
+import com.stackroute.juggler.payment.config.KafkaProducerConfig;
 import com.stripe.Stripe;
 import com.stripe.exception.APIConnectionException;
 import com.stripe.exception.APIException;
@@ -86,6 +86,13 @@ public class PaymentServiceImpl implements PaymentService {
 			// kafkaTemplate.send(topic, ticket);
 		}
 		return ticket;
+	}
+
+	@Override
+	public TicketDetails addTicket(TicketDetails ticketDetails) {
+		paymentRepo.save(ticketDetails);
+		kafkaTemplate.send(topic, ticketDetails);
+		return ticketDetails;
 	}
 
 }

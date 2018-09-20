@@ -13,7 +13,8 @@ export class PaymentPageComponent implements OnInit {
   expiryMonth: string;
   expiryYear: string;
   cvc: string;
-  amount = this.amt.amount;
+  // amount = this.amt.amount;
+  amount = 50;
   token: string;
   msg: string;
   chargeId: string;

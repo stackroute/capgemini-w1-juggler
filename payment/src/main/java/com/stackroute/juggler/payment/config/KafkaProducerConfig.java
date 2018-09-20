@@ -1,4 +1,4 @@
-package com.stackroute.payment.config;
+package com.stackroute.juggler.payment.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +12,14 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.stackroute.kafka.domain.TicketDetails;
+import com.stackroute.juggler.kafka.domain.TicketDetails;
 
 @Configuration
 public class KafkaProducerConfig {
 
 	// Declaring Topic
-	static final String TOPIC = "pay2book";
-
+	static final String TOPIC = "payment9";
+// 192.168.43.174   172.23.239.111
 	// KafkaProducerConfig factory of kafka which will hold the configuration
 	// details
 	@Bean
