@@ -13,26 +13,26 @@
 # EXPOSE 8081
 
 # base image
-FROM node:8.11.3 
-RUN mkdir -p /usr/src/app
+# FROM node:8.11.3 
+# RUN mkdir -p /usr/src/app
 
-WORKDIR /usr/src/app
-COPY package.json /usr/src/app
-RUN npm cache verify
-RUN npm install
-COPY . /usr/src/app
-# start app
-ENTRYPOINT ["npm","start","--","--host","0.0.0.0"]
+# WORKDIR /usr/src/app
+# COPY package.json /usr/src/app
+# RUN npm cache verify
+# RUN npm install
+# COPY . /usr/src/app
+# # start app
+# ENTRYPOINT ["npm","start"]
 
-EXPOSE 9090
+# EXPOSE 4200
 
 # base image
-# FROM node:8.11.3 
-# COPY /dist/Juggler-Front-End /usr/src/app
-# WORKDIR /usr/src/app
-# RUN npm install http-server -g
+FROM node:8.11.3 
+COPY /dist/Juggler-Front-End /usr/src/app
+WORKDIR /usr/src/app
+RUN npm install http-server -g
 
 # start app
-# ENTRYPOINT ["http-server","-o"]
-# EXPOSE 4200
+ENTRYPOINT ["http-server","-o"]
+EXPOSE 4200
 

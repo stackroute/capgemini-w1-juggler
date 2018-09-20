@@ -1,6 +1,6 @@
 package com.stackroute.juggler.kafka.domain;
 
-import java.io.File;
+import java.util.Arrays;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -15,7 +15,7 @@ public class MovieSchedule {
 	private String totalnumberOfSeats;
 	private String[] screenedmovies;
 	private String[] runningmovies;
-	private File seatLayout;
+	private Seats seatLayout;
 	private String[] typesOfSeats;
 	private int[] numberOfSeats;
 	public String id;
@@ -37,14 +37,12 @@ public class MovieSchedule {
 	private String showTimings;
 	private int[] weekends_Price;
 	private int[] weekdays_Price;
-	
-	public MovieSchedule() {
-		super();
-	}
-	
+
+	public MovieSchedule() {}
+
 	public MovieSchedule(String theatreId, String email, String theatreLocation, String theatreCity, String theatreName,
 			String theatreLicenseNo, String totalnumberOfSeats, String[] screenedmovies, String[] runningmovies,
-			File seatLayout, String[] typesOfSeats, int[] numberOfSeats, String id, String movieName,
+			Seats seatLayout, String[] typesOfSeats, int[] numberOfSeats, String id, String movieName,
 			String moviePoster, String actors, String actress, String directors, String movieGenres, String synopsis,
 			String format, String languages, String movieDuration, String movieReleaseDate, int showNumbers,
 			String showTimings, int[] weekends_Price, int[] weekdays_Price) {
@@ -151,11 +149,11 @@ public class MovieSchedule {
 		this.runningmovies = runningmovies;
 	}
 
-	public File getSeatLayout() {
+	public Seats getSeatLayout() {
 		return seatLayout;
 	}
 
-	public void setSeatLayout(File seatLayout) {
+	public void setSeatLayout(Seats seatLayout) {
 		this.seatLayout = seatLayout;
 	}
 
@@ -301,6 +299,21 @@ public class MovieSchedule {
 
 	public void setWeekdays_Price(int[] weekdays_Price) {
 		this.weekdays_Price = weekdays_Price;
+	}
+
+	@Override
+	public String toString() {
+		return "MovieSchedule [theatreId=" + theatreId + ", email=" + email + ", theatreLocation=" + theatreLocation
+				+ ", theatreCity=" + theatreCity + ", theatreName=" + theatreName + ", theatreLicenseNo="
+				+ theatreLicenseNo + ", totalnumberOfSeats=" + totalnumberOfSeats + ", screenedmovies="
+				+ Arrays.toString(screenedmovies) + ", runningmovies=" + Arrays.toString(runningmovies)
+				+ ", seatLayout=" + seatLayout + ", typesOfSeats=" + Arrays.toString(typesOfSeats) + ", numberOfSeats="
+				+ Arrays.toString(numberOfSeats) + ", id=" + id + ", movieName=" + movieName + ", moviePoster="
+				+ moviePoster + ", actors=" + actors + ", actress=" + actress + ", directors=" + directors
+				+ ", movieGenres=" + movieGenres + ", synopsis=" + synopsis + ", format=" + format + ", languages="
+				+ languages + ", movieDuration=" + movieDuration + ", movieReleaseDate=" + movieReleaseDate
+				+ ", showNumbers=" + showNumbers + ", showTimings=" + showTimings + ", weekends_Price="
+				+ Arrays.toString(weekends_Price) + ", weekdays_Price=" + Arrays.toString(weekdays_Price) + "]";
 	}
 
 }

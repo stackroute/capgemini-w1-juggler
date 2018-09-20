@@ -10,4 +10,4 @@ export class Layout {
     seats: number[];
     blockedSeats: number[];
     bookedSeats: number[];
-}
+ }

@@ -11,8 +11,8 @@ public booking:FullBookingDetails;
   send(bookedData:FullBookingDetails) {
     this.booking = bookedData;
   }
-  receive() {
-    //  console.log("receive" + this.booking.nameOfMovie);
-    return this.booking;
-  }
+  // receive() {
+  //   console.log("receive" + this.booking.nameOfMovie);
+  //   return this.booking;
+  // }
 }

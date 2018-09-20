@@ -9,7 +9,7 @@ import { Layout } from "./layout";
 })
 export class TicketEngineService {
   data;
-  private url = "http://172.23.239.47:9079/api/v1/ticket/allSeats";
+  private url = "http://13.232.202.193:9079/api/v1/ticket/allSeats";
   constructor(private http: HttpClient) {}
 
   getseatDetails(): Observable<Layout[]> {

@@ -49,12 +49,6 @@ services:
    network_mode: "host"
    hostname: localhost
    depends_on:
-    eureka-server:
-     condition: service_healthy
-    api-gateway:
-     condition: service_healthy
-    config-service:
-     condition: service_healthy
    ports:
     - 9075:9075
    container_name: rsvp
@@ -66,52 +60,27 @@ services:
    restart: always
    network_mode: "host"
    hostname: localhost
-   depends_on:
-    eureka-server:
-     condition: service_healthy
-    api-gateway:
-     condition: service_healthy
-    config-service:
-     condition: service_healthy
    ports:
     - 9076:9076
    container_name: email
    healthcheck:
     test: "exit 0"
 
-
-
   userprofile:
    build: user-profile/
    restart: always
    network_mode: host
    container_name: userprofile
-   depends_on:
-    eureka-server:
-     condition: service_healthy
-    api-gateway:
-     condition: service_healthy
-    config-service:
-     condition: service_healthy
    ports:
     - 9073:9073
    healthcheck:
     test: "exit 0"
-
- 
 
   screening:
    build: movie-schedule/
    restart: always
    network_mode: host
    container_name: screening
-   depends_on:
-    eureka-server:
-     condition: service_healthy
-    api-gateway:
-     condition: service_healthy
-    config-service:
-     condition: service_healthy
    ports:
     - 9072:9072
    healthcheck:
@@ -122,13 +91,6 @@ services:
    restart: always
    network_mode: host
    container_name: theatre
-   depends_on:
-    eureka-server:
-     condition: service_healthy
-    api-gateway:
-     condition: service_healthy
-    config-service:
-     condition: service_healthy
    ports:
     - 9071:9071
    healthcheck:
@@ -142,13 +104,6 @@ services:
    ports:
     - 9074:9074
    container_name: auth
-   depends_on:
-    eureka-server:
-     condition: service_healthy
-    api-gateway:
-     condition: service_healthy
-    config-service:
-     condition: service_healthy
    healthcheck:
     test: "exit 0"
 
@@ -160,13 +115,6 @@ services:
    ports:
     - 9080:9080
    container_name: promocode
-   depends_on:
-    eureka-server:
-     condition: service_healthy
-    api-gateway:
-     condition: service_healthy
-    config-service:
-     condition: service_healthy
    healthcheck:
     test: "exit 0"
 
@@ -178,13 +126,6 @@ services:
    ports:
     - 9081:9081
    container_name: payment
-   depends_on:
-    eureka-server:
-     condition: service_healthy
-    api-gateway:
-     condition: service_healthy
-    config-service:
-     condition: service_healthy
    healthcheck:
     test: "exit 0"
 
@@ -196,13 +137,6 @@ services:
    ports:
     - 9079:9079
    container_name: booking
-   depends_on:
-    eureka-server:
-     condition: service_healthy
-    api-gateway:
-     condition: service_healthy
-    config-service:
-     condition: service_healthy
    healthcheck:
     test: "exit 0"
 
@@ -211,13 +145,6 @@ services:
    restart: always
    network_mode: "host"
    hostname: localhost
-   depends_on:
-    eureka-server:
-     condition: service_healthy
-    api-gateway:
-     condition: service_healthy
-    config-service:
-     condition: service_healthy
    ports:
     - 9070:9070
    container_name: distributor
@@ -230,17 +157,9 @@ services:
    restart: always
    network_mode: "host"
    hostname: localhost
-   depends_on:
-    eureka-server:
-     condition: service_healthy
-    api-gateway:
-     condition: service_healthy
-    config-service:
-     condition: service_healthy
    ports:
     - 9078:9078
    container_name: recommendations
-
    healthcheck:
     test: "exit 0"
 
@@ -249,13 +168,6 @@ services:
    restart: always
    network_mode: "host"
    hostname: localhost
-   depends_on:
-    eureka-server:
-     condition: service_healthy
-    api-gateway:
-     condition: service_healthy
-    config-service:
-     condition: service_healthy
    ports:
     - 9077:9077
    container_name: search
@@ -304,10 +216,10 @@ services:
     test: "exit 0"
 
   juggler-front-end:
-   image: viship/juggler:1.0.0
+   image: viship/juggler:1.1.0
    container_name: juggler-front-end
    ports:
-    - 9090:9090
+    - 9090:4200
    healthcheck:
     test: "exit 0"
 
@@ -338,6 +250,35 @@ services:
    healthcheck:
     test: "exit 0"
 
-  
+  prometheus:
+   image: prom/prometheus
+   container_name: prometheus
+   network_mode: "host" 
+   hostname: localhost
+   ports:
+    - 9087:9090
+   volumes:
+    - ./prometheus.yml:/etc/prometheus/prometheus.yml
+   command:
+    - '--config.file=/etc/prometheus/prometheus.yml'
+   restart: always
+   healthcheck:
+    test: "exit 0"
 
-  
+  grafana:
+   image: grafana/grafana
+   container_name: grafana
+   network_mode: "host"
+   hostname: localhost
+   ports:
+    - 9086:3000
+   volumes:
+    - /var/lib/grafana
+   environment:
+    - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
+    - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+    - GF_USERS_ALLOW_SIGN_UP=false
+   restart: always
+   healthcheck:
+    test: "exit 0"
+

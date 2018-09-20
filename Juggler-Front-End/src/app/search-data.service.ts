@@ -8,8 +8,10 @@ import { map } from "rxjs/operators";
 })
 export class SearchDataService {
   data: any;
-  private url3="http://172.23.239.112:8060/api/v1/city";
-  private url = "http://172.23.239.112:8060/api/v1/movie";
+  private url3="http://10.20.1.15:9077/api/v1/city";
+  private url = "http://10.20.1.15:9077/api/v1/movie";
+  // private url3="http://13.232.202.193:9077/api/v1/city";
+  // private url = "http://13.232.202.193:9077/api/v1/movie";
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -18,6 +20,7 @@ export class SearchDataService {
       .get(this.url3 + "/" + city)
       .pipe(map(res => (this.data = res)));
   }
+  
 
   searchMovie(movie: string) {
     return this.http

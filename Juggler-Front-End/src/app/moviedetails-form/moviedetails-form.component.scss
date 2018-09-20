@@ -1,39 +1,64 @@
-.example-header-image {
-  background-size: cover;
+// .example-header-image {
+//   background-size: cover;
+// }
+// // .mat-grid-list {
+// //   background-color: blue;
+// // }
+// .mat-card {
+//   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+//   transition: 0.3s;
+//   width: 90%;
+//   border-radius: 5px;
+// }
+// .p {
+//   padding-left: 20px;
+// }
+// .h5 {
+//   font-family: Arial, Helvetica, sans-serif;
+// }
+// .container {
+//   padding: 2px 16px;
+// }
+// .card {
+//   background-color:blue;
+// }
+// .ul {
+//   background-color: cornsilk;
+// }
+// .mat-card-title,
+// .mat-card-subtitle,
+// .mat-card-content,
+// .h4 {
+//   color: rgb(48, 46, 46);
+// }
+// .button {
+//   color: darkslateblue;
+// }
+// .card-header {
+//   text-transform: uppercase;
+// }
+// .details{
+//   opacity: 0.9;
+//   filter: alpha(opacity=30); /* For IE8 and earlier */
+// }
+
+body {
+  padding : 10px ;
+  
 }
-.mat-grid-list {
-  background-color: cornsilk;
+
+.card-header{
+  text-transform: capitalize;
 }
-.mat-card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  width: 90%;
-  border-radius: 5px;
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 10px 0 0 ;
 }
-.p {
-  padding-left: 20px;
-}
-.h5 {
-  font-family: Arial, Helvetica, sans-serif;
-}
-.container {
-  padding: 2px 16px;
-}
-.card {
-  background-color: cornsilk;
-}
-.ul {
-  background-color: cornsilk;
-}
-.mat-card-title,
-.mat-card-subtitle,
-.mat-card-content,
-.h4 {
-  color: rgb(48, 46, 46);
-}
-.button {
-  color: darkslateblue;
-}
-.card-header {
-  text-transform: uppercase;
+
+#exTab3 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
 }

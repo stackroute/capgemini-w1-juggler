@@ -16,19 +16,19 @@ import com.stackroute.juggler.movieschedule.repository.MovieScheduleRepository;
 public class MovieServiceScheduleImpl implements MovieScheduleService {
 
 	private MovieScheduleRepository movieScheduleRepo;
-	private KafkaProducerConfig kafkaProducer;
 
-//	static final String TOPIC = "screeningfinal";
+	// static final String TOPIC = "screeningfinal";
 	@Autowired
-	public MovieServiceScheduleImpl(MovieScheduleRepository movieScheduleRepo, KafkaProducerConfig kafkaProducer) {
+	public MovieServiceScheduleImpl(MovieScheduleRepository movieScheduleRepo) {
 
 		this.movieScheduleRepo = movieScheduleRepo;
-		this.kafkaProducer = kafkaProducer;
 	}
 
-	String topic = kafkaProducer.getTopic();
-	String topic1 = kafkaProducer.getTopic1();
-	
+	String topic = KafkaProducerConfig.getTopic();
+	String topic1 = KafkaProducerConfig.getTopic1();
+	String topic2 = KafkaProducerConfig.getTopic2();
+	String topic4 = KafkaProducerConfig.getTopic3();
+
 	@Autowired
 	private KafkaTemplate<String, MovieSchedule> kafkaTemplate;
 
@@ -61,7 +61,7 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 			MovieSchedule movie = movieScheduleRepo.getByEmail(email);
 			System.out.println("" + email);
 			System.out.println("" + movie.getTheatreName());
-//			movie.setEmail(updateMovie.getEmail());
+			// movie.setEmail(updateMovie.getEmail());
 			movie.setMovieName(updateMovie.getMovieName());
 			movie.setId(updateMovie.getId());
 			movie.setActors(updateMovie.getActors());
@@ -82,6 +82,8 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 			movieScheduleRepo.save(movie);
 			kafkaTemplate.send(topic, movie);
 			kafkaTemplate.send(topic1, movie);
+			kafkaTemplate.send(topic2, movie);
+			kafkaTemplate.send(topic4, movie);
 		} else
 			System.out.println("error");
 		return updateMovie;
@@ -94,7 +96,7 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 		MovieSchedule addTheatre = new MovieSchedule();
 
 		if (movieScheduleRepo.getByTheatreName(theatre.getTheatreName()) == null) {
-			
+
 			addTheatre.setEmail(theatre.getEmail());
 			addTheatre.setTheatreName(theatre.getTheatreName());
 			addTheatre.setTheatreLocation(theatre.getTheatreLocation());

@@ -7,13 +7,13 @@ import { map } from "rxjs/operators";
   providedIn: "root"
 })
 export class RecommendationService {
-  private recommended_url = "http://172.23.239.112:8050/recommendation/api/v1/";
+  private recommended_url = "http://13.232.202.193:9078/recommendation/api/v1/";
   private genrebasedmovies_url =
-    "http://172.23.239.112:8050/api/v1/getGenreBasedMoviesForUser/";
+    "http://13.232.202.193:9078/api/v1/getGenreBasedMoviesForUser/";
   private languagebasedmovies_url =
-    "http://172.23.239.112:8050/api/v1/getLanguageBasedMoviesForUser/";
+    "http://13.232.202.193:9078/api/v1/getLanguageBasedMoviesForUser/";
   private languagegenrebased_url =
-    "http://172.23.239.112:8050/api/v1/getGenreLanguageBasedMoviesForUser/";
+    "http://13.232.202.193:9078/api/v1/getGenreLanguageBasedMoviesForUser/";
   constructor(private http: HttpClient) {}
 
   getGenreBasedMovies(emailId): Observable<MovieDetails[]> {

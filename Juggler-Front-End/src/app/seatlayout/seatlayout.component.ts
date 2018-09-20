@@ -1,14 +1,15 @@
 import { Component, OnInit } from "@angular/core";
-// import { Http } from "@angular/http";
-// import { HttpErrorResponse, JsonpClientBackend } from "@angular/common/http";
-// import { Observable, FactoryOrValue } from "rxjs";
+import { Http } from "@angular/http";
+import { HttpErrorResponse, JsonpClientBackend } from "@angular/common/http";
+import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
 import { FullBookingDetails } from "../FullBookingDetails";
 import { TicketEngineService } from "../ticket-engine.service";
-import * as Stomp from "stompjs";
-import * as SockJS from "sockjs-client";
+import * as Stomp from 'stompjs';
+import * as SockJS from 'sockjs-client';
 declare var $: any;
+
 
 @Component({
   selector: "app-seatlayout",
@@ -70,11 +71,11 @@ export class SeatlayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+   
     this.bookingDetail = this.detailService.receive();
     console.log(this.bookingDetail);
     this.id = [];
-    this.seating = [];
-    console.log("inside ngonit");
+    console.log("hi");
     this.seatname = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
     this.http.get("assets/layout.json").subscribe(result => {
       this.jsonRow = result as string[];
@@ -95,10 +96,10 @@ export class SeatlayoutComponent implements OnInit {
   }
 
   bookticket() {}
-  // selectChangeHandler(event: any) {
-  //   this.selectedvalue = event.target.value;
-  //   console.log(this.selectedvalue);
-  // }
+  selectChangeHandler(event: any) {
+    this.selectedvalue = event.target.value;
+    console.log(this.selectedvalue);
+  }
   onclick(x, y) {
     this.id.push(x * 10 + y + 1);
     this.id.sort();
@@ -127,6 +128,7 @@ export class SeatlayoutComponent implements OnInit {
         }
       }
     }
+
     $(function() {
       $(".seat").on("click", function() {
         if ($(this).hasClass("selected")) {

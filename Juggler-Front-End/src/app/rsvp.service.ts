@@ -1,5 +1,3 @@
-
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -11,8 +9,8 @@ import {Event} from "./event";
 })
 export class RsvpService {
   data: any;
-  private _url = "http://localhost:9094/api/v1/event";
-  movies_url = "http://localhost:9094/api/v1/event/get/?emailId=";
+  private _url = "http://13.232.202.193:9075/api/v1/event";
+  movies_url = "http://13.232.202.193:9075/api/v1/event/get/?emailId=";
   //private _url = "http://172.23.239.115:9094;
   //event:Object;
   constructor(private http: HttpClient) {}
@@ -34,9 +32,7 @@ export class RsvpService {
     console.log(email + " in service");
     // http://localhost:9094/api/v1/event/get/?emailId=zyx@gmail.com
     console.log("data is " + this.data);
-    return this.http
-    .get(this.movies_url + email)
-    .pipe(map(res => (this.data = res)));
+    return this.http.get(this.movies_url + email).map(res => (this.data = res));
   }
 }
 

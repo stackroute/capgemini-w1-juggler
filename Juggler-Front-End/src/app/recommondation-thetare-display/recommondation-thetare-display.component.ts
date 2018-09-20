@@ -39,14 +39,14 @@ export class RecommondationThetareDisplayComponent {
 
   ngOnInit() {
     this.movieObject2 = this.movieDetailsService.receiveData();
-    console.log(this.movieObject2);
+    console.log(this.movieObject2+"abcdefghijkl");
 
     // this.validDate = this.movieObject2.movieReleasedate;
     // var date = new Date("this.validDate");
     // console.log(date.toDateString());
 
     this.theatreList = this.movieObject2["theatres"];
-    console.log(this.theatreList);
+    console.log(this.theatreList+"67676");
     this.shows = this.theatreList["showTimings"];
 
     //this.today = this.validDate.now();
@@ -75,16 +75,16 @@ export class RecommondationThetareDisplayComponent {
     this.selectedDetails.nameOfMovie = this.movieObject2.name;
     this.selectedDetails.moviePoster = this.movieObject2.moviePoster;
     this.selectedDetails.synopsis = this.movieObject2.synopsis;
-    this.selectedDetails.movieReleasedate = this.movieObject2.movieReleasedate;
+    this.selectedDetails.movieReleasedate = this.movieObject2.movieReleaseDate;
     this.selectedDetails.movieDuration = this.movieObject2.movieDuration;
     this.selectedDetails.format = this.movieObject2.format;
     while(this.movieObject2.movieGenres[this.i]!=null)  {
       this.movieGenre =
         this.movieGenre + " " + this.movieObject2.movieGenres[this.i];
     }
-    while(this.movieObject2.language[this.j]!=null)
+    while(this.movieObject2.movielanguage[this.j]!=null)
      {
-      this.movieLang = this.movieLang + " " + this.movieObject2.language[this.j];
+      this.movieLang = this.movieLang + " " + this.movieObject2.languages[this.j];
     }
     this.selectedDetails.movieGenre = this.movieGenre;
     this.selectedDetails.languages = this.movieLang;

@@ -18,8 +18,11 @@ public class KafkaProducerConfig {
 	// Declaring Topic
 	static final String TOPIC = "screening-details";
 	static final String TOPIC1 = "screenings";
+	static final String TOPIC2 = "screening-schedule";
+	static final String TOPIC3 = "screening-ticket";
 
-	// KafkaProducerConfig factory of kafka which will hold the configuration details
+	// KafkaProducerConfig factory of kafka which will hold the configuration
+	// details
 	@Bean
 	public ProducerFactory<String, MovieSchedule> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
@@ -36,14 +39,22 @@ public class KafkaProducerConfig {
 		return new KafkaTemplate<>(producerFactory());
 	}
 
-	// To Send Topic 
+	// To Send Topic
 	public static String getTopic() {
 		return TOPIC;
 	}
-	
+
 	// To Send Topic1
 	public static String getTopic1() {
 		return TOPIC1;
+	}
+
+	public static String getTopic2() {
+		return TOPIC2;
+	}
+
+	public static String getTopic3() {
+		return TOPIC3;
 	}
 
 }

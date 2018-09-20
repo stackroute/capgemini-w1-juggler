@@ -1,97 +1,41 @@
-<div style="text-align: center">
-    <h4>
-        <strong>User Registration</strong>
-    </h4>
+<div class="bg">
+
+  <div class="container col-sm-4 mt-10">
+    <div class="bg1 mx-auto">
+      <img src="https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/128/User_Accounts.png" alt="Italian Trulli" >
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group col-lg-9">
+        <div class="alert alert-danger" *ngIf="!errormessage">
+          <h6><b><i>Email or password is incorrect.</i></b></h6>
+        </div>
+      </div>
+      <div class="md-form col-md-10">
+        <i class="fa fa-envelope prefix"></i>
+        <input type="email" placeholder="Email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+        />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+        </div>
+      </div>
+      <div class="md-form col-md-10">
+        <i class="fa fa-lock prefix"></i>
+        <input type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+        />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+        </div> 
+      </div>
+      <div class="login">
+        <button [disabled]="loading" class="btn btn-primary"> <b> Login</b></button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+        />
+      </div>
+      <div class="form">
+        <p><b>Not a member?</b>
+          <a [routerLink]="['/register-user']" class="btn btn-link"><p><u><b>Register</b></u></p></a>
+        </p>
+      </div>
+    </form>
+  </div>
 </div>
-<mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Fill out your name</ng-template>
-            <mat-form-field class="example-full-width">
-                <mat-label>Enter Your Name</mat-label>
-                <input matInput placeholder="Enter your name" formControlName="userName" type="text" required>
-                <mat-error>This field is required</mat-error>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>Enter Your Email</mat-label>
-                <input matInput placeholder="Enter Your Email" formControlName="email" type="email" required>
-                <mat-error>Enter valid email</mat-error>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Enter Your Password" type="password" formControlName="password" required>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Enter Your MobileNo." formControlName="mobileNo" type="number" required>
-            </mat-form-field>
-
-        </form>
-        <!-- </mat-step> -->
-
-        <!-- <mat-step [stepControl]="secondFormGroup"> -->
-        <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Fill out other details</ng-template>
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="City" formControlName="address" required>
-                <mat-error>The input is invalid</mat-error>
-            </mat-form-field>
-            <br>
-            <mat-radio-group class="example-radio-group">
-                <label>
-                    <h5>Gender:</h5>
-                </label>
-                <mat-radio-button class="example-radio-button mx-2" *ngFor="let gender of genderGroup" [value]="gender">
-                    {{gender}}
-                </mat-radio-button>
-            </mat-radio-group>
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext>Next</button>
-            </div>
-        </form>
-    </mat-step>
-    <mat-step>
-        <form class="example-form">
-            <ng-template matStepLabel>Fill your recommendations</ng-template>
-            <mat-form-field>
-                <mat-select placeholder="Languages" [formControl]="languageCtrl" multiple>
-                    <mat-option *ngFor="let language of languages" [value]="language">{{language}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <br>
-            <h5>Select your genres</h5>
-            <div id="container" *ngFor="let genre of genreList; let i = index">
-                <mat-card class="example-card s-2" fxFlex="row wrap" id="{{genre.card}}" class="option-cards" (click)="onclick(genre.id,genre.click,genre.name)">
-                    <div class="genre-cards">
-                        <img mat-card-image src="{{genre.img}}" alt="movie genre">
-                        <mat-card-content class="genre-name">{{genre.name}}</mat-card-content>
-                    </div>
-                </mat-card>
-            </div>
-            <!-- <div id="container" *ngFor="let Names of genreList; let i = index">
-                <mat-card class="example-card s-2" fxFlex="row wrap" (click)="onclick(Names.id,Names.click,Names.name)" style="height: 160px; width: 120px">
-                    <div class="genre-cards"> <img mat-card-image src="{{Names.img}}" alt="movie genre">
-                        <mat-card-content>
-                            <b class="genre-name">{{Names.name}}</b>
-                        </mat-card-content>
-                    </div>
-                </mat-card>
-                <div *ngIf='i == 4' >
-               <b> <hr> </b> 
-                </div>
-            </div> -->
-            <!-- </form> -->
-
-            <!-- <div class="form-buttons1"> -->
-            <br>
-            You are now done.
-            <br>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
-            <!-- </div> -->
-            <!-- <div class="form-buttons2"> -->
-            <br>
-            <button mat-button (click)="addUser()">Add User</button>
-            <!-- </div> -->
-        </form>
-    </mat-step>
-</mat-horizontal-stepper>
