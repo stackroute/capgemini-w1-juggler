@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchDataService } from '../search-data.service';
 import { AuthenticationService } from '../authentication.service';
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,11 +11,14 @@ export class HeaderComponent implements OnInit {
   citydetails: any;
   flag:boolean;
   userLogged:boolean;
-  constructor(private cityService: SearchDataService, private authenticationService: AuthenticationService) { }
+  city: string;
+;
+  constructor(private cityService: SearchDataService, private authenticationService: AuthenticationService, private router: ActivatedRoute) { }
 
   ngOnInit() {
     
     
+
     if(localStorage.getItem("currentUser")!== null)
    {this.flag = true;
     this.userLogged =false;
