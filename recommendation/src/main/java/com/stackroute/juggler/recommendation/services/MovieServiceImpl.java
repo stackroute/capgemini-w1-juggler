@@ -121,8 +121,8 @@ public class MovieServiceImpl implements MovieService {
 		List<Theatre> theaters = new ArrayList<Theatre>();
 		Theatre theatreObj=new Theatre();
 		String name=movie.getMovieName();
-		if(movieRepository.findbyName(name)!=null){
-			movies=movieRepository.findbyName(name);
+		if(movieRepository.findByName(name)!=null){
+			movies=movieRepository.findByName(name);
 			theaters=movies.getTheatres();
 			Iterator<Theatre> iterator = theaters.iterator();
 		

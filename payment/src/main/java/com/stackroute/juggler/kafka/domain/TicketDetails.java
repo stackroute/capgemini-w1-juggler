@@ -1,4 +1,6 @@
-package com.stackroute.kafka.domain;
+package com.stackroute.juggler.kafka.domain;
+
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,8 +13,9 @@ public class TicketDetails {
 	@Id
 	private String bookingId;
 	private String theatreName;
+	private String showId;
 	private String movieName;
-	private String[] bookedSeats;
+	private List<Integer> bookedSeats;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
 	private String showTiming;
 	private String bookingStatus;
@@ -21,11 +24,12 @@ public class TicketDetails {
 		super();
 	}
 
-	public TicketDetails(String bookingId, String theatreName, String movieName, String[] bookedSeats,
-			String showTiming, String bookingStatus) {
+	public TicketDetails(String bookingId, String theatreName, String showId, String movieName,
+			List<Integer> bookedSeats, String showTiming, String bookingStatus) {
 		super();
 		this.bookingId = bookingId;
 		this.theatreName = theatreName;
+		this.showId = showId;
 		this.movieName = movieName;
 		this.bookedSeats = bookedSeats;
 		this.showTiming = showTiming;
@@ -48,6 +52,14 @@ public class TicketDetails {
 		this.theatreName = theatreName;
 	}
 
+	public String getShowId() {
+		return showId;
+	}
+
+	public void setShowId(String showId) {
+		this.showId = showId;
+	}
+
 	public String getMovieName() {
 		return movieName;
 	}
@@ -56,11 +68,11 @@ public class TicketDetails {
 		this.movieName = movieName;
 	}
 
-	public String[] getBookedSeats() {
+	public List<Integer> getBookedSeats() {
 		return bookedSeats;
 	}
 
-	public void setBookedSeats(String[] bookedSeats) {
+	public void setBookedSeats(List<Integer> bookedSeats) {
 		this.bookedSeats = bookedSeats;
 	}
 

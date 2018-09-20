@@ -19,31 +19,28 @@ import com.stackroute.juggler.kafka.domain.Theatre;
 @Configuration
 public class KafkaConsumerConfig {
 
-	public class KafkaConsumerconfiguration {
-		
-		
-//		172.23.238.190
+	// 172.23.238.190 192.168.43.174 10.20.1.16
 
-		// KafkaConsumerConfig factory of kafka which will hold the configuration details
-		@Bean
-		public ConsumerFactory<String, Theatre> consumerFactory() {
-			Map<String, Object> config = new HashMap<>();
-			config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.16:9092");
-			config.put(ConsumerConfig.GROUP_ID_CONFIG, "grpid");
-			config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-			config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+	// KafkaConsumerConfigg factory of kafka which will hold the configuration
+	// details
+	@Bean
+	public ConsumerFactory<String, Theatre> consumerFactory() {
+		Map<String, Object> config = new HashMap<>();
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.111:9092");
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "grpid");
+		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 
-			return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-					new JsonDeserializer<>(Theatre.class));
-		}
-
-		// Template imports the configuration from consumer factory
-		@Bean
-		public ConcurrentKafkaListenerContainerFactory<String, Theatre> kafkaListenerContainerFactory() {
-			ConcurrentKafkaListenerContainerFactory<String, Theatre> factory = new ConcurrentKafkaListenerContainerFactory();
-			factory.setConsumerFactory(consumerFactory());
-			return factory;
-		}
-
+		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
+				new JsonDeserializer<>(Theatre.class));
 	}
+
+	// Template imports the configuration from consumer factory
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, Theatre> kafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, Theatre> factory = new ConcurrentKafkaListenerContainerFactory();
+		factory.setConsumerFactory(consumerFactory());
+		return factory;
+	}
+
 }
