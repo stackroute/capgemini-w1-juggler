@@ -8,41 +8,22 @@ import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.ticketengine.domain.Seats;
 import com.stackroute.juggler.ticketengine.repository.SeatsRepository;
-import com.stackroute.juggler.ticketengine.repository.ShowInfoRepository;
 
 @Service
 public class SeatsServiceImpl implements SeatsService {
 
 	private SeatsRepository seatsRepo;
-	private ShowInfoRepository showInfoRepo;
 
 	@Autowired
-	public SeatsServiceImpl(SeatsRepository seatsRepo, ShowInfoRepository showInfoRepo) {
+	public SeatsServiceImpl(SeatsRepository seatsRepo) {
 		this.seatsRepo = seatsRepo;
-		this.showInfoRepo = showInfoRepo;
+
 	}
 
 	@Override
 	public Seats save(Seats seats) {
 		seats = seatsRepo.save(seats);
-		
-//		Show show = showInfoRepo.getById(seats.getId());
-//		for (int i : seats.getSeats()) {
-//			try {
-//			if (show.getSeats().get(i).equals("blocked")) {
-//				throw new Exception("Seat No: " + i + " is already blocked");
-//			} else if (show.getSeats().get(i).equals("booked")) {
-//				throw new Exception("Seat No: " + i + " is already booked");
-//			} else {
-//				show.getSeats().put(i, "blocked");
-//			}
-//			} catch(Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		showInfoRepo.save(show);
-		System.out.println("hi");
-	    return seats;
+		return seats;
 	}
 
 	@Override
@@ -54,7 +35,7 @@ public class SeatsServiceImpl implements SeatsService {
 	public Optional<Seats> getById(String id) {
 		return seatsRepo.findById(id);
 	}
-	
+
 	@Override
 	public Optional<Seats> getByName(String name) {
 		return seatsRepo.getByTheatreName(name);
