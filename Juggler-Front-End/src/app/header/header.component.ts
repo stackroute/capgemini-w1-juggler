@@ -3,6 +3,7 @@ import { SearchDataService } from '../search-data.service';
 import { AuthenticationService } from '../authentication.service';
 import { DialogComponentComponent } from '../landing-page/dialog-component/dialog-component.component';
 import { SharingDataService } from '../sharing-data.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit {
   flag:boolean;
   userLogged:boolean;
   citySelected:boolean=false;
-  constructor(private cityService: SearchDataService, private authenticationService: AuthenticationService, private sharingDataService:SharingDataService) { }
+  constructor(private cityService: SearchDataService,private router: Router,private authenticationService: AuthenticationService, private sharingDataService:SharingDataService) { }
  
   ngOnInit() {
     
@@ -55,4 +56,13 @@ export class HeaderComponent implements OnInit {
     this.name=this.sharingDataService.sendCityName();
     //location.reload();
   }
+
+ 
+  searchMovies(Movie: string) {
+  
+    console.log(Movie);
+  this.sharingDataService.receiveMovieName(Movie);
+    
+  this.router.navigate(['home',Movie]);
+}
 }

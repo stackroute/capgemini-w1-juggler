@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class SharingDataService {
 cityName:string;
+MovieName:string;
   constructor() { }
   receiveCityName(name:string){
 this.cityName=name;
@@ -12,4 +13,10 @@ this.cityName=name;
   sendCityName(){ 
 return this.cityName;
   }
+  receiveMovieName(name:string){
+    this.MovieName=name;
+      }
+      sendMovieName(){ 
+    return this.MovieName;
+      }
 }
