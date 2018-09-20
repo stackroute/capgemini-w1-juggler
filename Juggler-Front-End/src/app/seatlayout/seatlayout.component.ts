@@ -6,10 +6,9 @@ import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
 import { FullBookingDetails } from "../FullBookingDetails";
 import { TicketEngineService } from "../ticket-engine.service";
-import * as Stomp from 'stompjs';
-import * as SockJS from 'sockjs-client';
+import * as Stomp from "stompjs";
+import * as SockJS from "sockjs-client";
 declare var $: any;
-
 
 @Component({
   selector: "app-seatlayout",
@@ -35,11 +34,11 @@ export class SeatlayoutComponent implements OnInit {
   rowPassage;
   division = [];
   blockedseats: any[];
-seating = [];
+  seating = [];
   seatname = [];
   bookingDetail: FullBookingDetails;
 
-  private serverUrl = 'http://172.23.239.47:9079/websocket';
+  private serverUrl = "http://172.23.239.47:9079/websocket";
   private stompClient;
 
   constructor(
@@ -47,20 +46,30 @@ seating = [];
     private detailService: BookingDetailsService,
     private ticketengineService: TicketEngineService
   ) {
-    // this.webSocketConnect();
+    this.webSocketConnect();
   }
 
-  // webSocketConnect() {
-  //   var socket = new SockJS(this.serverUrl);
-  //   this.stompClient = Stomp.over(socket);
-  //   this.stompClient.connect({}, function(frame) {
-  //     console.log('Connected: ' + frame);
-  //     // this.stompClient.subscribe('/movie', )
-  //   })
-  // }
+  webSocketConnect() {
+    var socket = new SockJS(this.serverUrl);
+    this.stompClient = Stomp.over(socket);
+    let that = this;
+    that.stompClient.connect(
+      {},
+      function(frame) {
+        console.log("Connected: " + frame);
+        that.stompClient.subscribe("/movie", seats => {
+          this.blockedseats = seats;
+          // if(message.body) {
+          //   $(".chat").append("<div class='message'>"+message.body+"</div>")
+          console.log(1111);
+          console.log(this.blockedseats+1111);
+          // }
+        });
+      }
+    );
+  }
 
   ngOnInit() {
-   
     this.bookingDetail = this.detailService.receive();
     console.log(this.bookingDetail);
     this.id = [];
@@ -78,11 +87,11 @@ seating = [];
       this.rowPassage = this.jsonRow[1].passageRow;
       this.createseating();
     });
-     this.ticketengineService.getseatDetails().subscribe(res=> {
-        this.blockedseats=res
-       
-      console.log(this.blockedseats);
-    });   
+    // this.ticketengineService.getseatDetails().subscribe(res => {
+    //   this.blockedseats = res;
+
+    //   console.log(this.blockedseats);
+    // });
   }
 
   bookticket() {}
@@ -96,9 +105,7 @@ seating = [];
     console.log(this.id);
     this.seatselect();
   }
-  seatselect() {
-  
-  }
+  seatselect() {}
   seatstatus(row, col) {
     // const seatnumber = ((row * 10) + col + 1);
     // for (let i = 0; i < this.id.length; i++ ) {
