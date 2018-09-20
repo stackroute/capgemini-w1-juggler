@@ -15,7 +15,7 @@
 }
 .example-full-width {
   width: 55%;
-  display:flex;
+  display:grid;
 }
 #container {
   display: inline-flex;
@@ -53,4 +53,26 @@ margin-bottom: 20px
   margin: 5%;
   width: 120px;
   height: 160px;
+}
+.form-buttons1 {
+  padding-top: 1%;
+  padding-left: 15%;
+  
+  color:#4C6A92;
+}
+.form-buttons1 button {
+  //padding-right: 3%;
+  margin: 8px;
+}
+.form-buttons2 {
+  padding-left: 26%;
+  padding-top: 0%;
+  color:#4C6A92
+}
+.option {
+  color:#4C6A92;
+  padding-left: 23%;
+}
+.heading {
+  padding-top: 1.5%;
 }

@@ -1,7 +1,7 @@
 .example-full-width {
    width: 52%;
    padding-right: 10%;
-   display:flex;
+   display:grid;
    -webkit-animation-duration: 1s;
        animation-duration: 1s;
        -webkit-animation-name: SkrrrPaPaPum;
@@ -24,3 +24,40 @@
      transform: scale(1);
    }
  }
+ .example-half-width{
+width:90%;
+  display:grid;
+  padding-left: 30%;
+  padding-right: 20%
+ }
+ .example-width {
+   
+   display:grid;
+  // float:right;
+   width:95%;
+   padding-left: 70%;
+ }
+ .next-btn {
+   padding-left: 40%;
+   color:#4C6A92;
+ }
+.option {
+  color:#4C6A92;
+  padding-left: 40%;
+  
+}
+.option button {
+  margin:9px;
+}
+
+.form3-btn button {
+  margin:8px;
+}
+.save {
+  float:right;
+  padding-right: 13%;
+  padding-top: 1.5%;
+}
+.form3-btn {
+  padding-left: 74%;
+}
