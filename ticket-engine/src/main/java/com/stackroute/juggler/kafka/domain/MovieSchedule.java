@@ -38,9 +38,7 @@ public class MovieSchedule {
 	private int[] weekends_Price;
 	private int[] weekdays_Price;
 
-	public MovieSchedule() {
-		super();
-	}
+	public MovieSchedule() {}
 
 	public MovieSchedule(String theatreId, String email, String theatreLocation, String theatreCity, String theatreName,
 			String theatreLicenseNo, String totalnumberOfSeats, String[] screenedmovies, String[] runningmovies,

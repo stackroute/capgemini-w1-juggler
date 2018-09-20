@@ -11,13 +11,9 @@ public interface SeatsService {
 
 	public void getDetails(MovieSchedule movieSchedule) throws ParseException;
 
-	public Show getById(String showId);
-
-	public Seat findById(String showId);
-
-	public void getBookedSeats(TicketDetails ticketDetails);
+	public Seat save(Seat seat);
 	
-	
+	public Seat findById(String showId);	
 	
 }
 

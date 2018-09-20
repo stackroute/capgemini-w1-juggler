@@ -12,7 +12,6 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
-import com.stackroute.juggler.kafka.domain.TicketDetails;
 import com.stackroute.juggler.ticketengine.domain.Seat;
 import com.stackroute.juggler.ticketengine.domain.Show;
 import com.stackroute.juggler.ticketengine.repository.SeatsRepository;
@@ -39,7 +38,7 @@ public class SeatsServiceImpl implements SeatsService {
 
 		for (int i = 0; i < 7; i++) {
 			String moviedate = movielocal.getMovieReleaseDate();
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			String date = moviedate;
 			Calendar c = Calendar.getInstance();
 			SimpleDateFormat dateformatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -69,27 +68,33 @@ public class SeatsServiceImpl implements SeatsService {
 		}
 	}
 	
-	@Override
-	@KafkaListener(topics = "payment3", groupId = "pay", containerFactory = "payKafkaListenerContainerFactory")
-	public void getBookedSeats(TicketDetails ticketDetails) {
-		System.out.println("entered");
-		Optional<Show> local = showRepo.findById(ticketDetails.getShowId());
-		Show updatedshow = local.get();
-		System.out.println(ticketDetails);
-		showRepo.save(updatedshow);
-	}
+//	@Override
+//	@KafkaListener(topics = "payment3", groupId = "pay", containerFactory = "payKafkaListenerContainerFactory")
+//	public void getBookedSeats(TicketDetails ticketDetails) {
+//		System.out.println("entered");
+//		Optional<Show> local = showRepo.findById(ticketDetails.getShowId());
+//		Show updatedshow = local.get();
+//		System.out.println(ticketDetails);
+//		showRepo.save(updatedshow);
+//	}
 
-	@Override
-	public Show getById(String showId) {
-		Optional<Show> local = showRepo.findById(showId);
-		return local.get();
-		
-	}
+//	@Override
+//	public Show getById(String showId) {
+//		Optional<Show> local = showRepo.findById(showId);
+//		return local.get();
+//		
+//	}
 
 	@Override
 	public Seat findById(String showId) {
 		Optional<Seat> local = seatsRepo.findById(showId);
 		return local.get();
+	}
+
+	@Override
+	public Seat save(Seat seat) {
+		seatsRepo.save(seat);
+		return seat;
 	}
 	
 //	private SeatsRepository seatsRepo;
