@@ -15,19 +15,22 @@ h4{
   width: 51%;
   padding-left: 4%;
   padding-right: 24%;
-  display: flex;
+  display: grid;
 }
 
 .example-half-width {
   width:61%;
   padding-left: 36%;
   // padding-right: 2%;
-  display:flex;
+  display:grid;
 }
  .mt-btn {
    padding-left: 35%;
    padding-top: 2%;
-   color:#004B8D;
+   //color:#004B8D;
+ }
+ .mt-btn button {
+   margin:9px;
  }
 
 .seats {
@@ -41,12 +44,17 @@ h4{
  
 }
 .button-color {
-  padding-left: 42%;
+  padding-left: 25%;
   padding-top: 2%;
 }
-.button-color button {
-  color:#004B8D;
+.button-color1 {
+  padding-left: 35%;
+  padding-top: 2%;
 }
+.button-color1 button {
+  margin:9px;
+}
+
 .layout {
   padding-left: 29%;
   padding-top: 3%;
@@ -56,10 +64,16 @@ h4{
 }
 .add-theatre {
   padding-top: 2%;
-  padding-left: 44%;
+  padding-left: 41%;
  
 
 }
 .seatRow {
   padding-left: 4%;
+}
+.button-color button {
+  margin: 9px;
+}
+.headings{
+  font-family: 'Padauk', sans-serif;
 }

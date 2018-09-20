@@ -1,17 +1,18 @@
-package com.stackroute.payment.controller;
+package com.stackroute.juggler.payment.controller;
 
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.kafka.domain.TicketDetails;
-import com.stackroute.payment.service.PaymentServiceImpl;
+import com.stackroute.juggler.kafka.domain.TicketDetails;
+import com.stackroute.juggler.payment.service.PaymentServiceImpl;
 import com.stripe.exception.CardException;
 import com.stripe.model.Charge;
 import com.stripe.model.Refund;
@@ -22,6 +23,10 @@ import com.stripe.model.Refund;
 public class PaymentController {
 	
 	private PaymentServiceImpl stripeClient;
+	
+	// String topic = "payment3";
+	//
+	// private KafkaTemplate<String, TicketDetails> kafkaTemplate;
 
 	@Autowired
 	PaymentController(PaymentServiceImpl stripeClient) {
@@ -46,6 +51,17 @@ public class PaymentController {
 	public ResponseEntity<?> saveTicketHandler(@RequestBody TicketDetails ticket) {
 		TicketDetails saveTicket = stripeClient.saveTicket(ticket);
 		return new ResponseEntity<TicketDetails>(saveTicket, HttpStatus.OK);
+		
+	}
+	
+	@PostMapping("/tickett")
+	public ResponseEntity<?> ticketHandler(@RequestBody TicketDetails ticketDetails) {
+		
+		stripeClient.addTicket(ticketDetails);
+//		kafkaTemplate.send(topic, ticketDetails);
+		
+		
+		return new ResponseEntity<TicketDetails>(ticketDetails, HttpStatus.OK);
 		
 	}
 	

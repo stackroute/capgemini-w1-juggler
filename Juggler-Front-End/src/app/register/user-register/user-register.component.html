@@ -1,8 +1,8 @@
 <div class="total">
-<div style="text-align: center">
-    <h4>
+<div class="heading" style="text-align: center">
+    <h3 class="headings">
         <strong>User Registration</strong>
-    </h4>
+    </h3>
 </div>
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
@@ -44,9 +44,9 @@
                     {{gender}}
                 </mat-radio-button>
             </mat-radio-group>
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext>Next</button>
+            <div class="option">
+                <!-- <button mat-button matStepperPrevious>Back</button> -->
+                <button mat-stroked-button color="warn" matStepperNext>Next</button>
             </div>
         </form>
     </mat-step>
@@ -82,16 +82,17 @@
             </div> -->
             <!-- </form> -->
 
-            <!-- <div class="form-buttons1"> -->
+             <div class="form-buttons1"> 
            
+            <button mat-stroked-button color="warn" matStepperPrevious>Back</button>
+            
+            <button mat-stroked-button color="warn" (click)="stepper.reset()">Reset</button>
+             </div> 
+             
+             <div class="form-buttons2">
             <br>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
-            <!-- </div> -->
-            <!-- <div class="form-buttons2"> -->
-            <br>
-            <button mat-button (click)="addUser()">Add User</button>
-            <!-- </div> -->
+            <button mat-stroked-button color="warn" (click)="addUser()">Add User</button>
+             </div> 
         </form>
     </mat-step>
 </mat-horizontal-stepper>

@@ -1,9 +1,9 @@
 
 <div class="registration">
 <div style="text-align: center">
-  <h4>
+  <h3 class="headings">
     <strong>Theatre Registration!!</strong>
-  </h4>
+  </h3>
 </div> 
 
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
@@ -35,7 +35,7 @@
         </mat-autocomplete>
       </mat-form-field>
       <div class="button-color">
-        <button mat-button matStepperNext>Next</button>
+        <button mat-stroked-button color="warn" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -64,8 +64,8 @@
         <mat-error>Required/The input is invalid</mat-error>
       </mat-form-field>
       <div class="mt-btn">
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-stroked-button color="warn" matStepperPrevious>Back</button>
+        <button mat-stroked-button color="warn" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -129,12 +129,12 @@
        </div>
        
        
-      <div class= "button-color">
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+      <div class= "button-color1">
+        <button mat-stroked-button color="warn" matStepperPrevious>Back</button>
+        <button mat-stroked-button color="warn" (click)="stepper.reset()">Reset</button>
       </div>
       <div class="add-theatre">
-        <button mat-raised-button (click)="openDialog()">Add Theatre</button>
+        <button mat-stroked-button color="warn" (click)="openDialog()">Add Theatre</button>
       </div>
       
      
