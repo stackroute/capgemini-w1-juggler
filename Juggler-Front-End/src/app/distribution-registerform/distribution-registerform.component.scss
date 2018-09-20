@@ -1,13 +1,36 @@
 .example-full-width {
-  width: 30%;
-  display:flex;
+   width: 51%;
+   padding-left: 5%;
+  padding-right: 17%;
+  display:grid;
+  
 }
 
+ .example-half-width {
+   float:right;
+   width:51%;
+//padding-left: 68%;
+//padding-right: 15%;
+padding-left: 17%;
+padding-right: 5%;
+display: grid;
 
-.text2{
-  float: right;;
 }
+.next {
+  padding-left: 30%;
+  color:#5B5EA6;
+}
+.option {
+  padding-left: 73%;
+  color:#5B5EA6;
+}
+.add {
+  padding-left: 78%;
+  color:#5B5EA6;
+}
+
 .total {
+  
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w8vxZggMFIGOxrQh_5ZDkjSwDTMkXQpvUagVsJsNLPMSRygB");
   
 }
