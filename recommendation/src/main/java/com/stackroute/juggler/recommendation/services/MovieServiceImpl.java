@@ -192,6 +192,7 @@ public class MovieServiceImpl implements MovieService {
 			Genre genreObj = new Genre(movie.getMovieGenres());
 			movieObj.setGenre(genreObj);
 			movieObj.setTheatres(theaters);
+			System.out.println(theaters.toString());
 			System.out.println(movieObj.toString());
 			movieRepository.save(movieObj);
 			System.out.println("final");
