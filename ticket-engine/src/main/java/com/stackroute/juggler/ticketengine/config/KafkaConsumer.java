@@ -24,7 +24,7 @@ public class KafkaConsumer {
 	@Bean
 	public ConsumerFactory<String, MovieSchedule> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.216:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.16:9092");
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "ticket");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -35,7 +35,7 @@ public class KafkaConsumer {
 
 	public ConsumerFactory<String, TicketDetails> payConsumerFactory() {
 		Map<String, Object> payConfig = new HashMap<>();
-		payConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.216:9092");
+		payConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.16:9092");
 		payConfig.put(ConsumerConfig.GROUP_ID_CONFIG, "pay");
 		payConfig.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		payConfig.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -46,7 +46,7 @@ public class KafkaConsumer {
 
 	public ConsumerFactory<String, TriggerMessage> schedulerConsumerFactory() {
 		Map<String, Object> schedulerConfig = new HashMap<>();
-		schedulerConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.216:9092");
+		schedulerConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.16:9092");
 		schedulerConfig.put(ConsumerConfig.GROUP_ID_CONFIG, "schedule");
 		schedulerConfig.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		schedulerConfig.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
