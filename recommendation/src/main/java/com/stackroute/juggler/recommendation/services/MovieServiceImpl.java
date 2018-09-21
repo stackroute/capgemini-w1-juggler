@@ -196,7 +196,7 @@ public class MovieServiceImpl implements MovieService {
 			movieObj.setTheatres(theaters);
 			System.out.println(theaters.toString());
 			System.out.println(movieObj.toString());
-			movieRepository.save(movieObj);
+			System.out.println(movieRepository.save(movieObj));
 			System.out.println("final");
 		}
 //		
