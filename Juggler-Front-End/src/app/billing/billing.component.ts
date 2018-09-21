@@ -3,50 +3,50 @@ import { PromocodeService } from "./../promocode.service";
 import { Component, OnInit } from "@angular/core";
 
 
-// export interface result {
-//   id:number;
-//   code:string;
-//   image:string;
-//   description:string;
-//   amount:string;
-// }
+export interface result {
+  id:number;
+  code:string;
+  image:string;
+  description:string;
+  amount:string;
+}
 @Component({
   selector: "app-billing",
   templateUrl: "./billing.component.html",
   styleUrls: ["./billing.component.scss"]
 })
 export class BillingComponent implements OnInit {
-result;
+
   promos: string;
   value: number;
   flag: boolean;
   show: boolean = true;
   result1 = null;
   bool;
-//  result=[
-//   {
-//     id:1,
-//     code:"FLAT100",
-//     image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
-//     description:"It is applicable from 500Rs on Ticket",
-//   amount: 100
-//   },
-//   {
-//     id:1,
-//     code:"FLAT200",
-//     image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
-//     description:"It is applicable from 500Rs on Ticket",
-//   amount: 200
-//   }]
+ result=[
+  {
+    id:1,
+    code:"FLAT100",
+    image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
+    description:"It is applicable from 500Rs on Ticket",
+  amount: 100
+  },
+  {
+    id:1,
+    code:"FLAT200",
+    image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
+    description:"It is applicable from 500Rs on Ticket",
+  amount: 200
+  }]
   constructor(private promoService: PromocodeService, private payment: PromocodeService) {}
   ngOnInit() {
     this.result1=null;
-    this.promoService.getpromos().subscribe(data => {
-      this.result = data;
-      this.bool = false;
-      // console.log(this.bool);
-    });
-     console.log(this.result);
+    // this.promoService.getpromos().subscribe(data => {
+    //   this.result = data;
+    //   this.bool = false;
+    //   // console.log(this.bool);
+    // });
+    //  console.log(this.result);
   }
 
   promo(code) {

@@ -46,9 +46,9 @@
 
       </mat-form-field>
 
-      <div>
+      <div class="next-btn">
 
-        <button  mat-button matStepperNext><b>Next</b></button>
+        <button  mat-stroked-button color="warn" matStepperNext><b>Next</b></button>
 
       </div>
 
@@ -60,7 +60,7 @@
 
     <form [formGroup]="rsvpForm2">
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-half-width">
 
         <mat-label><i><b>Enter Event date</b></i></mat-label>
 
@@ -70,7 +70,7 @@
 
       </mat-form-field>
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-half-width">
 
         <mat-label><i><b>Enter Event time</b></i></mat-label>
 
@@ -80,7 +80,7 @@
 
       </mat-form-field>
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-half-width">
 
         <mat-label><i><b>Enter number of days</b></i></mat-label>
 
@@ -90,7 +90,7 @@
 
       </mat-form-field>
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-half-width">
 
         <mat-label><i><b>Enter Event duration</b></i></mat-label>
 
@@ -100,7 +100,7 @@
 
       </mat-form-field>
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-half-width">
 
         <mat-label><i><b>Enter Event Location</b></i></mat-label>
 
@@ -110,23 +110,23 @@
 
       </mat-form-field>
 
-      <div>
+      <div class="option">
 
-        <button mat-button matStepperPrevious><b>Back</b></button>
+        <button mat-stroked-button color="warn" matStepperPrevious><b>Back</b></button>
 
-        <button mat-button matStepperNext><b>Next</b></button>
+        <button mat-stroked-button color="warn" matStepperNext><b>Next</b></button>
 
       </div>
 
     </form>
 
   </mat-step>
-
+<div class="for3-event">
   <mat-step [stepControl]="rsvpForm3">
 
     <form [formGroup]="rsvpForm3">
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-width">
 
         <mat-label><i><b>Enter Event Description</b></i></mat-label>
 
@@ -146,7 +146,7 @@
 
       </mat-form-field> -->
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-width">
 
         <mat-label><i><b>Enter invities</b></i></mat-label>
 
@@ -156,7 +156,7 @@
 
       </mat-form-field>
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-width">
 
         <mat-label><i><b>Enter Phone number</b></i></mat-label>
 
@@ -166,23 +166,24 @@
 
       </mat-form-field>
 
-      <div>
+      <div class="form3-btn">
 
-        <button mat-button matStepperPrevious>Back</button>
+        <button mat-stroked-button color="warn" matStepperPrevious>Back</button>
 
-        <button mat-button (click)="stepper.reset()"><b>Reset</b></button>
+        <button mat-stroked-button color="warn" (click)="stepper.reset()"><b>Reset</b></button>
 
       </div>
 
-      <div>
+      <div class="save">
 
-        <button mat-raised-button (click)="saveEvent()"><b>Save</b></button>
+        <button mat-stroked-button color="warn" (click)="saveEvent()"><b>Save</b></button>
 
       </div>
 
     </form>
 
   </mat-step>
+  </div>
 
 </mat-horizontal-stepper>
 
