@@ -55,7 +55,7 @@ import { RecMovDisplayComponent } from './rec-mov-display/rec-mov-display.compon
 import { TestComponent } from './test/test.component';
 import { LayoutToBillingService } from './layout-to-billing.service';
 import { PaymentToTicketService } from './payment-to-ticket.service';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 
@@ -84,7 +84,7 @@ import { PaymentToTicketService } from './payment-to-ticket.service';
     BillingComponent,
     RsvpAcceptComponent,
     RecMovDisplayComponent,
-    TestComponent
+    TestComponent,
    
   ],
 

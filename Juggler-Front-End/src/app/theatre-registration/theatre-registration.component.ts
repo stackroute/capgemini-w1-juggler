@@ -107,10 +107,12 @@ export class TheatreRegistrationComponent implements OnInit {
    ];
    this.theatre.typesOfSeats = this.seatTypes;
    this.theatre.numberOfSeats = this.seatCount;
-   // this.seats.totalCol=this.f2.noofcols.value;
-   // this.seats.totalRow=this.f2.noofrows.value;
-   this.theatre.totalRow= this.f2.noofrows.value;
-   this.theatre.totalCol= this.f2.noofcols.value;
+   this.theatre.totalCol=this.f2.noofcols.value;
+   this.theatre.totalRow=this.f2.noofrows.value;
+  //  this.theatre.totalRow= 10;
+  //  this.theatre.totalCol= 10;
+  //  this.theatre.rowValues= [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  //  this.theatre.colValues= [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
    console.log(this.theatre.theatreName);
    console.log(this.theatre);
    this.theatreService

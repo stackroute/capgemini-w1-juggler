@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers } from "@angular/http";
+import { Observable } from "rxjs";
 @Injectable({
   providedIn: "root"
 })
@@ -7,8 +8,18 @@ import { Http, Headers } from "@angular/http";
 export class PaymentService {
   message: string;
   constructor(private http: Http) {}
-  chargeCard(token: string, amount: number) {
+  // movieName: string, showId: string
+  chargeCard(
+    token: string,
+    amount: number,
+    bookedSeats: number[],
+    showId: string,
+    theatreName: string,
+    movieName: string,
+    showTiming: string
+  ) {
     const headers = new Headers({ token: token, amount: amount });
+    // const head = new Headers({bookedSeats: bookedSeats});
     this.http
       .post(
         "http://10.20.1.15:9081/api/v1/payment/charge",
@@ -18,14 +29,40 @@ export class PaymentService {
       .subscribe(resp => {
         console.log(resp);
         if (resp != null) {
+          // this.http.post("http://localhost:9081/api/v1/payment/ticket", {bookingDetails});
+
+          // console.log(head);
+
           this.http
-            .post("http://10.20.1.15:9081/api/v1/payment/ticket", {})
+            .post("http://10.20.1.15:9081/api/v1/payment/ticket", {
+              bookedSeats: bookedSeats,
+              showId: showId,
+              movieName: movieName,
+              theatreName: theatreName,
+              showTiming: showTiming
+            })
             .subscribe(response => {
               console.log(response);
             });
-        } 
+
+          // bookingDetails(movieName: string){
+          //   this.http
+          //           .post("http://localhost:9081/api/v1/payment/ticket", {})
+          //           .subscribe(response => {
+          //             console.log(response);
+          //           });
+          // }
+        }
       });
   }
+
+  // bookingDetails(movieName: string){
+  //   this.http
+  //           .post("http://localhost:9081/api/v1/payment/ticket", {})
+  //           .subscribe(response => {
+  //             console.log(response);
+  //           });
+  // }
 
   refundCard() {
     this.http

@@ -35,7 +35,6 @@ public class TicketController {
 	}
 
 	@MessageMapping("/message")
-	// @SendTo("/movie")
 	public void seat(String message) throws IOException {
 		
 		System.out.println(message);

@@ -1,5 +1,5 @@
 .example-full-width {
-   width: 51%;
+   width: 60%;
    padding-left: 5%;
   padding-right: 17%;
   display:grid;
@@ -8,32 +8,49 @@
 
  .example-half-width {
    float:right;
-   width:51%;
+   width:57%;
 //padding-left: 68%;
 //padding-right: 15%;
-padding-left: 17%;
-padding-right: 5%;
+padding-left: 14%;
+//padding-right: 1%;
 display: grid;
 
 }
 .next {
   padding-left: 30%;
-  color:#5B5EA6;
 }
+.next b{
+  color:#525F7F;
+  margin-left: 4%;
+}
+//back&reset
 .option {
-  padding-left: 73%;
-  color:#5B5EA6;
+  padding-left: 58%;
+  
+}
+.option b{
+  color:#525F7F;
 }
 .option button {
   margin:9px;
 }
-.add {
-  padding-left: 78%;
-  color:#5B5EA6;
-  padding-top: 1.5%;
+
+.add button {
+  margin-left: 90%;
+  
+   
 }
+.add {
+  margin-top: -4.2%;
+
+}
+.add b {
+  color:#525F7F;
+}
+// }
 
 .total {
+  padding-top: 1%;
   
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w8vxZggMFIGOxrQh_5ZDkjSwDTMkXQpvUagVsJsNLPMSRygB");
   
