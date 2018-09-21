@@ -6,12 +6,12 @@
     </h1>
   </a>
   <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"aria-label="Toggle navigation"  (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"  aria-controls="collapsibleNavbar" aria-expanded="false">
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"aria-label="Toggle navigation"  (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"  aria-controls="collapsibleNavbar" aria-expanded="false">
     <span class="navbar-toggler-icon"></span>
-  </button> 
-  <!-- <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+  </button>  -->
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
     <span class="navbar-toggler-icon"></span>
-  </button> -->
+  </button>
   <!-- Navbar links -->
   <!-- <div class="collapse navbar-collapse show" id="collapsibleNavbar"> -->
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
