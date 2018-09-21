@@ -39,6 +39,7 @@ export class SeatlayoutComponent implements OnInit {
   layoutobj: Layout;
   json: any;
   local = [];
+  count;
 
   private serverUrl = "http://172.23.239.47:9079/websocket";
   private stompClient;
@@ -52,6 +53,10 @@ export class SeatlayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.bookingDetail.selectedSeats=this.blockedSeatsArray;
+   this.bookingDetail.totalNoOfTickets=this.count;
+   this.bookingDetail.selectedSeatType="platinum";
+   this.bookingDetail.totalAmount=(this.count*300);
     console.log(this.bookingDetail);
     this.blockedSeatsArray = [];
     console.log("inside ngonit");
@@ -100,9 +105,11 @@ export class SeatlayoutComponent implements OnInit {
 
   onclick(x, y) {
     let selected = x * 10 + y + 1;
+   this.count = 0;;
     var flag = this.blockedSeatsArray.every(find);
     if (flag) {
       this.blockedSeatsArray.push(selected);
+      this.count++;
     } else {
       let index = this.blockedSeatsArray.indexOf(selected);
       this.blockedSeatsArray.splice(index, 1);
@@ -144,8 +151,7 @@ export class SeatlayoutComponent implements OnInit {
     // console.log("Seat ID : " + seatId);
     // console.log(this.blockedSeats.length);
     var i;
-
-    for (i = 0; i < this.blockedSeats.length; i++) {
+for (i = 0; i < this.blockedSeats.length; i++) {
       if (this.blockedSeatsArray[i] === seatId) {
         console.log(this.blockedSeats[i]);
         return true;

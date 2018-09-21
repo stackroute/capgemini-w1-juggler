@@ -1,3 +1,4 @@
+import { TicketBookedComponent } from './ticket-booked/ticket-booked.component';
 import { BillingComponent } from "./billing/billing.component";
 import { MoviedetailsFormComponent } from "./moviedetails-form/moviedetails-form.component";
 import { NgModule } from "@angular/core";
@@ -46,7 +47,8 @@ const routes: Routes = [
   {path:'rsvp/accept',component:RsvpAcceptComponent},
   {path:'test',component:TestComponent},
   {path:'rec/movie',component:RecomondationMovieDisplayComponent},
-  {path:'rec/theatre',component:RecommondationThetareDisplayComponent}
+  {path:'rec/theatre',component:RecommondationThetareDisplayComponent},
+  {path:'ticket',component:TicketBookedComponent},
 ];
   
 @NgModule({
@@ -75,5 +77,6 @@ export const routingComponents = [
   BillingComponent,
   RsvpAcceptComponent,
   RecomondationMovieDisplayComponent,
-  RecommondationThetareDisplayComponent
+  RecommondationThetareDisplayComponent,
+  TicketBookedComponent
 ];

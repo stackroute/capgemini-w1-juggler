@@ -1,3 +1,4 @@
+import { BillingToPaymentService } from './billing-to-payment.service';
 import { BillingComponent } from './billing/billing.component';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
@@ -52,6 +53,8 @@ import { PromocodeService } from './promocode.service';
 import { RsvpAcceptComponent } from './rsvp-accept/rsvp-accept.component';
 import { RecMovDisplayComponent } from './rec-mov-display/rec-mov-display.component';
 import { TestComponent } from './test/test.component';
+import { LayoutToBillingService } from './layout-to-billing.service';
+import { PaymentToTicketService } from './payment-to-ticket.service';
 
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
@@ -109,7 +112,7 @@ import { TestComponent } from './test/test.component';
     MatDividerModule,
     MatTableModule
   ],
-  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, PaymentService, ProfileService, PromocodeService,
+  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService,LayoutToBillingService,BillingToPaymentService,PaymentToTicketService,UserService, MovieScreeningService, MovieDetailsService, PaymentService, ProfileService, PromocodeService,
     Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
   entryComponents: [ DialogComponentComponent],
