@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 // Domain object for theater details
 public class Theatre {
-	@Id
+	
 	private String theatreId;
 	private String theatreName;
 	private String theatreLocation;
