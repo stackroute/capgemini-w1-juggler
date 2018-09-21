@@ -9,16 +9,24 @@
 
 }
 .form-inline{
-
+ margin-left: 70%;
   width:350px;
+  //max-width: 90%;
+  display: inline-block
 }
 .search{
-  display:block;
-  // background-color:#2E2E2E;
-}
+//   margin-left: 70%;
+  width:100%;
+  overflow: hidden;
+  display:inline-block
+  
+
+ }
 .but{
   background-color: rgb(235, 122, 81);
   width:40px;
+  cursor: pointer;
+
 }
 
  //.input{
@@ -78,3 +86,4 @@
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   
   }
+  
