@@ -59,7 +59,7 @@ export class SeatlayoutComponent implements OnInit {
   //   );
   // }
   ngOnInit() {
-    this.bookingDetail = this.detailService.receive();
+    // this.bookingDetail = this.detailService.receive();
     console.log(this.bookingDetail);
     this.id = [];
     console.log("hi");
@@ -82,9 +82,27 @@ export class SeatlayoutComponent implements OnInit {
     console.log(this.selectedvalue);
   }
   onclick(x, y) {
-    this.id.push(x * 10 + y);
-    this.id.sort();
-    console.log(this.id);
+    // this.id.push(x * 10 + y);
+    // this.id.sort();
+    // console.log(this.id);
+    // if(this.id.lastIndexOf){
+    //   this.id.pop(x * 10 + y);
+    // }
+    if(this.id.length == 0){
+this.id.push(x * 10 + y);
+console.log(this.id);
+    }
+    else if(this.id.length != 0){
+      this.id.push(x * 10 + y);
+      console.log(this.id);
+      console.log(this.id.lastIndexOf)
+      
+    }
+    // else if(this.id.length != 0 || this.id.index){
+    //   this.id.pop();
+    //   console.log(this.id);
+      
+    // }
     this.seatselect();
   }
   seatselect() {

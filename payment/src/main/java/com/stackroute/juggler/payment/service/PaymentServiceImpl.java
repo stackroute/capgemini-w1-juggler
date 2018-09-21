@@ -8,8 +8,8 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 import com.stackroute.juggler.kafka.domain.TicketDetails;
-import com.stackroute.juggler.payment.Repository.PaymentRepository;
 import com.stackroute.juggler.payment.config.KafkaProducerConfig;
+import com.stackroute.juggler.payment.repository.PaymentRepository;
 import com.stripe.Stripe;
 import com.stripe.exception.APIConnectionException;
 import com.stripe.exception.APIException;
