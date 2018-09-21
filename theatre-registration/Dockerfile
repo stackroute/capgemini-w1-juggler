@@ -4,5 +4,5 @@ FROM java:8-jre
 ADD ./target/theatre-registration-0.0.1-SNAPSHOT.jar /usr/app/theatre-registration-0.0.1-SNAPSHOT.jar
 # java -jar <jar fileName>
 WORKDIR usr/app
-ENTRYPOINT ["java","-jar", "theatre-registration-0.0.1-SNAPSHOT.jar"]
-EXPOSE 9071
+ENTRYPOINT ["java","-jar", "theatre-registration-0.0.1-SNAPSHOT"]
+EXPOSE 9079
