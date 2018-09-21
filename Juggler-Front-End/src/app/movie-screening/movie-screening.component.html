@@ -1,3 +1,4 @@
+<div class="total">
 <div style="text-align: center">
   <h3 class="headings">
     <strong>Movie Screening Details</strong>
@@ -15,49 +16,54 @@
         <input matInput placeholder="Enter Show Timings" formControlName="show_Timings" type="text" required>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
-      Enter Weekdays Price
-      <div>
-        <mat-form-field>
+      
+      <div class="weekdays">
+         <b> Enter Weekdays Price:</b><br>
+        <mat-form-field class="price">
           <input matInput placeholder="Platnium" formControlName="n1" type="number" required>
           <mat-error>The input is invalid</mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="price">
           <input matInput placeholder="Gold" formControlName="n2" type="number" required>
           <mat-error>The input is invalid</mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="price">
           <input matInput placeholder="Silver" formControlName="n3" type="number" required>
           <mat-error>The input is invalid</mat-error>
         </mat-form-field>
       </div>
-      Enter Week Price
-      <div>
-        <mat-form-field>
+     
+      <div class="week">
+         <b> Enter Week Price:</b><br>
+        <mat-form-field class="price">
           <input matInput placeholder="Platnium" formControlName="n4" type="number" required>
           <mat-error>The input is invalid</mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="price">
           <input matInput placeholder="Gold" formControlName="n5" type="number" required>
           <mat-error>The input is invalid</mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="price">
           <input matInput placeholder="Silver" formControlName="n6" type="number" required>
           <mat-error>The input is invalid</mat-error>
         </mat-form-field>
       </div>
-      <div>
-        <button mat-button matStepperNext type="submit">Next</button>
-      </div>
+      <div class="button-color">
+          <button mat-stroked-button color="warn" matStepperNext><b>Next</b></button>
+        </div>
     </form>
   </mat-step>
 
   <mat-step [stepControl]="secondFormGroup">
     <form>
       <ng-template matStepLabel>Add Movie for Screening</ng-template>
-      <mat-form-field>
+      <mat-form-field class="add">
         <input [(ngModel)]="title" matInput placeholder="Movie Search" name="movie" required>
-        <button mat-stroked-button color="primary" type="search" (click)="getMovie(title)">search</button>
       </mat-form-field>
+        <div class="search">
+        <button mat-stroked-button color="warn" type="search" (click)="getMovie(title)"><b>search</b></button>
+   </div>
+      
       <div class="container" *ngFor="let movie of movies">
         <div class="row">
           <div class="col-sm-12">
@@ -99,7 +105,7 @@
                         {{movie.movieDuration}}
                       </li>
                       <li class="list-group-item">
-                        <button class="btn btn-primary" (click)="onSubmit(movie)"> Add Movie</button>
+                        <button class="mat-stroked-button"color="warn" (click)="onSubmit(movie)"><b> Add Movie</b></button>
                       </li>
                     </ul>
                   </div>
@@ -110,6 +116,9 @@
         </div>
       </div>
     </form>
-    <button mat-button (click)="clickOk()">Ok</button>
+    <div class="ok">
+    <button mat-stroked-button color="warn" (click)="clickOk()"><b>Ok</b></button>
+    </div>
   </mat-step>
 </mat-horizontal-stepper>
+</div>

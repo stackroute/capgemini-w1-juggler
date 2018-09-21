@@ -55,22 +55,27 @@ margin-bottom: 20px
   height: 160px;
 }
 .form-buttons1 {
-  padding-top: 1%;
-  padding-left: 15%;
+  margin-top: 1%;
+  margin-left: 13%;
   
-  color:#4C6A92;
 }
 .form-buttons1 button {
-  //padding-right: 3%;
+  
   margin: 8px;
 }
+.form-buttons1 b{
+  color:#525F7F;
+}
 .form-buttons2 {
-  padding-left: 26%;
-  padding-top: 0%;
-  color:#4C6A92
+  margin-left: 76%;
+  margin-top: -9.5%;
+  
+}
+.form-buttons2 b{
+  color:#525F7F; 
 }
 .option {
-  color:#4C6A92;
+ 
   padding-left: 23%;
 }
 .heading {

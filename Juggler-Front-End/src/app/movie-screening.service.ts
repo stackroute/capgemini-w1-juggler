@@ -13,7 +13,7 @@ export class MovieScreeningService {
 
   getMovies(title: string) {
     return fetch(
-      "http://10.20.1.15:9070/api/v1/getbytitle/movie/?movieTitle=" + title
+      "http://13.233.63.78:9070/api/v1/getbytitle/movie/?movieTitle=" + title
     ).then(response => response.json());
   }
 

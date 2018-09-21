@@ -13,10 +13,11 @@
   <!-- Navbar links -->
   <!-- <div class="collapse navbar-collapse show" id="collapsibleNavbar"> -->
     <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
-      <ul class="navbar-nav mx-auto">
+      <ul class="navbar-nav mx-auto ">
+        
         <li class="nav-item mx-5">
           <a class="nav-link text-white" href="#home" >
-            <h5 (mouseenter)=displayCityName()>
+            <h5 class="city" (mouseenter)=displayCityName()>
             City
               <i href="#city" routerLink="/" class="fa fa-map-marker" aria-hidden="true"></i>
             {{name}}</h5>
@@ -25,14 +26,14 @@
 
       <li class="nav-item mx-5">
         <a class="nav-link text-white" href="#home" routerLink="/contact">
-          <h5>
+          <h5 class="contact">
             <i class="fa fa-globe"></i>Contact Us</h5>
         </a>
       </li>
       <div *ngIf=userLogged>
         <li class="nav-item outline-success ml-5 my-2 my-sm-0 mr-0">
           <a class="nav-link text-white" href="#home" routerLink="/login-user">
-            <h5>
+            <h5 class="login">
               <i class="fa fa-fw fa-user"></i>Login</h5>
           </a>
         </li>
@@ -40,7 +41,7 @@
       <div *ngIf=flag>
         <li class="nav-item outline-success ml-5 my-2 my-sm-0 mr-0">
           <a class="nav-link text-white" href="#home" routerLink="/home" (click)="logout()">
-            <h5>Logout</h5>
+            <h5 class="logout">Logout</h5>
           </a>
         </li>
       </div>

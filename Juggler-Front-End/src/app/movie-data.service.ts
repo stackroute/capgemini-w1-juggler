@@ -23,3 +23,4 @@ export class MovieDataService {
     return this.http.post<Movie>(this.url2 , movie);
   }
 }
+

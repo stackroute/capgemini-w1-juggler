@@ -35,7 +35,7 @@
         </mat-autocomplete>
       </mat-form-field>
       <div class="button-color">
-        <button mat-stroked-button color="warn" matStepperNext>Next</button>
+        <button mat-stroked-button color="warn" matStepperNext><b>Next</b></button>
       </div>
     </form>
   </mat-step>
@@ -64,8 +64,8 @@
         <mat-error>Required/The input is invalid</mat-error>
       </mat-form-field>
       <div class="mt-btn">
-        <button mat-stroked-button color="warn" matStepperPrevious>Back</button>
-        <button mat-stroked-button color="warn" matStepperNext>Next</button>
+        <button mat-stroked-button color="warn" matStepperPrevious><b>Back</b></button>
+        <button mat-stroked-button color="warn" matStepperNext><b> Next</b></button>
       </div>
     </form>
   </mat-step>
@@ -74,11 +74,11 @@
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Step </ng-template>
 
-    
+    <div class="form3">
       <div class="seatType"> 
         
          <b>Types Of Seats: </b>
-         <br>
+         <!-- <br> -->
         <mat-form-field class="seats">
           <input matInput placeholder="type1" formControlName="type1" type="text" required>
           <mat-error>Required</mat-error>
@@ -96,7 +96,7 @@
       
       <div class="seatType">
         <b>Number of seats:</b>
-        <br>
+        <!-- <br> -->
         <mat-form-field class="seats">
           <input matInput placeholder="n1" formControlName="n1" type="number" required>
           <mat-error>The input is invalid</mat-error>
@@ -116,7 +116,7 @@
       
      <div class="layout">
        <b>Seat Layout:</b>
-       <br>
+       <!-- <br> -->
        <mat-form-field class="seatRow">
          <input matInput placeholder="no. of rows" formControlName="noofrows" type="number" required>
          <mat-error>The input is invalid</mat-error>
@@ -130,14 +130,14 @@
        
        
       <div class= "button-color1">
-        <button mat-stroked-button color="warn" matStepperPrevious>Back</button>
-        <button mat-stroked-button color="warn" (click)="stepper.reset()">Reset</button>
+        <button mat-stroked-button color="warn" matStepperPrevious><b> Back</b></button>
+        <button mat-stroked-button color="warn" (click)="stepper.reset()"><b>Reset</b></button>
       </div>
       <div class="add-theatre">
-        <button mat-stroked-button color="warn" (click)="openDialog()">Add Theatre</button>
+        <button mat-stroked-button color="warn" (click)="openDialog()"> <b>Add Theatre </b></button>
       </div>
       
-     
+     </div>
     </form>
   </mat-step>
 </mat-horizontal-stepper>
