@@ -7,9 +7,9 @@ import org.neo4j.ogm.annotation.Relationship;
 import org.springframework.data.annotation.Id;
 
 public class Movie {
-	@Id
-	private Long id;
 	
+//	private Long id;
+	@Id
 	private String movieId;
 	private String name;
 	private String moviePoster;
@@ -31,11 +31,10 @@ public class Movie {
 	@Relationship(type = "LanguageType", direction = Relationship.OUTGOING)
 	private Language languages;
 //// All Arguments constructor
-	public Movie(Long id, String movieId, String name, String moviePoster, String synopsis, String movieReleasedate,
+	public Movie(String movieId, String name, String moviePoster, String synopsis, String movieReleasedate,
 			String movieDuration, String format, String hero, String heroine, String director, String releasedInCity,
 			String movieGenres, String language, City city, Genre genre, Language languages,List<Theatre> theatres) {
 		super();
-		this.id = id;
 		this.movieId = movieId;
 		this.name = name;
 		this.moviePoster = moviePoster;
@@ -54,11 +53,11 @@ public class Movie {
 		this.languages = languages;
 		this.theatres = theatres;
 	}
-public Movie(Long id, String movieId, String name, String moviePoster, String synopsis, String movieReleasedate,
+public Movie(String movieId, String name, String moviePoster, String synopsis, String movieReleasedate,
 		String movieDuration, String format, String hero, String heroine, String director, String releasedInCity,
 		String movieGenres, String language) {
 	super();
-	this.id = id;
+	
 	this.movieId = movieId;
 	this.name = name;
 	this.moviePoster = moviePoster;
@@ -76,12 +75,7 @@ public Movie(Long id, String movieId, String name, String moviePoster, String sy
 public Movie() {
 	// TODO Auto-generated constructor stub
 }
-public Long getId() {
-	return id;
-}
-public void setId(Long id) {
-	this.id = id;
-}
+
 public String getMovieId() {
 	return movieId;
 }
@@ -187,7 +181,7 @@ public void setTheatres(List<Theatre> theatres) {
 }
 @Override
 public String toString() {
-	return "Movie [id=" + id + ", movieId=" + movieId + ", name=" + name + ", moviePoster=" + moviePoster
+	return "Movie [movieId=" + movieId + ", name=" + name + ", moviePoster=" + moviePoster
 			+ ", synopsis=" + synopsis + ", movieReleasedate=" + movieReleasedate + ", movieDuration=" + movieDuration
 			+ ", format=" + format + ", hero=" + hero + ", heroine=" + heroine + ", director=" + director
 			+ ", releasedInCity=" + releasedInCity + ", movieGenres=" + movieGenres + ", language=" + language

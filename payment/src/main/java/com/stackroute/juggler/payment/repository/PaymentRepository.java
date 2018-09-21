@@ -1,4 +1,4 @@
- package com.stackroute.juggler.payment.Repository;
+ package com.stackroute.juggler.payment.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
