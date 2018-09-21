@@ -1,6 +1,7 @@
 package com.stackroute.juggler.ticketengine.controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,8 +12,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,11 +37,12 @@ public class TicketController {
 	@MessageMapping("/message")
 	// @SendTo("/movie")
 	public void seat(String message) throws IOException {
+		
 		System.out.println(message);
 		ObjectMapper objectMapper = new ObjectMapper();
-		Show car = objectMapper.readValue(message, Show.class);
-		showService.updateBlocked(car);
-		showService.getById(car.getShowId());
+		Show json = objectMapper.readValue(message, Show.class);
+		showService.updateBlocked(json);
+		showService.getById(json.getShowId());
 		this.template.convertAndSend("/movie", message);
 	}
 
@@ -59,16 +59,12 @@ public class TicketController {
 		return new ResponseEntity<Iterable<Show>>(showService.getAll(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/layout")
-	public ResponseEntity<?> getLayout(String showid) {
+	@GetMapping("/layout/{showid}")
+	public ResponseEntity<?> getLayout(@PathVariable String showid) {
 		Show localshow = showService.getById(showid);
 		return new ResponseEntity<Show>(localshow, HttpStatus.OK);
 	}
 	
-	
-	
-	
-
 	// get id
 	@GetMapping("/show/{id}")
 	public ResponseEntity<?> getById(@PathVariable String id) {

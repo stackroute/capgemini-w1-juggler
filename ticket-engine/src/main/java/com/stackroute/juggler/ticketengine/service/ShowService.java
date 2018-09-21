@@ -3,6 +3,8 @@ package com.stackroute.juggler.ticketengine.service;
 import java.text.ParseException;
 
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
+import com.stackroute.juggler.kafka.domain.TriggerMessage;
+import com.stackroute.juggler.kafka.domain.TicketDetails;
 import com.stackroute.juggler.ticketengine.domain.Show;
 
 public interface ShowService {
@@ -21,6 +23,8 @@ public interface ShowService {
 	
 	public void getDetails(MovieSchedule movieSchedule) throws ParseException;
 	
-//	public void getBookedSeats(TicketDetails ticketDetails);
+    public void getBookedSeats(TicketDetails ticketDetails);
+
+	public void getSchedulerTrigger(TriggerMessage object)throws ParseException;
 	
 }
