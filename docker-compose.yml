@@ -2,6 +2,7 @@ version: '2.1'
 
 services:
 
+#Governing microservices
   api-gateway:
    build: zuul-apigateway/
    depends_on:
@@ -43,18 +44,19 @@ services:
     test: "exit 0"
 
 
+# RSVP MICROSERVICE
   rsvp:
    build: rsvp/
    restart: always
    network_mode: "host"
    hostname: localhost
-   depends_on:
    ports:
     - 9075:9075
    container_name: rsvp
    healthcheck:
     test: "exit 0"
 
+#EMAIL MICROSERVICE
   email:
    build: emailservice/
    restart: always
@@ -66,6 +68,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#USER PROFILE MICROSERVICE
   userprofile:
    build: user-profile/
    restart: always
@@ -76,6 +79,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#SCREENING MICROSERVICE
   screening:
    build: movie-schedule/
    restart: always
@@ -86,6 +90,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#THEATRE MICROSERVICE
   theatre:
    build: theatre-registration/
    restart: always
@@ -96,6 +101,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#LOGIN MICROSERVICE
   login:   
    build: login-authentication/
    restart: always
@@ -107,6 +113,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#PROMOCODE MICROSERVICE
   promocode:   
    build: promocodes/
    restart: always
@@ -118,6 +125,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#PAYMENT MICROSERVICE
   payment:   
    build: payment/
    restart: always
@@ -129,6 +137,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#BOOKING MICROSERVICE
   booking:   
    build: ticket-engine/
    restart: always
@@ -140,6 +149,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#DISTRIBUTOR MICROSERVICE
   distributor:   
    build: distributor/
    restart: always
@@ -148,10 +158,10 @@ services:
    ports:
     - 9070:9070
    container_name: distributor
-
    healthcheck:
     test: "exit 0"
 
+#RECOMMENDATIONS MICROSERVICE
   recommendations:
    build: recommendation/
    restart: always
@@ -163,6 +173,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#SEARCH MICROSERVICE
   search:
    build: movie-search/
    restart: always
@@ -174,7 +185,20 @@ services:
 
    healthcheck:
     test: "exit 0"
+    
+#SHOW SCHEDULER
+  scheduler:
+   build: show-sheduler/
+   restart: always
+   network_mode: "host"
+   hostname: localhost
+   ports:
+    - 9082:9082
+   container_name: scheduler
+   healthcheck:
+    test: "exit 0"
 
+#MYSQL DATABASE
   mysql:
    image: mysql:5.7
    ports:
@@ -192,6 +216,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#MONGO DATABASE
   mongo:
    image: mongo
    network_mode: host
@@ -203,6 +228,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#NEO4J DATABASE
   neo4j:
    image: neo4j:latest
    ports:
@@ -214,7 +240,20 @@ services:
     - NEO4J_dbms_shell_enabled=true
    healthcheck:
     test: "exit 0"
+    
+#REDIS DATABASE
+  redis:
+   container_name: redis
+   image: redis
+   ports:
+    - "6379:6379"
+   volumes:
+    - ../data/redis:/data
+   restart: always
+   healthcheck:
+    test: "exit 0"
 
+#FRONT END
   juggler-front-end:
    image: viship/juggler:1.1.0
    container_name: juggler-front-end
@@ -223,6 +262,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#ZOOKEEPER MESSAFEBROKER
   zookeeper:
    image: wurstmeister/zookeeper
    ports:
@@ -233,6 +273,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#KAFKA MESSAGING
   kafka:
    image: wurstmeister/kafka
    ports:
@@ -250,6 +291,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#CHECKING
   prometheus:
    image: prom/prometheus
    container_name: prometheus
@@ -265,6 +307,7 @@ services:
    healthcheck:
     test: "exit 0"
 
+#CHECKING
   grafana:
    image: grafana/grafana
    container_name: grafana

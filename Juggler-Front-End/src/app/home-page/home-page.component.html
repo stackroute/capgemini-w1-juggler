@@ -9,23 +9,75 @@
             </button>
 
 </div> -->
-<br>
-<div class="searchresult">
-    <div *ngIf=search_result1>
-        <strong>
-            <h3 class="headings">Search Result</h3>
-        </strong>
-        <div class="row">
-            <div class="col-sm-4" *ngFor="let movie of search_result1; let i = index">
-                <div *ngIf="i < 2">
-                    <div class="card mt-3 mb-3">
-                        <div class="card-header">
-                            <b>{{ movie.movieName}}</b>
-                        </div>
-                        <div class="card-body">
-                            <img class="card-img-top img-fluid" routerLink="/moviedetail" (click)="getMovieInfo(movie)" src="{{movie.moviePoster}}" alt="{{movie.movieName}}"
-                                style="height: 300px">
+<div class="search">
+    
+    <form class="form-inline md-form form-sm active-pink">
+        
+        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search For Movies" aria-label="Search">
+        <button type="submit" class="but" (click)="searchMovies(input.value)">  <i class="fa fa-search" aria-hidden="true"></i>
+   </button>
+        </form>
+</div>
 
+
+
+
+
+
+
+<div class="container">
+    <div class="searchresult">
+        <div *ngIf=search_result1>
+            <strong>
+                <h1>Search Result</h1>
+            </strong>
+            <div class="row">
+                <div class="col-sm-3" *ngFor="let movie of search_result1; let i = index">
+                    <div *ngIf="i < 9">
+                        <div class="card ">
+                            <div class="img">
+                                <img class="card-img-top img-fluid" routerLink="/moviedetail" (click)="getMovieInfo(movie)"
+                                    src="{{movie.moviePoster}}" onerror="this.src='http://reelcinemas.ae/Images/Movies/not-found/no-poster.jpg';">
+                            </div>
+                            <div class="body">
+                                <div class="text-center">
+                                    <h5> <b>{{ movie.movieName}}</b></h5>
+                                </div>
+                                <p>{{ movie.movieGenre}} | {{movie.languages}} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cityresult">
+        <div *ngIf=search_result>
+            <strong>
+                <h1>Trending Movies</h1>
+            </strong>
+            <!-- <div class="card">
+            <img src="http://barkerhost.com/wp-content/uploads/sites/4/2015/07/4tAiwMK5TUkOsU0nKXeQKpyBjy2-2.jpg" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4><b>John Doe</b></h4> 
+              <p>Architect & Engineer</p> 
+            </div>
+          </div> -->
+            <div class="row">
+                <div class="col-sm-3" *ngFor="let movie of search_result; let i = index">
+                    <div *ngIf="i < 9">
+                        <div class="card mt-3 mb-3">
+                            <div class="img">
+                                <img class="card-img-top img-fluid" routerLink="/moviedetail" (click)="getMovieInfo(movie)"
+                                    src="{{movie.moviePoster}}" onerror="this.src='http://reelcinemas.ae/Images/Movies/not-found/no-poster.jpg';"
+                                    style="height:325px">
+                            </div>
+                            <div class="body">
+                                <div class="text-center">
+                                    <h5> <b>{{ movie.movieName}}</b></h5>
+                                </div>
+                                <p>{{ movie.movieGenre}} | {{movie.languages}} </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -33,38 +85,9 @@
         </div>
     </div>
 </div>
-<div class="cityresult">
-    <div *ngIf=search_result>
-
-        <strong>
-            <h3 class="headings">Trending Movies</h3>
-        </strong>
-
-
-        <div class="row">
-            <div class="col-sm-3" *ngFor="let movie of search_result; let i = index">
-                <div *ngIf="i < 9">
-                    <div class="card mt-3 mb-3">
-                        <div class="card-header text-center">
-                            <b>{{ movie.movieName}}</b>
-                        </div>
-                        <div class="card-body">
-                            <img class="card-img-top img-fluid" routerLink="/moviedetail" (click)="getMovieInfo(movie)" src="{{movie.moviePoster}}" alt="{{movie.movieName}}"
-                                style="height: 300px">
-                            <p class="text-center">{{ movie.original_title }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
 <!-- <mat-grid-list cols="12" (window:resize)="onResize($event)">
-    <!-- <mat-grid-list cols="12"> -->
-<!-- <h3>Trending Movies</h3>
+     <mat-grid-list cols="12"> 
+ <h3>Trending Movies</h3>
     <div class="container">
         <div *ngIf=search_result>
             <div class="row">
@@ -80,7 +103,7 @@
                                     </mat-card-header>
                                     <img mat-card-image routerLink="/moviedetail" (click)="getMovieInfo(movie)" src="{{movie.moviePoster}} " alt="Poster of movie"
                                         height="200" width="150">
-                                    <!-- <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button> -->
+                                    <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button> -->
 <!-- </mat-card>
                             </div>
                         </mat-grid-tile>
@@ -89,10 +112,5 @@
             </div>
         </div>
     </div>
-
 </mat-grid-list>  -->
-
-
-
-
 <app-recommendation></app-recommendation>

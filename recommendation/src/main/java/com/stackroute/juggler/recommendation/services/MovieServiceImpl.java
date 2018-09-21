@@ -122,6 +122,7 @@ public class MovieServiceImpl implements MovieService {
 		Theatre theatreObj=new Theatre();
 		String name=movie.getMovieName();
 		if(movieRepository.findByName(name)!=null){
+			System.out.println("checking the same moviename");
 			movies=movieRepository.findByName(name);
 			theaters=movies.getTheatres();
 			Iterator<Theatre> iterator = theaters.iterator();
@@ -129,11 +130,11 @@ public class MovieServiceImpl implements MovieService {
 			while (iterator.hasNext()) {
 				theater= iterator.next();
 				if (theater.getTheatreName().equals(movie.getTheatreName())) {
-					
+					System.out.println("checking the same theater name");
 				} 
 			
 				else {
-					
+					System.out.println("checking the different theaters");
 					theatreObj.setTheatreId(movie.getTheatreId());
 					theatreObj.setTheatreName(movie.getTheatreName());
 					theatreObj.setTheatreLocation(movie.getTheatreLocation());
@@ -156,6 +157,7 @@ public class MovieServiceImpl implements MovieService {
 		}
 		else
 		{
+			System.out.println("checking the different movie name");
 			theatreObj.setTheatreId(movie.getTheatreId());
 			theatreObj.setTheatreName(movie.getTheatreName());
 			theatreObj.setTheatreLocation(movie.getTheatreLocation());
@@ -192,8 +194,9 @@ public class MovieServiceImpl implements MovieService {
 			Genre genreObj = new Genre(movie.getMovieGenres());
 			movieObj.setGenre(genreObj);
 			movieObj.setTheatres(theaters);
+			System.out.println(theaters.toString());
 			System.out.println(movieObj.toString());
-			movieRepository.save(movieObj);
+			System.out.println(movieRepository.save(movieObj));
 			System.out.println("final");
 		}
 //		

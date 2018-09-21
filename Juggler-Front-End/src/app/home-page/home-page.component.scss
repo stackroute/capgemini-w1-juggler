@@ -1,43 +1,89 @@
 
-.input{
-    font-size: 15px;
-   border: 2px solid blue;
-  margin-left: 750px;
-    width: 30%;
-    height: 37px;
-    float:left;
- }
- 
-.btn-block{
-  color: white;
-  background-color:blue;
-  float:left;
-    width:100px;
+.active-pink input[type=text] {
+  border-bottom: 1px solid rgb(235, 122, 81);
+  box-shadow: 0 1px 0 0 rgb(235, 122, 81);
 }
-.input:focus {
-  color:black;
+
+ .active-pink .fa {
+  color:  gray
+
+}
+.form-inline{
+ margin-left: 70%;
+  width:350px;
+  //max-width: 90%;
+  display: inline-block
+}
+.search{
+//   margin-left: 70%;
+  width:100%;
+  overflow: hidden;
+  display:inline-block
   
-}
-.btn-block:hover{
-  border: 0;
-  box-shadow: none;
-  border-left: solid 2px #ccc;
+
+ }
+.but{
+  background-color: rgb(235, 122, 81);
+  width:40px;
+  cursor: pointer;
+
 }
 
-.card-header {
-  text-transform: capitalize;
-  text-align: center;
-}
-.cityresult{
-
-  margin-top: 20px;
-}
-// .card{
-//   width:100px;
-// }
-.searchbar{
-  margin-top: 10px;
-}
-.headings{
-  font-family: 'Padauk', sans-serif;
-}
+ //.input{
+  //     font-size: 15px;
+  //    border: 2px solid blue;
+  //   margin-left: 750px;
+  //     width: 30%;
+  //     height: 37px;
+  //     float:left;
+  //  }
+  .container{
+    margin:5%
+  }
+  // .btn-block{
+  //   color: white;
+  //   background-color:blue;
+  //   float:left;
+  //     width:100px;
+  // }
+  // .input:focus {
+  //   color:black;
+  
+  // }
+  // .btn-block:hover{
+  //   border: 0;
+  //   box-shadow: none;
+  //   border-left: solid 2px #ccc;
+  // }
+  
+  
+  .cityresult{
+  
+   margin-top: 20px;
+  }
+  // .card{
+  //   margin-right: 4%
+  // }
+ 
+  
+  
+  h5{
+   text-transform: capitalize;
+  }
+  .img{
+   height:90%;
+  }
+  .body{
+   height:10%;
+   padding-top: 2%
+  }
+  .body p{
+   text-align: center
+  }
+  .card{
+   cursor:pointer;
+   margin:2%;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+  }
+  
