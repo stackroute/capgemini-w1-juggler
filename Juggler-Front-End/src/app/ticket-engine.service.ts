@@ -15,7 +15,7 @@ export class TicketEngineService {
   getseatDetails(): Observable<Layout[]> {
     console.log("inside service class");
     return this.http
-      .get<Layout[]>(this.url)
+      .get<Layout[]>(this.url + "/pvr802:00bangalore")
       .pipe(map(res => (this.data = res)));
   }
   sendseatDetails() {}
