@@ -4,11 +4,11 @@ global:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['10.20.1.16:9090']
+      - targets: ['13.232.81.137:9090']
     
   - job_name: 'grafana'
     static_configs:
-      - targets: ['10.20.1.16:3000']
+      - targets: ['13.232.81.137:3000']
     
   - job_name: 'eureka-server'
     metrics_path: /actuator/prometheus
