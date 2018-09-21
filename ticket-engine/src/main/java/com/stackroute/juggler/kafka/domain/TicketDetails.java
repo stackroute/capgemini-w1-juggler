@@ -1,6 +1,7 @@
 package com.stackroute.juggler.kafka.domain;
 
 import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class TicketDetails {

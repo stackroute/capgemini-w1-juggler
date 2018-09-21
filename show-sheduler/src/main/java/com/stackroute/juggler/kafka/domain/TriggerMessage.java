@@ -2,23 +2,20 @@ package com.stackroute.juggler.kafka.domain;
 
 public class TriggerMessage {
 
-	@Override
-	public String toString() {
-		return "TriggerMessage [TheatreName=" + TheatreName + ", DateToStop=" + DateToStop + ", SlotToStop="
-				+ SlotToStop + "]";
-	}
-
 	private String TheatreName;
 	private String DateToStop;
 	private String SlotToStop;
+	private String City;
 
 	public TriggerMessage() {
 	}
 
-	public TriggerMessage(String theatreName, String dateToStop, String slotToStop) {
+	public TriggerMessage(String theatreName, String dateToStop, String slotToStop, String city) {
+		super();
 		TheatreName = theatreName;
 		DateToStop = dateToStop;
 		SlotToStop = slotToStop;
+		City = city;
 	}
 
 	public String getTheatreName() {
@@ -43,6 +40,20 @@ public class TriggerMessage {
 
 	public void setSlotToStop(String slotToStop) {
 		SlotToStop = slotToStop;
+	}
+
+	public String getCity() {
+		return City;
+	}
+
+	public void setCity(String city) {
+		City = city;
+	}
+
+	@Override
+	public String toString() {
+		return "TriggerMessage [TheatreName=" + TheatreName + ", DateToStop=" + DateToStop + ", SlotToStop="
+				+ SlotToStop + ", City=" + City + "]";
 	}
 
 }

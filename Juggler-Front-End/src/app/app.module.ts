@@ -81,7 +81,7 @@ import { TestComponent } from './test/test.component';
     BillingComponent,
     RsvpAcceptComponent,
     RecMovDisplayComponent,
-    TestComponent
+    TestComponent,
    
   ],
 

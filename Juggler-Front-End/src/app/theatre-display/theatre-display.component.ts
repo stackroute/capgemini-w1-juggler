@@ -7,6 +7,7 @@ import { FullBookingDetails } from "../FullBookingDetails";
 import { BookingDetailsService } from "../booking-details.service";
 import { Router } from "@angular/router";
 import { BookingLayoutService } from "../booking-layout.service";
+import { SharingDataService } from "../sharing-data.service";
 @Component({
   selector: "app-theatre-display",
   templateUrl: "./theatre-display.component.html",
@@ -17,7 +18,7 @@ export class TheatreDisplayComponent {
   theatreList: Theatre;
   selectedDetails = new FullBookingDetails();
   today: number;
-  Id:string;
+  Id: string;
   tomorrow = [];
   count: number;
   dateValue: number;
@@ -33,15 +34,16 @@ export class TheatreDisplayComponent {
   dateYear: string;
   flag: boolean;
   a = [];
- valueDate:string;
-  minDate:Date;
-  maxDate:Date;
+  valueDate: string;
+  minDate: Date;
+  maxDate: Date;
   public devWidth;
   constructor(
     private movieDetailsService: MovieDetailsService,
     private detailService: BookingDetailsService,
-    private bookingLayoutService:BookingLayoutService,
-    private router:Router
+    private bookingLayoutService: BookingLayoutService,
+    private service: SharingDataService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -57,21 +59,19 @@ export class TheatreDisplayComponent {
     const year = Number(this.a[2]);
     const month = Number(this.a[1]);
     const day = Number(this.a[0]);
-    var startDate = new Date(year, month-1, day);
-    var onDate=new Date();
+    var startDate = new Date(year, month - 1, day);
+    var onDate = new Date();
     console.log(startDate);
     var endDate = new Date(startDate.getTime() + 7 * 24 * 60 * 60 * 1000);
-    if(startDate<onDate)
-    this.minDate = onDate;
-    else
-    this.minDate=startDate
-    
+    if (startDate < onDate) this.minDate = onDate;
+    else this.minDate = startDate;
+
     // this.minDate = new Date(2000, 0, 1);
     // this.maxDate = new Date(2020, 0, 1);
-    console.log(this.minDate,this.maxDate);
-   this.maxDate=endDate;
- 
-    console.log(year,month,day);
+    console.log(this.minDate, this.maxDate);
+    this.maxDate = endDate;
+
+    console.log(year, month, day);
     console.log(startDate, endDate);
     this.theatreList = this.movieObject2["theatres"];
     console.log(this.theatreList);
@@ -84,13 +84,12 @@ export class TheatreDisplayComponent {
     console.log(a.getTime(), this.today);
     this.count = 0;
     this.dateValue = a.getTime();
-    
 
     while (this.count < 7) {
       this.tomorrow[this.count] = this.dateValue;
- if(this.today>this.dateValue){
-      this.dateValue = this.dateValue + 24 * 60 * 60 * 1000;
-    }
+      if (this.today > this.dateValue) {
+        this.dateValue = this.dateValue + 24 * 60 * 60 * 1000;
+      }
       this.count++;
     }
     console.log(this.tomorrow);
@@ -109,11 +108,15 @@ export class TheatreDisplayComponent {
     console.log(this.flag);
     return this.flag;
   }
-
   saveShow(theatre, showtime: string, Selecteddate) {
-   this.valueDate= String(Selecteddate.getDate())+"/"+String(Selecteddate.getMonth())+"/"+String(Selecteddate.getFullYear());
-  
-   console.log(this.valueDate+"sai");
+    this.valueDate =
+      String(Selecteddate.getDate()) +
+      "/" +
+      String(Selecteddate.getMonth()) +
+      "/" +
+      String(Selecteddate.getFullYear());
+
+    console.log(this.valueDate + "sai");
     this.selectedDetails.nameOfMovie = this.movieObject2.movieName;
     this.selectedDetails.moviePoster = this.movieObject2.moviePoster;
     this.selectedDetails.synopsis = this.movieObject2.synopsis;
@@ -125,15 +128,24 @@ export class TheatreDisplayComponent {
     this.selectedDetails.theaterName = theatre.theatreName;
     this.selectedDetails.theatreLocation = theatre.theatreLocation;
     this.selectedDetails.screeningTime = showtime;
-    this.selectedDetails.selectedDate=this.valueDate;
+    this.selectedDetails.selectedDate = this.valueDate;
     console.log(
       this.selectedDetails.nameOfMovie,
       this.selectedDetails.theaterName,
       this.selectedDetails.screeningTime
     );
-    this.Id=this.selectedDetails.theaterName+""+Selecteddate.getDate()+""+this.selectedDetails.screeningTime
-    this.bookingLayoutService.saveTickeDetails(this.Id)
-    .subscribe(res => console.log("Saved event"));
+    this.Id =
+      this.selectedDetails.theaterName +
+      "" +
+      Selecteddate.getDate() +
+      "" +
+      this.selectedDetails.screeningTime +
+      "" +
+      this.service.sendCityName();
+    this.selectedDetails.showId = this.Id;
+    this.bookingLayoutService
+      .saveTickeDetails(this.Id)
+      .subscribe(res => console.log("Saved event"));
     console.log(this.selectedDetails);
     this.detailService.send(this.selectedDetails);
   }

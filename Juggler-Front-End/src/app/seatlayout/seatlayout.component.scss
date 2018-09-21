@@ -20,7 +20,7 @@
 }
 .ArenaLayout {
   border: solid 5px lightgoldenrodyellow;
-  width: 400px;
+  width: 420px;
   height: 470px;
   margin-left: 30%;
   background-color: rgb(207, 199, 199);
@@ -64,13 +64,13 @@ h2 {
 //   background-color: green;
 // }
 .booked {
-  background-color:green;
+  background-color:red;
 }
 .selected {
-  background-color: blue;
+  background-color:grey;
 }
 .blocked {
-  background-color:red;
+  background-color:rgb(236, 215, 22);
   pointer-events: none;
 }
 
