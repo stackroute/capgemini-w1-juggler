@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { Movie } from "../movie";
 import { MovieDetailsService } from "../moviedetails.service";
 import { MovieDisplay } from "../MovieDisplay";
+import { SharingDataService } from "../sharing-data.service";
 
 @Component({
   selector: "app-home-page",
@@ -22,6 +23,7 @@ export class HomePageComponent implements OnInit {
   movieDataList;
   listMovie = [];
   data: Movie;
+ 
   // onResize(event) {
   //   const element = event.target.innerWidth;
   //   console.log(element);
@@ -45,14 +47,17 @@ export class HomePageComponent implements OnInit {
     private route: Router,
     private router: ActivatedRoute
   ) {}
-  searchMovies(Name) {
-    this.movie = Name;
+  
+  searchMovies() {
+    // this.dataa.currentMessage.subscribe(message => this.movie = message)
+    // console.log(this.movie);
     this.cityService.searchMovie(this.movie).subscribe(data => {
       this.search_result1 = data;
     });
     console.log(this.search_result1);
   }
   ngOnInit() {
+
     this.router.paramMap.subscribe((params: ParamMap) => {
       const city = params.get("city");
       this.city = city;
@@ -61,9 +66,13 @@ export class HomePageComponent implements OnInit {
       });
       console.log(this.search_result);
     });
+    // this.dataa.currentMessage.subscribe(message => this.movie = message)
+    // console.log(this.movie);
+    
   }
   getMovieInfo(movieDetail) {
     this.selectedMovie = movieDetail;
     this.movieDetailsService.send(this.selectedMovie);
   }
+  
 }

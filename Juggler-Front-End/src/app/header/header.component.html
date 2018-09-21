@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm stylish-color-dark navbar-dark" role="navigation">
+<nav class="navbar navbar-expand-sm elegant-color navbar-dark" role="navigation">
   <!-- Brand -->
   <a class="navbar-brand" href="/">
     <h1 class="name">
@@ -16,18 +16,6 @@
   <!-- <div class="collapse navbar-collapse show" id="collapsibleNavbar"> -->
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav mx-auto">
-        <li class="nav-item mx-5">
-            <div class="searchbar">
-    
-                <input type="text" class="input" placeholder="Search movies" name="city" [(ngModel)]="city" #input>
-    
-                <button type="submit" class="btn-block  form-control" (click)="searchMovies(input.value)">
-                    
-                    <i class="fa fa-search"></i>
-                </button>
-    
-    </div>
-          </li>
       <li class="nav-item mx-5">
         <a class="nav-link text-white" href="#home" >
           <h5 (mouseenter)=displayCityName()>
