@@ -14,6 +14,7 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
+import com.stackroute.juggler.kafka.domain.TriggerMessage;
 import com.stackroute.juggler.kafka.domain.TicketDetails;
 
 @EnableKafka
@@ -31,7 +32,7 @@ public class KafkaConsumer {
 		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
 				new JsonDeserializer<>(MovieSchedule.class));
 	}
-	
+
 	public ConsumerFactory<String, TicketDetails> payConsumerFactory() {
 		Map<String, Object> payConfig = new HashMap<>();
 		payConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.111:9092");
@@ -43,22 +44,42 @@ public class KafkaConsumer {
 				new JsonDeserializer<>(TicketDetails.class));
 	}
 
+	public ConsumerFactory<String, TriggerMessage> schedulerConsumerFactory() {
+		Map<String, Object> schedulerConfig = new HashMap<>();
+		schedulerConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.111:9092");
+		schedulerConfig.put(ConsumerConfig.GROUP_ID_CONFIG, "schedule");
+		schedulerConfig.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		schedulerConfig.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+
+		return new DefaultKafkaConsumerFactory<>(schedulerConfig, new StringDeserializer(),
+				new JsonDeserializer<>(TriggerMessage.class));
+	}
+
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, MovieSchedule> kafkaListenerContainerFactory() {
-		
-		ConcurrentKafkaListenerContainerFactory<String, MovieSchedule> factory1 = new ConcurrentKafkaListenerContainerFactory<>();
-		factory1.setConsumerFactory(consumerFactory());
-		return factory1;
-		
+
+		ConcurrentKafkaListenerContainerFactory<String, MovieSchedule> factory = new ConcurrentKafkaListenerContainerFactory<>();
+		factory.setConsumerFactory(consumerFactory());
+		return factory;
+
 	}
-	
+
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, TicketDetails> payKafkaListenerContainerFactory() {
-		
+
 		ConcurrentKafkaListenerContainerFactory<String, TicketDetails> factory = new ConcurrentKafkaListenerContainerFactory<>();
 		factory.setConsumerFactory(payConsumerFactory());
 		return factory;
-		
+
 	}
-	
+
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, TriggerMessage> schedulerKafkaListenerContainerFactory() {
+
+		ConcurrentKafkaListenerContainerFactory<String, TriggerMessage> factory = new ConcurrentKafkaListenerContainerFactory<>();
+		factory.setConsumerFactory(schedulerConsumerFactory());
+		return factory;
+
+	}
+
 }
