@@ -2,12 +2,11 @@ package com.stackroute.juggler.ticketengine.domain;
 
 import java.util.Date;
 import java.util.List;
-
 import org.springframework.data.annotation.Id;
-import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@RedisHash("Shows")
-public class Show {
+@Document
+public class ShowHistory {
 
 	@Id
 	private String showId;
@@ -25,6 +24,31 @@ public class Show {
 	private int totalCol;
 	private List<Integer> rowValues;
 	private List<Integer> colValues;
+
+	public ShowHistory(String showId, String city, String movieName, String theatreName, int bookingDate,
+			Date releseDate, Date showDate, String slot, Boolean status, List<Integer> bookedSeats,
+			List<Integer> blockedSeats, int totalRow, int totalCol, List<Integer> rowValues, List<Integer> colValues) {
+		super();
+		this.showId = showId;
+		this.city = city;
+		this.movieName = movieName;
+		this.theatreName = theatreName;
+		this.bookingDate = bookingDate;
+		this.releseDate = releseDate;
+		this.showDate = showDate;
+		this.slot = slot;
+		this.status = status;
+		this.bookedSeats = bookedSeats;
+		this.blockedSeats = blockedSeats;
+		this.totalRow = totalRow;
+		this.totalCol = totalCol;
+		this.rowValues = rowValues;
+		this.colValues = colValues;
+	}
+
+	public ShowHistory() {
+		super();
+	}
 
 	public String getShowId() {
 		return showId;
@@ -146,38 +170,13 @@ public class Show {
 		this.colValues = colValues;
 	}
 
-	public Show(String showId, String city, String movieName, String theatreName, int bookingDate, Date releseDate,
-			Date showDate, String slot, Boolean status, List<Integer> bookedSeats, List<Integer> blockedSeats,
-			int totalRow, int totalCol, List<Integer> rowValues, List<Integer> colValues) {
-		super();
-		this.showId = showId;
-		this.city = city;
-		this.movieName = movieName;
-		this.theatreName = theatreName;
-		this.bookingDate = bookingDate;
-		this.releseDate = releseDate;
-		this.showDate = showDate;
-		this.slot = slot;
-		this.status = status;
-		this.bookedSeats = bookedSeats;
-		this.blockedSeats = blockedSeats;
-		this.totalRow = totalRow;
-		this.totalCol = totalCol;
-		this.rowValues = rowValues;
-		this.colValues = colValues;
-	}
-
-	public Show() {
-		super();
-	}
-
 	@Override
 	public String toString() {
-		return "Show [showId=" + showId + ", city=" + city + ", movieName=" + movieName + ", theatreName=" + theatreName
-				+ ", bookingDate=" + bookingDate + ", releseDate=" + releseDate + ", showDate=" + showDate + ", slot="
-				+ slot + ", status=" + status + ", bookedSeats=" + bookedSeats + ", blockedSeats=" + blockedSeats
-				+ ", totalRow=" + totalRow + ", totalCol=" + totalCol + ", rowValues=" + rowValues + ", colValues="
-				+ colValues + "]";
+		return "ShowHistory [showId=" + showId + ", city=" + city + ", movieName=" + movieName + ", theatreName="
+				+ theatreName + ", bookingDate=" + bookingDate + ", releseDate=" + releseDate + ", showDate=" + showDate
+				+ ", slot=" + slot + ", status=" + status + ", bookedSeats=" + bookedSeats + ", blockedSeats="
+				+ blockedSeats + ", totalRow=" + totalRow + ", totalCol=" + totalCol + ", rowValues=" + rowValues
+				+ ", colValues=" + colValues + "]";
 	}
 
 }

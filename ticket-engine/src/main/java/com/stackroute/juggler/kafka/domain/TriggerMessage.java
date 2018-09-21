@@ -11,13 +11,12 @@ public class TriggerMessage {
 	}
 
 	public TriggerMessage(String theatreName, String dateToStop, String slotToStop, String city) {
-		super();
 		TheatreName = theatreName;
 		DateToStop = dateToStop;
 		SlotToStop = slotToStop;
 		City = city;
 	}
-
+	
 	public String getTheatreName() {
 		return TheatreName;
 	}
@@ -52,8 +51,8 @@ public class TriggerMessage {
 
 	@Override
 	public String toString() {
-		return "TriggerMessage [TheatreName=" + TheatreName + ", DateToStop=" + DateToStop + ", SlotToStop="
-				+ SlotToStop + ", City=" + City + "]";
+		return "ShowSheduler [TheatreName=" + TheatreName + ", DateToStop=" + DateToStop + ", SlotToStop=" + SlotToStop
+				+ ", City=" + City + "]";
 	}
 
 }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm stylish-color-dark navbar-dark" role="navigation">
+<nav class="navbar navbar-expand-sm elegant-color navbar-dark" role="navigation">
   <!-- Brand -->
   <a class="navbar-brand" href="/">
     <h1 class="name">
@@ -6,37 +6,23 @@
     </h1>
   </a>
   <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"aria-label="Toggle navigation"  (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"  aria-controls="collapsibleNavbar" aria-expanded="false">
+  
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
     <span class="navbar-toggler-icon"></span>
-  </button> 
-  <!-- <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
-    <span class="navbar-toggler-icon"></span>
-  </button> -->
+  </button>
   <!-- Navbar links -->
   <!-- <div class="collapse navbar-collapse show" id="collapsibleNavbar"> -->
-  <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
-    <ul class="navbar-nav mx-auto">
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item mx-5">
-            <div class="searchbar">
-    
-                <input type="text" class="input" placeholder="Search movies" name="city" [(ngModel)]="city" #input>
-    
-                <button type="submit" class="btn-block  form-control" (click)="searchMovies(input.value)">
-                    
-                    <i class="fa fa-search"></i>
-                </button>
-    
-    </div>
-          </li>
-      <li class="nav-item mx-5">
-        <a class="nav-link text-white" href="#home" >
-          <h5 (mouseenter)=displayCityName()>
-          City
-            <i href="#city" routerLink="/" class="fa fa-map-marker" aria-hidden="true"></i>
-          {{name}}</h5>
-        </a>
-      </li>
-    
+          <a class="nav-link text-white" href="#home" >
+            <h5 (mouseenter)=displayCityName()>
+            City
+              <i href="#city" routerLink="/" class="fa fa-map-marker" aria-hidden="true"></i>
+            {{name}}</h5>
+          </a>
+        </li>
+
       <li class="nav-item mx-5">
         <a class="nav-link text-white" href="#home" routerLink="/contact">
           <h5>

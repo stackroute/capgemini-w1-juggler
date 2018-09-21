@@ -58,9 +58,6 @@ export class SeatlayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.bookingDetail.selectedSeats=this.blockedSeatsArray;
-    // this.bookingDetail.selectedSeatType="platinum";
-    // this.bookingDetail.totalNoOfTickets=3;
     console.log(this.bookingDetail);
     this.blockedSeatsArray = [];
     console.log("inside ngonit");
