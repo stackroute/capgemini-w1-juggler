@@ -14,19 +14,23 @@ import org.springframework.stereotype.Service;
 
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.kafka.domain.Seats;
-import com.stackroute.juggler.kafka.domain.TriggerMessage;
 import com.stackroute.juggler.kafka.domain.TicketDetails;
+import com.stackroute.juggler.kafka.domain.TriggerMessage;
 import com.stackroute.juggler.ticketengine.domain.Show;
+import com.stackroute.juggler.ticketengine.domain.ShowHistory;
+import com.stackroute.juggler.ticketengine.repository.ShowHistoryRepository;
 import com.stackroute.juggler.ticketengine.repository.ShowRepository;
 
 @Service
 public class ShowServiceImpl implements ShowService {
 
 	private ShowRepository showRepo;
+	private ShowHistoryRepository showhistoryRepo;
 
 	@Autowired
-	public ShowServiceImpl(ShowRepository showRepo) {
+	public ShowServiceImpl(ShowRepository showRepo, ShowHistoryRepository showhistoryRepo) {
 		this.showRepo = showRepo;
+		this.showhistoryRepo = showhistoryRepo;
 	}
 
 	@Override
@@ -201,8 +205,14 @@ public class ShowServiceImpl implements ShowService {
 		Date dateStart = dateformatter.parse(date);
 		int iddate = dateStart.getDate();
 		String showid = name + iddate + timming + city;
+		Optional<Show> showw = showRepo.findById(showid);
+		Show local = showw.get();
+		ShowHistory showhistory = new ShowHistory(local.getShowId(), local.getCity(), local.getMovieName(),
+				local.getTheatreName(), local.getBookingDate(), local.getReleseDate(), local.getShowDate(),
+				local.getSlot(), local.getStatus(), local.getBookedSeats(), local.getBlockedSeats(),
+				local.getTotalRow(), local.getTotalCol(), local.getRowValues(), local.getColValues());
+		showhistoryRepo.save(showhistory);
 		System.out.println(showid);
-
 		showRepo.deleteById(showid);
 		System.out.println("Hai");
 
