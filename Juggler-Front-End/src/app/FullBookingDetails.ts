@@ -15,4 +15,9 @@ export class FullBookingDetails {
   emailId: string;
   selectedDate:string;
   totalAmount:number;
-}
+  showId:string;
+  bookingId:string;
+  totalNoOfTickets:number;
+  selectedSeatType:string;
+ selectedSeats:number[];
+ }
