@@ -3,7 +3,7 @@
     <div class="col-sm-12">
       <div class="card mt-5 mb-5">
         <div class="card-header">
-          <strong> {{movieObject.movieName}}</strong>
+        <h5><b>{{movieObject.movieName}}</b></h5>
         </div>
         <div class="card-body">
           <div class="row">
@@ -35,7 +35,8 @@
                   {{movieObject.movieReleasedate}}
                 </li>
                 <li class="list-group-item">
-                  <button mat-raised-button color="primary" routerLink="/display-theatre">Book Now</button>
+                  <button mat-raised-button color="warn" routerLink="/display-theatre">Book Now</button>
+                  <!-- <img src="assets/images/book.png" height="70px" width="200px"> -->
                 </li>
               </ul>
             </div>

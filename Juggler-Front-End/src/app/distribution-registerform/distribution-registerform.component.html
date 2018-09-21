@@ -1,37 +1,37 @@
 <div class="total">
 <div style="text-align: center">
-  <h4>
-    <strong>Movie Registration</strong>
-  </h4>
+  <h3 class="headings">
+   Movie Registration
+  </h3>
 </div>
 
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel></ng-template>
-      <div class="text1">
+       <ng-template matStepLabel></ng-template>
+        
       <mat-form-field class="example-full-width">
         <mat-label>Movie Name</mat-label>
         <input matInput placeholder="Movie Name" formControlName="movie_name" type="text" required>
       </mat-form-field>
-      <br>
+      
       <mat-form-field class="example-full-width">
         <mat-label>Movie Poster</mat-label>
         <input matInput placeholder="Movie Poster" formControlName="movie_poster" type="url" required>
       </mat-form-field>
-      <br>
+      
       <mat-form-field class="example-full-width">
         <mat-label>Format</mat-label>
         <input matInput placeholder="Format" type="text" formControlName="_format" required>
       </mat-form-field>
-      <br>
+      
       <mat-form-field class="example-full-width">
         <mat-label>Releasedate</mat-label>
         <input matInput [matDatepicker]="picker" placeholder="Releasedate" formControlName="movie_Releasedate" required>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <br>
+      
       <mat-form-field class="example-full-width">
         <mat-label>Genres</mat-label>
         <input matInput placeholder="Genres" formControlName="movie_Genres" type="text" [matAutocomplete]="auto1" required>
@@ -41,22 +41,23 @@
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-      </div>
+      <div class="next">
+        <button mat-stroked-button color="warn" matStepperNext><b>Next</b></button>
+      </div> 
     </form>
+
   </mat-step>
-<div class="text2">
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel></ng-template>
-      
-      <mat-form-field class="example-full-width">
+  <!-- </mat-step> -->
+<!-- <div class="text2"> -->
+   
+   <mat-step [stepControl]="secondFormGroup"> 
+      <form [formGroup]="secondFormGroup">
+      <!-- <ng-template matStepLabel></ng-template> -->
+      <mat-form-field class="example-half-width">
         <mat-label>Actor</mat-label>
         <input matInput placeholder="Actor" formControlName="_actor" type="text" required>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-half-width">
           <mat-label>Language</mat-label>
           <input matInput placeholder="Languages" formControlName="_languages" type="text" [matAutocomplete]="auto" required>
           <mat-autocomplete #auto="matAutocomplete">
@@ -65,34 +66,34 @@
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-        <br>
-      <mat-form-field class="example-full-width">
+        
+      <mat-form-field class="example-half-width">
         <mat-label>Actress</mat-label>
         <input matInput placeholder="Actress" formControlName="_actress" type="text" required>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-half-width">
           <mat-label>Duration</mat-label>
           <input matInput placeholder="Ex:-hh:mm:ss" formControlName="movie_Duration" type="text" required>
         </mat-form-field>
-        <br>
-      <mat-form-field class="example-full-width">
+        
+      <mat-form-field class="example-half-width">
         <mat-label>Directors</mat-label>
         <input matInput placeholder="Directors" formControlName="_directors" type="text" required>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-half-width">
         <mat-label>Synopsis</mat-label>
         <input matInput placeholder="Synopsis" formControlName="movie_Synopsis" type="textarea" required>
       </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+      <div class="option">
+        <button mat-stroked-button color="warn" matStepperPrevious><b>Back</b></button>
+        <button mat-stroked-button color="warn" (click)="stepper.reset()">Reset</button>
       </div>
-      <div>
-        <button mat-button (click)="addMovie()">Add Movie</button>
+      <div class="add">
+        <button mat-stroked-button color="warn" (click)="addMovie()"><b>Add Movie</b></button>
       </div>
-    </form>
-  </mat-step>
-  </div>
+</form>
+</mat-step>
+
 </mat-horizontal-stepper>
 </div>
 <!-- angular-app:

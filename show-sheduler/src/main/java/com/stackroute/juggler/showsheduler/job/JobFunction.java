@@ -20,6 +20,8 @@ public class JobFunction implements Job {
 
 	public static String NAME;
 	public static String SLOT;
+	public static String CITY;
+	
 
 	private static KafkaTemplate<String, TriggerMessage> objectKafkaTemplate;
 	private static KafkaTemplate<String, String> kafkaTemplate;
@@ -43,11 +45,12 @@ public class JobFunction implements Job {
 		JobDataMap dataMap = context.getJobDetail().getJobDataMap();
 		String name = dataMap.getString("theatreName");
 		String slot = dataMap.getString("slot");
+		String city =dataMap.getString("city");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		Date date = new Date();
 		String dateString = dateFormat.format(date);
 		System.out.println(dateString);
-		TriggerMessage message = new TriggerMessage(name, dateString, slot);
+		TriggerMessage message = new TriggerMessage(name, dateString, slot,city);
 		String messageStr = message.toString();
 		String topic = KafkaProducer.TOPIC;
 		objectKafkaTemplate.send(topic, message);

@@ -1,5 +1,7 @@
 package com.stackroute.juggler.recommendation.services;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,43 +79,124 @@ public class MovieServiceImpl implements MovieService {
 	@KafkaListener(groupId = "movie", topics = "screenings", containerFactory = "movieKafkaListenerContainerFactory")
 	public void getMovieNode(MovieSchedule movie) {
 		System.out.println("1");
+//		Movie movieObj = new Movie();
+//		movieObj.setMovieId(movie.getId());
+//		movieObj.setName(movie.getMovieName());
+//		movieObj.setMoviePoster(movie.getMoviePoster());
+//		movieObj.setSynopsis(movie.getSynopsis());
+//		movieObj.setMovieReleasedate(movie.getMovieReleaseDate());
+//		movieObj.setMovieDuration(movie.getMovieDuration());
+//		movieObj.setFormat(movie.getFormat());
+//		movieObj.setHero(movie.getActors());
+//		movieObj.setHeroine(movie.getActress());
+//		movieObj.setDirector(movie.getDirectors());
+//		movieObj.setReleasedInCity(movie.getTheatreCity());
+//		movieObj.setMovieGenres(movie.getMovieGenres());
+//		movieObj.setLanguage(movie.getLanguages());
+//		City cityObj = new City(movie.getTheatreCity());
+//		movieObj.setCity(cityObj);
+//		Language langObj = new Language(movie.getLanguages());
+//		movieObj.setLanguages(langObj);
+//		Genre genreObj = new Genre(movie.getMovieGenres());
+//		movieObj.setGenre(genreObj);
+//		
+//		Theatre theatreObj=new Theatre();
+//		theatreObj.setTheatreId(movie.getTheatreId());
+//		theatreObj.setTheatreName(movie.getTheatreName());
+//		theatreObj.setTheatreLocation(movie.getTheatreLocation());
+//		theatreObj.setTheatreCity(movie.getTheatreCity());
+//		theatreObj.setSeatLayout(movie.getSeatLayout());
+//		theatreObj.setShowNumbers(movie.getShowNumbers());
+//		theatreObj.setShowTimings(movie.getShowTimings());
+//		theatreObj.setWeekdays_Price(movie.getWeekdays_Price());
+//		theatreObj.setWeekends_Price(movie.getWeekends_Price());
+//		theatreObj.setNumberOfSeats(movie.getNumberOfSeats());
+//		theatreObj.setTypesOfSeats(movie.getTypesOfSeats());
+//		theatreObj.setRunningmovies(movie.getRunningmovies());
+//		theatreObj.setScreenedmovies(movie.getScreenedmovies());
+		int i;
 		Movie movieObj = new Movie();
-		movieObj.setMovieId(movie.getId());
-		movieObj.setName(movie.getMovieName());
-		movieObj.setMoviePoster(movie.getMoviePoster());
-		movieObj.setSynopsis(movie.getSynopsis());
-		movieObj.setMovieReleasedate(movie.getMovieReleaseDate());
-		movieObj.setMovieDuration(movie.getMovieDuration());
-		movieObj.setFormat(movie.getFormat());
-		movieObj.setHero(movie.getActors());
-		movieObj.setHeroine(movie.getActress());
-		movieObj.setDirector(movie.getDirectors());
-		movieObj.setReleasedInCity(movie.getTheatreCity());
-		movieObj.setMovieGenres(movie.getMovieGenres());
-		movieObj.setLanguage(movie.getLanguages());
-		City cityObj = new City(movie.getTheatreCity());
-		movieObj.setCity(cityObj);
-		Language langObj = new Language(movie.getLanguages());
-		movieObj.setLanguages(langObj);
-		Genre genreObj = new Genre(movie.getMovieGenres());
-		movieObj.setGenre(genreObj);
+		Movie movies;
+		Theatre theater;
+		List<Theatre> theaters = new ArrayList<Theatre>();
 		Theatre theatreObj=new Theatre();
-		theatreObj.setTheatreId(movie.getTheatreId());
-		theatreObj.setTheatreName(movie.getTheatreName());
-		theatreObj.setTheatreLocation(movie.getTheatreLocation());
-		theatreObj.setTheatreCity(movie.getTheatreCity());
-		theatreObj.setSeatLayout(movie.getSeatLayout());
-		theatreObj.setShowNumbers(movie.getShowNumbers());
-		theatreObj.setShowTimings(movie.getShowTimings());
-		theatreObj.setWeekdays_Price(movie.getWeekdays_Price());
-		theatreObj.setWeekends_Price(movie.getWeekends_Price());
-		theatreObj.setNumberOfSeats(movie.getNumberOfSeats());
-		theatreObj.setTypesOfSeats(movie.getTypesOfSeats());
-		theatreObj.setRunningmovies(movie.getRunningmovies());
-		theatreObj.setScreenedmovies(movie.getScreenedmovies());
-		System.out.println(movieObj.toString());
-		movieRepository.save(movieObj);
-		System.out.println("final");
+		String name=movie.getMovieName();
+		if(movieRepository.findByName(name)!=null){
+			movies=movieRepository.findByName(name);
+			theaters=movies.getTheatres();
+			Iterator<Theatre> iterator = theaters.iterator();
+		
+			while (iterator.hasNext()) {
+				theater= iterator.next();
+				if (theater.getTheatreName().equals(movie.getTheatreName())) {
+					
+				} 
+			
+				else {
+					
+					theatreObj.setTheatreId(movie.getTheatreId());
+					theatreObj.setTheatreName(movie.getTheatreName());
+					theatreObj.setTheatreLocation(movie.getTheatreLocation());
+					theatreObj.setTheatreCity(movie.getTheatreCity());
+					theatreObj.setSeatLayout(movie.getSeatLayout());
+					theatreObj.setShowNumbers(movie.getShowNumbers());
+					theatreObj.setShowTimings(movie.getShowTimings());
+					theatreObj.setWeekdays_Price(movie.getWeekdays_Price());
+					theatreObj.setWeekends_Price(movie.getWeekends_Price());
+					theatreObj.setNumberOfSeats(movie.getNumberOfSeats());
+					theatreObj.setTypesOfSeats(movie.getTypesOfSeats());
+					theatreObj.setRunningmovies(movie.getRunningmovies());
+					theatreObj.setScreenedmovies(movie.getScreenedmovies());
+					theaters = new ArrayList<Theatre>();
+					theaters.add(theatreObj);
+					movieRepository.save(movies);
+				}
+				
+		}
+		}
+		else
+		{
+			theatreObj.setTheatreId(movie.getTheatreId());
+			theatreObj.setTheatreName(movie.getTheatreName());
+			theatreObj.setTheatreLocation(movie.getTheatreLocation());
+			theatreObj.setTheatreCity(movie.getTheatreCity());
+			theatreObj.setSeatLayout(movie.getSeatLayout());
+			theatreObj.setShowNumbers(movie.getShowNumbers());
+			theatreObj.setShowTimings(movie.getShowTimings());
+			theatreObj.setWeekdays_Price(movie.getWeekdays_Price());
+			theatreObj.setWeekends_Price(movie.getWeekends_Price());
+			theatreObj.setNumberOfSeats(movie.getNumberOfSeats());
+			theatreObj.setTypesOfSeats(movie.getTypesOfSeats());
+			theatreObj.setRunningmovies(movie.getRunningmovies());
+			theatreObj.setScreenedmovies(movie.getScreenedmovies());
+			theaters = new ArrayList<Theatre>();
+			theaters.add(theatreObj);
+			
+			movieObj.setMovieId(movie.getId());
+			movieObj.setName(movie.getMovieName());
+			movieObj.setMoviePoster(movie.getMoviePoster());
+			movieObj.setSynopsis(movie.getSynopsis());
+			movieObj.setMovieReleasedate(movie.getMovieReleaseDate());
+			movieObj.setMovieDuration(movie.getMovieDuration());
+			movieObj.setFormat(movie.getFormat());
+			movieObj.setHero(movie.getActors());
+			movieObj.setHeroine(movie.getActress());
+			movieObj.setDirector(movie.getDirectors());
+			movieObj.setReleasedInCity(movie.getTheatreCity());
+			movieObj.setMovieGenres(movie.getMovieGenres());
+			movieObj.setLanguage(movie.getLanguages());
+			City cityObj = new City(movie.getTheatreCity());
+			movieObj.setCity(cityObj);
+			Language langObj = new Language(movie.getLanguages());
+			movieObj.setLanguages(langObj);
+			Genre genreObj = new Genre(movie.getMovieGenres());
+			movieObj.setGenre(genreObj);
+			movieObj.setTheatres(theaters);
+			System.out.println(movieObj.toString());
+			movieRepository.save(movieObj);
+			System.out.println("final");
+		}
+//		
 	}
 	@Override
 	public List<Movie> getGenreBasedMoviesForUser(String emailId) {

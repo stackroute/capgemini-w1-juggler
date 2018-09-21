@@ -1,26 +1,19 @@
 <!-- Search form -->
-<div class="searchbar">
+<!-- <div class="searchbar">
     
             <input type="text" class="input" placeholder="Search movies" name="city" [(ngModel)]="city" #input>
 
             <button type="submit" class="btn-block  form-control" (click)="searchMovies(input.value)">
-                search
+              
                 <i class="fa fa-search"></i>
             </button>
 
-</div>
-<!-- <nav class="navbar navbar-dark default-color">
-    <form class="form-inline my-2 my-lg-0 ml-auto">
-        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
-    </form>
-</nav> -->
-
+</div> -->
 <br>
 <div class="searchresult">
     <div *ngIf=search_result1>
         <strong>
-            <h1>Search Result</h1>
+            <h3 class="headings">Search Result</h3>
         </strong>
         <div class="row">
             <div class="col-sm-4" *ngFor="let movie of search_result1; let i = index">
@@ -44,7 +37,7 @@
     <div *ngIf=search_result>
 
         <strong>
-            <h1>Trending Movies</h1>
+            <h3 class="headings">Trending Movies</h3>
         </strong>
 
 
