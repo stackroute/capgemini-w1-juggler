@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../user.service";
 import {
@@ -52,7 +53,8 @@ export class UserRegisterComponent implements OnInit {
   constructor(
     private userService: UserService,
     private _formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private http:HttpClient
   ) { }
   // onGenreCardSelect(genre: any) {
   //   this.genreOutoutList.push(genre);
@@ -105,4 +107,5 @@ console.log(this.genreOutoutList);
       .subscribe(res => console.log("Saved User"));
     this.router.navigate(["/login-user"]);
   }
+
 }

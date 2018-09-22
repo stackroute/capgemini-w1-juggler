@@ -8,8 +8,8 @@ import { User } from "./user";
 })
 @Injectable()
 export class UserService {
-  private _url = "http://13.127.156.198:9073";
-  // private _url = "http://13.233.63.78:9073";
+  private _url = "http://10.20.1.15:9073";
+ 
   constructor(private http: HttpClient) {}
 
   saveUser(user: User): Observable<User> {
