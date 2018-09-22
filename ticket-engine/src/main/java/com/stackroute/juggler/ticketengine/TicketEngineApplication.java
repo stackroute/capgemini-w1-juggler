@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
@@ -14,16 +15,13 @@ import org.springframework.data.redis.serializer.GenericToStringSerializer;
 @SpringBootApplication
 @EnableRedisRepositories
 public class TicketEngineApplication {
-
-	@SuppressWarnings("deprecation")
+	
 	@Bean
-	JedisConnectionFactory jedisConnectionFactory() {
-		JedisConnectionFactory jedisConFactory = new JedisConnectionFactory();
-		jedisConFactory.setHostName("localhost");
-		jedisConFactory.setPort(6379);
-		return jedisConFactory;
+	public JedisConnectionFactory jedisConnectionFactory() {
+		RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("server", 6379);
+		return new JedisConnectionFactory(config);
 	}
-
+	
 	@Bean
 	public RedisTemplate<String, Object> redisTemplate() {
 		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
@@ -31,7 +29,7 @@ public class TicketEngineApplication {
 		redisTemplate.setValueSerializer(new GenericToStringSerializer<Object>(Object.class));
 		return redisTemplate;
 	}
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(TicketEngineApplication.class, args);
 	}
