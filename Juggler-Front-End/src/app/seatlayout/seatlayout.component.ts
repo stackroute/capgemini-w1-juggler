@@ -8,6 +8,7 @@ import * as SockJS from "sockjs-client";
 import { Layout } from "../layout";
 import { Blocking } from "../blocking";
 import { count } from "rxjs/operators";
+import { LayoutToBillingService } from "../layout-to-billing.service";
 declare var $: any;
 
 @Component({
@@ -46,18 +47,24 @@ export class SeatlayoutComponent implements OnInit {
   count = 0;
   userbookedseats = [];
 
-  private serverUrl = "http://13.233.63.78:9079/websocket";
+
+  private serverUrl = "http://172.23.239.47:9079/websocket";
   private stompClient;
 
   constructor(
     private http: HttpClient,
     private detailService: BookingDetailsService,
-    private ticketengineService: TicketEngineService
+    private ticketengineService: TicketEngineService,
+    private layouttobilling: LayoutToBillingService
   ) {
     this.webSocketConnect();
   }
 
   ngOnInit() {
+    this.bookingDetail.selectedSeats=this.blockedSeatsArray;
+   
+    this.bookingDetail.selectedSeatType="platinum";
+    
     console.log(this.bookingDetail);
     this.blockedSeatsArray = [];
     console.log("inside ngonit");
@@ -98,10 +105,9 @@ export class SeatlayoutComponent implements OnInit {
       }
     );
   }
-
   sendMessage(message) {
     let data = JSON.stringify({
-      showId: "pvr2718:00bangalore",
+      showId: "pvr2218:00bangalore",
       blockedSeats: this.blockedSeatsArray
     });
     this.stompClient.send("/app/message", {}, data);
@@ -109,9 +115,11 @@ export class SeatlayoutComponent implements OnInit {
   // add the seat number to array when clicked
   onclick(x, y) {
     let selected = x * 10 + y + 1;
+    var count;
     var flag = this.blockedSeatsArray.every(find);
     if (flag) {
       this.blockedSeatsArray.push(selected);
+      count++;
     } else {
       let index = this.blockedSeatsArray.indexOf(selected);
       this.blockedSeatsArray.splice(index, 1);
@@ -121,6 +129,9 @@ export class SeatlayoutComponent implements OnInit {
     function find(element) {
       return selected != element;
     }
+    this.bookingDetail.totalNoOfTickets=this.count;
+    this.bookingDetail.totalAmount=(this.count*250);
+    this.layouttobilling.send(this.bookingDetail);
   }
 
   createseating() {
@@ -161,7 +172,7 @@ export class SeatlayoutComponent implements OnInit {
       }
     }
   }
-  // CHECKING WHETHER
+  // CHECKING WHETHER SEAT is booked
   seatBook(row, col) {
     var flag = false;
     var seatId = row * 10 + col + 1;

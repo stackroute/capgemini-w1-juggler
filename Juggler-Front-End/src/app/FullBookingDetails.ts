@@ -20,4 +20,5 @@ export class FullBookingDetails {
   totalNoOfTickets:number;
   selectedSeatType:string;
  selectedSeats:number[];
+ TotalAmount:number;
  }
