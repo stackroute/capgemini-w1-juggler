@@ -6,20 +6,20 @@ import { FullBookingDetails } from "../FullBookingDetails";
 
 
 
-// export interface result {
-//   id:number;
-//   code:string;
-//   image:string;
-//   description:string;
-//   amount:string;
-// }
+export interface result {
+  id:number;
+  code:string;
+  image:string;
+  description:string;
+  amount:string;
+}
 @Component({
   selector: "app-billing",
   templateUrl: "./billing.component.html",
   styleUrls: ["./billing.component.scss"]
 })
 export class BillingComponent implements OnInit {
-result:any;
+//  result:any;
   promos: string;
   value: number;
   flag: boolean;
@@ -28,24 +28,25 @@ result:any;
   bool;
   bookingDetails: FullBookingDetails;
   
-//  result=[
-//   {
-//     id:1,
-//     code:"FLAT100",
-//     image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
-//     description:"It is applicable from 500Rs on Ticket",
-//   amount: 100
-//   },
-//   {
-//     id:1,
-//     code:"FLAT200",
-//     image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
-//     description:"It is applicable from 500Rs on Ticket",
-//   amount: 200
-//   }]
-  constructor(private promoService: PromocodeService, private payment: PromocodeService,private seatdetails: LayoutToBillingService) {}
+ result=[
+  {
+    id:1,
+    code:"FLAT100",
+    image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
+    description:"It is applicable from 500Rs on Ticket",
+  amount: 100
+  },
+  {
+    id:1,
+    code:"FLAT200",
+    image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
+    description:"It is applicable from 500Rs on Ticket",
+  amount: 200
+  }]
+  constructor(private promoService: PromocodeService, private payment: PromocodeService,private layouttobilling: LayoutToBillingService) {}
   ngOnInit() {
-    console.log(this.seatdetails.getAtBilling);
+
+    console.log(this.layouttobilling.getAtBilling()+ "anmisha");
     this.result1=null;
     // this.promoService.getpromos().subscribe(data => {
     //   this.result = data;

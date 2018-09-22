@@ -4,7 +4,7 @@
   <script src="seatlayout.component.ts"></script>
 </head>
 
-<!-- <div>
+<div>
   <div class="row">
     <div  class="col-sm-3">
       <b>{{bookingDetail.nameOfMovie}}</b>
@@ -19,7 +19,7 @@
       <b>{{bookingDetail.languages}},{{bookingDetail.format}}</b>
     </div>
   </div>
-</div> -->
+</div>
 <!-- <p class="seats">Select number of seats:
   <select (change)="selectChangeHandler($event)">
     <option value="1">1</option>
@@ -40,13 +40,13 @@
           {{seatname[i]}}{{col+1}}
         </div>
       <ng-template #SeatBlocked>
-          <div class="seat blocked">
+          <div class="seat blocked">{{row}}{{col}}
           </div>
         </ng-template>
       </div>
     <ng-template #SeatAvailable>
       <div class="seat available" (click)="onclick(row,col)">
-      </div>
+      {{row}}{{col}}</div>
     </ng-template>
   </div>
   </div>

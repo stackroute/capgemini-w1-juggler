@@ -6,7 +6,8 @@ import { FullBookingDetails } from './FullBookingDetails';
 })
 export class LayoutToBillingService {
 billingObj:FullBookingDetails;
-  constructor() { }
+  
+constructor() { }
   sendToBilling(BillDetail)
   {
 this.billingObj=BillDetail;

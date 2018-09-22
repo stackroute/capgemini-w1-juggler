@@ -64,8 +64,9 @@
 
         <mat-label><i><b>Enter Event date</b></i></mat-label>
 
-        <input matInput placeholder="Event date" formControlName="eventDate" type="text" required>
-
+        <input matInput [matDatepicker]="picker" placeholder="EventDate" formControlName="eventDate" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
         <mat-error>Required/Invalid Input</mat-error>
 
       </mat-form-field>
