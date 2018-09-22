@@ -9,13 +9,14 @@ import { Layout } from "./layout";
 })
 export class TicketEngineService {
   data;
-  private url = "http://13.233.63.78:9079/api/v1/ticket/layout";
+  // private url = "http://10.20.1.15:9079/api/v1/ticket/allSeats";
+  private url = "http://10.20.1.15:9079/api/v1/ticket/layout";
   constructor(private http: HttpClient) {}
 
   getseatDetails(): Observable<Layout[]> {
     console.log("inside service class");
     return this.http
-      .get<Layout[]>(this.url + "/pvr2718:00bangalore")
+      .get<Layout[]>(this.url + "/pvr802:00bangalore")
       .pipe(map(res => (this.data = res)));
   }
   sendseatDetails() {}

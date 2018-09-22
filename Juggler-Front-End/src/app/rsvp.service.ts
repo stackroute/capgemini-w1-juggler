@@ -11,6 +11,8 @@ export class RsvpService {
   data: any;
   private _url = "http://10.20.1.15:9075/api/v1/event";
   movies_url = "http://10.20.1.15:9075/api/v1/event/get/?emailId=";
+  // private _url = "http://13.233.63.78:9075/api/v1/event";
+  // movies_url = "http://13.233.63.78:9075/api/v1/event/get/?emailId=";
   //private _url = "http://172.23.239.115:9094;
   //event:Object;
   constructor(private http: HttpClient) {}

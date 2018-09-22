@@ -48,9 +48,10 @@ export class HomePageComponent implements OnInit {
     private router: ActivatedRoute
   ) {}
   
-  searchMovies() {
+  searchMovies(Movie: string) {
     // this.dataa.currentMessage.subscribe(message => this.movie = message)
-    // console.log(this.movie);
+     console.log(this.movie);
+    this.movie=Movie;
     this.cityService.searchMovie(this.movie).subscribe(data => {
       this.search_result1 = data;
     });

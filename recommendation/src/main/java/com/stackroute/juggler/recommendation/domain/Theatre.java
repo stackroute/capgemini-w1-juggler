@@ -5,10 +5,11 @@ import java.util.Arrays;
 import java.util.Map;
 import org.springframework.data.annotation.Id;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.stackroute.juggler.kafka.domain.Seats;
 
 // Domain object for theater details
 public class Theatre {
-	
+	@Id
 	private String theatreId;
 	private String theatreName;
 	private String theatreLocation;
@@ -25,8 +26,8 @@ public class Theatre {
 	private String[] runningmovies;
 
 	public Theatre(String theatreId, String theatreName, String theatreLocation, String theatreCity, Seats seatLayout,
-			int showNumbers, String showTimings, int[] weekends_Price, int[] weekdays_Price, String[] typesOfSeats,
-			int[] numberOfSeats, String[] screenedmovies, String[] runningmovies) {
+			int showNumbers, String showTimings, int[] weekends_Price, int[] weekdays_Price, int[] numberOfSeats,
+			String[] typesOfSeats, String[] screenedmovies, String[] runningmovies) {
 		super();
 		this.theatreId = theatreId;
 		this.theatreName = theatreName;
@@ -44,7 +45,7 @@ public class Theatre {
 	}
 
 	public Theatre() {
-		super();
+		
 	}
 
 	public String getTheatreId() {

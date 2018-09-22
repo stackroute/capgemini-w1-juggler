@@ -12,12 +12,12 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer 
 
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
-		registry.addEndpoint("/socket").setAllowedOrigins("*").withSockJS();
+		registry.addEndpoint("/websocket").setAllowedOrigins("*").withSockJS();
 	}
 
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry registry1) {
-		registry1.setApplicationDestinationPrefixes("/app").enableSimpleBroker("/chat");
+		registry1.setApplicationDestinationPrefixes("/app").enableSimpleBroker("/movie");
 	}
 
 }

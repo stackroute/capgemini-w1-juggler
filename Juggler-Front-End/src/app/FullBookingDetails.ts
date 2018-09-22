@@ -1,3 +1,4 @@
+
 export class FullBookingDetails {
   nameOfMovie: string;
   moviePoster: string;
@@ -13,11 +14,11 @@ export class FullBookingDetails {
   theaterName: string;
   theatreLocation: string;
   emailId: string;
+  totalNoOfTickets:number;
   selectedDate:string;
   totalAmount:number;
   showId:string;
   bookingId:string;
-  totalNoOfTickets:number;
   selectedSeatType:string;
- selectedSeats:number[];
+  selectedSeats:number[];
  }

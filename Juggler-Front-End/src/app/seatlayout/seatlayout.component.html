@@ -39,16 +39,16 @@
         <div *ngIf="seatBook(row,col); else SeatBlocked" class="seat booked">
           {{seatname[i]}}{{col+1}}
         </div>
-      <ng-template #SeatBlocked>
+        <ng-template #SeatBlocked>
           <div class="seat blocked">
           </div>
         </ng-template>
       </div>
-    <ng-template #SeatAvailable>
-      <div class="seat available" (click)="onclick(row,col)">
-      </div>
-    </ng-template>
-  </div>
+      <ng-template #SeatAvailable>
+        <div class="seat available" (click)="onclick(row,col)">
+        </div>
+      </ng-template>
+    </div>
   </div>
 </div>
 <div class="screen">

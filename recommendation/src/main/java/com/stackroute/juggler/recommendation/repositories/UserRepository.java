@@ -1,16 +1,9 @@
 package com.stackroute.juggler.recommendation.repositories;
 
-import java.util.List;
 
-import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.stackroute.juggler.recommendation.domain.City;
-import com.stackroute.juggler.recommendation.domain.Genre;
-import com.stackroute.juggler.recommendation.domain.Language;
-import com.stackroute.juggler.recommendation.domain.Movie;
 import com.stackroute.juggler.recommendation.domain.User;
 
 @Repository

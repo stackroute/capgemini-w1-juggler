@@ -8,6 +8,7 @@ import { ActivatedRoute, ParamMap } from "@angular/router";
   providedIn: "root"
 })
 export class MovieScreeningService {
+  //  private _url = "http://13.233.63.78:9072";
   private _url = "http://10.20.1.15:9072";
   constructor(private http: HttpClient, private router: ActivatedRoute) {}
 
