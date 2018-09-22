@@ -8,17 +8,19 @@
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Fill the Screening Details</ng-template>
+      <div class="timings">
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Enter No. of Shows" formControlName="show_Numbers" type="text" required>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
+      <b> Enter Show Timings:</b><br>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Enter Show Timings" formControlName="show_Timings" type="text" required>
+        <input matInput placeholder="Ex:hh:mm,hh:mm" formControlName="show_Timings" type="text" required>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
-      
+      </div>
       <div class="weekdays">
-         <b> Enter Weekdays Price:</b><br>
+         <b> Enter WeekDays Price:</b><br>
         <mat-form-field class="price">
           <input matInput placeholder="Platnium" formControlName="n1" type="number" required>
           <mat-error>The input is invalid</mat-error>
@@ -34,7 +36,7 @@
       </div>
      
       <div class="week">
-         <b> Enter Week Price:</b><br>
+         <b> Enter WeekEnd Price:</b><br>
         <mat-form-field class="price">
           <input matInput placeholder="Platnium" formControlName="n4" type="number" required>
           <mat-error>The input is invalid</mat-error>
@@ -117,7 +119,7 @@
       </div>
     </form>
     <div class="ok">
-    <button mat-stroked-button color="warn" (click)="clickOk()"><b>Ok</b></button>
+    <button mat-stroked-button color="warn" (click)="clickOk()"><b>Done</b></button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

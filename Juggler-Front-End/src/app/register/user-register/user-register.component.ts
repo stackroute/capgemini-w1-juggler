@@ -40,6 +40,8 @@ export class UserRegisterComponent implements OnInit {
   genreOutoutList: Array<string> = []; 
 json=[];
 city=[];
+json1=[];
+cit=[];
   user = new User();
   // languages: string[] = [
   //   "Bengali",
@@ -73,6 +75,17 @@ city=[];
 console.log(this.genreOutoutList);
 }
   ngOnInit() {
+    this.http.get('./assets/city.json').subscribe(
+      result => { this.json = result as string[];
+        // console.log(result);
+        this.cit[0]=this.json1[0].name;
+        this.cit[1]=this.json1[1].name;
+        this.cit[2]=this.json1[2].name;
+        this.cit[3]=this.json1[3].name;
+        
+        console.log(this.json);
+        console.log(this.cit+ "anmisha");
+       });
     this.firstFormGroup = this._formBuilder.group({
       userName: ["", Validators.required],
       email: ["", Validators.email],
