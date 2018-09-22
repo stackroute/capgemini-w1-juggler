@@ -103,7 +103,7 @@ export class SeatlayoutComponent implements OnInit {
     );
   }
 
-  sendMessage(message) {
+  sendMessage() {
     let data = JSON.stringify({
       showId: "pvr2219:00bangalore",
       blockedSeats: this.blockedSeatsArray

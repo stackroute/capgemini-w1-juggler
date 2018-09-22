@@ -84,8 +84,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BillingComponent,
     RsvpAcceptComponent,
     RecMovDisplayComponent,
-    TestComponent,
-   
+    TestComponent
   ],
 
   imports: [
@@ -106,17 +105,28 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatGridListModule,
     MatDialogModule,
     MatExpansionModule,
-    // MatFileUploadModule,
     MatNativeDateModule,
     MatAutocompleteModule,
     MatDividerModule,
     MatTableModule
   ],
-  providers: [AuthenticationService, AlertService, SearchDataService, TheatreService,LayoutToBillingService,BillingToPaymentService,PaymentToTicketService,UserService, MovieScreeningService, MovieDetailsService, PaymentService, ProfileService, PromocodeService,
-    Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [
+    AuthenticationService,
+    AlertService,
+    SearchDataService,
+    TheatreService,
+    UserService,
+    MovieScreeningService,
+    MovieDetailsService,
+    PaymentService,
+    ProfileService,
+    PromocodeService,
+    Location,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent],
-  entryComponents: [ DialogComponentComponent],
-  schemas: [ NO_ERRORS_SCHEMA ]
+  entryComponents: [DialogComponentComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
-export class AppModule { }
 
+export class AppModule {}
