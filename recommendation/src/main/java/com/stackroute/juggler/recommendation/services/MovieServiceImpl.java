@@ -30,7 +30,7 @@ public class MovieServiceImpl implements MovieService {
 
 
 	@Override
-	@KafkaListener(groupId = "movie", topics = "test2", containerFactory = "movieKafkaListenerContainerFactory")
+	@KafkaListener(groupId = "movie", topics = "screenings", containerFactory = "movieKafkaListenerContainerFactory")
 	public void getMovieNode(MovieSchedule movie) {
 		System.out.println(movie.getTheatreName());
 		System.out.println("hello");

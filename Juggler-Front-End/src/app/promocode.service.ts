@@ -7,8 +7,8 @@ import { map } from "rxjs/operators";
 })
 export class PromocodeService {
   data: any;
-  private url = "http://10.20.1.15:9080/api/v1/promocodes";
-  private url1 = "http://10.20.1.15:9080/api/v1/promocode";
+  private url = "http://13.127.156.198:9080/api/v1/promocodes";
+  private url1 = "http://13.127.156.198:9080/api/v1/promocode";
 //  private url = "http://localhost:9096/api/v1/promocodes";
 //   private url1 = "http://localhost:9096/api/v1/promocode";
   // private url = "http://13.233.63.78:9080/api/v1/promocodes";

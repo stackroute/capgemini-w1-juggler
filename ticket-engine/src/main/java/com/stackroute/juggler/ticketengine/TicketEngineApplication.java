@@ -10,7 +10,7 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 import org.springframework.data.redis.serializer.GenericToStringSerializer;
 //import com.stackroute.juggler.ticketengine.domain.Show;
 
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 @SpringBootApplication
 @EnableRedisRepositories
 public class TicketEngineApplication {
