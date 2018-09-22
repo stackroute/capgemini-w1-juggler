@@ -21,37 +21,38 @@ import { RsvpEventsListComponent } from "./rsvp-events-list/rsvp-events-list.com
 import { PaymentPageComponent } from "./payment-page/payment-page.component";
 import { RsvpAcceptComponent } from "./rsvp-accept/rsvp-accept.component";
 import { TestComponent } from "./test/test.component";
-import { RecomondationMovieDisplayComponent } from './recomondation-movie-display/recomondation-movie-display.component';
-import { RecommondationThetareDisplayComponent } from './recommondation-thetare-display/recommondation-thetare-display.component';
+import { RecomondationMovieDisplayComponent } from "./recomondation-movie-display/recomondation-movie-display.component";
+import { RecommondationThetareDisplayComponent } from "./recommondation-thetare-display/recommondation-thetare-display.component";
+
 const routes: Routes = [
-  { path: '', component: LandingPageComponent },
-  { path: 'home', component: HomePageComponent },
-  { path: 'home/:city', component: HomePageComponent },
-  { path: 'register-user', component: UserRegisterComponent },
-  { path: 'login-user', component: UserLoginComponent },
-  { path: 'register-partner', component: PartnerRegisterComponent },
-  { path: 'moviedetail', component: MoviedetailsFormComponent },
-  { path: 'login-partner', component: PartnerLoginComponent },
-  { path: 'distributor', component: DistributionRegisterFormComponent },
-  { path: 'screening/:email', component: MovieScreeningComponent },
-  { path: 'theatre/:email', component: TheatreRegistrationComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'profile/:email', component: ProfileComponent },
-  { path: 'rsvp', component: RSVPEventComponent },
-  { path: 'display-theatre',component: TheatreDisplayComponent },
-  { path: 'seat-layout',component: SeatlayoutComponent },
-{ path: 'payment-page',component: PaymentPageComponent},  
-{ path: 'rsvp/events',component:RsvpEventsListComponent},
-  { path: 'billing',component:BillingComponent },
-  {path:'rsvp/accept',component:RsvpAcceptComponent},
-  {path:'test',component:TestComponent},
-  {path:'rec/movie',component:RecomondationMovieDisplayComponent},
-  {path:'rec/theatre',component:RecommondationThetareDisplayComponent}
+  { path: "", component: LandingPageComponent },
+  { path: "home", component: HomePageComponent },
+  { path: "home/:city", component: HomePageComponent },
+  { path: "register-user", component: UserRegisterComponent },
+  { path: "login-user", component: UserLoginComponent },
+  { path: "register-partner", component: PartnerRegisterComponent },
+  { path: "moviedetail", component: MoviedetailsFormComponent },
+  { path: "login-partner", component: PartnerLoginComponent },
+  { path: "distributor", component: DistributionRegisterFormComponent },
+  { path: "screening/:email", component: MovieScreeningComponent },
+  { path: "theatre/:email", component: TheatreRegistrationComponent },
+  { path: "contact", component: ContactComponent },
+  { path: "profile/:email", component: ProfileComponent },
+  { path: "rsvp", component: RSVPEventComponent },
+  { path: "display-theatre", component: TheatreDisplayComponent },
+  { path: "seat-layout", component: SeatlayoutComponent },
+  { path: "payment-page", component: PaymentPageComponent },
+  { path: "rsvp/events", component: RsvpEventsListComponent },
+  { path: "billing", component: BillingComponent },
+  { path: "rsvp/accept", component: RsvpAcceptComponent },
+  { path: "test", component: TestComponent },
+  { path: "rec/movie", component: RecomondationMovieDisplayComponent },
+  { path: "rec/theatre", component: RecommondationThetareDisplayComponent }
 ];
-  
+
 @NgModule({
-  imports: [BrowserModule,RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule,BrowserModule]
+  imports: [BrowserModule, RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule, BrowserModule]
 })
 export class AppRoutingModule {}
 
