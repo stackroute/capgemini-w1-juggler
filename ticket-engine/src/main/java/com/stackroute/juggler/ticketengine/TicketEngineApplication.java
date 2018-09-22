@@ -18,7 +18,7 @@ public class TicketEngineApplication {
 	
 	@Bean
 	public JedisConnectionFactory jedisConnectionFactory() {
-		RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("server", 6379);
+		RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("localhost", 6379);
 		return new JedisConnectionFactory(config);
 	}
 	
