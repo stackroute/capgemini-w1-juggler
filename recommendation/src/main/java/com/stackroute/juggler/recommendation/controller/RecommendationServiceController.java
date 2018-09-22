@@ -5,34 +5,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackroute.juggler.recommendation.domain.Language;
 import com.stackroute.juggler.recommendation.domain.Movie;
-import com.stackroute.juggler.recommendation.domain.User;
-import com.stackroute.juggler.recommendation.repositories.UserRepository;
 import com.stackroute.juggler.recommendation.services.MovieService;
-import com.stackroute.juggler.recommendation.services.UserService;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1")
 public class RecommendationServiceController {
 
 	 MovieService movieService;
-private UserRepository userRepository;
-	private UserService userService;
+//private UserRepository userRepository;
+//	private UserService userService;
 
 	@Autowired
-	public RecommendationServiceController(MovieService movieService, UserService userService) {
+	public RecommendationServiceController(MovieService movieService) {
 		super();
 		this.movieService = movieService;
-		this.userService = userService;
+//		this.userService = userService;
 	}
 
 //

@@ -1,8 +1,6 @@
 package com.stackroute.juggler.recommendation.services;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import com.stackroute.juggler.kafka.domain.InputUser;
 import com.stackroute.juggler.recommendation.domain.City;
 import com.stackroute.juggler.recommendation.domain.Genre;
 import com.stackroute.juggler.recommendation.domain.Language;
-import com.stackroute.juggler.recommendation.domain.Movie;
 import com.stackroute.juggler.recommendation.domain.User;
 import com.stackroute.juggler.recommendation.repositories.CityRepository;
 import com.stackroute.juggler.recommendation.repositories.GenreRepository;
