@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from "@angular/core";
 import {
 FormControl,
@@ -20,6 +21,10 @@ styleUrls: ["./theatre-registration.component.scss"]
 export class TheatreRegistrationComponent implements OnInit {
 seatTypes: string[];
 seatCount: number[];
+json=[];
+city=[];
+json1=[];
+country=[];
 seats = new Seats();
 email: string;
 showFiller = false;
@@ -28,17 +33,7 @@ firstFormGroup: FormGroup;
 secondFormGroup: FormGroup;
 thirdFormGroup: FormGroup;
 myControl = new FormControl();
-options: string[] = [
-  "Bangalore",
-  "Chennai",
-  "Hyderabad",
-  "Jaipur",
-  "Kolkata",
-  "Lucknow",
-  "Mangalore",
-  "Mumbai",
-  "Pune"
-];
+
 
 theatre = new Theatre();
 seatObj = new Seats();
@@ -48,7 +43,8 @@ constructor(
   private _formBuilder: FormBuilder,
   private router: Router,
   public dialog: MatDialog,
-  private route: ActivatedRoute
+  private route: ActivatedRoute,
+  private http:HttpClient
 ) {}
 ngOnInit() {
   this.firstFormGroup = this._formBuilder.group({
@@ -79,6 +75,32 @@ ngOnInit() {
     this.email = ttName;
     console.log(this.email);
   });
+  this.http.get('./assets/city.json').subscribe(
+    result => { this.json = result as string[];
+      // console.log(result);
+      this.city[0]=this.json[0].name;
+      this.city[1]=this.json[1].name;
+      this.city[2]=this.json[2].name;
+      this.city[3]=this.json[3].name;
+      
+      console.log(this.json);
+      console.log(this.city+ "anmisha");
+     });
+     this.http.get('./assets/country.json').subscribe(
+      result1 => { this.json1 = result1 as string[];
+        // console.log(result);
+        this.country[0]=this.json1[0].name;
+        this.country[1]=this.json1[1].name;
+        this.country[2]=this.json1[2].name;
+        this.country[3]=this.json1[3].name;
+        this.country[4]=this.json1[4].name;
+        this.country[5]=this.json1[5].name;
+        this.country[6]=this.json1[6].name;
+       
+        console.log(this.json1);
+        console.log(this.country+ "anmisha");
+       });
+
 }
 openDialog() {
   this.theatre.email = this.email;

@@ -54,10 +54,10 @@
         <form class="example-form">
             <ng-template matStepLabel>Fill your recommendations</ng-template>
             <mat-form-field>
-                <mat-select placeholder="Languages" [formControl]="languageCtrl" multiple>
-                    <mat-option *ngFor="let language of languages" [value]="language">{{language}}</mat-option>
-                </mat-select>
-            </mat-form-field>
+                    <mat-select placeholder="Languages" [formControl]="languageCtrl" multiple>
+                        <mat-option *ngFor="let value of city" [value]="value">{{value}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
             <br>
             <h5>Select your genres</h5>
             <div id="container" *ngFor="let genre of genreList; let i = index">
