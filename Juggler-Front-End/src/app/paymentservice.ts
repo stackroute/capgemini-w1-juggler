@@ -16,7 +16,8 @@ export class PaymentService {
     showId: string,
     theatreName: string,
     movieName: string,
-    showTiming: string
+    showTiming: string,
+    email: string
   ) {
     const headers = new Headers({ token: token, amount: amount });
     // const head = new Headers({bookedSeats: bookedSeats});
@@ -39,7 +40,8 @@ export class PaymentService {
               showId: showId,
               movieName: movieName,
               theatreName: theatreName,
-              showTiming: showTiming
+              showTiming: showTiming,
+              email: email
             })
             .subscribe(response => {
               console.log(response);

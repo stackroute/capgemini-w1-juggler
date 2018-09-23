@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -21,10 +22,13 @@ import com.stackroute.juggler.kafka.domain.TicketDetails;
 @Configuration
 public class KafkaConsumer {
 
+	@Value("${bootstrap-id}")
+	private String bootstrap_id;
+
 	@Bean
 	public ConsumerFactory<String, MovieSchedule> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.16:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap_id);
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "ticket");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -35,7 +39,7 @@ public class KafkaConsumer {
 
 	public ConsumerFactory<String, TicketDetails> payConsumerFactory() {
 		Map<String, Object> payConfig = new HashMap<>();
-		payConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.16:9092");
+		payConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap_id);
 		payConfig.put(ConsumerConfig.GROUP_ID_CONFIG, "pay");
 		payConfig.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		payConfig.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -46,7 +50,7 @@ public class KafkaConsumer {
 
 	public ConsumerFactory<String, TriggerMessage> schedulerConsumerFactory() {
 		Map<String, Object> schedulerConfig = new HashMap<>();
-		schedulerConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.16:9092");
+		schedulerConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap_id);
 		schedulerConfig.put(ConsumerConfig.GROUP_ID_CONFIG, "schedule");
 		schedulerConfig.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		schedulerConfig.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);

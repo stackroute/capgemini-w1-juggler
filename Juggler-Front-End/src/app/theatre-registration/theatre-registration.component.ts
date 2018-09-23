@@ -61,20 +61,7 @@ ngOnInit() {
      });
   
 
-       this.http.get('./assets/country.json').subscribe(
-        result1 => { this.json1 = result1 as string[];
-          // console.log(result);
-          this.country[0]=this.json1[0].name;
-          this.country[1]=this.json1[1].name;
-          this.country[2]=this.json1[2].name;
-          this.country[3]=this.json1[3].name;
-          this.country[4]=this.json1[4].name;
-          this.country[5]=this.json1[5].name;
-          this.country[6]=this.json1[6].name;
-        
-          console.log(this.json1);
-          console.log(this.country+ "anmisha");
-         });
+       
 
   this.firstFormGroup = this._formBuilder.group({
     theatreName: ["", Validators.required],
@@ -82,12 +69,26 @@ ngOnInit() {
     City: ["", Validators.required],
     Capacity: ["", Validators.required]
   });
+  this.http.get('./assets/country.json').subscribe(
+    result1 => { this.json1 = result1 as string[];
+      // console.log(result);
+      this.country[0]=this.json1[0].name;
+      this.country[1]=this.json1[1].name;
+      this.country[2]=this.json1[2].name;
+      this.country[3]=this.json1[3].name;
+      this.country[4]=this.json1[4].name;
+      this.country[5]=this.json1[5].name;
+      this.country[6]=this.json1[6].name;
+    
+      console.log(this.json1);
+      console.log(this.country+ "anmisha");
+     });
   this.secondFormGroup = this._formBuilder.group({
-    address: ["", Validators.required],
-    city: ["", Validators.required],
-    state: ["", Validators.required],
-    zip: ["", Validators.required],
-    country: ["", Validators.required]
+    Address: ["", Validators.required],
+    City: ["", Validators.required],
+    State: ["", Validators.required],
+    Zip: ["", Validators.required],
+    Country: ["", Validators.required]
   });
   this.thirdFormGroup = this._formBuilder.group({
     type1: ["", Validators.required],
@@ -113,15 +114,15 @@ openDialog() {
   this.theatre.theatreCity = this.f.City.value;
   this.theatre.theatreLicenseNo = this.f.licenseNo.value;
   this.theatre.theatreLocation =
-    this.f1.address.value +
+    this.f1.Address.value +
     "," +
-    this.f1.city.value +
+    this.f1.City.value +
     "," +
-    this.f1.state.value +
+    this.f1.State.value +
     "," +
-    this.f1.zip.value +
+    this.f1.Zip.value +
     "," +
-    this.f1.country.value;
+    this.f1.Country.value;
   this.theatre.theatreName = this.f.theatreName.value;
   this.seatTypes = [
     this.f2.type1.value,
