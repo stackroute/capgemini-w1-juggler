@@ -4,21 +4,24 @@
     <strong>Movie Screening Details</strong>
   </h3>
 </div>
+<div class="forms">
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Fill the Screening Details</ng-template>
       <div class="timings">
       <mat-form-field class="example-full-width">
+          <mat-label>Enter No. of Shows:</mat-label>
         <input matInput placeholder="Enter No. of Shows" formControlName="show_Numbers" type="text" required>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
-      <b> Enter Show Timings:</b><br>
+      
       <mat-form-field class="example-full-width">
+          <mat-label>Enter Show Timings:</mat-label>
         <input matInput placeholder="Ex:hh:mm,hh:mm" formControlName="show_Timings" type="text" required>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
-      </div>
+      </div> 
       <div class="weekdays">
          <b> Enter WeekDays Price:</b><br>
         <mat-form-field class="price">
@@ -35,7 +38,7 @@
         </mat-form-field>
       </div>
      
-      <div class="week">
+      <div class="weekdays">
          <b> Enter WeekEnd Price:</b><br>
         <mat-form-field class="price">
           <input matInput placeholder="Platnium" formControlName="n4" type="number" required>
@@ -51,7 +54,7 @@
         </mat-form-field>
       </div>
       <div class="button-color">
-          <button mat-stroked-button color="warn" matStepperNext><b>Next</b></button>
+          <button mat-raised-button color="primary" matStepperNext><b>Next</b></button>
         </div>
     </form>
   </mat-step>
@@ -63,7 +66,7 @@
         <input [(ngModel)]="title" matInput placeholder="Movie Search" name="movie" required>
       </mat-form-field>
         <div class="search">
-        <button mat-stroked-button color="warn" type="search" (click)="getMovie(title)"><b>search</b></button>
+        <button mat-raised-button color="primary" type="search" (click)="getMovie(title)"><b>search</b></button>
    </div>
       
       <div class="container" *ngFor="let movie of movies">
@@ -107,7 +110,7 @@
                         {{movie.movieDuration}}
                       </li>
                       <li class="list-group-item">
-                        <button class="mat-stroked-button"color="warn" (click)="onSubmit(movie)"><b> Add Movie</b></button>
+                        <button mat-raised-button color="primary" (click)="onSubmit(movie)"><b> Add Movie</b></button>
                       </li>
                     </ul>
                   </div>
@@ -119,8 +122,9 @@
       </div>
     </form>
     <div class="ok">
-    <button mat-stroked-button color="warn" (click)="clickOk()"><b>Done</b></button>
+    <button mat-raised-button color="primary" (click)="clickOk()"><b>OK</b></button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>
+</div>
 </div>
