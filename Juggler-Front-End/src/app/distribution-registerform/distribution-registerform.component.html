@@ -53,20 +53,20 @@
    
    <mat-step [stepControl]="secondFormGroup"> 
       <form [formGroup]="secondFormGroup">
-      <!-- <ng-template matStepLabel></ng-template> -->
+          <mat-form-field class="example-half-width">
+              <mat-label>Language</mat-label>
+              <input matInput placeholder="Languages" formControlName="_languages" type="text" [matAutocomplete]="auto" required>
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let cityOption of city" [value]="cityOption">
+                  {{ cityOption }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
       <mat-form-field class="example-half-width">
         <mat-label>Actor</mat-label>
         <input matInput placeholder="Actor" formControlName="_actor" type="text" required>
       </mat-form-field>
-      <mat-form-field class="example-half-width">
-          <mat-label>Language</mat-label>
-          <input matInput placeholder="Languages" formControlName="_languages" type="text" [matAutocomplete]="auto" required>
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let cityOption of city" [value]="cityOption">
-              {{ cityOption }}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
+     
         
       <mat-form-field class="example-half-width">
         <mat-label>Actress</mat-label>

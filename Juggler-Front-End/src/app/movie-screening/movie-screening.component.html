@@ -9,17 +9,21 @@
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Fill the Screening Details</ng-template>
+      <div class="timings">
       <mat-form-field class="example-full-width">
+          <mat-label>Enter No. of Shows:</mat-label>
         <input matInput placeholder="Enter No. of Shows" formControlName="show_Numbers" type="text" required>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
+      
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Enter Show Timings" formControlName="show_Timings" type="text" required>
+          <mat-label>Enter Show Timings:</mat-label>
+        <input matInput placeholder="Ex:hh:mm,hh:mm" formControlName="show_Timings" type="text" required>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
-      
+      </div> 
       <div class="weekdays">
-         <b> Enter Weekdays Price:</b><br>
+         <b> Enter WeekDays Price:</b><br>
         <mat-form-field class="price">
           <input matInput placeholder="Platnium" formControlName="n1" type="number" required>
           <mat-error>The input is invalid</mat-error>
@@ -35,7 +39,7 @@
       </div>
      
       <div class="weekdays">
-         <b> Enter Weekend Price:</b><br>
+         <b> Enter WeekEnd Price:</b><br>
         <mat-form-field class="price">
           <input matInput placeholder="Platnium" formControlName="n4" type="number" required>
           <mat-error>The input is invalid</mat-error>
