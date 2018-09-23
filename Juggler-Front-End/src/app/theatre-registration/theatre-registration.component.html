@@ -60,13 +60,13 @@
           <input matInput placeholder="Zip" formControlName="Zip" required>
           <mat-error>Required/The input is invalid</mat-error>
         </mat-form-field>
-        <mat-form-field class="example-half-width">
+        <!-- <mat-form-field class="example-half-width">
             <input matInput placeholder="Country" formControlName="Country" required>
             <mat-error>Required/The input is invalid</mat-error>
-          </mat-form-field>
+          </mat-form-field> -->
         
-            <!-- <mat-form-field class="example-half-width">
-              <mat-label>Country</mat-label>
+            <mat-form-field class="example-half-width">
+             
               <input matInput placeholder="Country" formControlName="Country" type="text" [matAutocomplete]="auto" required>
               <mat-autocomplete #auto="matAutocomplete">
                 <mat-option *ngFor="let cityOption of country" [value]="cityOption">
@@ -74,7 +74,7 @@
                 </mat-option>
               </mat-autocomplete>
               <mat-error>Required/The input is invalid</mat-error>
-            </mat-form-field> -->
+            </mat-form-field>
 
 
         <div class="mt-btn">

@@ -16,6 +16,11 @@ padding-left: 14%;
 display: grid;
 
 }
+.container{
+  margin-top:  20%;
+  width:90%;
+  height: 70%;
+}
 .next {
   padding-left: 30%;
 }
@@ -50,11 +55,13 @@ display: grid;
 // }
 
 .total {
-  padding-top: 1%;
-  
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w8vxZggMFIGOxrQh_5ZDkjSwDTMkXQpvUagVsJsNLPMSRygB");
-  
+  // padding-top: 1%;
+    //  background-image: url("/src/assets/images/depositphotos_137176364-stock-illustration-clapperboard-pattern-simple-style.jpg");
+
 }
 .headings{
-  font-family: 'Padauk', sans-serif;
+   font-family: 'Padauk', sans-serif;
+  color: #525F7F;
+ 
+  
 }
