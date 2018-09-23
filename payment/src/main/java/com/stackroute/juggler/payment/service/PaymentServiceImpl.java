@@ -81,7 +81,7 @@ public class PaymentServiceImpl implements PaymentService {
 			paymentRepo.save(ticket);
 			// kafkaTemplate.send(topic, ticket);
 		} else {
-			ticket.setBookingStatus("Failure");
+			ticket.setBookingStatus("Failed");
 			paymentRepo.save(ticket);
 			// kafkaTemplate.send(topic, ticket);
 		}
@@ -91,8 +91,14 @@ public class PaymentServiceImpl implements PaymentService {
 	@Override
 	public TicketDetails addTicket(TicketDetails ticketDetails) {
 		paymentRepo.save(ticketDetails);
-		kafkaTemplate.send(topic, ticketDetails);
+		// kafkaTemplate.send(topic, ticketDetails);
 		return ticketDetails;
+	}
+
+	@Override
+	public TicketDetails getTicket(String email) {
+		TicketDetails ticket = paymentRepo.getByEmail(email);
+		return ticket;
 	}
 
 }

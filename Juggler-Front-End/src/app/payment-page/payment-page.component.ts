@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { PaymentService } from "../paymentservice";
 import { MatDialog } from "@angular/material";
 import { PromocodeService } from "../promocode.service";
+import { NgxSpinnerService } from "ngx-spinner";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-payment-page",
@@ -14,16 +16,27 @@ export class PaymentPageComponent implements OnInit {
   expiryYear: string;
   cvc: string;
   // amount = this.amt.amount;
-  amount = 50;
+  amount: number = 50;
   token: string;
   msg: string;
-  chargeId: string;
+  msg1: string;
+  // bookingStatus: string;
+  theatreName: string = "PVR";
+  showId: string = "pvr701:00bangalore";
+  movieName: string = "hi";
+  bookedSeats: number[] = [1, 2, 3];
+  showTiming: string = "01:00";
+  email: string = "amar@gmail.com";
+
+  // bookingDetails = new BookingDetails();
 
   // fileNameRef: MatDialogRef<PaymentDialogComponent>;
   constructor(
     private paymentService: PaymentService,
     private amt: PromocodeService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private route: Router,
+    private ngxSpinner: NgxSpinnerService
   ) {}
   chargeCreditCard() {
     (<any>window).Stripe.card.createToken(
@@ -36,8 +49,18 @@ export class PaymentPageComponent implements OnInit {
       (status: number, response: any) => {
         if (status === 200) {
           this.token = response.id;
+          this.amount = 50;
           console.log(this.amount);
-          this.paymentService.chargeCard(this.token, this.amount);
+          this.paymentService.chargeCard(
+            this.token,
+            this.amount,
+            this.bookedSeats,
+            this.showId,
+            this.theatreName,
+            this.movieName,
+            this.showTiming,
+            this.email
+          );
           this.msg = "Transaction Success";
           console.log(this.token);
           if (this.token == null) {
@@ -45,11 +68,28 @@ export class PaymentPageComponent implements OnInit {
               "Transaction failure! Plase Check Your Internet Connection";
           }
         } else {
+          this.paymentService.chargeCard(
+            this.token,
+            this.amount,
+            this.bookedSeats,
+            this.showId,
+            this.theatreName,
+            this.movieName,
+            this.showTiming,
+            this.email
+          );
           console.log(response.error.message);
-          this.msg = "Transaction Failed Because " + response.error.message;
+          setTimeout(() => {
+            this.route.navigate(["/seat-layout"]);
+          }, 5000);
+          this.msg1 = "Transaction Failed Because " + response.error.message;
         }
       }
     );
+    this.ngxSpinner.show();
+    setTimeout(() => {
+      this.ngxSpinner.hide();
+    }, 3000);
   }
 
   refundCreditCard() {

@@ -52,6 +52,7 @@ import { PromocodeService } from './promocode.service';
 import { RsvpAcceptComponent } from './rsvp-accept/rsvp-accept.component';
 import { RecMovDisplayComponent } from './rec-mov-display/rec-mov-display.component';
 import { TestComponent } from './test/test.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
@@ -107,7 +108,8 @@ import { TestComponent } from './test/test.component';
     MatNativeDateModule,
     MatAutocompleteModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    NgxSpinnerModule
   ],
   providers: [AuthenticationService, AlertService, SearchDataService, TheatreService, UserService, MovieScreeningService, MovieDetailsService, PaymentService, ProfileService, PromocodeService,
     Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],

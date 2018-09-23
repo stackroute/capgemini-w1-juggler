@@ -18,7 +18,7 @@ import com.stackroute.juggler.kafka.domain.TicketDetails;
 public class KafkaProducerConfig {
 
 	// Declaring Topic
-	static final String TOPIC = "payment13";
+	static final String TOPIC = "payment";
 
 	// 192.168.43.174 172.23.239.111
 	// KafkaProducerConfig factory of kafka which will hold the configuration

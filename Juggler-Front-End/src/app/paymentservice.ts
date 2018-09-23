@@ -1,17 +1,22 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers } from "@angular/http";
+import { BookingDetails } from "./bookingDetails";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 @Injectable({
   providedIn: "root"
 })
 // 10.20.1.15:9081
 export class PaymentService {
   message: string;
-  constructor(private http: Http) {}
-  chargeCard(token: string, amount: number) {
+  constructor(private http: Http, private https: HttpClient) {}
+  // movieName: string, showId: string
+  chargeCard(token: string, amount: number, bookedSeats: number[], showId: string, theatreName: string, movieName: string, showTiming: string, email: string ) {
     const headers = new Headers({ token: token, amount: amount });
+    // const head = new Headers({bookedSeats: bookedSeats});
     this.http
       .post(
-        "http://10.20.1.15:9081/api/v1/payment/charge",
+        "http://localhost:9081/api/v1/payment/charge",
         {},
         { headers: headers }
       )
@@ -19,10 +24,12 @@ export class PaymentService {
         console.log(resp);
         if (resp != null) {
           this.http
-            .post("http://10.20.1.15:9081/api/v1/payment/ticket", {})
+            .post("http://localhost:9081/api/v1/payment/ticket",{bookedSeats: bookedSeats, showId: showId, movieName: movieName,
+          theatreName: theatreName, showTiming: showTiming, email: email})
             .subscribe(response => {
               console.log(response);
             });
+          
         } 
       });
   }
@@ -33,5 +40,11 @@ export class PaymentService {
       .subscribe(res => {
         console.log(res);
       });
+  }
+
+  getTicket(email: string) {
+    return fetch(
+      "http://localhost:9081/api/v1/payment/ticket/?email=" + email
+    ).then(response => response.json());
   }
 }
