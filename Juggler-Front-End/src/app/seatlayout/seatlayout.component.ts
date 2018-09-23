@@ -1,3 +1,4 @@
+import { LayoutToBillingService } from './../layout-to-billing.service';
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
@@ -6,6 +7,8 @@ import { TicketEngineService } from "../ticket-engine.service";
 import * as Stomp from "stompjs";
 import * as SockJS from "sockjs-client";
 import { Layout } from "../layout";
+import { Blocking } from "../blocking";
+import { count } from "rxjs/operators";
 declare var $: any;
 
 @Component({
@@ -39,6 +42,10 @@ export class SeatlayoutComponent implements OnInit {
   layoutobj: Layout;
   json: any;
   local = [];
+  userblockedseats = [];
+  blocked: any;
+  count = 0;
+  userbookedseats = [];
 
   private serverUrl = "http://172.23.239.47:9079/websocket";
   private stompClient;
@@ -46,12 +53,15 @@ export class SeatlayoutComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private detailService: BookingDetailsService,
-    private ticketengineService: TicketEngineService
+    private ticketengineService: TicketEngineService,
+    private layouttobilling: LayoutToBillingService
   ) {
     this.webSocketConnect();
   }
 
   ngOnInit() {
+   
+    this.bookingDetail=this.detailService.receive();
     console.log(this.bookingDetail);
     this.blockedSeatsArray = [];
     console.log("inside ngonit");
@@ -62,11 +72,11 @@ export class SeatlayoutComponent implements OnInit {
       this.totalCol.length = this.json.totalCol;
       this.totalRow = this.json.rowValues;
       this.totalCol = this.json.colValues;
-      this.blockedSeatsArray = this.blockedSeats;
-      this.bookedSeats = this.bookedSeats;
+      this.blockedSeats = this.json.blockedSeats;
+      this.bookedSeats = this.json.bookedSeats;
       console.log(this.totalRow);
       console.log(this.totalCol);
-      console.log(this.blockedSeatsArray);
+      console.log(this.blockedSeats);
       console.log(this.bookedSeats);
       this.createseating();
     });
@@ -84,25 +94,29 @@ export class SeatlayoutComponent implements OnInit {
         that.stompClient.subscribe("/movie", data => {
           if (data.body) {
             console.log("receiving from backend ", data.body);
+            this.blocked = data.body;
+            console.log("hi", this.blocked);
+            // console.log(this.blocked.showId);
           }
         });
       }
     );
   }
 
-  sendMessage(message) {
+  sendMessage() {
     let data = JSON.stringify({
-      showId: "pvr701:00bangalore",
+      showId: "pvr2219:00bangalore",
       blockedSeats: this.blockedSeatsArray
     });
     this.stompClient.send("/app/message", {}, data);
   }
-
+  // add the seat number to array when clicked
   onclick(x, y) {
     let selected = x * 10 + y + 1;
     var flag = this.blockedSeatsArray.every(find);
     if (flag) {
       this.blockedSeatsArray.push(selected);
+     this.count++;
     } else {
       let index = this.blockedSeatsArray.indexOf(selected);
       this.blockedSeatsArray.splice(index, 1);
@@ -112,9 +126,15 @@ export class SeatlayoutComponent implements OnInit {
     function find(element) {
       return selected != element;
     }
+    this.bookingDetail.selectedSeats=this.blockedSeatsArray;
+    this.bookingDetail.totalNoOfTickets=this.count;
+   this.bookingDetail.totalAmount=(this.count*250);
+   console.log(this.bookingDetail.totalAmount+ "madhusri");
+   this.layouttobilling.sendToBilling(this.bookingDetail);
   }
 
   createseating() {
+    console.log(this.totalRow.length);
     for (let i = 0; i < this.totalRow.length; i++) {
       for (let j = 0; j < this.totalCol.length; j++) {
         const seatingStyle = '<div class="seat available"></div>';
@@ -125,6 +145,7 @@ export class SeatlayoutComponent implements OnInit {
         }
       }
     }
+
     $(function() {
       $(".seat").on("click", function() {
         if ($(this).hasClass("selected")) {
@@ -136,21 +157,29 @@ export class SeatlayoutComponent implements OnInit {
           console.log("css added");
         }
       });
-      $(this.blockedSeats).addClass("blocked");
     });
   }
+  // CHECKING WHETHER SEAT IS BLOCKED
   seatStatus(row, col) {
+    var flag = false;
+    // console.log(this.blockedSeats);
     var seatId = row * 10 + col + 1;
-    // console.log("Seat ID : " + seatId);
-    // console.log(this.blockedSeats.length);
-    var i;
-
-    for (i = 0; i < this.blockedSeats.length; i++) {
-      if (this.blockedSeatsArray[i] === seatId) {
-        console.log(this.blockedSeats[i]);
-        return true;
-      } else {
-        return false;
+    for (var i = 0; i < this.blockedSeats.length; i++) {
+      if (this.blockedSeats[i] == seatId) {
+        flag = true;
+        return flag;
+      }
+    }
+  }
+  // CHECKING WHETHER
+  seatBook(row, col) {
+    var flag = false;
+    var seatId = row * 10 + col + 1;
+    for (var i = 0; i < this.bookedSeats.length; i++) {
+      if (this.bookedSeats[i] == seatId) {
+        console.log(this.bookedSeats[i]);
+        flag = true;
+        return flag;
       }
     }
   }

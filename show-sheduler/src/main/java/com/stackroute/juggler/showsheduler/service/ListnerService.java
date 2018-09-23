@@ -36,6 +36,7 @@ public class ListnerService {
 		String startDateStr = scheduledMovie.getMovieReleaseDate();
 		String theatreName = scheduledMovie.getTheatreName();
 		String showSlot = scheduledMovie.getShowTimings();
+		String city = scheduledMovie.getTheatreCity();
 		String[] showSlots = showSlot.split(",");
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String date = startDateStr;
@@ -59,7 +60,7 @@ public class ListnerService {
 
 			JobKey jobKey = JobKey.jobKey("job" + i + theatreName + LocalDateTime.now());
 			JobDetail job = JobBuilder.newJob(JobFunction.class).usingJobData("theatreName", theatreName)
-					.usingJobData("slot", showSlots[i]).withIdentity(jobKey).build();
+					.usingJobData("slot", showSlots[i]).usingJobData("city", city).withIdentity(jobKey).build();
 
 			TriggerKey triggerKey = TriggerKey.triggerKey("trigger" + i + theatreName + LocalDateTime.now());
 			if (sc.getTriggerState(triggerKey) == TriggerState.ERROR) {

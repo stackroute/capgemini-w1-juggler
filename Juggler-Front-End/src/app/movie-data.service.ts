@@ -11,15 +11,16 @@ export class MovieDataService {
   constructor(private http: HttpClient) { }
 
   setDistributorMovies() {
-    return this.http.get('http://10.20.1.15:9070/api/v1/movie/');
+      return this.http.get('http://10.20.1.15:9070/api/v1/movie/');
   }
   getMovie() {
     return this.http.get('http://10.20.1.15:9070/api/v1/movie');
   }
   getMovieByTitle() {
-    return this.http.get('http://10.20.1.15:9070/api/v1/movie/');
+     return this.http.get('http://10.20.1.15:9070/api/v1/movie/');
   }
   addMovie(movie: Movie): Observable<Movie> {
     return this.http.post<Movie>(this.url2 , movie);
   }
 }
+

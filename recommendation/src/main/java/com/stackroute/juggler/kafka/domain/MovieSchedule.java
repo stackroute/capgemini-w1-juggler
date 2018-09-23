@@ -1,10 +1,13 @@
 package com.stackroute.juggler.kafka.domain;
 
 
+import javax.persistence.Id;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.stackroute.juggler.recommendation.domain.Seats;
 
 public class MovieSchedule {
+	
+	@Id
 	private String theatreId;
 	private String email;
 	private String theatreLocation;

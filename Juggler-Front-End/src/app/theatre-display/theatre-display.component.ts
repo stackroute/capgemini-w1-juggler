@@ -61,9 +61,9 @@ export class TheatreDisplayComponent {
     var onDate=new Date();
     console.log(startDate);
     var endDate = new Date(startDate.getTime() + 7 * 24 * 60 * 60 * 1000);
-    if(startDate<onDate)
-    this.minDate = onDate;
-    else
+    // if(startDate<onDate)
+    // this.minDate = onDate;
+    // else
     this.minDate=startDate
     
     // this.minDate = new Date(2000, 0, 1);

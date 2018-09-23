@@ -1,5 +1,4 @@
-import { Seats } from "./Seats";
-
+import { Seats } from './Seats';
 export class Theatre {
   email: string;
   theatreLocation: string;
@@ -11,5 +10,6 @@ export class Theatre {
   runningmovies: string[];
   typesOfSeats: String[];
   numberOfSeats: number[];
-  seatLayout: Seats;
-}
+   seatLayout: Seats;
+  
+  }

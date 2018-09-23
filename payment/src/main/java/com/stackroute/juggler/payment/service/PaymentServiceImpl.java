@@ -79,11 +79,11 @@ public class PaymentServiceImpl implements PaymentService {
 		if (chargee != null) {
 			ticket.setBookingStatus("Success");
 			paymentRepo.save(ticket);
-			// kafkaTemplate.send(topic, ticket);
+			kafkaTemplate.send(topic, ticket);
 		} else {
-			ticket.setBookingStatus("Failed");
+			ticket.setBookingStatus("Failure");
 			paymentRepo.save(ticket);
-			// kafkaTemplate.send(topic, ticket);
+			kafkaTemplate.send(topic, ticket);
 		}
 		return ticket;
 	}
@@ -91,7 +91,7 @@ public class PaymentServiceImpl implements PaymentService {
 	@Override
 	public TicketDetails addTicket(TicketDetails ticketDetails) {
 		paymentRepo.save(ticketDetails);
-		// kafkaTemplate.send(topic, ticketDetails);
+		//kafkaTemplate.send(topic, ticketDetails);
 		return ticketDetails;
 	}
 

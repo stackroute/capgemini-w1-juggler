@@ -1,6 +1,9 @@
+import { LayoutToBillingService } from './../layout-to-billing.service';
 
 import { PromocodeService } from "./../promocode.service";
 import { Component, OnInit } from "@angular/core";
+import { FullBookingDetails } from "../FullBookingDetails";
+
 
 
 export interface result {
@@ -16,13 +19,15 @@ export interface result {
   styleUrls: ["./billing.component.scss"]
 })
 export class BillingComponent implements OnInit {
-
+//  result:any;
   promos: string;
   value: number;
   flag: boolean;
   show: boolean = true;
   result1 = null;
   bool;
+  bookingDetails: FullBookingDetails;
+  
  result=[
   {
     id:1,
@@ -38,8 +43,10 @@ export class BillingComponent implements OnInit {
     description:"It is applicable from 500Rs on Ticket",
   amount: 200
   }]
-  constructor(private promoService: PromocodeService, private payment: PromocodeService) {}
+  constructor(private promoService: PromocodeService, private payment: PromocodeService,private layouttobilling: LayoutToBillingService) {}
   ngOnInit() {
+
+    console.log(this.layouttobilling.getAtBilling()+ "anmisha");
     this.result1=null;
     // this.promoService.getpromos().subscribe(data => {
     //   this.result = data;

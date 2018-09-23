@@ -75,7 +75,7 @@ export class RecommondationThetareDisplayComponent {
     this.selectedDetails.nameOfMovie = this.movieObject2.name;
     this.selectedDetails.moviePoster = this.movieObject2.moviePoster;
     this.selectedDetails.synopsis = this.movieObject2.synopsis;
-    this.selectedDetails.movieReleasedate = this.movieObject2.movieReleaseDate;
+    this.selectedDetails.movieReleasedate = this.movieObject2.movieReleasedate;
     this.selectedDetails.movieDuration = this.movieObject2.movieDuration;
     this.selectedDetails.format = this.movieObject2.format;
     while(this.movieObject2.movieGenres[this.i]!=null)  {

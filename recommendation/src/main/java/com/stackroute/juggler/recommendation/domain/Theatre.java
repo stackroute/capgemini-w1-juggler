@@ -1,9 +1,11 @@
 package com.stackroute.juggler.recommendation.domain;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Map;
 import org.springframework.data.annotation.Id;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.stackroute.juggler.kafka.domain.Seats;
 
 // Domain object for theater details
 public class Theatre {
@@ -24,8 +26,8 @@ public class Theatre {
 	private String[] runningmovies;
 
 	public Theatre(String theatreId, String theatreName, String theatreLocation, String theatreCity, Seats seatLayout,
-			int showNumbers, String showTimings, int[] weekends_Price, int[] weekdays_Price, String[] typesOfSeats,
-			int[] numberOfSeats, String[] screenedmovies, String[] runningmovies) {
+			int showNumbers, String showTimings, int[] weekends_Price, int[] weekdays_Price, int[] numberOfSeats,
+			String[] typesOfSeats, String[] screenedmovies, String[] runningmovies) {
 		super();
 		this.theatreId = theatreId;
 		this.theatreName = theatreName;
@@ -43,7 +45,7 @@ public class Theatre {
 	}
 
 	public Theatre() {
-		super();
+		
 	}
 
 	public String getTheatreId() {
@@ -148,6 +150,17 @@ public class Theatre {
 
 	public void setRunningmovies(String[] runningmovies) {
 		this.runningmovies = runningmovies;
+	}
+
+	@Override
+	public String toString() {
+		return "Theatre [theatreId=" + theatreId + ", theatreName=" + theatreName + ", theatreLocation="
+				+ theatreLocation + ", theatreCity=" + theatreCity + ", seatLayout=" + seatLayout + ", showNumbers="
+				+ showNumbers + ", showTimings=" + showTimings + ", weekends_Price=" + Arrays.toString(weekends_Price)
+				+ ", weekdays_Price=" + Arrays.toString(weekdays_Price) + ", typesOfSeats="
+				+ Arrays.toString(typesOfSeats) + ", numberOfSeats=" + Arrays.toString(numberOfSeats)
+				+ ", screenedmovies=" + Arrays.toString(screenedmovies) + ", runningmovies="
+				+ Arrays.toString(runningmovies) + "]";
 	}
 
 }

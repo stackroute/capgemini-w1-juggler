@@ -1,11 +1,58 @@
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
+// .example-form {
+//   min-width: 150px;
+//   max-width: 500px;
+//   width: 100%;
+// }
 
 .example-full-width {
-  width: 100%;
+  width: 49%;
+  margin-left: 3%;
+  padding-right: 15%;
+  display:grid;
+ 
+}
+.timings b{
+  margin-left: 3%;
+  margin-right: 2%;
+  margin-top: 1%;
+}
+.button-color {
+  margin-left: 51%;
+  margin-top: 0.7%;
+  
+}
+.button-color b{
+  color:#525F7F;
+}
+.week b{
+  margin-left: 3%;
+  margin-right: 2%;
+  margin-top: -5%;
+}
+.search {
+  margin-top: -3%;
+}
+.search button {
+  margin-left: 19%;
+  
+}
+.search b{
+  color:#525F7F;
+}
+.ok b{
+  color:#525F7F;
+}
+.weekdays b{
+  margin-left: 3%;
+  margin-right: 2%;
+  margin-top: 1%;
+}
+.price {
+  margin:1.5%;
+  margin-left: 3%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  
 }
 
 .example-option-img {
@@ -19,6 +66,8 @@
 }
 .headings{
   font-family: 'Padauk', sans-serif;
+  padding-top: 1%;
 }
+
 
   

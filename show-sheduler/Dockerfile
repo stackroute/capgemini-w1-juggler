@@ -4,5 +4,5 @@ FROM java:8-jre
 ADD ./target/show-sheduler-0.0.1-SNAPSHOT.jar /usr/app/show-sheduler-0.0.1-SNAPSHOT.jar
 # java -jar <jar fileName>
 WORKDIR usr/app
-ENTRYPOINT ["java","-jar", "show-sheduler-0.0.1-SNAPSHOT"]
-EXPOSE 9082
+ENTRYPOINT ["java","-jar", "show-sheduler-0.0.1-SNAPSHOT.jar"]
+EXPOSE 9071

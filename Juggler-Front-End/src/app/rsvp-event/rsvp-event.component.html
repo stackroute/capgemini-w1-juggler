@@ -64,8 +64,9 @@
 
         <mat-label><i><b>Enter Event date</b></i></mat-label>
 
-        <input matInput placeholder="Event date" formControlName="eventDate" type="text" required>
-
+        <input matInput [matDatepicker]="picker" placeholder="EventDate" formControlName="eventDate" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
         <mat-error>Required/Invalid Input</mat-error>
 
       </mat-form-field>
@@ -168,17 +169,17 @@
 
       <div class="form3-btn">
 
-        <button mat-stroked-button color="warn" matStepperPrevious>Back</button>
+        <button mat-stroked-button color="warn" matStepperPrevious><b>Back</b></button>
 
         <button mat-stroked-button color="warn" (click)="stepper.reset()"><b>Reset</b></button>
-
+        <button mat-stroked-button color="warn" (click)="saveEvent()"><b>Save</b></button>
       </div>
 
-      <div class="save">
+      <!-- <div class="save">
 
         <button mat-stroked-button color="warn" (click)="saveEvent()"><b>Save</b></button>
 
-      </div>
+      </div> -->
 
     </form>
 

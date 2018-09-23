@@ -10,9 +10,6 @@ export class SearchDataService {
   data: any;
   private url3="http://10.20.1.15:9077/api/v1/city";
   private url = "http://10.20.1.15:9077/api/v1/movie";
-  // private url3="http://13.233.64.173:9077/api/v1/city";
-  // private url = "http://13.233.64.173:9077/api/v1/movie";
-
   constructor(private http: HttpClient, private router: Router) {}
 
   searchMoviebycity(city: string) {

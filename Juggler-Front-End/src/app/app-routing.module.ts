@@ -23,6 +23,8 @@ import { RsvpAcceptComponent } from "./rsvp-accept/rsvp-accept.component";
 import { TestComponent } from "./test/test.component";
 import { RecomondationMovieDisplayComponent } from "./recomondation-movie-display/recomondation-movie-display.component";
 import { RecommondationThetareDisplayComponent } from "./recommondation-thetare-display/recommondation-thetare-display.component";
+import { TicketBookedComponent } from "./ticket-booked/ticket-booked.component";
+
 const routes: Routes = [
   { path: "", component: LandingPageComponent },
   { path: "home", component: HomePageComponent },
@@ -46,7 +48,8 @@ const routes: Routes = [
   { path: "rsvp/accept", component: RsvpAcceptComponent },
   { path: "test", component: TestComponent },
   { path: "rec/movie", component: RecomondationMovieDisplayComponent },
-  { path: "rec/theatre", component: RecommondationThetareDisplayComponent }
+  { path: "rec/theatre", component: RecommondationThetareDisplayComponent },
+  { path: "ticket", component: TicketBookedComponent }
 ];
 
 @NgModule({
@@ -75,5 +78,6 @@ export const routingComponents = [
   BillingComponent,
   RsvpAcceptComponent,
   RecomondationMovieDisplayComponent,
-  RecommondationThetareDisplayComponent
+  RecommondationThetareDisplayComponent,
+  TicketBookedComponent
 ];

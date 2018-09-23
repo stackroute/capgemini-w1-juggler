@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -15,9 +14,6 @@ import com.stackroute.juggler.kafka.domain.MovieSchedule;
 
 @Configuration
 public class KafkaProducerConfig {
-	
-	@Value("${bootstrap-id}")
-	private String bootstrap_id;
 
 	// Declaring Topic
 	static final String TOPIC = "screening-details";
@@ -25,13 +21,12 @@ public class KafkaProducerConfig {
 	static final String TOPIC2 = "screening-schedule";
 	static final String TOPIC3 = "screening-ticket";
 
-//	172.23.239.111:9092
 	// KafkaProducerConfig factory of kafka which will hold the configuration
 	// details
 	@Bean
 	public ProducerFactory<String, MovieSchedule> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap_id);
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.16:9092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
