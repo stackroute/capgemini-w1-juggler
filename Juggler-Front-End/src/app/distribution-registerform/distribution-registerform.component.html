@@ -1,10 +1,10 @@
 <div class="total">
 <div style="text-align: center">
   <h3 class="headings">
-   Movie Registration
+   Distributor Dashboard
   </h3>
 </div>
-
+<div class="forms">
 <mat-horizontal-stepper class="container my-3" [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
@@ -22,7 +22,7 @@
       
       <mat-form-field class="example-full-width">
         <mat-label>Format</mat-label>
-        <input matInput placeholder="Format" type="text" formControlName="_format" required>
+        <input matInput placeholder="Ex:2D/3D" type="text" formControlName="_format" required>
       </mat-form-field>
       
       <mat-form-field class="example-full-width">
@@ -42,7 +42,8 @@
         </mat-autocomplete>
       </mat-form-field>
       <div class="next">
-        <button mat-stroked-button color="warn" matStepperNext><b>Next</b></button>
+        <!-- <button mat-stroked-button color="warn" matStepperNext><b>Next</b></button> -->
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div> 
     </form>
 
@@ -82,19 +83,20 @@
       </mat-form-field>
       <mat-form-field class="example-half-width">
         <mat-label>Synopsis</mat-label>
-        <input matInput placeholder="Synopsis" formControlName="movie_Synopsis" type="textarea" required>
-      </mat-form-field>
+        <textarea matInput placeholder="Synopsis" formControlName="movie_Synopsis" type="text" required></textarea>
+         </mat-form-field>
       <div class="option">
-        <button mat-stroked-button color="warn" matStepperPrevious><b>Back</b></button>
-        <button mat-stroked-button color="warn" (click)="stepper.reset()"><b>Reset</b></button>
-      </div>
-      <div class="add">
-        <button mat-stroked-button color="warn" (click)="addMovie()"><b>Add Movie</b></button>
+        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
+      <!-- </div> -->
+      <!-- <div class="add"> -->
+        <button mat-raised-button color="primary" id="add" (click)="addMovie()"><b>Add Movie</b></button>
       </div>
 </form>
 </mat-step>
 
 </mat-horizontal-stepper>
+</div>
 </div>
 <!-- angular-app:
   build: Angular-project/
