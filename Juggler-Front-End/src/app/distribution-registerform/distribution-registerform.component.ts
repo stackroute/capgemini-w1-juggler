@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MovieDataService } from '../movie-data.service';
@@ -15,18 +16,17 @@ export class DistributionRegisterFormComponent implements OnInit {
   constructor(
     private cardservice: MovieDataService,
     private _formBuilder: FormBuilder,
-    private route: Router
+    private route: Router,
+    private http:HttpClient
   ) {}
 
   isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
- 
-  options: string[] = ['Bengali', 'English', 'Gujarati', 'Hindi', 'Kannada', 'Marathi', 'Malyalam', 'Telugu', 'Tamil'];
-
-  options1: string[] = ['Comedy', 'Crime', 'Historical period', ' Horror', ' Legal', 'Melodrama', 'Military', 'Romantic', 'Teen'];
-
-
+json=[];
+city=[];
+json1=[];
+genre=[];
   // hide = true;
   movie = new Movie();
 
@@ -46,6 +46,36 @@ export class DistributionRegisterFormComponent implements OnInit {
       movie_Duration: ['', Validators.required],
       movie_Synopsis: ['', Validators.required]
     });
+
+    this.http.get('./assets/languages.json').subscribe(
+      result => { this.json = result as string[];
+        // console.log(result);
+        this.city[0]=this.json[0].name;
+        this.city[1]=this.json[1].name;
+        this.city[2]=this.json[2].name;
+        this.city[3]=this.json[3].name;
+        this.city[4]=this.json[4].name;
+        this.city[5]=this.json[5].name;
+        this.city[6]=this.json[6].name;
+        this.city[7]=this.json[7].name;
+        console.log(this.json);
+        console.log(this.city+ "anmisha");
+       });
+       this.http.get('./assets/geners.json').subscribe(
+        result => { this.json1 = result as string[];
+          // console.log(result);
+          this.genre[0]=this.json1[0].name;
+          this.genre[1]=this.json1[1].name;
+          this.genre[2]=this.json1[2].name;
+          this.genre[3]=this.json1[3].name;
+          this.genre[4]=this.json1[4].name;
+          this.genre[5]=this.json1[5].name;
+          this.genre[6]=this.json1[6].name;
+          this.genre[7]=this.json1[7].name;
+          console.log(this.json1);
+          console.log(this.genre+ "anmisha");
+         });
+
   }
   get f() {
     return this.firstFormGroup.controls;

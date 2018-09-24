@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -19,12 +20,15 @@ import com.stackroute.juggler.kafka.domain.MovieSchedule;
 @EnableKafka
 @Configuration
 public class KafkaConsumerConfig {
+	
+	@Value("${bootstrap-id}")
+	private String bootstrap_id;
 
 	@Bean
 	public ConsumerFactory<String, InputUser> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.16:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap_id);
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "user");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -43,7 +47,7 @@ public class KafkaConsumerConfig {
 	public ConsumerFactory<String, MovieSchedule> movieConsumerFactory() {
 		Map<String, Object> movieConfig = new HashMap<>();
 
-		movieConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.16:9092");
+		movieConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap_id);
 		movieConfig.put(ConsumerConfig.GROUP_ID_CONFIG, "movie");
 		movieConfig.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		movieConfig.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);

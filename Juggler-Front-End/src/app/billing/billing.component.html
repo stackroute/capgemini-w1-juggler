@@ -36,7 +36,9 @@
                       </p>
                     </div>
                   </div>
-                  <button mat-flat-button (click)="promo(promos.code)">Apply</button>
+                  <div class="beauty">
+                    <button mat-flat-button (click)="promo(promos.code)">Apply</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -106,8 +108,9 @@
             </ng-template>
           </div>
         </div>
-        <button mat-flat-button color="warn" routerLink="/payment-page">Proceed to checkout</button>
-
+        <div class="bill">
+          <button mat-flat-button color="warn" routerLink="/payment-page">Proceed to checkout</button>
+        </div>
 
       </div>
     </div>

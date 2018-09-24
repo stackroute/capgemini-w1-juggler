@@ -24,13 +24,13 @@ form.example button {
   background:  #D9491D;
   color: 525F7F;
   font-size: 17px;
-  border: 1px solid #525F7F;
-  border-left: none;
+  border: 1px solid #3D3D3B;
+
   cursor: pointer;
 }
 
 form.example button:hover {
-  border-left: solid 2px #ccc;
+  border: solid 1px #525F7F;
 }
 
 form.example::after {
@@ -43,6 +43,10 @@ form.example::after {
 }
 .but{
   background-color: #D9491D;
+}
+
+.fa{
+  color: #3D3D3B;
 }
 // .form-inline{
 //  margin-left: 70%;

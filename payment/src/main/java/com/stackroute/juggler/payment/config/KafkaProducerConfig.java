@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -17,8 +18,11 @@ import com.stackroute.juggler.kafka.domain.TicketDetails;
 @Configuration
 public class KafkaProducerConfig {
 
+	@Value("${bootstrap-id}")
+	private String bootstrap_id;
+
 	// Declaring Topic
-	static final String TOPIC = "payment13";
+	static final String TOPIC = "payment";
 
 	// 192.168.43.174 172.23.239.111
 	// KafkaProducerConfig factory of kafka which will hold the configuration
@@ -26,7 +30,7 @@ public class KafkaProducerConfig {
 	@Bean
 	public ProducerFactory<String, TicketDetails> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.111:9092");
+		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap_id);
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 

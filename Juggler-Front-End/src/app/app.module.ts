@@ -57,6 +57,7 @@ import { LayoutToBillingService } from './layout-to-billing.service';
 import { PaymentToTicketService } from './payment-to-ticket.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
+
 // import { MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 
 @NgModule({
@@ -85,6 +86,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     RsvpAcceptComponent,
     RecMovDisplayComponent,
     TestComponent
+   
   ],
 
   imports: [
@@ -108,7 +110,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatNativeDateModule,
     MatAutocompleteModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    NgxSpinnerModule
   ],
   providers: [
     AuthenticationService,
@@ -128,5 +131,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   entryComponents: [DialogComponentComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
+
 
 export class AppModule {}
