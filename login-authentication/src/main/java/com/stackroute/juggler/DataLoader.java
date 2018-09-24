@@ -3,10 +3,12 @@ package com.stackroute.juggler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
 import com.stackroute.juggler.kafka.domain.User;
 import com.stackroute.juggler.repository.UserRepo;
 
+@Component
 public class DataLoader implements ApplicationRunner {
 
 	@Autowired
