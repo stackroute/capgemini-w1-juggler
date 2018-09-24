@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ScreeningDetails } from "../screening-details";
 import { Validators, FormGroup, FormBuilder } from "@angular/forms";
 import { MovieScreeningService } from "../movie-screening.service";

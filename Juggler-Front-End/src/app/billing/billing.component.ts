@@ -148,11 +148,15 @@ export class BillingComponent implements OnInit {
   // openVerticallyCentered(content) {
   //   this.modalService.open(content, { centered: true });
   // }
-
+  email(email:string){
+    console.log(email);
+    this.bookingDetails.emailId=email;
+  }
   onclick(){
     console.log(this.value);
     this.bookingDetails.Finalamount=this.value;
-    console.log(this.bookingDetails.Finalamount+ "madhusri");
+    console.log(this.bookingDetails.emailId+ "madhusri");
     this.layouttobilling.sendToBilling(this.bookingDetails);
   }
+  
 }

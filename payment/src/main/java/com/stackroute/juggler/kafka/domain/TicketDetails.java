@@ -12,6 +12,7 @@ public class TicketDetails {
 
 	@Id
 	private String bookingId;
+	private String email;
 	private String theatreName;
 	private String showId;
 	private String movieName;
@@ -24,10 +25,25 @@ public class TicketDetails {
 		super();
 	}
 
-	public TicketDetails(String bookingId, String theatreName, String showId, String movieName,
+		
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
+	public TicketDetails(String bookingId, String email, String theatreName, String showId, String movieName,
 			List<Integer> bookedSeats, String showTiming, String bookingStatus) {
 		super();
 		this.bookingId = bookingId;
+		this.email = email;
 		this.theatreName = theatreName;
 		this.showId = showId;
 		this.movieName = movieName;
@@ -35,6 +51,8 @@ public class TicketDetails {
 		this.showTiming = showTiming;
 		this.bookingStatus = bookingStatus;
 	}
+
+
 
 	public String getBookingId() {
 		return bookingId;

@@ -1,10 +1,10 @@
 #spring:
 # application:
-#  name: movie-schedule
+# name: movie-schedule
 # data:
 #  mongodb:
 #    database: movie-schedule
-#    host: localhost
+#   host: localhost
 #    port: "27017"
 #    uri: mongodb://localhost/movie-schedule
 #    username: ""

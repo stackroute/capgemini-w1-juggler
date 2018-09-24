@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -19,11 +20,14 @@ import com.stackroute.juggler.kafka.domain.MovieSchedule;
 @Configuration
 public class KafkaConsumerconfiguration {
 
+	@Value("${bootstrap-id}")
+	private String bootstrap_id;
+
 	@Bean
 	public ConsumerFactory<String, MovieSchedule> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.20.1.16:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap_id);
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "search");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -34,7 +38,7 @@ public class KafkaConsumerconfiguration {
 
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, MovieSchedule> kafkaListenerContainerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String, MovieSchedule> factory = new ConcurrentKafkaListenerContainerFactory();
+		ConcurrentKafkaListenerContainerFactory<String, MovieSchedule> factory = new ConcurrentKafkaListenerContainerFactory<String, MovieSchedule>();
 		factory.setConsumerFactory(consumerFactory());
 		return factory;
 	}

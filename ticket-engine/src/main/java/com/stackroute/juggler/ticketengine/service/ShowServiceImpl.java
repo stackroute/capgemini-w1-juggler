@@ -62,6 +62,31 @@ public class ShowServiceImpl implements ShowService {
 	}
 
 	@Override
+	public Show delBlocked(Show show) {
+
+		show.getBookedSeats();
+		String showid = show.getShowId();
+		Show local = getById(show.getShowId());
+		List<Integer> blockedInDb = local.getBlockedSeats();
+		List<Integer> blockedAsInput = show.getBookedSeats();
+		for (int j = 0; j < blockedAsInput.size(); j++) {
+			for (int i = 0; i < blockedInDb.size(); i++) {
+				if (blockedAsInput.get(i) < 100) {
+					if (blockedAsInput.get(i) == blockedInDb.get(j)) {
+						blockedInDb.remove(blockedAsInput.get(i));
+						System.out.println("removed");
+					} else {
+					}
+				}
+			}
+		}
+		local.setBlockedSeats(blockedAsInput);
+		showRepo.save(local);
+		return local;
+
+	}
+
+	@Override
 	public Show updateBooked(Show show) {
 		String id = show.getShowId();
 		Optional<Show> local = showRepo.findById(id);
@@ -139,7 +164,7 @@ public class ShowServiceImpl implements ShowService {
 	}
 
 	@Override
-	@KafkaListener(topics = "payment", groupId = "pat")
+	@KafkaListener(topics = "payment", groupId = "pay")
 	public void getBookedSeats(TicketDetails ticketDetails) {
 		if (ticketDetails.getBookingStatus().equals("Success")) {
 			String showid = ticketDetails.getShowId();
