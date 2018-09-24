@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -15,8 +14,8 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
-import com.stackroute.juggler.kafka.domain.TriggerMessage;
 import com.stackroute.juggler.kafka.domain.TicketDetails;
+import com.stackroute.juggler.kafka.domain.TriggerMessage;
 
 @EnableKafka
 @Configuration
@@ -28,7 +27,7 @@ public class KafkaConsumer {
 	@Bean
 	public ConsumerFactory<String, MovieSchedule> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "13.232.122.240:9092");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.111:9092");
 		config.put(ConsumerConfig.GROUP_ID_CONFIG, "ticket");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -39,7 +38,7 @@ public class KafkaConsumer {
 
 	public ConsumerFactory<String, TicketDetails> payConsumerFactory() {
 		Map<String, Object> payConfig = new HashMap<>();
-		payConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "13.232.122.240:9092");
+		payConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.111:9092");
 		payConfig.put(ConsumerConfig.GROUP_ID_CONFIG, "pay");
 		payConfig.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		payConfig.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -50,7 +49,7 @@ public class KafkaConsumer {
 
 	public ConsumerFactory<String, TriggerMessage> schedulerConsumerFactory() {
 		Map<String, Object> schedulerConfig = new HashMap<>();
-		schedulerConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "13.232.122.240:9092");
+		schedulerConfig.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.111:9092");
 		schedulerConfig.put(ConsumerConfig.GROUP_ID_CONFIG, "schedule");
 		schedulerConfig.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		schedulerConfig.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
