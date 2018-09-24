@@ -108,7 +108,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatNativeDateModule,
     MatAutocompleteModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    NgxSpinnerModule
   ],
   providers: [
     AuthenticationService,

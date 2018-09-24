@@ -43,7 +43,8 @@ export class RSVPEventComponent implements OnInit {
       eventName: ["", Validators.required],
       creatorName: ["", Validators.required],
       eventType: ["", Validators.required],
-      eventGuest: ["", Validators.required]
+      Description: ["", Validators.required]
+      
     });
 
     this.rsvpForm2 = this._formBuilder.group({
@@ -51,11 +52,11 @@ export class RSVPEventComponent implements OnInit {
       eventTime: ["", Validators.required],
       eventDays: ["", Validators.required],
       eventDuration: ["", Validators.required],
-      eventLocation: ["", Validators.required]
+      eventGuest: ["", Validators.required]
     });
 
     this.rsvpForm3 = this._formBuilder.group({
-      Description: ["", Validators.required],
+      eventLocation: ["", Validators.required],
       // emailId: ["", Validators.required],
       invitiesMail: ["", Validators.required],
       phoneNo: ["", Validators.required]
@@ -75,16 +76,16 @@ export class RSVPEventComponent implements OnInit {
     this.event.creatorOfEvent = this.f.creatorName.value;
     this.event.eventName = this.f.eventName.value;
     this.event.eventType = this.f.eventType.value;
-    this.guests = this.f.eventGuest.value;
+    this.event.eventSynopsis = this.f.Description.value;
+    
+    this.guests = this.f1.eventGuest.value;
     this.guestArray = this.guests.split(",");
     this.event.guestsofEvent = this.guestArray;
     this.event.eventDate = this.f1.eventDate.value;
     this.event.eventTime = this.f1.eventTime.value;
     this.event.duration = this.f1.eventDuration.value;
     this.event.noOfDays = this.f1.eventDays.value;
-    this.event.eventLocation = this.f1.eventLocation.value;
-
-    this.event.eventSynopsis = this.f2.Description.value;
+    
     //this.event.emailId = this.f2.emailId.value;
     this.email = localStorage.getItem("currentUserEmail");
     this.event.emailId = this.email;
@@ -93,6 +94,8 @@ export class RSVPEventComponent implements OnInit {
     this.emailInvite = this.invitemail.split(",");
     this.event.invitiesMail = this.emailInvite;
     this.event.phoneNo = this.f2.phoneNo.value;
+    this.event.eventLocation = this.f2.eventLocation.value;
+
 
     this.rsvpService
       .saveEvent(this.event)

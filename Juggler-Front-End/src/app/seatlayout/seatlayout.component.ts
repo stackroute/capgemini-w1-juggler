@@ -1,5 +1,5 @@
-import { LayoutToBillingService } from './../layout-to-billing.service';
-import { Component, OnInit } from "@angular/core";
+import { LayoutToBillingService } from "./../layout-to-billing.service";
+import { Component, OnInit, DoCheck } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
 import { FullBookingDetails } from "../FullBookingDetails";
@@ -47,7 +47,7 @@ export class SeatlayoutComponent implements OnInit {
   count = 0;
   userbookedseats = [];
 
-  private serverUrl = "http://172.23.239.47:9079/websocket";
+  private serverUrl = "http://172.23.239.49:9079/websocket";
   private stompClient;
 
   constructor(
@@ -60,27 +60,33 @@ export class SeatlayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-   
-    this.bookingDetail=this.detailService.receive();
-    console.log(this.bookingDetail);
+    this.bookingDetail = this.detailService.receive();
+    this.layouttobilling.sendToBilling(this.bookingDetail);
+    console.log(this.bookingDetail.showId + " anmishaaa");
     this.blockedSeatsArray = [];
     console.log("inside ngonit");
     this.seatname = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
-    this.ticketengineService.getseatDetails().subscribe(data => {
-      this.json = data;
-      this.totalRow.length = this.json.totalRow;
-      this.totalCol.length = this.json.totalCol;
-      this.totalRow = this.json.rowValues;
-      this.totalCol = this.json.colValues;
-      this.blockedSeats = this.json.blockedSeats;
-      this.bookedSeats = this.json.bookedSeats;
-      console.log(this.totalRow);
-      console.log(this.totalCol);
-      console.log(this.blockedSeats);
-      console.log(this.bookedSeats);
-      this.createseating();
-    });
+    this.ticketengineService
+      .getseatDetails(this.bookingDetail.showId)
+      .subscribe(data => {
+        this.json = data;
+        this.totalRow.length = this.json.totalRow;
+        this.totalCol.length = this.json.totalCol;
+        this.totalRow = this.json.rowValues;
+        this.totalCol = this.json.colValues;
+        this.blockedSeats = this.json.blockedSeats;
+        this.bookedSeats = this.json.bookedSeats;
+        console.log(this.totalRow);
+        console.log(this.totalCol);
+        console.log(this.blockedSeats);
+        console.log(this.bookedSeats);
+        this.createseating();
+      });
   }
+  // ngDoCheck():void {
+  //   window.location.reload;
+  //   console.log("inside changes");
+  // }
 
   webSocketConnect() {
     console.log("inside method webSocketConnect ");
@@ -105,7 +111,7 @@ export class SeatlayoutComponent implements OnInit {
 
   sendMessage() {
     let data = JSON.stringify({
-      showId: "pvr2219:00bangalore",
+      showId: this.bookingDetail.showId,
       blockedSeats: this.blockedSeatsArray
     });
     this.stompClient.send("/app/message", {}, data);
@@ -116,7 +122,7 @@ export class SeatlayoutComponent implements OnInit {
     var flag = this.blockedSeatsArray.every(find);
     if (flag) {
       this.blockedSeatsArray.push(selected);
-     this.count++;
+      this.count++;
     } else {
       let index = this.blockedSeatsArray.indexOf(selected);
       this.blockedSeatsArray.splice(index, 1);
@@ -126,11 +132,12 @@ export class SeatlayoutComponent implements OnInit {
     function find(element) {
       return selected != element;
     }
-    this.bookingDetail.selectedSeats=this.blockedSeatsArray;
-    this.bookingDetail.totalNoOfTickets=this.count;
-   this.bookingDetail.totalAmount=(this.count*250);
-   console.log(this.bookingDetail.totalAmount+ "madhusri");
-   this.layouttobilling.sendToBilling(this.bookingDetail);
+    this.bookingDetail.selectedSeats = this.blockedSeatsArray;
+    this.bookingDetail.totalNoOfTickets = this.count;
+    this.bookingDetail.totalAmount = this.count * 250;
+    this.bookingDetail.selectedSeatType="platinum";
+    console.log(this.bookingDetail.totalAmount + "madhusri");
+    this.layouttobilling.sendToBilling(this.bookingDetail);
   }
 
   createseating() {

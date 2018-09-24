@@ -21,4 +21,5 @@ export class FullBookingDetails {
   bookingId:string;
   selectedSeatType:string;
   selectedSeats:number[];
+  Finalamount: number;
  }

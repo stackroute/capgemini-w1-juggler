@@ -23,6 +23,17 @@ seatTypes: string[];
 seatCount: number[];
 json=[];
 city=[];
+// options: string[] = [
+//   "Bangalore",
+//   "Chennai",
+//   "Hyderabad",
+//   "Jaipur",
+//   "Kolkata",
+//   "Lucknow",
+//   "Mangalore",
+//   "Mumbai",
+//   "Pune"
+// ];
 json1=[];
 country=[];
 seats = new Seats();
@@ -69,6 +80,15 @@ ngOnInit() {
     City: ["", Validators.required],
     Capacity: ["", Validators.required]
   });
+  
+  this.secondFormGroup = this._formBuilder.group({
+    Address: ["", Validators.required],
+    City: ["", Validators.required],
+    State: ["", Validators.required],
+    Zip: ["", Validators.required],
+    Country: ["", Validators.required]
+  });
+
   this.http.get('./assets/country.json').subscribe(
     result1 => { this.json1 = result1 as string[];
       // console.log(result);
@@ -83,13 +103,6 @@ ngOnInit() {
       console.log(this.json1);
       console.log(this.country+ "anmisha");
      });
-  this.secondFormGroup = this._formBuilder.group({
-    Address: ["", Validators.required],
-    City: ["", Validators.required],
-    State: ["", Validators.required],
-    Zip: ["", Validators.required],
-    Country: ["", Validators.required]
-  });
   this.thirdFormGroup = this._formBuilder.group({
     type1: ["", Validators.required],
     type2: ["", Validators.required],
@@ -143,6 +156,7 @@ openDialog() {
     .saveTheatre(this.theatre, this.email)
     .subscribe(res => console.log("Saved theatre"));
   this.router.navigate(["/profile", this.email]);
+  alert("You Theater has been successfully added !")
   console.log("hi", this.theatre);
 }
 get f() {

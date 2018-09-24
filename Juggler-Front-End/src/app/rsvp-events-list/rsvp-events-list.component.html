@@ -1,8 +1,13 @@
 <div class="unit">
-    <h3 class="headings" >RSVP Events</h3>
+    <div class="event">
+    <h3 class="headings" ><b>RSVP Events</b></h3>
+    <div class="bt">
+            <button class="add" ><a routerLink="/rsvp"> Add Event</a></button>
+        </div>
+    </div>
     <div class="container">
-        <div *ngIf=!isvalid>
-            <p>No current events available</p>
+        <div *ngIf=!isvalid class="noEvent">
+            <h5>No current events available</h5>
         </div>
         <div *ngIf=search_result1>
             <div class="row">
@@ -16,19 +21,19 @@
                             </mat-card-title>
                         </mat-card-header>
                         <ul style="list-style: none;">
-                            <li>Event creator: {{item.creatorOfEvent}}</li>
-                            <li> Event Name: {{item.eventName}}</li>
-                            <li> Event Type: {{item.eventType}} </li>
-                            <li> Date of Event: {{item.eventDate}} </li>
-                            <li> Time: {{item.eventTime}} </li>
-                            <li> Guest: [{{item.guestsofEvent}}]</li>
-                            <li> Location: {{item.eventLocation}} </li>
-                            <li> Event duration: {{item.duration}} </li>
-                            <li> Days: {{item.noOfDays}} </li>
-                            <li> Description:{{item. eventSynopsis}} </li>
-                            <li> Event mailId: {{item.emailId}} </li>
-                            <li> Invities:[ {{item. invitiesMail}} ]</li>
-                            <li> Contact: {{item.phoneNo}} </li>
+                            <li><b>Event Hoster:</b> {{item.creatorOfEvent}}</li>
+                            <li><b> Event Name:</b> {{item.eventName}}</li>
+                            <li><b> Event Type:</b> {{item.eventType}} </li>
+                            <li><b> Description:</b>{{item. eventSynopsis}} </li>
+                            <li> <b>Date of Event:</b> {{item.eventDate}} </li>
+                            <li> <b>Time:</b> {{item.eventTime}} </li>
+                            <li> <b>Days:</b> {{item.noOfDays}} </li>
+                            <li> <b>Event duration:</b> {{item.duration}} </li>
+                            <li><b> Guest:</b> [{{item.guestsofEvent}}]</li>
+                            <li><b> Address:</b> {{item.eventLocation}} </li>
+                            <li><b> Hoster mailId:</b> {{item.emailId}} </li>
+                            <li> <b>Invities:</b>[ {{item. invitiesMail}} ]</li>
+                            <li><b> Contact No.:</b> {{item.phoneNo}} </li>
                         </ul>
                     </mat-card>
 
@@ -38,8 +43,5 @@
     </div>
 
 
-    <div class="bt">
-
-        <button><a routerLink="/rsvp"> Add Event</a></button>
-    </div>
+   
 </div>

@@ -1,60 +1,59 @@
 body {
   padding : 10px ;
-  
-}
-
-
-
-.card-header{
+ 
+ }
+ 
+ // .row{
+ //   margin-left: 6%;
+ // }
+ 
+ .card-header{
   text-transform: capitalize;
-}
+ }
+ 
 
-/* change border radius for the tab , apply corners on top*/
-
-#exTab3 .nav-pills > li > a {
+ 
+ #exTab3 .nav-pills > li > a {
   border-radius: 4px 10px 0 0 ;
-}
-
-#exTab3 .tab-content {
+ }
+ 
+ #exTab3 .tab-content {
   color : white;
   background-color: #428bca;
   padding : 5px 15px;
-}
-.list-group-item textarea {
+ }
+ .list-group-item textarea {
   border:none;
   margin-left: 15%;
   margin-top: -90px;
   margin-bottom: 2%;
   max-width: 80%;
   position: relative;
-  
-
-}
-
-.summary {
+ 
+ 
+ }
+ 
+ .summary {
   display:column;
   padding-right: 3%;
   width:27%;
-}
-
-.text {
+ }
+ 
+ .text {
   display:column;
   //width:75%;
-}
+ }
  
-.list-group-item summary {
+ .list-group-item summary {
   padding-bottom: 2%;
-}
-.container {
-  margin-left: 8%; 
-}
-
-// .booking { 
-//   //background-color: #e6f3ff;
-//  // background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj3sAjon54vZFDk60toE4Mpbavm_FWCxYENsep_B8VEeM2WpRm");
-  
+ }
+ .container {
+  margin-left: 8%;
+ }
+ .booking{
+  overflow:hidden;
+ }
+ .img-fluid{
+  padding-top: 3%;
+ }
  
-// }
-//  .col-sm-9 {
-//    opacity:0.8;
-//  }

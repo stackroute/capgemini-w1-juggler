@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import "rxjs/add/operator/map";
 import { map } from "rxjs/operators";
+
 import {Event} from "./event";
 @Injectable({ 
   providedIn: 'root'
 })
 export class RsvpService {
   data: any;
-  private _url = "http://10.20.1.15:9075/api/v1/event";
-  movies_url = "http://10.20.1.15:9075/api/v1/event/get/?emailId=";
+  private _url = "http://13.232.122.240:9075/api/v1/event";
+  movies_url = "http://13.232.122.240:9075/api/v1/event/get/?emailId=";
 
   //private _url = "http://172.23.239.115:9094;
   //event:Object;
@@ -33,7 +33,7 @@ export class RsvpService {
     console.log(email + " in service");
     // http://localhost:9094/api/v1/event/get/?emailId=zyx@gmail.com
     console.log("data is " + this.data);
-    return this.http.get(this.movies_url + email).map(res => (this.data = res));
+    return this.http.get(this.movies_url + email).pipe(map(res => (this.data = res)));
   }
 }
 

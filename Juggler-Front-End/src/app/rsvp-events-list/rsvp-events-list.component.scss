@@ -2,30 +2,73 @@
     color:#2E4A62;
    // background-color: #F3D6E4;
     background-color:  #F0EDE5;
-    padding-top: 3px;
-}
+    padding-top: 5px;
+    margin-bottom: 3%;
+ 
+ }
 .title {
     
     color:#944743;
 }
-.unit h4 {
-    padding-left: 500px;
-    padding-bottom: 30px;
-    padding-top: 20px;
+.container h5 {
+     padding-left:30%;
+    
+    display:flex;
+    position: relative;
+    font-family: sans-serif;
+   overflow: hidden;
    
 }
+// .container{
+//     -moz-box-shadow:    3px 3px 5px 6px #ccc;
+//     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+//     box-shadow:         3px 3px 5px 6px #ccc; 
+// }
 button {
-    float:right;
-   
+    float:right;  
+}
+.unit{
+    
+    overflow: hidden;
+}
+
+.bt{
+    margin-right: 3%;
    
 }
-.unit {
-    padding-bottom: 30px;
+.bt button{
+    margin-bottom: 2%;
+    margin-top: -3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: #555;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    border-radius:5px;
+    border:none;
+    cursor: pointer; 
+    display: grid;
+    
 }
-.bt {
-    padding-right: 60px;
+
+.bt a{
+    color:white;
+    
+    
+}
+.unit{
+    width:100%;
+    height:auto;
+    display:grid;
+    background-image: url("https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6b2b3eeca79a80926667ec71b01eac12&auto=format&fit=crop&w=500&q=60");
+   // background-size: 
+
 }
 
 .headings{
     font-family: 'Padauk', sans-serif;
+  padding-top: 1%;
+  padding-left: 2%;
+  color:#D2691E;
   }
+  
