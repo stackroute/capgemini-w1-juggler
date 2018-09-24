@@ -15,13 +15,13 @@ import org.springframework.data.redis.serializer.GenericToStringSerializer;
 @SpringBootApplication
 @EnableRedisRepositories
 public class TicketEngineApplication {
-	
+
 	@Bean
 	public JedisConnectionFactory jedisConnectionFactory() {
 		RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("localhost", 6379);
 		return new JedisConnectionFactory(config);
 	}
-	
+
 	@Bean
 	public RedisTemplate<String, Object> redisTemplate() {
 		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
@@ -29,7 +29,7 @@ public class TicketEngineApplication {
 		redisTemplate.setValueSerializer(new GenericToStringSerializer<Object>(Object.class));
 		return redisTemplate;
 	}
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(TicketEngineApplication.class, args);
 	}

@@ -26,5 +26,7 @@ public interface ShowService {
     public void getBookedSeats(TicketDetails ticketDetails);
 
 	public void getSchedulerTrigger(TriggerMessage object)throws ParseException;
+
+	public Show delBlocked(Show show);
 	
 }

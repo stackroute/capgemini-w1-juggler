@@ -47,18 +47,60 @@ public class ShowServiceImpl implements ShowService {
 	@Override
 	public Show updateBlocked(Show show) {
 		String id = show.getShowId();
+
 		Optional<Show> local = showRepo.findById(id);
 		Show locall = local.get();
 		List<Integer> middle = locall.getBlockedSeats();
 		List<Integer> mid = show.getBlockedSeats();
-		for (int i = 0; i < mid.size(); i++) {
-			if (mid.get(i) < 100) {
-				middle.add(mid.get(i));
-			} else {
+		boolean flag = true;
+		for (int j = 0; j < mid.size(); j++) {
+			for (int i = 0; i < middle.size(); i++) {
+
+				if (mid.get(j) == middle.get(i)) {
+					// blockedseatsindb.remove(bookedseatsasinput.get(j));
+
+					System.out.println("Both are same ");
+					flag = false;
+				} else {
+
+				}
 			}
 		}
-		locall.setBlockedSeats(middle);
-		return showRepo.save(locall);
+		if (flag == true) {
+			for (int i = 0; i < mid.size(); i++) {
+				if (mid.get(i) < 100) {
+					middle.add(mid.get(i));
+				} else {
+				}
+			}
+			locall.setBookedSeats(middle);
+		}
+		return locall;
+	}
+
+	@Override
+	public Show delBlocked(Show show) {
+
+		show.getBookedSeats();
+		String showid = show.getShowId();
+		Show local = getById(show.getShowId());
+		List<Integer> blockedInDb = local.getBlockedSeats();
+		List<Integer> blockedAsInput = show.getBookedSeats();
+		for (int j = 0; j < blockedAsInput.size(); j++) {
+			for (int i = 0; i < blockedInDb.size(); i++) {
+				if (blockedAsInput.get(i) < 100) {
+					if (blockedAsInput.get(i) == blockedInDb.get(j)) {
+						blockedInDb.remove(blockedAsInput.get(i));
+						System.out.println("removed");
+					} else {
+					}
+				}
+			}
+		}
+		local.setBlockedSeats(blockedAsInput);
+		showRepo.save(local);
+		return local;
+
 	}
 
 	@Override

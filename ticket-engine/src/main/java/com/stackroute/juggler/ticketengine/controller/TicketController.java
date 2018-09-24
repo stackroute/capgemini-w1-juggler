@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,7 +38,7 @@ public class TicketController {
 
 	@MessageMapping("/message")
 	public void seat(String message) throws IOException {
-		
+
 		System.out.println(message);
 		ObjectMapper objectMapper = new ObjectMapper();
 		Show json = objectMapper.readValue(message, Show.class);
@@ -44,25 +47,30 @@ public class TicketController {
 		this.template.convertAndSend("/movie", message);
 	}
 
-//	// updating
-//	@PutMapping("/show")
-//	public ResponseEntity<?> update(@RequestBody Show show) {
-//		showService.update(show);
-//		return new ResponseEntity<Show>(show, HttpStatus.OK);
-//	}
+	@PostMapping("/update/{showId}")
+	public void test(@PathVariable String showId, @RequestBody String[] blockedSeats) {
+		System.out.println("hi...!");
+	}
+
+	// updating
+	@PutMapping("/show")
+	public ResponseEntity<?> update(@RequestBody Show show) {
+		Show local = showService.delBlocked(show);
+		return new ResponseEntity<Show>(local, HttpStatus.OK);
+	}
 
 	// get all
 	@GetMapping("/shows")
 	public ResponseEntity<?> getAllShows() {
 		return new ResponseEntity<Iterable<Show>>(showService.getAll(), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/layout/{showid}")
 	public ResponseEntity<?> getLayout(@PathVariable String showid) {
 		Show localshow = showService.getById(showid);
 		return new ResponseEntity<Show>(localshow, HttpStatus.OK);
 	}
-	
+
 	// get id
 	@GetMapping("/show/{id}")
 	public ResponseEntity<?> getById(@PathVariable String id) {
