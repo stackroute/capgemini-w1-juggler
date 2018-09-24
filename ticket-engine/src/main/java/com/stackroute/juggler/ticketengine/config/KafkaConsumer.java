@@ -22,8 +22,8 @@ import com.stackroute.juggler.kafka.domain.TicketDetails;
 @Configuration
 public class KafkaConsumer {
 
-	@Value("${bootstrap-id}")
-	private String bootstrap_id;
+//	@Value("${bootstrap-id}")
+//	private String bootstrap_id;
 
 	@Bean
 	public ConsumerFactory<String, MovieSchedule> consumerFactory() {

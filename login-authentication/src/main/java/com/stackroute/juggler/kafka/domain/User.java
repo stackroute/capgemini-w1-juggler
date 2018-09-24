@@ -1,13 +1,9 @@
 package com.stackroute.juggler.kafka.domain;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.hibernate.annotations.CreationTimestamp;
 
 // Domain object to save details into login database
 @Entity
@@ -21,20 +17,19 @@ public class User {
 	private Long phoneNumber;
 	private String role;
 
-	@CreationTimestamp
-	private Date created;
+//	@CreationTimestamp
+//	private Date created;
 
 	public User() {
 	}
 
-	public User(Long userId, String email, String password, Long phoneNumber, String role, Date created) {
+	public User(Long userId, String email, String password, Long phoneNumber, String role) {
 		super();
 		this.userId = userId;
 		this.email = email;
 		this.password = password;
 		this.phoneNumber = phoneNumber;
 		this.role = role;
-		this.created = created;
 	}
 
 	public Long getUserId() {
@@ -75,14 +70,6 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
-	}
-
-	public Date getCreated() {
-		return created;
-	}
-
-	public void setCreated(Date created) {
-		this.created = created;
 	}
 
 }
