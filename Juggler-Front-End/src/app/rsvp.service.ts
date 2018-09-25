@@ -10,9 +10,9 @@ import { EmailDetails } from './emailDetails';
 })
 export class RsvpService {
   data: any;
-  private _url = "http://172.23.239.112:9075/api/v1/event";
-  movies_url = "http://172.23.239.112:9075/api/v1/event/get/?emailId=";
-  email_url="http://172.23.239.112:9076/api/v1/email/sendEmail";
+  private _url = "http://13.232.122.240:9075/api/v1/event";
+  movies_url = "http://13.232.122.240:9075/api/v1/event/get/?emailId=";
+  email_url="http://13.232.122.240:9076/api/v1/email/sendEmail";
   //private _url = "http://172.23.239.115:9094;
   //event:Object;
   constructor(private http: HttpClient) {}

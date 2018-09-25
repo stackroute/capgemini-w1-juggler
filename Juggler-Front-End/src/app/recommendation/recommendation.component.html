@@ -1,7 +1,7 @@
-<strong> <h2>{{title}}</h2></strong>
+
 <div class="container">
    <div *ngIf=recommended_Movies>
-      
+        <strong> <h2>{{title}}</h2></strong>
        <div class="row">
            <div class="col-sm-3" *ngFor="let MovieDetails of recommended_Movies; let i = index">
                <div *ngIf='i < 4'>

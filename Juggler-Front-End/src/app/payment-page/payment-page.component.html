@@ -73,9 +73,12 @@
             <b>Show ID:-</b> {{bookingDetails.showId}}
             <br><b>Movie:-</b> {{bookingDetails.nameOfMovie}}
             <br><b>Theatre:-</b> {{bookingDetails.theaterName}}
-            <br><b>Show:-</b> {{bookingDetails.screeningDate}},{{bookingDetails.screeningTime}} <b>Booked Tickets:-</b>
-            <p *ngFor="let bookSeat of bookedSeats; let i=index">{{bookingDetails.selectedSeats[i]}}</p>
-            <br> {{bookingDetails.Finalamount}}
+            <br><b>Show:-</b> {{bookingDetails.selectedDate}},{{bookingDetails.screeningTime}} 
+            <br>
+            <b>Booked Tickets:-</b>
+            {{bookingDetails.selectedSeats}}
+            <br> 
+           <b>Payable Amount:-</b>{{bookingDetails.Finalamount}}
           </div>
           <button mat-button type="submit" routerLink="/ticket" [disabled]="(!msg)">View Ticket
           </button>

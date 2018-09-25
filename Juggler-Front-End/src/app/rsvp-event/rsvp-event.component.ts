@@ -104,7 +104,7 @@ export class RSVPEventComponent implements OnInit {
     this.router.navigate(["/rsvp/events"]);
 
     console.log(this.event);
-    alert("data saved");
+   
   }
 
   // this.rsvpService.saveEvent(this.event).subscribe(data => {

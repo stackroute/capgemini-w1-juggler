@@ -29,35 +29,7 @@ export class BillingComponent implements OnInit {
   value1:number
   bookingDetails: FullBookingDetails;
   
-//  result=[
-//   {
-//     id:1,
-//     code:"FLAT100",
-//     image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
-//     description:"It is applicable from 500Rs on Ticket",
-//   amount: 100
-//   },
-//   {
-//     id:1,
-//     code:"FLAT200",
-//     image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
-//     description:"It is applicable from 500Rs on Ticket",
-//   amount: 200
-//   },
-//   {
-//     id:1,
-//     code:"FLAT50",
-//     image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
-//     description:"It is applicable from 500Rs on Ticket",
-//   amount: 200
-//   },
-//   {
-//     id:1,
-//     code:"FLAT20",
-//     image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
-//     description:"It is applicable from 500Rs on Ticket",
-//   amount: 200
-//   }]
+
   constructor(private promoService: PromocodeService, private payment: PromocodeService,private layouttobilling: LayoutToBillingService) {}
   ngOnInit() {
    

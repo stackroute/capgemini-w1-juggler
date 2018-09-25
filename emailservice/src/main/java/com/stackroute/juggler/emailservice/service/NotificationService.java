@@ -61,7 +61,7 @@ String url="www.google.co.in";
                 + "<body> "
                 + "<h3>Hey,</h3><br>"
                 + "<p>You are invited to attend an Event "+ eventName +" where in "+ emailBody +" held on "+eventDate+"</p><br>"
-                + "<a href=http://172.23.239.92:4200/#/rsvp/accept>click here</a><p> To accept this invitation </p>"
+                + "<a href=http://10.20.1.20:4200/#/rsvp/accept>click here</a><p> To accept this invitation </p>"
                 + "        </body></head></html>",
                 true);
         System.out.println(message.toString());
