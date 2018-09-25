@@ -1,54 +1,38 @@
-.background{
-    // align-content: center;
-    
-    background-image: url("../../assets/images/bg.jpeg");
-  
+.background {
+  background-image: url("../../assets/images/bg.jpeg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
- background-size: 100% 100%;
-
-
+  background-size: 100% 100%;
 }
-
-.eventcard{
-padding-top: 10%;
-margin-left:25%;
-margin-right: 25%;
-
+.eventcard {
+  padding-top: 10%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
-.card{
-    height:330px;
-    width:650px;
-   // background-color: #DFCFBE;
-   background-image: url("../../assets/images/invitation.jpg");
-   background-repeat: no-repeat;
+.card {
+  height: 330px;
+  width: 650px;
+  background-image: url("../../assets/images/invitation.jpg");
+  background-repeat: no-repeat;
 }
-h2{
-   padding-top: 5%;
-    padding-left: 11%;
-
+h2 {
+  padding-top: 5%;
+  padding-left: 11%;
 }
-// .button{
-//     width:100px;
-//     height:100px;
-
-
-// }
-.buttons-div{
-    margin-top:-10%
+.buttons-div {
+  margin-top: -10%;
 }
-.explain{
-   text-shadow: 2px;
-text-decoration-color: blue;
+.explain {
+  text-shadow: 2px;
+  text-decoration-color: blue;
 }
-.headings{
-    font-family: 'Padauk', sans-serif;
-  }
-  #add{
-      margin-top: 40%;
-      margin-left: 40%;
-      margin-bottom: 8%;
-      padding-top:-10%;
-  }
- 
+.headings {
+  font-family: "Padauk", sans-serif;
+}
+#add {
+  margin-top: 40%;
+  margin-left: 40%;
+  margin-bottom: 8%;
+  padding-top: -10%;
+}

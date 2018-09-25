@@ -23,7 +23,7 @@ export class PaymentService {
     // const head = new Headers({bookedSeats: bookedSeats});
     this.http
       .post(
-        "http://172.23.239.116:9081/api/v1/payment/charge",
+        "http://10.20.1.15:9081/api/v1/payment/charge",
         {},
         { headers: headers }
       )

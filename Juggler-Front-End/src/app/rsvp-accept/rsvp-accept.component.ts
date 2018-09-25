@@ -12,7 +12,6 @@ export class RsvpAcceptComponent implements OnInit {
   flagReject: boolean = false;
   flagAcceptLoop: boolean = false;
   flagRejectLoop: boolean = false;
-
   flagReaccept: boolean;
   countAccept: number = 0;
   countReject: number = 0;
@@ -22,32 +21,24 @@ export class RsvpAcceptComponent implements OnInit {
   constructor(private service: SharingDataService, private router: Router) {}
 
   ngOnInit() {}
+
   accept() {
     this.flagAccept = true;
     this.countAccept++;
     console.log(this.countAccept);
     this.flagAcceptLoop = true;
   }
+
   reject() {
     this.flagReject = true;
     this.countReject++;
     console.log(this.countReject);
     this.flagRejectLoop = true;
   }
-  route() {
-    this.name = this.service.sendCityName();
-    this.router.navigate(["home", this.name]);
+
+  path() {
+    var nameLocal = this.service.sendCityName();
+    this.name = nameLocal;
+    this.router.navigate(["home",this.name]);
   }
-  // reAccept(){
-  //   this.flagAccept =true;
-  //   this.countAccept++;
-  //   this.countReject--;
-  //   console.log(this.countAccept,this.countReject);
-  // }
-  // reDecline(){
-  //   this.flagReject=true;
-  //   this.countReject++;
-  //   this.countAccept--;
-  //   console.log(this.countAccept,this.countReject);
-  // }
 }

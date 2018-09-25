@@ -10,8 +10,8 @@ import { Layout } from "./layout";
 })
 export class TicketEngineService {
   data;
-  url = "http://172.23.239.49:9079/api/v1/ticket/layout";
-  url1 = "http://172.23.239.49:9079/api/v1/ticket/update";
+  url = "http://10.20.1.15:9079/api/v1/ticket/layout";
+  url1 = "http://10.20.1.15:9079/api/v1/ticket/update";
   constructor(private http: HttpClient) {}
 
   getseatDetails(showId): Observable<Layout[]> {
@@ -22,11 +22,11 @@ export class TicketEngineService {
   }
   sendseatDetails(showId, blockedSeatsArray) {
     return this.http.post<Blocking>(
-      this.url_1 + "/" + showId,
+      this.url1 + "/" + showId,
       blockedSeatsArray
     );
   }
-getData(showId, blockedSeats) {
+  getData(showId, blockedSeats) {
     return this.http.put<any>(this.url1 + "/" + showId, blockedSeats);
   }
 }
