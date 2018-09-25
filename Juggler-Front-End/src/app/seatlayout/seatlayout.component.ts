@@ -44,7 +44,7 @@ export class SeatlayoutComponent implements OnInit {
   local = [];
   userblockedseats = [];
   blocked: any;
-  count = 0;
+ 
   userbookedseats = [];
 
   private serverUrl = "http://172.23.239.49:9079/websocket";
@@ -119,10 +119,11 @@ export class SeatlayoutComponent implements OnInit {
   // add the seat number to array when clicked
   onclick(x, y) {
     let selected = x * 10 + y + 1;
+    let count = 0;
     var flag = this.blockedSeatsArray.every(find);
     if (flag) {
       this.blockedSeatsArray.push(selected);
-      this.count++;
+     count++;
     } else {
       let index = this.blockedSeatsArray.indexOf(selected);
       this.blockedSeatsArray.splice(index, 1);
@@ -133,8 +134,8 @@ export class SeatlayoutComponent implements OnInit {
       return selected != element;
     }
     this.bookingDetail.selectedSeats = this.blockedSeatsArray;
-    this.bookingDetail.totalNoOfTickets = this.count;
-    this.bookingDetail.totalAmount = this.count * 250;
+    this.bookingDetail.totalNoOfTickets = count;
+    this.bookingDetail.totalAmount = count * 250;
     this.bookingDetail.selectedSeatType="platinum";
     console.log(this.bookingDetail.totalAmount + "madhusri");
     this.layouttobilling.sendToBilling(this.bookingDetail);

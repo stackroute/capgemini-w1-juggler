@@ -156,7 +156,7 @@ openDialog() {
     .saveTheatre(this.theatre, this.email)
     .subscribe(res => console.log("Saved theatre"));
   this.router.navigate(["/profile", this.email]);
-  alert("You Theater has been successfully added !")
+
   console.log("hi", this.theatre);
 }
 get f() {

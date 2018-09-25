@@ -138,7 +138,7 @@ console.log(this.genreOutoutList);
       .saveUser(this.user)
       .subscribe(res => console.log("Saved User"));
     this.router.navigate(["/login-user"]);
-    alert("Registration Successful!")
+   
 
   }
 

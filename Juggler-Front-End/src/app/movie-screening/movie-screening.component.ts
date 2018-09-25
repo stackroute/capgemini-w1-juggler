@@ -52,11 +52,11 @@ export class MovieScreeningComponent implements OnInit {
     this.screeningService
       .saveScreening(this.screening, this.email)
       .subscribe(res => console.log("Saved screening details"));
-      alert("Movie has been successfully added !")
+    
   }
   clickOk() {
     this.route.navigate(["/profile", this.email]);
-    alert("You Screeing details is added !")
+  
   }
   getMovie(title: string) {
     this.screeningService.getMovies(title).then(re => (this.movies = re));
