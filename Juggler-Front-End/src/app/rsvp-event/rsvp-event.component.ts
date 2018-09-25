@@ -61,6 +61,7 @@ export class RSVPEventComponent implements OnInit {
       invitiesMail: ["", Validators.required],
       phoneNo: ["", Validators.required]
     });
+    this.rsvpService.sendEmail();
   }
   get f() {
     return this.rsvpForm1.controls;

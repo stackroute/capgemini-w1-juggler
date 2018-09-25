@@ -23,7 +23,7 @@ scrape_configs:
     scrape_interval: 30s
     scrape_timeout: 30s
     static_configs:
-      - targets: ['10.20.1.15:9085']
+      - targets: ['10.20.1.20:9085']
 
   - job_name: 'config-server'
     metrics_path: /actuator/prometheus
@@ -88,7 +88,7 @@ scrape_configs:
     scrape_interval: 30s
     scrape_timeout: 30s
     static_configs:
-      - targets: ['10.20.1.15:9076']
+      - targets: ['10.20.1.16:9076']
       
   - job_name: 'payment'
     metrics_path: /actuator/prometheus
@@ -109,14 +109,9 @@ scrape_configs:
     scrape_interval: 30s
     scrape_timeout: 30s
     static_configs:
-      - targets: ['10.20.1.15:9075']
+      - targets: ['10.20.1.16:9075']
             
-  - job_name: 'ticket-engine'
-    metrics_path: /actuator/prometheus
-    scrape_interval: 30s
-    scrape_timeout: 30s
-    static_configs:
-      - targets: ['10.20.1.15:9079']
+ 
           
       
       
