@@ -5,14 +5,11 @@ import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.context.Context;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 
-import com.stackroute.juggler.emailservice.EmailserviceApplication;
 import com.stackroute.juggler.emailservice.domain.EmailDetails;
 import com.stackroute.juggler.rsvp.domain.EventDetails;
 
