@@ -49,7 +49,7 @@ export class SeatlayoutComponent implements OnInit, DoCheck {
   showId;
   socket;
   test2;
-  serverUrl = "http://172.23.239.49:9079/websocket";
+  serverUrl = "http://10.20.1.15:9079/websocket";
   stompClient;
 
   constructor(

@@ -256,10 +256,14 @@ services:
 
 #FRONT END
   juggler-front-end:
-   image: viship/juggler:1.1.0
+   build: Juggler-Front-End
+   image: angular
+   restart: always
    container_name: juggler-front-end
+   network_mode: "host"
+   hostname: localhost
    ports:
-    - 9090:4200
+    - 4200:4200
    healthcheck:
     test: "exit 0"
 

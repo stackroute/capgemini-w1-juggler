@@ -13,18 +13,18 @@
 # EXPOSE 8081
 
 # base image
-FROM node:8.11.3 
-RUN mkdir -p /usr/src/app
+# FROM node:8.11.3 
+# RUN mkdir -p /usr/src/app
 
-WORKDIR /usr/src/app
-COPY package.json /usr/src/app
-RUN npm cache verify
-RUN npm install
-COPY . /usr/src/app
+# WORKDIR /usr/src/app
+# COPY package.json /usr/src/app
+# RUN npm cache verify
+# RUN npm install
+# COPY . /usr/src/app
 # start app
-ENTRYPOINT ["npm","start","--","--host","0.0.0.0"]
+# ENTRYPOINT ["npm","start","--","--host","0.0.0.0"]
 
-EXPOSE 9090
+# EXPOSE 9090
 
 # base image
 # FROM node:8.11.3 
@@ -36,3 +36,13 @@ EXPOSE 9090
 # ENTRYPOINT ["http-server","-o"]
 # EXPOSE 4200
 
+FROM node:8.11.3
+RUN mkdir -p /usr/src/Juggler-Front-End
+WORKDIR /usr/src/Juggler-Front-End
+COPY package.json /usr/src/Juggler-Front-End
+RUN npm cache verify
+RUN npm install
+RUN npm audit fix
+COPY . /usr/src/Juggler-Front-End
+EXPOSE 4200
+CMD ["npm","start"]
