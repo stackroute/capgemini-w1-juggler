@@ -21,9 +21,9 @@ import { RsvpEventsListComponent } from "./rsvp-events-list/rsvp-events-list.com
 import { PaymentPageComponent } from "./payment-page/payment-page.component";
 import { RsvpAcceptComponent } from "./rsvp-accept/rsvp-accept.component";
 import { TestComponent } from "./test/test.component";
-import { RecomondationMovieDisplayComponent } from "./recomondation-movie-display/recomondation-movie-display.component";
 import { RecommondationThetareDisplayComponent } from "./recommondation-thetare-display/recommondation-thetare-display.component";
 import { TicketBookedComponent } from "./ticket-booked/ticket-booked.component";
+import { RecomondationMovieDisplayComponent } from "./recomondation-movie-display/recomondation-movie-display.component";
 
 const routes: Routes = [
   { path: "", component: LandingPageComponent },

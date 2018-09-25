@@ -7,5 +7,7 @@ import com.stackroute.juggler.kafka.domain.TicketDetails;
 
 @Repository
 public interface PaymentRepository extends MongoRepository<TicketDetails, Integer> {
+	
+	public TicketDetails getByEmail(String email);
 
 }

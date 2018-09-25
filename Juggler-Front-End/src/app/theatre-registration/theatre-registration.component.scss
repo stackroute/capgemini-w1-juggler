@@ -1,98 +1,77 @@
-.registration {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1w8vxZggMFIGOxrQh_5ZDkjSwDTMkXQpvUagVsJsNLPMSRygB")
- }
-.headings {
-  padding-top: 1%;
-}
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-  //background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJYpANAFX7keUuTcY3GlFeqUonqriquGgcKbUXwzm8d-BO4NOicA");
-}
 
 .example-full-width {
-  width: 57%;
-  padding-left: 4%;
-  padding-right: 24%;
-  display: grid;
+  width: 55%;
+   padding-right: 14%;
+   padding-left: 5%;
+  display:grid;
+  
 }
 
 .example-half-width {
-  width:64%;
-  padding-left: 32%;
-  // padding-right: 2%;
+  width: 55%;
+   padding-right: 14%;
+   padding-left: 5%;
   display:grid;
+  
 }
- .mt-btn {
-   margin-left: 28%;
-   margin-top: -6%;
-   //color:#004B8D;
- }
- .mt-btn b{
-  color:#525F7F;
- }
- .mt-btn button {
-   margin:8%;
+ .bt{
+   margin-left: 2%;
+color:white;
+width:3%;
+background-color: #525F7F;
  }
 
-.seats {
-  padding-left: 2%;
-  //width:13%;
 
+.next button {
+  margin-left: 30%;
 }
-.form3 {
-  margin-left: 0%;
-}
-.seatType {
- padding-left: 29%;
- padding-top: 2%;
- margin:-2%;
- 
-}
-.button-color {
-  margin-left: 20%;
-  margin-top: -1%;
-  // padding-left: 25%;
-  // padding-top: 2%;
-}
-.button-color b{
-  color:#525F7F
-}
-.button-color1 {
-  margin-left: 32%;
-  margin-top: 1%;
-}
-.button-color1 b{
-  color:#525F7F;
-}
-.button-color1 button {
-  margin:9px;
+.next button b{
+  margin-left: -2%;
 }
 
-.layout {
-  padding-left: 29%;
-  padding-top: 3%;
-  margin-top: -3%;
-}
- .layout b {
-  padding-right:3%;
-}
-.add-theatre {
-  margin-top: -4%;
-  margin-left: 73%;
- 
-}
-.add-theatre b{
-  color:#525F7F;
-}
+.mt-btn {
+  margin-top: -7%;
+    padding-left:-2%;
+  }
+  
+  .mt-btn button {
+    margin:8%;
+    padding-left: -2%;
+   
+  }
+  .mat-raised-button {
+    min-width: 2%;
+  }
+  .forms {
+    
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px #ccc;
+  }
 
-.seatRow {
-  margin-left: 1.5%;
-}
-.button-color button {
-  margin: 9px;
-}
 .headings{
   font-family: 'Padauk', sans-serif;
+padding-top: 1%;
+}
+.seats {
+  padding-left: 2%;
+  
+
+}
+
+.seatType {
+ padding-left: 5%;
+ padding-top: 2%;
+ //margin:-2%;
+ 
+}
+.button-color1 {
+  padding-left: 8%;
+}
+.button-color1 button{
+  margin:2%;
+  margin-bottom: 4%;
+}
+#add {
+  margin-left: 27%;
 }

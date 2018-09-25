@@ -1,23 +1,21 @@
 <div class="background">
-<mat-grid-list cols="2">
-  <!-- <button  mat-raised-button color="primary" (click)=accept()>Accept</button> -->
-  <mat-grid-tile >
-    <button   mat-flat-button color="primary" [disabled]="flagAccept"  (click)="accept()">Accept</button>
-<h3 class="headings"*ngIf="flagAccept && !flagReject" >You have accepted the invitation</h3>
-    <!-- <div *ngIf="flagAccept">
-      <button mat-button [disabled]="flagReject" (click)=reDecline()>Reject</button>
-
-    </div> -->
-  </mat-grid-tile>
-  <!-- <button mat-raised-button color="secondary" (click)=reject()>Reject</button> -->
-
-  <mat-grid-tile >
-    <button  mat-flat-button color="primary" [disabled]="flagReject"  (click)=reject()>Reject</button>
-    <h3 class="headings" *ngIf="flagReject">You have Rejected the invitation</h3>
-    <!-- <div *ngIf="flagReject">
-      <button mat-button [disabled]="flagAccept" (click)=reAccept()>Accept</button>
-
-    </div> -->
-  </mat-grid-tile>
-</mat-grid-list>
+  <div class="eventcard">
+    <mat-card class="card">
+      <h2>You can accept your invitation here</h2>
+      <div class="buttons-div">
+        <mat-grid-list cols="2">
+          <mat-radio-group>
+            <mat-grid-tile>
+              <mat-radio-button value="1" (click)="accept()">Accept</mat-radio-button>
+              <br>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-radio-button value="2" (click)=reject()>Reject</mat-radio-button>
+            </mat-grid-tile>
+            <button mat-raised-button color="primary" id="add" (click)="path()"><b>Submit</b></button>
+          </mat-radio-group>
+        </mat-grid-list>
+      </div>
+    </mat-card>
+  </div>
 </div>

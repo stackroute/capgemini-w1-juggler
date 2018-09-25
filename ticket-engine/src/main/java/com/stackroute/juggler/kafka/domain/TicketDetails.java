@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class TicketDetails {
 
 	private String bookingId;
+	private String email;
 	private String theatreName;
 	private String showId;
 	private String movieName;
@@ -18,15 +19,17 @@ public class TicketDetails {
 	public TicketDetails() {
 	}
 
-	public TicketDetails(String bookingId, String theatreName, String showId, String movieName, String showTiming,
-			String bookingStatus, List<Integer> bookedSeats) {
+	public TicketDetails(String bookingId, String email, String theatreName, String showId, String movieName,
+			List<Integer> bookedSeats, String showTiming, String bookingStatus) {
+		super();
 		this.bookingId = bookingId;
-		this.setTheatreName(theatreName);
-		this.setShowId(showId);
-		this.setMovieName(movieName);
-		this.setBookedSeats(bookedSeats);
+		this.email = email;
+		this.theatreName = theatreName;
+		this.showId = showId;
+		this.movieName = movieName;
+		this.bookedSeats = bookedSeats;
 		this.showTiming = showTiming;
-		this.setBookingStatus(bookingStatus);
+		this.bookingStatus = bookingStatus;
 	}
 
 	public String getBookingId() {
@@ -35,6 +38,14 @@ public class TicketDetails {
 
 	public void setBookingId(String bookingId) {
 		this.bookingId = bookingId;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getTheatreName() {
@@ -53,6 +64,14 @@ public class TicketDetails {
 		this.showId = showId;
 	}
 
+	public String getMovieName() {
+		return movieName;
+	}
+
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
+
 	public List<Integer> getBookedSeats() {
 		return bookedSeats;
 	}
@@ -61,12 +80,12 @@ public class TicketDetails {
 		this.bookedSeats = bookedSeats;
 	}
 
-	public String getMovieName() {
-		return movieName;
+	public String getShowTiming() {
+		return showTiming;
 	}
 
-	public void setMovieName(String movieName) {
-		this.movieName = movieName;
+	public void setShowTiming(String showTiming) {
+		this.showTiming = showTiming;
 	}
 
 	public String getBookingStatus() {

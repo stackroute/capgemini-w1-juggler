@@ -95,4 +95,10 @@ public class PaymentServiceImpl implements PaymentService {
 		return ticketDetails;
 	}
 
+	@Override
+	public TicketDetails getTicket(String email) {
+		TicketDetails ticket = paymentRepo.getByEmail(email);
+		return ticket;
+	}
+
 }

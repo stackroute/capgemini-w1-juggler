@@ -14,5 +14,7 @@ public interface PaymentService {
 	public TicketDetails saveTicket(TicketDetails ticket);
 	
 	public TicketDetails addTicket(TicketDetails ticketDetails);
+	
+	public TicketDetails getTicket(String email);
 
 }

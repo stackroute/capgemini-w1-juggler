@@ -4,18 +4,17 @@
   <script src="seatlayout.component.ts"></script>
 </head>
 
-<div>
+
+<div class="container">
   <div class="row">
-    <div class="col-sm-3">
-      <b>{{bookingDetail.nameOfMovie}}</b>
+    <div  class="col-sm-4">
+      <b>{{bookingDetail.nameOfMovie}} </b>
     </div>
-    <div class="col-sm-3">
-      <b> {{bookingDetail.screeningTime}}</b>
+  
+    <div class="col-sm-4">
+      <b>{{bookingDetail.screeningTime}}, {{bookingDetail.theaterName}}</b>
     </div>
-    <div class="col-sm-3">
-      <b> {{bookingDetail.theaterName}},{{bookingDetail.theatreLocation}}</b>
-    </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <b>{{bookingDetail.languages}},{{bookingDetail.format}}</b>
     </div>
   </div>

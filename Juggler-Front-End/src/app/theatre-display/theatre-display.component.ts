@@ -42,13 +42,11 @@ export class TheatreDisplayComponent {
     private movieDetailsService: MovieDetailsService,
     private detailService: BookingDetailsService,
     private bookingLayoutService:BookingLayoutService,
-    private service:SharingDataService,
+    private service: SharingDataService,
     private router:Router
   ) {}
 
   ngOnInit() {
-    console.log("test");
-    
     var width = window.innerWidth;
     console.log(width);
     this.movieObject2 = this.movieDetailsService.receive();
@@ -135,8 +133,9 @@ export class TheatreDisplayComponent {
       this.selectedDetails.theaterName,
       this.selectedDetails.screeningTime
     );
-    this.Id=this.selectedDetails.theaterName+""+Selecteddate.getDate()+""+this.selectedDetails.screeningTime+""+this.service.sendCityName();
+    this.Id=this.selectedDetails.theaterName+""+Selecteddate.getDate()+""+this.selectedDetails.screeningTime+""+this.service.sendCityName()
     this.selectedDetails.showId=this.Id;
+    this.selectedDetails.selectedDate=this.valueDate;
     
     this.bookingLayoutService.saveTickeDetails(this.Id)
     .subscribe(res => console.log("Saved event"));

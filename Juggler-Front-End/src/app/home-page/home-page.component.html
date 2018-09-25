@@ -1,23 +1,5 @@
 <!-- Search form -->
-<!-- <div class="searchbar">
-    
-            <input type="text" class="input" placeholder="Search movies" name="city" [(ngModel)]="city" #input>
-
-            <button type="submit" class="btn-block  form-control" (click)="searchMovies(input.value)">
-              
-                <i class="fa fa-search"></i>
-            </button>
-
-</div> -->
-<!-- <div class="search">
-    
-    <form class="form-inline md-form form-sm active-pink">
-        
-        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search For Movies" aria-label="Search">
-        <button type="submit" class="but" (click)="searchMovies(input.value)">  <i class="fa fa-search" aria-hidden="true"></i>
-   </button>
-        </form>
-</div> -->
+<div class="home-page">
 <div class="search">
 <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
     <input type="text" placeholder="Search for Movies" name="search2" #input>
@@ -28,7 +10,7 @@
     <div class="searchresult">
         <div *ngIf=search_result1>
             <strong>
-                <h1>Search Result</h1>
+                <h1>Movie</h1>
             </strong>
             <div class="row">
                 <div class="col-sm-3" *ngFor="let movie of search_result1; let i = index">
@@ -36,7 +18,7 @@
                         <div class="card ">
                             <div class="img">
                                 <img class="card-img-top img-fluid" routerLink="/moviedetail" (click)="getMovieInfo(movie)"
-                                    src="{{movie.moviePoster}}" onerror="this.src='http://reelcinemas.ae/Images/Movies/not-found/no-poster.jpg';">
+                                    src="{{movie.moviePoster}}" style="height:350px" onerror="this.src='http://reelcinemas.ae/Images/Movies/not-found/no-poster.jpg';">
                             </div>
                             <div class="body">
                                 <div class="text-center">
@@ -50,26 +32,19 @@
             </div>
         </div>
     </div>
+    
     <div class="cityresult">
-        <div *ngIf=search_result>
+        <!-- <div *ngIf=search_result> -->
             <strong>
-                <h1>Trending Movies</h1>
+                <h2>Running Movies</h2>
             </strong>
-            <!-- <div class="card">
-            <img src="http://barkerhost.com/wp-content/uploads/sites/4/2015/07/4tAiwMK5TUkOsU0nKXeQKpyBjy2-2.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>John Doe</b></h4> 
-              <p>Architect & Engineer</p> 
-            </div>
-          </div> -->
             <div class="row">
                 <div class="col-sm-3" *ngFor="let movie of search_result; let i = index">
                     <div *ngIf="i < 9">
                         <div class="card mt-3 mb-3">
                             <div class="img">
                                 <img class="card-img-top img-fluid" routerLink="/moviedetail" (click)="getMovieInfo(movie)"
-                                    src="{{movie.moviePoster}}" height="400px" width="300px" onerror="this.src='http://reelcinemas.ae/Images/Movies/not-found/no-poster.jpg';"
-                                   >
+                                    src="{{movie.moviePoster}}" style="height:350px" onerror="this.src='http://reelcinemas.ae/Images/Movies/not-found/no-poster.jpg';">
                             </div>
                             <div class="body">
                                 <div class="text-center">
@@ -81,35 +56,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
     </div>
 </div>
-<!-- <mat-grid-list cols="12" (window:resize)="onResize($event)">
-     <mat-grid-list cols="12"> 
- <h3>Trending Movies</h3>
-    <div class="container">
-        <div *ngIf=search_result>
-            <div class="row">
-                <div *ngFor="let movie of search_result; let i = index">
-                    <div *ngIf='i < 9'>
-                        <mat-grid-tile colspan="3" rowspan="4 ">
-                            <div>
-                                <mat-card>
-                                    <mat-card-header>
-                                        <mat-card-title>
-                                            <a>{{movie.movieName}}</a>
-                                        </mat-card-title>
-                                    </mat-card-header>
-                                    <img mat-card-image routerLink="/moviedetail" (click)="getMovieInfo(movie)" src="{{movie.moviePoster}} " alt="Poster of movie"
-                                        height="200" width="150">
-                                    <button mat-button routerLink="/moviedetail" (click)="getMovieInfo(movie)">view</button> -->
-<!-- </mat-card>
-                            </div>
-                        </mat-grid-tile>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</mat-grid-list>  -->
+
 <app-recommendation></app-recommendation>
+</div>

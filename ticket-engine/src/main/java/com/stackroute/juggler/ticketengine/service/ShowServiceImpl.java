@@ -62,6 +62,41 @@ public class ShowServiceImpl implements ShowService {
 	}
 
 	@Override
+	public Show delblocked(List<Integer> ipList, String showID) {
+
+		Optional<Show> local = showRepo.findById(showID);
+		System.out.println(showID);
+		Show ShowWithId = local.get();
+		Boolean flag = true;
+		System.out.println(ShowWithId.getBlockedSeats());
+		List<Integer> blockedSeats = ShowWithId.getBlockedSeats();
+		List<Integer> bookedinDB = ShowWithId.getBookedSeats();
+		for (int j = 0; j < bookedinDB.size(); j++) {
+			for (int i = 0; i < ipList.size(); i++) {
+				if (bookedinDB.get(j) == ipList.get(i)) {
+					flag = false;
+				} else {
+				}
+			}
+		}
+
+		if (flag == true) {
+			System.out.println("seats are not in booked");
+			for (int i = 0; i < ipList.size(); i++) {
+				System.out.println(ipList.get(i));
+				blockedSeats.remove(ipList.get(i));
+			}
+
+			System.out.println(blockedSeats);
+			ShowWithId.setBlockedSeats(blockedSeats);
+			System.out.println(ShowWithId.getBlockedSeats());
+			showRepo.save(ShowWithId);
+			return ShowWithId;
+		}
+		return ShowWithId;
+	}
+
+	@Override
 	public Show updateBooked(Show show) {
 		String id = show.getShowId();
 		Optional<Show> local = showRepo.findById(id);
@@ -83,6 +118,7 @@ public class ShowServiceImpl implements ShowService {
 		showRepo.deleteById(showId);
 	}
 
+	@SuppressWarnings({ "deprecation", "unused" })
 	@Override
 	@KafkaListener(topics = "screening-ticket", groupId = "ticket")
 	public void getDetails(MovieSchedule movieSchedule) throws ParseException {
@@ -138,8 +174,9 @@ public class ShowServiceImpl implements ShowService {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	@Override
-	@KafkaListener(topics = "payment", groupId = "pat")
+	@KafkaListener(topics = "payment", groupId = "pay")
 	public void getBookedSeats(TicketDetails ticketDetails) {
 		if (ticketDetails.getBookingStatus().equals("Success")) {
 			String showid = ticketDetails.getShowId();
@@ -192,6 +229,7 @@ public class ShowServiceImpl implements ShowService {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	@KafkaListener(topics = "show-scheduler", groupId = "schedule")
 	public void getSchedulerTrigger(TriggerMessage object) throws ParseException {

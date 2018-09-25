@@ -14,12 +14,15 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
-import com.stackroute.juggler.kafka.domain.TriggerMessage;
 import com.stackroute.juggler.kafka.domain.TicketDetails;
+import com.stackroute.juggler.kafka.domain.TriggerMessage;
 
 @EnableKafka
 @Configuration
 public class KafkaConsumer {
+
+	// @Value("${bootstrap-id}")
+	// private String bootstrap_id;
 
 	@Bean
 	public ConsumerFactory<String, MovieSchedule> consumerFactory() {

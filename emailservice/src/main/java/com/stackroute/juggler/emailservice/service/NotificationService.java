@@ -30,43 +30,36 @@ public class NotificationService {
 
 	EmailDetails emailDetails = new EmailDetails();
 	String emailBody;
-	
-String url="www.google.co.in";
+	String eventName;
+	String eventDate;
+	String url = "www.google.co.in";
+
+	// public void getEventDetails(EventDetails event) {
+	// System.out.println("geteventdetails");
+	// emailDetails.setToEmailId(event.getInvitiesMail());
+	// emailDetails.setBody(event.getEventSynopsis());
+	// emailDetails.setEventName(event.getEventName());
+	// emailDetails.setEventDate(event.getEventDate());
+	//
+	// //emailDetails.setEventLocation(event.getEventLocation());
+	// System.out.println(emailDetails.toString());
+	//
+	// }
+
 	@KafkaListener(topics = "eventdetails1", groupId = "event")
-	public void getEventDetails(EventDetails event) {
-		System.out.println("geteventdetails");
-		emailDetails.setToEmailId(event.getInvitiesMail());
-		emailDetails.setBody(event.getEventSynopsis());
-		System.out.println(emailDetails.toString());
-		
-	}
-
-	public void sendNotification() throws MessagingException {
-
-//		Context context = new Context();
-//		context.setVariable("eventSynopsis", emailDetails.getBody());
-//        String html = templateEngine.process("mailtemplate", context);
-//		System.out.println("service1");
-//		SimpleMailMessage mail= new SimpleMailMessage();
-//		System.out.println("service2");
-//		mail.setTo(emailDetails.getToEmailId());
-//		System.out.println("service3");
-//		mail.setCc(emailDetails.getEmailCc());
-//		mail.setSubject("Event Invitation");
-//		mail.setText(html);
-//		System.out.println(mail);
-//		System.out.println("before sending");
-//		javaMailSender.send(mail);
-//		System.out.println("sent");
+	public void sendNotification(EventDetails event) throws MessagingException {
 		MimeMessage message = javaMailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message, true);
-
-		helper.setTo(emailDetails.getToEmailId());
+		helper.setTo(event.getInvitiesMail());
 		helper.setSubject("Event Invitation");
-		this.emailBody = "Hi," + emailDetails.getBody();
-		helper.setText("<html><head><body> <h3>Hi,</h3><p>"+ emailBody +"</p> <a>"+ url +"</a><div>\n"
-				+ "        <button mat-button matStepperPrevious>Accept</button><button mat-button matStepperPrevious>Decline</button></body></head></html>",
-				true);
+		this.emailBody = event.getEventSynopsis();
+		this.eventName = event.getEventName();
+		this.eventDate = event.getEventDate();
+
+		helper.setText("<html>" + "<head>" + "<body> " + "<h3>Hey,</h3><br>" + "<p>You are invited to attend an Event "
+				+ eventName + " where in " + emailBody + " held on " + eventDate + "</p><br>"
+				+ "<a href=http://13.126.103.60:4200/#/rsvp/accept>click here</a><p> To accept this invitation </p>"
+				+ "        </body></head></html>", true);
 		System.out.println(message.toString());
 		javaMailSender.send(message);
 	}

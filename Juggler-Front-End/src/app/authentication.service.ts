@@ -12,7 +12,7 @@ export class AuthenticationService {
     }
 
     loginUser(email: string, password: string ) {
-         return this.http.post<any>('http://13.126.220.1:9074/api/v1/juggler/user/login', {email: email, password: password, role: 'user'})
+         return this.http.post<any>('http://10.20.1.15:9074/api/v1/juggler/user/login', {email: email, password: password, role: 'user'})
             // this is just the HTTP call,
             // we still need to handle the reception of the token
             // .shareReplay();

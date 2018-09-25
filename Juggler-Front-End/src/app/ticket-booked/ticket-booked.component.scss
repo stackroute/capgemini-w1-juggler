@@ -1,12 +1,12 @@
-.card-title {
+card-title {
   //padding-left: 32%;
   color:#D9491D;
-
-}
-.card-text {
+ 
+ }
+ .card-text {
   padding-left: 28%;
-}
-.card {
+ }
+ .card {
     font-size: 1em;
     overflow: hidden;
     padding-top: 2%;
@@ -17,40 +17,40 @@
     z-index: -1;
     margin-top:5%;
     margin-bottom: 5%;
-}
-
-.direction {
+ }
+ 
+ .direction {
   display: inline-flex;
   padding-bottom: 2%;
   border-bottom: 1px dashed grey;
-}
-.direction p {
+ }
+ .direction p {
   margin-left: 10%;
-}
-
-.ticketdetails p {
+ }
+ 
+ .ticketdetails p {
   padding-top: 6%;
   padding-left: 6%;
   padding-bottom: 0%;
-  
-}
-
-#DownAppearance {
-    
+ 
+ }
+ 
+ #DownAppearance {
+ 
   margin-top: 0px;
   padding-top: 0px;
   padding-left: 4%;
-}
-
-.SetAligned p{
-display: inline-flex;
-}
-#dir{
+ }
+ 
+ .SetAligned p{
+ display: inline-flex;
+ }
+ #dir{
     padding-left: 23%;
-}
-.shift{
+ }
+ .shift{
     padding-left: 30%;
-}
-container col-sm-6{
+ }
+ container col-sm-6{
     box-shadow:3px 3px 3px grey ;
-}
+ }

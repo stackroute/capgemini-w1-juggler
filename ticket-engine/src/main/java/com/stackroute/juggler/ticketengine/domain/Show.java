@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
 @RedisHash("Shows")
-public class Show {
+public class Show implements Runnable {
 
 	@Id
 	private String showId;
@@ -178,6 +178,12 @@ public class Show {
 				+ slot + ", status=" + status + ", bookedSeats=" + bookedSeats + ", blockedSeats=" + blockedSeats
 				+ ", totalRow=" + totalRow + ", totalCol=" + totalCol + ", rowValues=" + rowValues + ", colValues="
 				+ colValues + "]";
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

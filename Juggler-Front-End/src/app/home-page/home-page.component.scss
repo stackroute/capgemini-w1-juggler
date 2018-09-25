@@ -22,7 +22,7 @@ form.example button {
   width: 20%;
   padding: 10px;
   background:  #D9491D;
-  color: 525F7F;
+  color:white;
   font-size: 17px;
   border: 1px solid #3D3D3B;
 
@@ -44,9 +44,11 @@ form.example::after {
 .but{
   background-color: #D9491D;
 }
-
+.h1{
+  font-family:'Roboto Slab', serif;
+ }
 .fa{
-  color: #3D3D3B;
+  color: white;
 }
 // .form-inline{
 //  margin-left: 70%;
@@ -105,7 +107,9 @@ form.example::after {
   //   margin-right: 4%
   // }
  
-  
+ .home-page{
+   overflow: hidden;
+ }
   
   h5{
    text-transform: capitalize;

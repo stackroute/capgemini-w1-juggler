@@ -16,7 +16,8 @@ export class PaymentService {
     showId: string,
     theatreName: string,
     movieName: string,
-    showTiming: string
+    showTiming: string,
+    email: string
   ) {
     const headers = new Headers({ token: token, amount: amount });
     // const head = new Headers({bookedSeats: bookedSeats});
@@ -34,12 +35,13 @@ export class PaymentService {
           // console.log(head);
 
           this.http
-            .post("http://10.20.1.15:9081/api/v1/payment/ticket", {
+            .post("http://172.23.239.116:9081/api/v1/payment/ticket", {
               bookedSeats: bookedSeats,
               showId: showId,
               movieName: movieName,
               theatreName: theatreName,
-              showTiming: showTiming
+              showTiming: showTiming,
+              email: email
             })
             .subscribe(response => {
               console.log(response);
@@ -66,7 +68,7 @@ export class PaymentService {
 
   refundCard() {
     this.http
-      .post("http://10.20.1.15:9081/api/v1/payment/refund", {})
+      .post("http://172.23.239.116:9081/api/v1/payment/refund", {})
       .subscribe(res => {
         console.log(res);
       });

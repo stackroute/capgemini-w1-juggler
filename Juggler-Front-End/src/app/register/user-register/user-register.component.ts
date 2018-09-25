@@ -40,6 +40,8 @@ export class UserRegisterComponent implements OnInit {
   genreOutoutList: Array<string> = []; 
 json=[];
 city=[];
+json1=[];
+cit=[];
   user = new User();
   // languages: string[] = [
   //   "Bengali",
@@ -73,29 +75,42 @@ city=[];
 console.log(this.genreOutoutList);
 }
   ngOnInit() {
+    this.http.get('./assets/city.json').subscribe(
+      result => { this.json1 = result as string[];
+        // console.log(result);
+        this.city[0]=this.json1[0].name;
+        this.city[1]=this.json1[1].name;
+        this.city[2]=this.json1[2].name;
+        this.city[3]=this.json1[3].name;
+        
+        console.log(this.json);
+        console.log(this.city+ "anmisha");
+       });
     this.firstFormGroup = this._formBuilder.group({
       userName: ["", Validators.required],
       email: ["", Validators.email],
       password: ["", Validators.required],
       mobileNo: ["", Validators.required]
     });
+
+    
     this.secondFormGroup = this._formBuilder.group({
       address: ["", Validators.required]
     });
-
+    
     this.http.get('./assets/languages.json').subscribe(
       result => { this.json = result as string[];
         // console.log(result);
-        this.city[0]=this.json[0].name;
-        this.city[1]=this.json[1].name;
-        this.city[2]=this.json[2].name;
-        this.city[3]=this.json[3].name;
-        this.city[4]=this.json[4].name;
-        this.city[5]=this.json[5].name;
-        this.city[6]=this.json[6].name;
-        this.city[7]=this.json[7].name;
+        this.cit[0]=this.json[0].name;
+        this.cit[1]=this.json[1].name;
+        this.cit[2]=this.json[2].name;
+        this.cit[3]=this.json[3].name;
+        this.cit[4]=this.json[4].name;
+        this.cit[5]=this.json[5].name;
+        this.cit[6]=this.json[6].name;
+        this.cit[7]=this.json[7].name;
         console.log(this.json);
-        console.log(this.city+ "anmisha");
+        console.log(this.cit+ "anmisha");
        });
 
   }
@@ -123,6 +138,8 @@ console.log(this.genreOutoutList);
       .saveUser(this.user)
       .subscribe(res => console.log("Saved User"));
     this.router.navigate(["/login-user"]);
+   
+
   }
 
 }

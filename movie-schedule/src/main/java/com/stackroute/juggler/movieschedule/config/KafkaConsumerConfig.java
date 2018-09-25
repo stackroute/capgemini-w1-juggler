@@ -2,8 +2,10 @@ package com.stackroute.juggler.movieschedule.config;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -11,6 +13,7 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
+
 import com.stackroute.juggler.kafka.domain.Theatre;
 
 //Kafka KafkaConsumerConfig for TheatreRegistration Details
@@ -18,6 +21,9 @@ import com.stackroute.juggler.kafka.domain.Theatre;
 @EnableKafka
 @Configuration
 public class KafkaConsumerConfig {
+
+	@Value("${bootstrap-id}")
+	private String bootstrap_id;
 
 	// 172.23.238.190 192.168.43.174 10.20.1.16
 
@@ -38,7 +44,7 @@ public class KafkaConsumerConfig {
 	// Template imports the configuration from consumer factory
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, Theatre> kafkaListenerContainerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String, Theatre> factory = new ConcurrentKafkaListenerContainerFactory();
+		ConcurrentKafkaListenerContainerFactory<String, Theatre> factory = new ConcurrentKafkaListenerContainerFactory<String, Theatre>();
 		factory.setConsumerFactory(consumerFactory());
 		return factory;
 	}

@@ -5,54 +5,43 @@ import { FullBookingDetails } from "../FullBookingDetails";
 
 
 
-export interface result {
-  id:number;
-  code:string;
-  image:string;
-  description:string;
-  amount:string;
-}
+// export interface result {
+//   id:number;
+//   code:string;
+//   image:string;
+//   description:string;
+//   amount:string;
+// }
 @Component({
   selector: "app-billing",
   templateUrl: "./billing.component.html",
   styleUrls: ["./billing.component.scss"]
 })
 export class BillingComponent implements OnInit {
-//  result:any;
+   result:any;
   promos: string;
   value: number;
   flag: boolean;
   show: boolean = true;
   result1 = null;
   bool;
+  value1:number
   bookingDetails: FullBookingDetails;
   
- result=[
-  {
-    id:1,
-    code:"FLAT100",
-    image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
-    description:"It is applicable from 500Rs on Ticket",
-  amount: 100
-  },
-  {
-    id:1,
-    code:"FLAT200",
-    image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
-    description:"It is applicable from 500Rs on Ticket",
-  amount: 200
-  }]
+
   constructor(private promoService: PromocodeService, private payment: PromocodeService,private layouttobilling: LayoutToBillingService) {}
   ngOnInit() {
-
-    console.log(this.layouttobilling.getAtBilling()+ "anmisha");
+   
     this.result1=null;
-    // this.promoService.getpromos().subscribe(data => {
-    //   this.result = data;
-    //   this.bool = false;
-    //   // console.log(this.bool);
-    // });
-    //  console.log(this.result);
+    this.promoService.getpromos().subscribe(data => {
+      this.result = data;
+      this.bool = false;
+      // console.log(this.bool);
+    });
+     console.log(this.result);
+     this.bookingDetails=this.layouttobilling.getAtBilling();
+     console.log(this.bookingDetails.emailId+ "anmisha");
+
   }
 
   promo(code) {
@@ -71,38 +60,40 @@ export class BillingComponent implements OnInit {
      console.log("data is ", this.result1);
   }
 
-  formula(value1: number, value2: number) {
+  formula( value3:number,value2: number) {
+    this.value1=this.bookingDetails.totalAmount;
+    console.log(this.value1);
     switch (value2) {
       case 200:
-        if (value1 >= 1000) {
+        if (this.value1 >= 1000) {
           this.flag = true;
         } else {
           this.flag = false;
         }
         break;
       case 100:
-        if (value1 >= 500) {
+        if (this.value1 >= 500) {
           this.flag = true;
         } else {
           this.flag = false;
         }
         break;
       case 50:
-        if (value1 >= 300) {
+        if (this.value1 >= 300) {
           this.flag = true;
         } else {
           this.flag = false;
         }
         break;
       case 20:
-        if (value1 >= 200) {
+        if (this.value1 >= 200) {
           this.flag = true;
         } else {
           this.flag = false;
         }
         break;
       case 10:
-        if (value1 >= 100) {
+        if (this.value1 >= 100) {
           this.flag = true;
         } else {
           this.flag = false;
@@ -113,7 +104,12 @@ export class BillingComponent implements OnInit {
     }
 
     if (this.flag == true) {
-      this.value = value1 - value2;
+      this.value = this.value1 - value2;
+    }
+    else
+    {
+      this.value=this.value1;
+      
     }
     this.payment.amount = this.value;
     console.log(this.value);
@@ -123,6 +119,15 @@ export class BillingComponent implements OnInit {
   // openVerticallyCentered(content) {
   //   this.modalService.open(content, { centered: true });
   // }
-
- 
+  email(email:string){
+    console.log(email);
+    this.bookingDetails.emailId=email;
+  }
+  onclick(){
+    console.log(this.value);
+    this.bookingDetails.Finalamount=this.value;
+    console.log(this.bookingDetails.emailId+ "madhusri");
+    this.layouttobilling.sendToBilling(this.bookingDetails);
+  }
+  
 }
