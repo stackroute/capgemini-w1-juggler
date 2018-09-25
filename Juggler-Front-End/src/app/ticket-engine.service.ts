@@ -9,8 +9,8 @@ import { Layout } from "./layout";
 })
 export class TicketEngineService {
   data;
-  private url = "http://10.20.1.15:9079/api/v1/ticket/layout";
-
+  url = "http://172.23.239.49:9079/api/v1/ticket/layout";
+  url1 = "http://172.23.239.49:9079/api/v1/ticket/update";
   constructor(private http: HttpClient) {}
 
   getseatDetails(): Observable<Layout[]> {
@@ -19,5 +19,9 @@ export class TicketEngineService {
       .get<Layout[]>(this.url + "/pvr2219:00bangalore")
       .pipe(map(res => (this.data = res)));
   }
+  getData(showId, blockedSeats) {
+    return this.http.put<any>(this.url1 + "/" + showId, blockedSeats);
+  }
+
   sendseatDetails() {}
 }

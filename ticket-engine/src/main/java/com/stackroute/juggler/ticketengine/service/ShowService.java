@@ -1,6 +1,7 @@
 package com.stackroute.juggler.ticketengine.service;
 
 import java.text.ParseException;
+import java.util.List;
 
 import com.stackroute.juggler.kafka.domain.MovieSchedule;
 import com.stackroute.juggler.kafka.domain.TriggerMessage;
@@ -27,6 +28,8 @@ public interface ShowService {
 
 	public void getSchedulerTrigger(TriggerMessage object)throws ParseException;
 
-	public Show delBlocked(Show show);
+//	public Show delblocked(String[] ipBlockedSeats, String showID);
+
+	public Show delblocked(List<Integer> ipList, String showID);
 	
 }

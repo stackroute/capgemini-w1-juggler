@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
 import { FullBookingDetails } from "../FullBookingDetails";
 import { TicketEngineService } from "../ticket-engine.service";
+import { Observable } from "rxjs/Rx";
 import * as Stomp from "stompjs";
 import * as SockJS from "sockjs-client";
 import { Layout } from "../layout";
@@ -46,7 +47,7 @@ export class SeatlayoutComponent implements OnInit {
   count = 0;
   userbookedseats = [];
 
-  private serverUrl = "http://13.233.63.78:9079/websocket"; 
+  private serverUrl = "http://172.23.239.49:9079/websocket";
   private stompClient;
 
   constructor(
@@ -79,6 +80,22 @@ export class SeatlayoutComponent implements OnInit {
   }
 
   webSocketConnect() {
+    Observable.interval(1000 * 10).subscribe(() => {
+      // console.log('1111---hi');
+      this.ticketengineService.getData(
+        this.bookingDetail.showId,
+        this.blockedSeatsArray
+      );
+      // if (this.stompClient.onclose) {
+      //   this.ticketengineService.getData().subscribe();}
+    });
+    setTimeout(()=>{},10000);
+
+    // Observable.interval(1000 * 1).subscribe(() => {
+    //   // console.log('1111---hi');
+    //   // this.service.getData().subscribe();
+
+    // });
     console.log("inside method webSocketConnect ");
     var socket = new SockJS(this.serverUrl);
     this.stompClient = Stomp.over(socket);

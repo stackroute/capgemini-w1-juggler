@@ -62,29 +62,65 @@ public class ShowServiceImpl implements ShowService {
 	}
 
 	@Override
-	public Show delBlocked(Show show) {
+	public Show delblocked(List<Integer> ipList, String showID) {
 
-		show.getBookedSeats();
-		String showid = show.getShowId();
-		Show local = getById(show.getShowId());
-		List<Integer> blockedInDb = local.getBlockedSeats();
-		List<Integer> blockedAsInput = show.getBookedSeats();
-		for (int j = 0; j < blockedAsInput.size(); j++) {
-			for (int i = 0; i < blockedInDb.size(); i++) {
-				if (blockedAsInput.get(i) < 100) {
-					if (blockedAsInput.get(i) == blockedInDb.get(j)) {
-						blockedInDb.remove(blockedAsInput.get(i));
-						System.out.println("removed");
-					} else {
-					}
+		Optional<Show> local = showRepo.findById(showID);
+		System.out.println(showID);
+		Show ShowWithId = local.get();
+		Boolean flag = true;
+		System.out.println(ShowWithId.getBlockedSeats());
+		List<Integer> blockedSeats = ShowWithId.getBlockedSeats();
+		List<Integer> bookedinDB = ShowWithId.getBookedSeats();
+		for (int j = 0; j < bookedinDB.size(); j++) {
+			for (int i = 0; i < ipList.size(); i++) {
+				if (bookedinDB.get(j) == ipList.get(i)) {
+					flag = false;
+				} else {
 				}
 			}
 		}
-		local.setBlockedSeats(blockedAsInput);
-		showRepo.save(local);
-		return local;
 
+		if (flag == true) {
+			System.out.println("seats are not in booked");
+			for (int i = 0; i < ipList.size(); i++) {
+				System.out.println(ipList.get(i));
+				blockedSeats.remove(ipList.get(i));
+			}
+
+			System.out.println(blockedSeats);
+			ShowWithId.setBlockedSeats(blockedSeats);
+			System.out.println(ShowWithId.getBlockedSeats());
+			showRepo.save(ShowWithId);
+			return ShowWithId;
+		}
+		return ShowWithId;
 	}
+
+	// @Override
+	// public Show delBlocked(Show show) {
+	//
+	// show.getBookedSeats();
+	// String showid = show.getShowId();
+	// Show local = getById(show.getShowId());
+	// List<Integer> blockedInDb = local.getBlockedSeats();
+	// List<Integer> blockedAsInput = show.getBookedSeats();
+	// for (int j = 0; j < blockedAsInput.size(); j++) {
+	// for (int i = 0; i < blockedInDb.size(); i++) {
+	// if (blockedAsInput.get(i) < 100) {
+	// if (blockedAsInput.get(i) == blockedInDb.get(j)) {
+	// blockedInDb.remove(blockedAsInput.get(i));
+	// System.out.println("removed");
+	// } else {
+	// }
+	// }
+	// }
+	// }
+	//
+	// local.setBlockedSeats(blockedAsInput);
+	// showRepo.save(local);
+	// return local;
+	//
+	// }
 
 	@Override
 	public Show updateBooked(Show show) {
