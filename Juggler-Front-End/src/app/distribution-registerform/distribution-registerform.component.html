@@ -36,7 +36,7 @@
         <mat-label>Genres</mat-label>
         <input matInput placeholder="Genres" formControlName="movie_Genres" type="text" [matAutocomplete]="auto1" required>
         <mat-autocomplete #auto1="matAutocomplete">
-          <mat-option *ngFor="let genre of options1" [value]="genre">
+          <mat-option *ngFor="let genre of genre" [value]="genre">
             {{ genre }}
           </mat-option>
         </mat-autocomplete>
@@ -61,7 +61,7 @@
           <mat-label>Language</mat-label>
           <input matInput placeholder="Languages" formControlName="_languages" type="text" [matAutocomplete]="auto" required>
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let cityOption of options" [value]="cityOption">
+            <mat-option *ngFor="let cityOption of city" [value]="cityOption">
               {{ cityOption }}
             </mat-option>
           </mat-autocomplete>
@@ -86,7 +86,7 @@
       </mat-form-field>
       <div class="option">
         <button mat-stroked-button color="warn" matStepperPrevious><b>Back</b></button>
-        <button mat-stroked-button color="warn" (click)="stepper.reset()">Reset</button>
+        <button mat-stroked-button color="warn" (click)="stepper.reset()"><b>Reset</b></button>
       </div>
       <div class="add">
         <button mat-stroked-button color="warn" (click)="addMovie()"><b>Add Movie</b></button>

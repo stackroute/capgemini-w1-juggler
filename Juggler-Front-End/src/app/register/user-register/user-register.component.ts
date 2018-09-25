@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../user.service";
 import {
@@ -37,22 +38,24 @@ export class UserRegisterComponent implements OnInit {
     {id:8,name:"SuperHeroes", card:"card8", click:"card8", img:"assets/images/Super-Heroes.jpeg"}
 ];
   genreOutoutList: Array<string> = []; 
-
+json=[];
+city=[];
   user = new User();
-  languages: string[] = [
-    "Bengali",
-    "English",
-    "Hindi",
-    "Kannada",
-    "Malyalam",
-    "Telugu",
-    "Tamil"
-  ];
+  // languages: string[] = [
+  //   "Bengali",
+  //   "English",
+  //   "Hindi",
+  //   "Kannada",
+  //   "Malyalam",
+  //   "Telugu",
+  //   "Tamil"
+  // ];
 
   constructor(
     private userService: UserService,
     private _formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private http:HttpClient
   ) { }
   // onGenreCardSelect(genre: any) {
   //   this.genreOutoutList.push(genre);
@@ -79,6 +82,22 @@ console.log(this.genreOutoutList);
     this.secondFormGroup = this._formBuilder.group({
       address: ["", Validators.required]
     });
+
+    this.http.get('./assets/languages.json').subscribe(
+      result => { this.json = result as string[];
+        // console.log(result);
+        this.city[0]=this.json[0].name;
+        this.city[1]=this.json[1].name;
+        this.city[2]=this.json[2].name;
+        this.city[3]=this.json[3].name;
+        this.city[4]=this.json[4].name;
+        this.city[5]=this.json[5].name;
+        this.city[6]=this.json[6].name;
+        this.city[7]=this.json[7].name;
+        console.log(this.json);
+        console.log(this.city+ "anmisha");
+       });
+
   }
 
   get f() {
@@ -105,4 +124,5 @@ console.log(this.genreOutoutList);
       .subscribe(res => console.log("Saved User"));
     this.router.navigate(["/login-user"]);
   }
+
 }

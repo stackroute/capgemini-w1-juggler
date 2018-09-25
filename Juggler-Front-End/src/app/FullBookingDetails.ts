@@ -1,3 +1,4 @@
+
 export class FullBookingDetails {
   nameOfMovie: string;
   moviePoster: string;

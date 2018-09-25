@@ -3,7 +3,7 @@
       
   <div class="container">
     <div class="row">
-      <div class="col-sm-9">
+      <div class="col-sm-11">
         <div class="card mt-5 mb-5">
           <div class="card-header">
             <strong> {{movieObject.movieName}}</strong>
@@ -12,7 +12,7 @@
             <div class="row">
               <div class="col-sm-5">
                 <!-- height="400%" width="200% -->
-                <img src={{movieObject.moviePoster}} class="img-fluid" style="height:340px; width:340px">
+                <img src={{movieObject.moviePoster}} class="img-fluid" height="480px" width="300px">
               </div>
               <div class="details col-sm-7">
                 <ul class="list-group">
@@ -36,12 +36,15 @@
                     <strong>Release Date: </strong>
                     {{movieObject.movieReleasedate}}
                   </li>
-                  <li class="list-group-item">
+                  <!-- <li class="list-group-item">
                     <div class="area">
-                      <!-- <strong>Summary: </strong> {{movieObject.synopsis}} -->
-                      <div class="summary"><strong><p>Summary:</p> </strong></div><div class="text"><textarea rows="2" cols="34"> {{movieObject.synopsis}}</textarea></div>
+                       <strong>Summary: </strong> {{movieObject.synopsis}} -->
+                      <!-- <div class="summary"><strong><p>Summary:</p> </strong></div><div class="text"><textarea rows="2" cols="34"> {{movieObject.synopsis}}</textarea></div>
                        </div> 
-                    </li>
+                    </li>  -->
+                    <li class="list-group-item">
+                        <strong>Summary: </strong> {{movieObject.synopsis}}
+                      </li>
                   <li class="list-group-item">
                     <button mat-raised-button color="primary" routerLink="/display-theatre">Book Now</button>
                   </li>
@@ -54,5 +57,3 @@
     </div>
   </div>
   </div>
-  
-  

@@ -4,9 +4,9 @@
   <script src="seatlayout.component.ts"></script>
 </head>
 
-<!-- <div>
+<div>
   <div class="row">
-    <div  class="col-sm-3">
+    <div class="col-sm-3">
       <b>{{bookingDetail.nameOfMovie}}</b>
     </div>
     <div class="col-sm-3">
@@ -19,7 +19,7 @@
       <b>{{bookingDetail.languages}},{{bookingDetail.format}}</b>
     </div>
   </div>
-</div> -->
+</div>
 <!-- <p class="seats">Select number of seats:
   <select (change)="selectChangeHandler($event)">
     <option value="1">1</option>
@@ -37,18 +37,18 @@
       <div *ngIf="seatStatus(row,col); else SeatAvailable">
         <!-- <div *ngIf="col!=passage[0] && col!=passage[1] && row!=rowPassage; else Passage"> -->
         <div *ngIf="seatBook(row,col); else SeatBlocked" class="seat booked">
-          {{seatname[i]}}{{col+1}}
+          {{col+1}}
         </div>
-      <ng-template #SeatBlocked>
-          <div class="seat blocked">
+        <ng-template #SeatBlocked>
+          <div class="seat blocked"> {{seatname[i]}}{{col}}
           </div>
         </ng-template>
       </div>
-    <ng-template #SeatAvailable>
-      <div class="seat available" (click)="onclick(row,col)">
-      </div>
-    </ng-template>
-  </div>
+      <ng-template #SeatAvailable>
+        <div class="seat available" (click)="onclick(row,col)">
+          {{seatname[i]}}{{col+1}}</div>
+      </ng-template>
+    </div>
   </div>
 </div>
 <div class="screen">
@@ -65,6 +65,13 @@
 <div class="bookButton">
   <button mat-raised-button color="primary" (click)="sendMessage()" routerLink="/billing">Proceed to pay</button>
 </div>
+<div>
+  test2-showid is : {{test2.showId}}<br>
+  test3-complete is : {{test3}}
+</div>
+<!-- <div class="bookButton">
+  <button mat-raised-button color="primary" (click)="disconnect()" >Disconnect</button>
+</div> -->
 <!-- <div *ngIf="seatSelected(); else disableButton" class="bookButton">
   <button mat-raised-button color="primary" routerLink="/billing" routerLinkActive="active" (click)="bookticket()">Proceed</button>
 </div>

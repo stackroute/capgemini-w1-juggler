@@ -1,8 +1,8 @@
-
 import { PromocodeService } from "./../promocode.service";
 import { Component, OnInit } from "@angular/core";
 import { LayoutToBillingService } from "../layout-to-billing.service";
 import { FullBookingDetails } from "../FullBookingDetails";
+
 
 
 export interface result {
@@ -18,39 +18,41 @@ export interface result {
   styleUrls: ["./billing.component.scss"]
 })
 export class BillingComponent implements OnInit {
-result:any;
+//  result:any;
   promos: string;
   value: number;
   flag: boolean;
   show: boolean = true;
   result1 = null;
   bool;
-  bookingdetails:FullBookingDetails
-//  result=[
-//   {
-//     id:1,
-//     code:"FLAT100",
-//     image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
-//     description:"It is applicable from 500Rs on Ticket",
-//   amount: 100
-//   },
-//   {
-//     id:1,
-//     code:"FLAT200",
-//     image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
-//     description:"It is applicable from 500Rs on Ticket",
-//   amount: 200
-//   }]
-  constructor(private promoService: PromocodeService, private payment: PromocodeService,private layouttobilling:LayoutToBillingService) {}
+  bookingDetails: FullBookingDetails;
+  
+ result=[
+  {
+    id:1,
+    code:"FLAT100",
+    image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
+    description:"It is applicable from 500Rs on Ticket",
+  amount: 100
+  },
+  {
+    id:1,
+    code:"FLAT200",
+    image:"http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", 
+    description:"It is applicable from 500Rs on Ticket",
+  amount: 200
+  }]
+  constructor(private promoService: PromocodeService, private payment: PromocodeService,private layouttobilling: LayoutToBillingService) {}
   ngOnInit() {
-    //  this.layouttobilling.receive(this.bookingdetails);
-     this.result1=null;
-    this.promoService.getpromos().subscribe(data => {
-      this.result = data;
-      this.bool = false;
-      // console.log(this.bool);
-    });
-     console.log(this.result);
+
+    console.log(this.layouttobilling.getAtBilling()+ "anmisha");
+    this.result1=null;
+    // this.promoService.getpromos().subscribe(data => {
+    //   this.result = data;
+    //   this.bool = false;
+    //   // console.log(this.bool);
+    // });
+    //  console.log(this.result);
   }
 
   promo(code) {

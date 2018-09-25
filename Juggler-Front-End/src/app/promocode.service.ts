@@ -7,15 +7,13 @@ import { map } from "rxjs/operators";
 })
 export class PromocodeService {
   data: any;
-  private url = "http://10.20.1.15:9080/api/v1/promocodes";
-  private url1 = "http://10.20.1.15:9080/api/v1/promocode";
-  //  private url = "http://localhost:9096/api/v1/promocodes";
-  //   private url1 = "http://localhost:9096/api/v1/promocode";
-  // private url = "http://13.232.202.193:9080/api/v1/promocodes";
-  // private url1 = "http://13.232.202.193:9080/api/v1/promocode";
+  private url = "http://13.126.220.1:9080/api/v1/promocodes";
+  private url1 = "http://13.126.220.1:9080/api/v1/promocode";
+
   constructor(private http: HttpClient, private router: Router) {}
 
   amount: number;
+  
   
   getpromos() {
     return this.http.get(this.url).pipe(map(res => (this.data = res)));

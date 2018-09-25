@@ -1,32 +1,33 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, DoCheck, OnChanges } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
 import { FullBookingDetails } from "../FullBookingDetails";
 import { TicketEngineService } from "../ticket-engine.service";
-import * as Stomp from "stompjs";
+import * as Stomp from "@stomp/stompjs";
 import * as SockJS from "sockjs-client";
+import * as $ from "jquery";
 import { Layout } from "../layout";
 import { Blocking } from "../blocking";
+import { Observable } from "rxjs/Rx";
 import { count } from "rxjs/operators";
 import { LayoutToBillingService } from "../layout-to-billing.service";
-declare var $: any;
+import { Location } from "@angular/common";
+import { Router } from "@angular/router";
+// declare var $: any;
 
 @Component({
   selector: "app-seatlayout",
   templateUrl: "./seatlayout.component.html",
   styleUrls: ["./seatlayout.component.scss"]
 })
-export class SeatlayoutComponent implements OnInit {
+export class SeatlayoutComponent implements OnInit, DoCheck {
   selectedvalue;
   seatingValue = [];
   totalRow = [];
   totalCol = [];
   jsonRow: any[];
+  blocked;
   blockedSeatsArray;
-  seatNum: any[];
-  platinumrows = [];
-  goldrows = [];
-  silverrows = [];
   passage = [];
   buttonColor: string;
   x = [];
@@ -43,33 +44,38 @@ export class SeatlayoutComponent implements OnInit {
   json: any;
   local = [];
   userblockedseats = [];
-  blocked: any;
   count = 0;
   userbookedseats = [];
-
-
-  private serverUrl = "http://172.23.239.47:9079/websocket";
-  private stompClient;
+  showId;
+  socket;
+  test2;
+  serverUrl = "http://172.23.239.49:9079/websocket";
+  stompClient;
 
   constructor(
+    private router: Router,
     private http: HttpClient,
     private detailService: BookingDetailsService,
     private ticketengineService: TicketEngineService,
-    private layouttobilling: LayoutToBillingService
+    private layouttobilling: LayoutToBillingService,
+    private location: Location
   ) {
     this.webSocketConnect();
   }
 
   ngOnInit() {
-    this.bookingDetail.selectedSeats=this.blockedSeatsArray;
-   
-    this.bookingDetail.selectedSeatType="platinum";
-    
-    console.log(this.bookingDetail);
+    // this.router.navigate([""]);
+    this.bookingDetail = this.detailService.receive();
+    console.log("booking details are---", this.bookingDetail);
+    console.log("showId is ----------", this.bookingDetail.showId);
+    if (this.showId == undefined) {
+      this.showId = this.bookingDetail.showId;
+    }
+    console.log("showId is ----------", this.showId);
     this.blockedSeatsArray = [];
-    console.log("inside ngonit");
     this.seatname = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
-    this.ticketengineService.getseatDetails().subscribe(data => {
+    this.ticketengineService.getseatDetails(this.showId).subscribe(data => {
+      console.log("seatDetails data is ----", data);
       this.json = data;
       this.totalRow.length = this.json.totalRow;
       this.totalCol.length = this.json.totalCol;
@@ -77,37 +83,48 @@ export class SeatlayoutComponent implements OnInit {
       this.totalCol = this.json.colValues;
       this.blockedSeats = this.json.blockedSeats;
       this.bookedSeats = this.json.bookedSeats;
-      console.log(this.totalRow);
-      console.log(this.totalCol);
-      console.log(this.blockedSeats);
-      console.log(this.bookedSeats);
       this.createseating();
     });
   }
+  ngDoCheck(): void {}
 
   webSocketConnect() {
-    console.log("inside method webSocketConnect ");
-    var socket = new SockJS(this.serverUrl);
-    this.stompClient = Stomp.over(socket);
+    // setTimeout(() => {
+    //   this.ticketengineService
+    //     .getData(this.bookingDetail.showId, this.blockedSeatsArray)
+    //     .subscribe();
+    //   this.stompClient.disconnect();
+    // }, 60000 * 5);
+    // }, 10000);
+    this.socket = new SockJS(this.serverUrl);
+    this.stompClient = Stomp.over(this.socket);
     let that = this;
     this.stompClient.connect(
       {},
       function(frame) {
         console.log("Connected: " + frame);
-        that.stompClient.subscribe("/movie", data => {
-          if (data.body) {
-            console.log("receiving from backend ", data.body);
-            this.blocked = data.body;
-            console.log("hi", this.blocked);
-            // console.log(this.blocked.showId);
-          }
+        that.stompClient.subscribe("/movie", function(message) {
+          console.log("complete message is ", message);
+          // that.test1 = message;
+          that.test2 = JSON.parse(message.body);
+          that.blockedSeats = that.test2.blockedSeats;
+          that.bookedSeats = that.test2.bookedSeats;
+          // this.blockedSeats=data.body
+          console.log("222222222222", that.blocked);
         });
+      },
+      function(error) {
+        console.log("getting error in socket");
+        this.ticketengineService
+          .getData(this.bookingDetail.showId, this.blockedSeatsArray)
+          .subscribe();
+        // alert('STOMP error ' + error);
       }
     );
   }
   sendMessage(message) {
     let data = JSON.stringify({
-      showId: "pvr2218:00bangalore",
+      showId: this.bookingDetail.showId,
       blockedSeats: this.blockedSeatsArray
     });
     this.stompClient.send("/app/message", {}, data);
@@ -119,7 +136,7 @@ export class SeatlayoutComponent implements OnInit {
     var flag = this.blockedSeatsArray.every(find);
     if (flag) {
       this.blockedSeatsArray.push(selected);
-      count++;
+      this.count++;
     } else {
       let index = this.blockedSeatsArray.indexOf(selected);
       this.blockedSeatsArray.splice(index, 1);
@@ -129,9 +146,12 @@ export class SeatlayoutComponent implements OnInit {
     function find(element) {
       return selected != element;
     }
-    this.bookingDetail.totalNoOfTickets=this.count;
-    this.bookingDetail.totalAmount=(this.count*250);
-    this.layouttobilling.send(this.bookingDetail);
+    this.bookingDetail.selectedSeats = this.blockedSeatsArray;
+    this.bookingDetail.totalNoOfTickets = this.count;
+    this.bookingDetail.totalAmount = this.count * 250;
+    this.bookingDetail.selectedSeatType = "platinum";
+    // console.log(this.bookingDetail.showId + "madhusri");
+    this.layouttobilling.sendToBilling(this.bookingDetail);
   }
 
   createseating() {
@@ -183,5 +203,14 @@ export class SeatlayoutComponent implements OnInit {
         return flag;
       }
     }
+  }
+
+  disconnect() {
+    this.stompClient.disconnect();
+    console.log("disconnecteds");
+    // this.ticketengineService.sendseatDetails(
+    //   this.bookingDetail.showId,
+    //   this.blockedSeatsArray
+    // );
   }
 }

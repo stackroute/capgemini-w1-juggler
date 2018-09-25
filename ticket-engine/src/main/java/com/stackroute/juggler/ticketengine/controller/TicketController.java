@@ -1,7 +1,6 @@
 package com.stackroute.juggler.ticketengine.controller;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +34,6 @@ public class TicketController {
 	}
 
 	@MessageMapping("/message")
-	// @SendTo("/movie")
 	public void seat(String message) throws IOException {
 		
 		System.out.println(message);
