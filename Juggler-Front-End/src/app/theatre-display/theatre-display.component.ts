@@ -136,7 +136,7 @@ export class TheatreDisplayComponent {
     this.Id=this.selectedDetails.theaterName+""+Selecteddate.getDate()+""+this.selectedDetails.screeningTime+""+this.service.sendCityName()
     this.selectedDetails.showId=this.Id;
     this.selectedDetails.selectedDate=this.valueDate;
-    console.log(this.selectedDetails.selectedDate+"anmmmm");
+    
     this.bookingLayoutService.saveTickeDetails(this.Id)
     .subscribe(res => console.log("Saved event"));
     console.log(this.selectedDetails);

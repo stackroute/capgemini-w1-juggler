@@ -1,7 +1,6 @@
-import { LayoutToBillingService } from './../layout-to-billing.service';
-
 import { PromocodeService } from "./../promocode.service";
 import { Component, OnInit } from "@angular/core";
+import { LayoutToBillingService } from "../layout-to-billing.service";
 import { FullBookingDetails } from "../FullBookingDetails";
 
 
@@ -58,7 +57,7 @@ export class BillingComponent implements OnInit {
         this.bool = true;
       }
     );
-    // console.log("data is ", this.result1);
+     console.log("data is ", this.result1);
   }
 
   formula( value3:number,value2: number) {

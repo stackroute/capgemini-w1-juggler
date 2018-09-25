@@ -1,2 +1,8 @@
+<<<<<<< HEAD
+
+#server:
+# port: "9080"
+=======
 server:
  port: "9080"
+>>>>>>> 00743c38e3cbc2359d673766be1cee58c91b1a43

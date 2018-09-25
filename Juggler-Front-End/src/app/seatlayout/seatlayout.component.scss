@@ -37,7 +37,7 @@
   height: 18px;
   float: left;
   border-radius: 10%;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   text-align: center;
   font-size: 12px;
   margin-top: 3%;
@@ -53,7 +53,7 @@
   border-radius: 4px;
 }
 .available {
-  background-color:white;
+  background-color: white;
 }
 .name {
   margin: 0;
@@ -70,13 +70,13 @@ h2 {
 //   background-color: green;
 // }
 .booked {
-  background-color:red;
+  background-color: red;
 }
 .selected {
-  background-color:grey;
+  background-color: grey;
 }
 .blocked {
-  background-color:rgb(236, 215, 22);
+  background-color: rgb(236, 215, 22);
   pointer-events: none;
 }
 
@@ -93,6 +93,3 @@ text-transform: capitalize;
  border: 1px solid black;
  
 }
-// .container{
-
-// }

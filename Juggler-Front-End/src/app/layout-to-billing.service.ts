@@ -5,14 +5,16 @@ import { FullBookingDetails } from './FullBookingDetails';
   providedIn: 'root'
 })
 export class LayoutToBillingService {
-billingObj:FullBookingDetails;
-  
-constructor() { }
+  public billingObj:FullBookingDetails;
+  constructor() { }
+
   sendToBilling(BillDetail)
   {
-this.billingObj=BillDetail;
+ this.billingObj=BillDetail;
   }
   getAtBilling(){
     return this.billingObj;
   }
 }
+
+
