@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { AuthenticationService } from "../user-login/../../authentication.service";
 import { AlertService } from "../user-login/../../alert.service";
 import { first } from "rxjs/operators";
+import { SharingDataService } from "../../sharing-data.service";
 
 @Component({
   selector: "app-user-login",
@@ -11,6 +12,7 @@ import { first } from "rxjs/operators";
   styleUrls: ["./user-login.component.scss"]
 })
 export class UserLoginComponent implements OnInit {
+  name:string;
   error = "";
   loginForm: FormGroup;
   loading = false;
@@ -21,7 +23,8 @@ export class UserLoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private service:SharingDataService
   ) {}
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -34,6 +37,7 @@ export class UserLoginComponent implements OnInit {
     return this.loginForm.controls;
   }
   onSubmit() {
+    this.name=this.service.sendCityName();
     this.submitted = true;
     // stop here if form is invalid
     if (this.loginForm.invalid) {
@@ -46,7 +50,7 @@ export class UserLoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(["/home"]);
+          this.router.navigate(["home",this.name]);
           location.reload();
         },
         error => {

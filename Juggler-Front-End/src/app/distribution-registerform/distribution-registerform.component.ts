@@ -108,5 +108,6 @@ genre=[];
       .addMovie(this.movie)
       .subscribe(res => console.log('Saved theatre'));
     this.route.navigate(['/login-partner']);
+    
   }
 }

@@ -11,12 +11,18 @@
   margin-left: 40%;
   display: block;
   width: 120px;
-  background-color: blue;
+  
   height: 40px;
 }
 .bookButton {
   display: block;
   margin-top: 40px;
+ 
+    margin-left:8.5%;
+    margin-bottom:10px;
+    margin-top:10px;
+    height:10%;
+   
 }
 .ArenaLayout {
   border: solid 5px lightgoldenrodyellow;
@@ -75,11 +81,11 @@ h2 {
 }
 
 
-.col-sm-3{
+.col-sm-4{
   text-align: center;
   text-decoration: aqua;
   color:white;
-  background-color: rgb(223, 52, 89);
+  background-color: #525F7F;
 height: 40px;
 text-transform: capitalize;
  width: 300px;
@@ -87,3 +93,6 @@ text-transform: capitalize;
  border: 1px solid black;
  
 }
+// .container{
+
+// }

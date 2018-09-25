@@ -26,15 +26,13 @@ import com.stackroute.juggler.promocodes.repository.PromocodeRepository;
 //			logger.info("Application started with command-line arguments: {} . "
 //			 		+ "\n To kill this application, press Ctrl + C.", Arrays.toString(args));
 			
-			Promocodes promo1=new Promocodes(1, "FLAT100", "http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", "It is applicable from 500Rs on Ticket", 100);
-			Promocodes promo2=new Promocodes(2, "FLAT200","http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png" , "It is applicable from 1000Rs on ticket", 200);
-			Promocodes promo3=new Promocodes(3, "FLAT50","http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", "It is applicable from 300Rs on ticket", 50);
-			Promocodes promo4=new Promocodes(4, "FLAT20", "http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png","It is applicable from 200Rs on ticket", 20);
-//			Promocodes promo5=new Promocodes(5, "FLAT10", "http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", "It is applicable from 100Rs on ticket", 10);
-			promoRepository.save(promo1);
+			Promocodes promo2=new Promocodes(2, "FLAT100", "http://4.bp.blogspot.com/-A3aLFetzU34/VhVklMdjOcI/AAAAAAAAASs/xPSWi_SyPuk/s1600/Untitled1865-358x256.png", "It is applicable from 500Rs on Ticket", 100);
+			Promocodes promo1=new Promocodes(1 "FLAT200","https://image.ibb.co/bVnJ2U/pepperfry_Flat_Rs_200_off_on_Rs_400.jpg" ,"It is applicable from 1000Rs on ticket", 200);
+			Promocodes promo3=new Promocodes(3, "FLAT50","https://image.ibb.co/cbhMp9/C6_JIlx_PWc_AAu_Kb_A_1.jpg", "It is applicable from 300Rs on ticket", 50);
+			
 			promoRepository.save(promo2);
+			promoRepository.save(promo1);
 			promoRepository.save(promo3);
-			promoRepository.save(promo4);
-//			promoRepository.save(promo5);
+			
 		}
 }

@@ -34,7 +34,7 @@
 
           <mat-form-field class="example-full-width">
             <mat-label>Genres</mat-label>
-            <input matInput placeholder="Genres" formControlName="movie_Genres" type="text" [matAutocomplete]="auto1" required>
+            <input matInput placeholder="Genre" formControlName="movie_Genres" type="text" [matAutocomplete]="auto1" required>
             <mat-autocomplete #auto1="matAutocomplete">
               <mat-option *ngFor="let genre of genre" [value]="genre">
                 {{ genre }}
@@ -55,7 +55,7 @@
         <form [formGroup]="secondFormGroup">
           <mat-form-field class="example-half-width">
             <mat-label>Language</mat-label>
-            <input matInput placeholder="Languages" formControlName="_languages" type="text" [matAutocomplete]="auto" required>
+            <input matInput placeholder="Language" formControlName="_languages" type="text" [matAutocomplete]="auto" required>
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let cityOption of city" [value]="cityOption">
                 {{ cityOption }}
@@ -79,7 +79,7 @@
 
           <mat-form-field class="example-half-width">
             <mat-label>Directors</mat-label>
-            <input matInput placeholder="Directors" formControlName="_directors" type="text" required>
+            <input matInput placeholder="Director" formControlName="_directors" type="text" required>
           </mat-form-field>
           <mat-form-field class="example-half-width">
             <mat-label>Synopsis</mat-label>

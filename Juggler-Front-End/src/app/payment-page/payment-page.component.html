@@ -43,49 +43,46 @@
                 data-stripe="cvc" maxlength="3" required>
             </mat-form-field>
           </div>
-          <button mat-button type="submit" [disabled]="!myForm.form.valid" (click)="chargeCreditCard()" style="width: 100%">PayNow ₹.{{amount}}
+          <button mat-button type="submit" [disabled]="!myForm.form.valid" (click)="chargeCreditCard()" style="width: 100%">PayNow ₹.{{bookingDetails.Finalamount}}
 
           </button>
           <br>
           <br>
           <div *ngIf="(!msg)">
             <p style="color:red">{{msg1}}</p>
-            <!-- <script>
-
-              setTimeout(function ($routeProvider) {
-                $routeProvider.when("/seat-layout", {
-                  templateUrl: "./seatlayout.component.html"
-                })
-              }, 3000);
-
-
-            </script> -->
-
-            <!-- <button routerLink="/seat-layout">ok</button> -->
           </div>
           <div *ngIf="(msg)">
             <p style="color:green">{{msg}}</p>
           </div>
+
+          <!-- <p *ngIf="msg" style="color:green">{{msg}}</p>
+         <p ng-if="msg1" style="color: red">{{msg1}}</p> -->
         </form>
       </mat-card>
     </div>
     <div class="col-sm-6">
       <div class="Payment-review">
+        <!-- <div class="card mt-5 mb-5"> -->
         <mat-card style="align-self: center" class="card mt-5 mb-5">
           <div class="card-header">
-            <i class="fa fa-ticket" style="font-size: 24px">Ticket Summary</i>
+            <i class="fa fa-ticket" style="font-size: 24px">Ticket</i>
+            <br>
+            <h3 class="headings">Payment Summary</h3>
           </div>
           <div class="card-body">
-            Show ID:- {{showId}}
-            <br>Customer e-mail:- {{email}}
-            <br>Movie:- {{movieName}}
-            <br>Theatre:- {{theatreName}}
-            <br>Show:- {{showTiming}} Booked Tickets:-
-            <p *ngFor="let bookSeat of bookedSeats; let i=index">{{bookedSeats[i]}},</p>
-            <br>Pay Amount:- {{amount}}
+            <b>Show ID:-</b> {{bookingDetails.showId}}
+            <br><b>Movie:-</b> {{bookingDetails.nameOfMovie}}
+            <br><b>Theatre:-</b> {{bookingDetails.theaterName}}
+            <br><b>Show:-</b> {{bookingDetails.selectedDate}},{{bookingDetails.screeningTime}} 
+            <br>
+            <b>Booked Tickets:-</b>
+            {{bookingDetails.selectedSeats}}
+            <br> 
+           <b>Payable Amount:-</b>{{bookingDetails.Finalamount}}
           </div>
-          <button mat-button type="submit" routerLink="/" [disabled]="(!msg)">View Ticket
+          <button mat-button type="submit" routerLink="/ticket" [disabled]="(!msg)">View Ticket
           </button>
+
         </mat-card>
       </div>
     </div>

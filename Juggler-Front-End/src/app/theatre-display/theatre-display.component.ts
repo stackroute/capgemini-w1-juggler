@@ -7,6 +7,7 @@ import { FullBookingDetails } from "../FullBookingDetails";
 import { BookingDetailsService } from "../booking-details.service";
 import { Router } from "@angular/router";
 import { BookingLayoutService } from "../booking-layout.service";
+import { SharingDataService } from "../sharing-data.service";
 @Component({
   selector: "app-theatre-display",
   templateUrl: "./theatre-display.component.html",
@@ -41,6 +42,7 @@ export class TheatreDisplayComponent {
     private movieDetailsService: MovieDetailsService,
     private detailService: BookingDetailsService,
     private bookingLayoutService:BookingLayoutService,
+    private service: SharingDataService,
     private router:Router
   ) {}
 
@@ -131,7 +133,10 @@ export class TheatreDisplayComponent {
       this.selectedDetails.theaterName,
       this.selectedDetails.screeningTime
     );
-    this.Id=this.selectedDetails.theaterName+""+Selecteddate.getDate()+""+this.selectedDetails.screeningTime
+    this.Id=this.selectedDetails.theaterName+""+Selecteddate.getDate()+""+this.selectedDetails.screeningTime+""+this.service.sendCityName()
+    this.selectedDetails.showId=this.Id;
+    this.selectedDetails.selectedDate=this.valueDate;
+    console.log(this.selectedDetails.selectedDate+"anmmmm");
     this.bookingLayoutService.saveTickeDetails(this.Id)
     .subscribe(res => console.log("Saved event"));
     console.log(this.selectedDetails);

@@ -1,3 +1,4 @@
+import { Blocking } from "./blocking";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
@@ -13,15 +14,19 @@ export class TicketEngineService {
   url1 = "http://172.23.239.49:9079/api/v1/ticket/update";
   constructor(private http: HttpClient) {}
 
-  getseatDetails(): Observable<Layout[]> {
+  getseatDetails(showId): Observable<Layout[]> {
     console.log("inside service class");
     return this.http
-      .get<Layout[]>(this.url + "/pvr2219:00bangalore")
+      .get<Layout[]>(this.url + "/" + showId)
       .pipe(map(res => (this.data = res)));
   }
-  getData(showId, blockedSeats) {
+  sendseatDetails(showId, blockedSeatsArray) {
+    return this.http.post<Blocking>(
+      this.url_1 + "/" + showId,
+      blockedSeatsArray
+    );
+  }
+getData(showId, blockedSeats) {
     return this.http.put<any>(this.url1 + "/" + showId, blockedSeats);
   }
-
-  sendseatDetails() {}
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { LayoutToBillingService } from "./../layout-to-billing.service";
+import { Component, OnInit, DoCheck } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BookingDetailsService } from "../booking-details.service";
 import { FullBookingDetails } from "../FullBookingDetails";
@@ -44,7 +45,7 @@ export class SeatlayoutComponent implements OnInit {
   local = [];
   userblockedseats = [];
   blocked: any;
-  count = 0;
+ 
   userbookedseats = [];
 
   private serverUrl = "http://172.23.239.49:9079/websocket";
@@ -53,31 +54,40 @@ export class SeatlayoutComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private detailService: BookingDetailsService,
-    private ticketengineService: TicketEngineService
+    private ticketengineService: TicketEngineService,
+    private layouttobilling: LayoutToBillingService
   ) {
     this.webSocketConnect();
   }
 
   ngOnInit() {
-    console.log(this.bookingDetail);
+    this.bookingDetail = this.detailService.receive();
+    this.layouttobilling.sendToBilling(this.bookingDetail);
+    console.log(this.bookingDetail.showId + " anmishaaa");
     this.blockedSeatsArray = [];
     console.log("inside ngonit");
     this.seatname = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
-    this.ticketengineService.getseatDetails().subscribe(data => {
-      this.json = data;
-      this.totalRow.length = this.json.totalRow;
-      this.totalCol.length = this.json.totalCol;
-      this.totalRow = this.json.rowValues;
-      this.totalCol = this.json.colValues;
-      this.blockedSeats = this.json.blockedSeats;
-      this.bookedSeats = this.json.bookedSeats;
-      console.log(this.totalRow);
-      console.log(this.totalCol);
-      console.log(this.blockedSeats);
-      console.log(this.bookedSeats);
-      this.createseating();
-    });
+    this.ticketengineService
+      .getseatDetails(this.bookingDetail.showId)
+      .subscribe(data => {
+        this.json = data;
+        this.totalRow.length = this.json.totalRow;
+        this.totalCol.length = this.json.totalCol;
+        this.totalRow = this.json.rowValues;
+        this.totalCol = this.json.colValues;
+        this.blockedSeats = this.json.blockedSeats;
+        this.bookedSeats = this.json.bookedSeats;
+        console.log(this.totalRow);
+        console.log(this.totalCol);
+        console.log(this.blockedSeats);
+        console.log(this.bookedSeats);
+        this.createseating();
+      });
   }
+  // ngDoCheck():void {
+  //   window.location.reload;
+  //   console.log("inside changes");
+  // }
 
   webSocketConnect() {
     Observable.interval(1000 * 10).subscribe(() => {
@@ -118,7 +128,7 @@ export class SeatlayoutComponent implements OnInit {
 
   sendMessage() {
     let data = JSON.stringify({
-      showId: "pvr2718:00bangalore",
+      showId: this.bookingDetail.showId,
       blockedSeats: this.blockedSeatsArray
     });
     this.stompClient.send("/app/message", {}, data);
@@ -126,9 +136,11 @@ export class SeatlayoutComponent implements OnInit {
   // add the seat number to array when clicked
   onclick(x, y) {
     let selected = x * 10 + y + 1;
+    let count = 0;
     var flag = this.blockedSeatsArray.every(find);
     if (flag) {
       this.blockedSeatsArray.push(selected);
+     count++;
     } else {
       let index = this.blockedSeatsArray.indexOf(selected);
       this.blockedSeatsArray.splice(index, 1);
@@ -138,6 +150,12 @@ export class SeatlayoutComponent implements OnInit {
     function find(element) {
       return selected != element;
     }
+    this.bookingDetail.selectedSeats = this.blockedSeatsArray;
+    this.bookingDetail.totalNoOfTickets = count;
+    this.bookingDetail.totalAmount = count * 250;
+    this.bookingDetail.selectedSeatType="platinum";
+    console.log(this.bookingDetail.totalAmount + "madhusri");
+    this.layouttobilling.sendToBilling(this.bookingDetail);
   }
 
   createseating() {

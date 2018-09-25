@@ -16,27 +16,27 @@ import com.stackroute.juggler.rsvp.domain.EventDetails;
 @RequestMapping("/api/v1/email")
 public class EmailServiceController {
 
-	private NotificationService notificationService;
-	
-	@Autowired
-	public EmailServiceController(NotificationService notificationService) {
-		super();
-		this.notificationService = notificationService;
-	}
-//	@GetMapping("/getEventDetails")
-//	public EventDetails getEventDetails(EventDetails event) {
-//		notificationService.getEventDetails(event);
-//		return 
-//		
-//	}
-	@PostMapping("/sendEmail")
-	public String sendInvitations(@RequestBody EmailDetails emailDetails)
-			throws MessagingException {
-		System.out.println("controller1");
-		
-		notificationService.sendNotification();
-		System.out.println("controller2");
-		return "Thank you for registering";
-	}
+    private NotificationService notificationService;
+    
+    @Autowired
+    public EmailServiceController(NotificationService notificationService) {
+        super();
+        this.notificationService = notificationService;
+    }
+//    @GetMapping("/getEventDetails")
+//    public EventDetails getEventDetails(EventDetails event) {
+//        notificationService.getEventDetails(event);
+//        return
+//        
+//    }
+//    @PostMapping("/sendEmail")
+//    public String sendInvitations(@RequestBody EmailDetails emailDetails)
+//            throws MessagingException {
+//        System.out.println("controller1");
+//        
+//        notificationService.sendNotification();
+//        System.out.println("controller2");
+//        return "Thank you for registering";
+//    }
 
 }

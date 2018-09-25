@@ -23,7 +23,7 @@ export class HomePageComponent implements OnInit {
   movieDataList;
   listMovie = [];
   data: Movie;
- 
+
   // onResize(event) {
   //   const element = event.target.innerWidth;
   //   console.log(element);
@@ -47,18 +47,18 @@ export class HomePageComponent implements OnInit {
     private route: Router,
     private router: ActivatedRoute
   ) {}
-  
+
   searchMovies(Movie: string) {
     // this.dataa.currentMessage.subscribe(message => this.movie = message)
-     console.log(this.movie);
-    this.movie=Movie;
+    console.log(this.movie);
+    this.movie = Movie;
     this.cityService.searchMovie(this.movie).subscribe(data => {
       this.search_result1 = data;
     });
     console.log(this.search_result1);
   }
-  ngOnInit() {
 
+  ngOnInit() {
     this.router.paramMap.subscribe((params: ParamMap) => {
       const city = params.get("city");
       this.city = city;
@@ -69,11 +69,10 @@ export class HomePageComponent implements OnInit {
     });
     // this.dataa.currentMessage.subscribe(message => this.movie = message)
     // console.log(this.movie);
-    
   }
+  
   getMovieInfo(movieDetail) {
     this.selectedMovie = movieDetail;
     this.movieDetailsService.send(this.selectedMovie);
   }
-  
 }

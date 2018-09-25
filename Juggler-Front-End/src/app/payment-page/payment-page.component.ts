@@ -1,9 +1,11 @@
+import { Router } from "@angular/router";
+import { LayoutToBillingService } from "./../layout-to-billing.service";
 import { Component, OnInit } from "@angular/core";
 import { PaymentService } from "../paymentservice";
 import { MatDialog } from "@angular/material";
 import { PromocodeService } from "../promocode.service";
 import { NgxSpinnerService } from "ngx-spinner";
-import { Router } from "@angular/router";
+import { FullBookingDetails } from "../FullBookingDetails";
 
 @Component({
   selector: "app-payment-page",
@@ -20,23 +22,35 @@ export class PaymentPageComponent implements OnInit {
   token: string;
   msg: string;
   msg1: string;
-  // bookingStatus: string;
-  theatreName: string = "PVR";
-  showId: string = "pvr701:00bangalore";
-  movieName: string = "hi";
-  bookedSeats: number[] = [1, 2, 3];
-  showTiming: string = "01:00";
-  email: string = "amar@gmail.com";
+  //  bookingStatus: string;
+  //  theatreName: string = "PVR";
+  //  showId: string = "pvr701:00bangalore";
+  //  movieName: string = "hi";
+  //  bookedSeats: number[] = [1, 2, 3];
+  //  showTiming: string = "01:00";
+  //  bookingDetails: FullBookingDetails;
 
-  // bookingDetails = new BookingDetails();
+  bookingDetails: FullBookingDetails;
+
+  theatreName: string;
+  //  amount: number = 50;
+
+  showId: string;
+  movieName: string;
+  bookedSeats: number[];
+  showTiming: string;
+  email: string = "amar@gmail.com";
+  //  bookingDetails = new BookingDetails();
 
   // fileNameRef: MatDialogRef<PaymentDialogComponent>;
   constructor(
     private paymentService: PaymentService,
     private amt: PromocodeService,
     public dialog: MatDialog,
+    private ngxSpinner: NgxSpinnerService,
     private route: Router,
-    private ngxSpinner: NgxSpinnerService
+    // private bookingDetails: FullBookingDetails,
+    private layouttobilling: LayoutToBillingService
   ) {}
   chargeCreditCard() {
     (<any>window).Stripe.card.createToken(
@@ -49,8 +63,23 @@ export class PaymentPageComponent implements OnInit {
       (status: number, response: any) => {
         if (status === 200) {
           this.token = response.id;
-          this.amount = 50;
+          //  this.amount = this.bookingDetails.Finalamount;
           console.log(this.amount);
+          this.theatreName = this.bookingDetails.theaterName;
+          console.log(this.theatreName);
+
+          this.showId = this.bookingDetails.showId;
+          this.movieName = this.bookingDetails.nameOfMovie;
+          this.bookedSeats = this.bookingDetails.selectedSeats;
+          this.showTiming = this.bookingDetails.screeningTime;
+          // this.bookingDetails.movieName = 'ABCD';
+          // this.bookingDetails.showId = 'pvr701:00bangalore';
+          // this.movieName = "ABCD";
+          // this.showId = "pvr701:00bangalore";
+          // this.theatreName = "pvr";
+          // this.showTiming = "01:00";
+          // this.bookedSeats = [1, 2, 3];
+          // this.movieName, this.showId
           this.paymentService.chargeCard(
             this.token,
             this.amount,
@@ -61,6 +90,8 @@ export class PaymentPageComponent implements OnInit {
             this.showTiming,
             this.email
           );
+          console.log(this.theatreName);
+
           this.msg = "Transaction Success";
           console.log(this.token);
           if (this.token == null) {
@@ -79,6 +110,7 @@ export class PaymentPageComponent implements OnInit {
             this.email
           );
           console.log(response.error.message);
+
           setTimeout(() => {
             this.route.navigate(["/seat-layout"]);
           }, 5000);
@@ -96,5 +128,8 @@ export class PaymentPageComponent implements OnInit {
     this.paymentService.refundCard();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.bookingDetails = this.layouttobilling.getAtBilling();
+    console.log(this.bookingDetails.nameOfMovie + "anmisha");
+  }
 }
