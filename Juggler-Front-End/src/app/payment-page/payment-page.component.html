@@ -4,18 +4,10 @@
     <div class="col-sm-6">
       <mat-card style="align-self: center" class="card mt-5 mb-5">
         <div class="card-header">
-
           <i class="fa fa-cc-mastercard" style="font-size:35px"></i>
-
-
           <i class="fa fa-cc-paypal" style="font-size:35px"></i>
-
-
           <i class="fa fa-cc-stripe" style="font-size:35px"></i>
-
-
           <i class="fa fa-cc-visa" style="font-size:35px"></i>
-
           <br>
           <h3 class="headings" style="margin-left:20px; text-align: center">Credit/Debit Card Payment</h3>
         </div>
@@ -44,7 +36,6 @@
             </mat-form-field>
           </div>
           <button mat-button type="submit" [disabled]="!myForm.form.valid" (click)="chargeCreditCard()" style="width: 100%">PayNow ₹.{{bookingDetails.Finalamount}}
-
           </button>
           <br>
           <br>
@@ -54,7 +45,6 @@
           <div *ngIf="(msg)">
             <p style="color:green">{{msg}}</p>
           </div>
-
           <!-- <p *ngIf="msg" style="color:green">{{msg}}</p>
          <p ng-if="msg1" style="color: red">{{msg1}}</p> -->
         </form>
@@ -70,19 +60,27 @@
             <h3 class="headings">Payment Summary</h3>
           </div>
           <div class="card-body">
+              <img style="padding-top: 1%; float: right; width: 30%; height: 35%;" src={{bookingDetails.moviePoster}}>
+            <!-- {{bookingDetails.emailId}} -->
             <b>Show ID:-</b> {{bookingDetails.showId}}
             <br><b>Movie:-</b> {{bookingDetails.nameOfMovie}}
             <br><b>Theatre:-</b> {{bookingDetails.theaterName}}
             <br><b>Show:-</b> {{bookingDetails.selectedDate}},{{bookingDetails.screeningTime}} 
-            <br>
-            <b>Booked Tickets:-</b>
-            {{bookingDetails.selectedSeats}}
-            <br> 
-           <b>Payable Amount:-</b>{{bookingDetails.Finalamount}}
+            <br><b>Booked Tickets:-</b> {{bookingDetails.selectedSeats}}
+            <!-- <p *ngFor="let bookSeat of bookedSeats; let i=index">{{bookingDetails.selectedSeats[i]}}</p> -->
+            <br> {{bookingDetails.Finalamount}}
           </div>
-          <button mat-button type="submit" routerLink="/ticket" [disabled]="(!msg)">View Ticket
+          <!-- <div class="card-body">
+              {{email}}
+              <b>Show ID:-</b> {{showId}}
+              <br><b>Movie:-</b> {{movieName}}
+              <br><b>Theatre:-</b> {{theatreName}}
+              <br><b>Show:-</b> {{showTiming}} <b>Booked Tickets:-</b>
+              <p *ngFor="let bookSeat of bookedSeats; let i=index">{{bookedSeats[i]}}</p>
+              <br> {{amount}}
+            </div> -->
+          <button mat-button type="submit" (onclick)="getTickets()" routerLink="/ticket" [disabled]="(!msg)">View Ticket
           </button>
-
         </mat-card>
       </div>
     </div>

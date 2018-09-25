@@ -96,32 +96,6 @@ public class ShowServiceImpl implements ShowService {
 		return ShowWithId;
 	}
 
-	// @Override
-	// public Show delBlocked(Show show) {
-	//
-	// show.getBookedSeats();
-	// String showid = show.getShowId();
-	// Show local = getById(show.getShowId());
-	// List<Integer> blockedInDb = local.getBlockedSeats();
-	// List<Integer> blockedAsInput = show.getBookedSeats();
-	// for (int j = 0; j < blockedAsInput.size(); j++) {
-	// for (int i = 0; i < blockedInDb.size(); i++) {
-	// if (blockedAsInput.get(i) < 100) {
-	// if (blockedAsInput.get(i) == blockedInDb.get(j)) {
-	// blockedInDb.remove(blockedAsInput.get(i));
-	// System.out.println("removed");
-	// } else {
-	// }
-	// }
-	// }
-	// }
-	//
-	// local.setBlockedSeats(blockedAsInput);
-	// showRepo.save(local);
-	// return local;
-	//
-	// }
-
 	@Override
 	public Show updateBooked(Show show) {
 		String id = show.getShowId();
@@ -144,6 +118,7 @@ public class ShowServiceImpl implements ShowService {
 		showRepo.deleteById(showId);
 	}
 
+	@SuppressWarnings({ "deprecation", "unused" })
 	@Override
 	@KafkaListener(topics = "screening-ticket", groupId = "ticket")
 	public void getDetails(MovieSchedule movieSchedule) throws ParseException {
@@ -199,6 +174,7 @@ public class ShowServiceImpl implements ShowService {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	@KafkaListener(topics = "payment", groupId = "pay")
 	public void getBookedSeats(TicketDetails ticketDetails) {
@@ -253,6 +229,7 @@ public class ShowServiceImpl implements ShowService {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	@KafkaListener(topics = "show-scheduler", groupId = "schedule")
 	public void getSchedulerTrigger(TriggerMessage object) throws ParseException {

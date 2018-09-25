@@ -54,8 +54,6 @@ public class TicketController {
 		// Runnable task = showService.delblocked(json.getBlockedSeats(),
 		// json.getShowId());
 		// executor.schedule(task, 50, TimeUnit.SECONDS);
-		// run in a second
-		
 		TimerTask task = new TimerTask() {
 			@Override
 			public void run() {
@@ -84,13 +82,6 @@ public class TicketController {
 		return new ResponseEntity<Show>(updatedShow, HttpStatus.OK);
 
 	}
-
-	// // updating
-	// @PutMapping("/show")
-	// public ResponseEntity<?> update(@RequestBody Show show) {
-	// Show local = showService.delBlocked(show);
-	// return new ResponseEntity<Show>(local, HttpStatus.OK);
-	// }
 
 	// get all
 	@GetMapping("/shows")

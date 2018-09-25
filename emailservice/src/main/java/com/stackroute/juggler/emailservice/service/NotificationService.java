@@ -18,54 +18,50 @@ import com.stackroute.juggler.rsvp.domain.EventDetails;
 
 @Service
 public class NotificationService {
-    private JavaMailSender javaMailSender;
-    private SpringTemplateEngine templateEngine;
+	private JavaMailSender javaMailSender;
+	private SpringTemplateEngine templateEngine;
 
-    @Autowired
-    public NotificationService(JavaMailSender javaMailSender, SpringTemplateEngine templateEngine) {
-        super();
-        this.javaMailSender = javaMailSender;
-        this.templateEngine = templateEngine;
-    }
+	@Autowired
+	public NotificationService(JavaMailSender javaMailSender, SpringTemplateEngine templateEngine) {
+		super();
+		this.javaMailSender = javaMailSender;
+		this.templateEngine = templateEngine;
+	}
 
-    EmailDetails emailDetails = new EmailDetails();
-    String emailBody;
-    String eventName;
-    String eventDate;
-String url="www.google.co.in";
-    
-//    public void getEventDetails(EventDetails event) {
-//        System.out.println("geteventdetails");
-//        emailDetails.setToEmailId(event.getInvitiesMail());
-//        emailDetails.setBody(event.getEventSynopsis());
-//        emailDetails.setEventName(event.getEventName());
-//        emailDetails.setEventDate(event.getEventDate());
-//        
-//        //emailDetails.setEventLocation(event.getEventLocation());
-//        System.out.println(emailDetails.toString());
-//        
-//    }
+	EmailDetails emailDetails = new EmailDetails();
+	String emailBody;
+	String eventName;
+	String eventDate;
+	String url = "www.google.co.in";
 
-@KafkaListener(topics = "eventdetails1", groupId = "event")
-    public void sendNotification(EventDetails event) throws MessagingException {
-        MimeMessage message = javaMailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setTo(event.getInvitiesMail());
-        helper.setSubject("Event Invitation");
-        this.emailBody = event.getEventSynopsis();
-        this.eventName=event.getEventName();
-        this.eventDate=event.getEventDate();
-        
-        helper.setText("<html>"
-                + "<head>"
-                + "<body> "
-                + "<h3>Hey,</h3><br>"
-                + "<p>You are invited to attend an Event "+ eventName +" where in "+ emailBody +" held on "+eventDate+"</p><br>"
-                + "<a href=http://10.20.1.20:4200/#/rsvp/accept>click here</a><p> To accept this invitation </p>"
-                + "        </body></head></html>",
-                true);
-        System.out.println(message.toString());
-        javaMailSender.send(message);
-    }
+	// public void getEventDetails(EventDetails event) {
+	// System.out.println("geteventdetails");
+	// emailDetails.setToEmailId(event.getInvitiesMail());
+	// emailDetails.setBody(event.getEventSynopsis());
+	// emailDetails.setEventName(event.getEventName());
+	// emailDetails.setEventDate(event.getEventDate());
+	//
+	// //emailDetails.setEventLocation(event.getEventLocation());
+	// System.out.println(emailDetails.toString());
+	//
+	// }
+
+	@KafkaListener(topics = "eventdetails1", groupId = "event")
+	public void sendNotification(EventDetails event) throws MessagingException {
+		MimeMessage message = javaMailSender.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(message, true);
+		helper.setTo(event.getInvitiesMail());
+		helper.setSubject("Event Invitation");
+		this.emailBody = event.getEventSynopsis();
+		this.eventName = event.getEventName();
+		this.eventDate = event.getEventDate();
+
+		helper.setText("<html>" + "<head>" + "<body> " + "<h3>Hey,</h3><br>" + "<p>You are invited to attend an Event "
+				+ eventName + " where in " + emailBody + " held on " + eventDate + "</p><br>"
+				+ "<a href=http://13.126.103.60:4200/#/rsvp/accept>click here</a><p> To accept this invitation </p>"
+				+ "        </body></head></html>", true);
+		System.out.println(message.toString());
+		javaMailSender.send(message);
+	}
 
 }

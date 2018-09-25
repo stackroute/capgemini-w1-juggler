@@ -1,6 +1,6 @@
 spring:
   cloud:
     config:
-      uri: http://13.126.220.1:9084
+      uri: http://localhost:9084
   application:
     name:  ticket-engine

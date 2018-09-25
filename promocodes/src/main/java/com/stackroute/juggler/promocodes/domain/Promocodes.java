@@ -5,14 +5,20 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 //domain object for promocodes
+
 @Document
 public class Promocodes {
+
 	@Id
 	public int codeId;
 	public String code;
 	public String image;
 	public String description;
 	public int amount;
+
+	// No Arguments constructor
+	public Promocodes() {
+	}
 
 	// All Arguments constructor
 	public Promocodes(int codeId, String code, String image, String description, int amount) {
@@ -24,26 +30,21 @@ public class Promocodes {
 		this.amount = amount;
 	}
 
-	// No Arguments constructor
-	public Promocodes() {
-		super();
+	// List of all getters and setters
+	public int getCodeId() {
+		return codeId;
 	}
 
-	// List of all getters and setters
+	public void setCodeId(int codeId) {
+		this.codeId = codeId;
+	}
+
 	public String getCode() {
 		return code;
 	}
 
 	public void setCode(String code) {
 		this.code = code;
-	}
-
-	public int getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
 	}
 
 	public String getImage() {
@@ -54,20 +55,26 @@ public class Promocodes {
 		this.image = image;
 	}
 
-	public int getCodeId() {
-		return codeId;
-	}
-
-	public void setCodeId(int codeId) {
-		this.codeId = codeId;
-	}
-
 	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	@Override
+	public String toString() {
+		return "Promocodes [codeId=" + codeId + ", code=" + code + ", image=" + image + ", description=" + description
+				+ ", amount=" + amount + "]";
 	}
 
 }
