@@ -101,11 +101,6 @@ export class SeatlayoutComponent implements OnInit {
     });
     setTimeout(()=>{},10000);
 
-    // Observable.interval(1000 * 1).subscribe(() => {
-    //   // console.log('1111---hi');
-    //   // this.service.getData().subscribe();
-
-    // });
     console.log("inside method webSocketConnect ");
     var socket = new SockJS(this.serverUrl);
     this.stompClient = Stomp.over(socket);
@@ -119,7 +114,6 @@ export class SeatlayoutComponent implements OnInit {
             console.log("receiving from backend ", data.body);
             this.blocked = data.body;
             console.log("hi", this.blocked);
-            // console.log(this.blocked.showId);
           }
         });
       }
