@@ -31,6 +31,11 @@ public class DataLoader implements ApplicationRunner {
 		userDao.save(new User(8L, "theatre3@gmail.com", "t03", 1111111118L, "Theatre Owner"));
 		userDao.save(new User(9L, "theatre4@gmail.com", "t04", 1111111119L, "Theatre Owner"));
 		userDao.save(new User(10L, "theatre5@gmail.com", "t05", 1111111120L, "Theatre Owner"));
+		userDao.save(new User(20L, "theatre11@gmail.com", "t11", 1111111116L, "Theatre Owner"));
+		userDao.save(new User(21L, "theatre12@gmail.com", "t12", 1111111117L, "Theatre Owner"));
+		userDao.save(new User(22L, "theatre13@gmail.com", "t13", 1111111118L, "Theatre Owner"));
+		userDao.save(new User(23L, "theatre14@gmail.com", "t14", 1111111119L, "Theatre Owner"));
+		userDao.save(new User(24L, "theatre15@gmail.com", "t15", 1111111120L, "Theatre Owner"));
 		userDao.save(new User(11L, "eventproducer1@gmail.com", "ep1", 1111111121L, "Event Producer"));
 		userDao.save(new User(12L, "eventproducer2@gmail.com", "ep2", 1111111122L, "Event Producer"));
 		userDao.save(new User(13L, "eventproducer3@gmail.com", "ep3", 1111111123L, "Event Producer"));
