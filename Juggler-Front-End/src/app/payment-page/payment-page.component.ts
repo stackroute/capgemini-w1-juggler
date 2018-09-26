@@ -112,7 +112,7 @@ export class PaymentPageComponent implements OnInit {
           console.log(response.error.message);
 
           setTimeout(() => {
-            this.route.navigate(["/seat-layout"]);
+            this.route.navigate([""]);
           }, 5000);
           this.msg1 = "Transaction Failed Because " + response.error.message;
         }
