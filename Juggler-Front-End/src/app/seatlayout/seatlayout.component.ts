@@ -49,7 +49,7 @@ export class SeatlayoutComponent implements OnInit, DoCheck {
   showId;
   socket;
   test2;
-  serverUrl = "http://13.126.220.1:9079/websocket";
+  serverUrl = "http://13.232.51.70:9079/websocket";
   stompClient;
 
   constructor(
@@ -182,15 +182,21 @@ export class SeatlayoutComponent implements OnInit, DoCheck {
   }
   // CHECKING WHETHER SEAT IS BLOCKED
   seatStatus(row, col) {
-    var flag = false;
+    var flag = true;
     // console.log(this.blockedSeats);
     var seatId = row * 10 + col + 1;
     for (var i = 0; i < this.blockedSeats.length; i++) {
-      if (this.blockedSeats[i] == seatId) {
-        flag = true;
-        return flag;
+      if (this.blockedSeats[i] == seatId ) {
+        flag = false;
       }
     }
+
+    for (var i = 0; i < this.bookedSeats.length; i++) {
+      if (this.bookedSeats[i] == seatId) {
+        flag = false;
+      }
+    }
+    return flag;
   }
   // CHECKING WHETHER SEAT is booked
   seatBook(row, col) {
@@ -200,9 +206,21 @@ export class SeatlayoutComponent implements OnInit, DoCheck {
       if (this.bookedSeats[i] == seatId) {
         console.log(this.bookedSeats[i]);
         flag = true;
-        return flag;
       }
     }
+    return flag;
+  }
+
+  // CHECKING WHETHER SEAT is booked
+  seatBlocked(row, col) {
+    var flag = false;
+    var seatId = row * 10 + col + 1;
+    for (var i = 0; i < this.blockedSeats.length; i++) {
+      if (this.blockedSeats[i] == seatId) {
+        flag = true;
+      }
+    }
+    return flag;
   }
 
   disconnect() {

@@ -7,10 +7,10 @@
 
 <div class="container">
   <div class="row">
-    <div  class="col-sm-4">
+    <div class="col-sm-4">
       <b>{{bookingDetail.nameOfMovie}} </b>
     </div>
-  
+
     <div class="col-sm-4">
       <b>{{bookingDetail.screeningTime}}, {{bookingDetail.theaterName}}</b>
     </div>
@@ -30,12 +30,11 @@
   </select>
 </p> -->
 
-<div class="ArenaLayout">
+<!-- <div class="ArenaLayout">
   <div class="rows" *ngFor="let row of totalRow; let i=index">
     <div class="columns" *ngFor="let col of totalCol">
       <div *ngIf="seatStatus(row,col); else SeatAvailable">
-        <!-- <div *ngIf="col!=passage[0] && col!=passage[1] && row!=rowPassage; else Passage"> -->
-        <div *ngIf="seatBook(row,col); else SeatBlocked" class="seat booked">
+        <div *ngIf="seatBook(row,col); else SeatBlocked">
           {{col+1}}
         </div>
         <ng-template #SeatBlocked>
@@ -49,31 +48,41 @@
       </ng-template>
     </div>
   </div>
+</div> -->
+
+<div class="ArenaLayout">
+  <div class="rows" *ngFor="let row of totalRow; let i=index">
+    <div class="columns" *ngFor="let col of totalCol">
+
+      <div *ngIf="seatBlocked(row,col)">
+        <div class="seat blocked">
+          {{seatname[i]}}{{col+1}}
+        </div>
+      </div>
+
+      <div *ngIf="seatBook(row,col)">
+        <div class="seat booked">
+          {{seatname[i]}}{{col+1}}
+        </div>
+      </div>
+
+      
+
+      <div *ngIf="seatStatus(row,col)">
+        <div class="seat available" (click)="onclick(row,col)">
+          {{seatname[i]}}{{col+1}}
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
 </div>
 <div class="screen">
   All Eyes here
 </div>
-<!-- <div>
-  <span class="spanBox" style='Background-color:grey'></span>
-  <label>Selected Seats</label>
-  <span class="spanBox" style='Background-color:red'></span>
-  <label>Reserved Seats</label>
-  <span class="spanBox"></span>
-  <label>Empty Seats</label>
-</div> -->
 <div class="bookButton">
   <button mat-raised-button color="primary" (click)="sendMessage()" routerLink="/billing">Proceed to pay</button>
 </div>
-<!-- <div>
-  test2-showid is : {{test2.showId}}<br>
-  test3-complete is : {{test3}}
-</div> -->
-<!-- <div class="bookButton">
-  <button mat-raised-button color="primary" (click)="disconnect()" >Disconnect</button>
-</div> -->
-<!-- <div *ngIf="seatSelected(); else disableButton" class="bookButton">
-  <button mat-raised-button color="primary" routerLink="/billing" routerLinkActive="active" (click)="bookticket()">Proceed</button>
-</div>
-<ng-template #disableButton>
-  <button style="margin:0 auto; display: block; margin-bottom: .5%;" mat-raised-button disabled color="primary">Proceed</button>
-</ng-template>s -->

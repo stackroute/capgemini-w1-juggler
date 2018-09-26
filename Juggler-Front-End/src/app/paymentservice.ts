@@ -23,7 +23,7 @@ export class PaymentService {
     // const head = new Headers({bookedSeats: bookedSeats});
     this.http
       .post(
-        "http://10.20.1.15:9081/api/v1/payment/charge",
+        "http://13.232.51.70:9081/api/v1/payment/charge",
         {},
         { headers: headers }
       )
@@ -35,7 +35,7 @@ export class PaymentService {
           // console.log(head);
 
           this.http
-            .post("http://13.126.220.1:9081/api/v1/payment/ticket", {
+            .post("http://13.232.51.70:9081/api/v1/payment/ticket", {
               bookedSeats: bookedSeats,
               showId: showId,
               movieName: movieName,
@@ -68,7 +68,7 @@ export class PaymentService {
 
   refundCard() {
     this.http
-      .post("http://13.126.220.1:9081/api/v1/payment/refund", {})
+      .post("http://13.232.51.70:9081/api/v1/payment/refund", {})
       .subscribe(res => {
         console.log(res);
       });

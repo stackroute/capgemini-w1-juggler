@@ -206,29 +206,31 @@ public class ShowServiceImpl implements ShowService {
 			local.setBookedSeats(middle);
 			showRepo.save(local);
 
-		} 
-//		else
+		} else
 
-//		{
-//			// ticketDetails.getBookedSeats();
-//			String showid = ticketDetails.getShowId();
-//			Show local = getById(ticketDetails.getShowId());
-//			List<Integer> middle = local.getBlockedSeats();
-//			List<Integer> mid = ticketDetails.getBookedSeats();
-//			for (int j = 0; j < middle.size(); j++) {
-//				for (int i = 0; i < mid.size(); i++) {
-//					if (mid.get(i) < 100) {
-//						if (mid.get(i) == middle.get(j)) {
-//							middle.remove(mid.get(i));
-//							System.out.println("hello");
-//						} else {
-//							System.out.println("bolo");
-//						}
-//					}
-//				}
-//			}
-//			showRepo.save(local);
-//		}
+		{
+			// ticketDetails.getBookedSeats();
+			String showid = ticketDetails.getShowId();
+			Show local = getById(ticketDetails.getShowId());
+			List<Integer> middle = local.getBlockedSeats();
+			List<Integer> mid = ticketDetails.getBookedSeats();
+			// for (int j = 0; j < middle.size(); j++) {
+			// for (int i = 0; i < mid.size(); i++) {
+			// if (mid.get(i) < 100) {
+			// if (mid.get(i) == middle.get(j)) {
+			// middle.remove(mid.get(i));
+			// System.out.println("hello");
+			// } else {
+			// System.out.println("bolo");
+			// }
+			// }
+			// }
+			// }
+			for (int i = 0; i < mid.size(); i++)
+				middle.remove(middle.indexOf(mid.get(i)));
+			local.setBlockedSeats(middle);
+			showRepo.save(local);
+		}
 	}
 
 	@SuppressWarnings("deprecation")
