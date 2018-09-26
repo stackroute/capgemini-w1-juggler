@@ -36,6 +36,10 @@ public class MovieServiceScheduleImpl implements MovieScheduleService {
 	@Override
 	public MovieSchedule addMovieSchedule(MovieSchedule movieShow) {
 		MovieSchedule addMovie = movieScheduleRepo.save(movieShow);
+		kafkaTemplate.send(topic, movieShow);
+		kafkaTemplate.send(topic1, movieShow);
+		kafkaTemplate.send(topic2, movieShow);
+		kafkaTemplate.send(topic4, movieShow);
 		return addMovie;
 	}
 

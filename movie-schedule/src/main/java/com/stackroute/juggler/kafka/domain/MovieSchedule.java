@@ -50,7 +50,7 @@ public class MovieSchedule {
 
 	public MovieSchedule(String theatreId, String theatreName, String email, String theatreLocation, String theatreCity,
 			String theatreLicenseNo, String totalnumberOfSeats, Seats seatLayout, String[] typesOfSeats,
-			int[] numberOfSeats, String[] screenedmovies, String[] runningmovies, String id, String movieName,
+			int[] numberOfSeats,  String id, String movieName,
 			String moviePoster, String actors, String actress, String directors, String movieGenres, String synopsis,
 			String format, String languages, String movieDuration, String movieReleaseDate, int showNumbers,
 			String showTimings, int[] weekends_Price, int[] weekdays_Price) {
@@ -65,8 +65,6 @@ public class MovieSchedule {
 		this.seatLayout = seatLayout;
 		this.typesOfSeats = typesOfSeats;
 		this.numberOfSeats = numberOfSeats;
-		this.screenedmovies = screenedmovies;
-		this.runningmovies = runningmovies;
 		this.id = id;
 		this.movieName = movieName;
 		this.moviePoster = moviePoster;
