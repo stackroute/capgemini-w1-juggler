@@ -1,44 +1,48 @@
+import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { SharingDataService } from "./../sharing-data.service";
-import { Component, OnInit } from "@angular/core";
-
 @Component({
-  selector: "app-rsvp-accept",
-  templateUrl: "./rsvp-accept.component.html",
-  styleUrls: ["./rsvp-accept.component.scss"]
+  selector: 'app-rsvp-accept',
+  templateUrl: './rsvp-accept.component.html',
+  styleUrls: ['./rsvp-accept.component.scss']
 })
 export class RsvpAcceptComponent implements OnInit {
-  flagAccept: boolean = false;
-  flagReject: boolean = false;
-  flagAcceptLoop: boolean = false;
-  flagRejectLoop: boolean = false;
-  flagReaccept: boolean;
-  countAccept: number = 0;
-  countReject: number = 0;
-  countReaccept: number = 0;
-  name: string;
+ flagAccept:boolean=false;
+ flagReject:boolean=false;
+ flagAcceptLoop:boolean=false;
+ flagRejectLoop:boolean=false;
 
-  constructor(private service: SharingDataService, private router: Router) {}
+ flagReaccept:boolean;
+ countAccept:number=0;
+ countReject:number=0;
+ countReaccept:number=0;
 
-  ngOnInit() {}
+  constructor(private router: Router) { }
 
-  accept() {
-    this.flagAccept = true;
+  ngOnInit() {
+  }
+  accept(){
+    this.flagAccept =true;
+    // this.countAccept++;
+    // console.log(this.countAccept);
+    // this.flagAcceptLoop=true;
+  }
+  reject(){
+this.flagReject=true;
+//this.countReject++;
+// console.log(this.countReject);
+// this.flagRejectLoop=true;
+  }
+ submit(){
+   if(this.flagAccept==true){
     this.countAccept++;
-    console.log(this.countAccept);
-    this.flagAcceptLoop = true;
-  }
-
-  reject() {
-    this.flagReject = true;
+    console.log("Accepted "+this.countAccept);
+   } else
+   {
     this.countReject++;
-    console.log(this.countReject);
-    this.flagRejectLoop = true;
-  }
+    console.log("Rejected "+this.countReject);
+   }
+   this.router.navigate(["/"]);
+ }
+ 
 
-  path() {
-    var nameLocal = this.service.sendCityName();
-    this.name = nameLocal;
-    this.router.navigate(["home",this.name]);
-  }
 }
