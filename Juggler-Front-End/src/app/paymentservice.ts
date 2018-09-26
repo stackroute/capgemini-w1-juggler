@@ -35,7 +35,7 @@ export class PaymentService {
           // console.log(head);
 
           this.http
-            .post("http://172.23.239.116:9081/api/v1/payment/ticket", {
+            .post("http://13.126.220.1:9081/api/v1/payment/ticket", {
               bookedSeats: bookedSeats,
               showId: showId,
               movieName: movieName,
@@ -68,7 +68,7 @@ export class PaymentService {
 
   refundCard() {
     this.http
-      .post("http://172.23.239.116:9081/api/v1/payment/refund", {})
+      .post("http://13.126.220.1:9081/api/v1/payment/refund", {})
       .subscribe(res => {
         console.log(res);
       });

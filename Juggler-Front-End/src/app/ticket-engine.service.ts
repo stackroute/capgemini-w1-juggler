@@ -9,8 +9,8 @@ import { Layout } from "./layout";
 })
 export class TicketEngineService {
   data;
-  url = "http://10.20.1.15:9079/api/v1/ticket/layout";
-  url1 = "http://10.20.1.15:9079/api/v1/ticket/update";
+  url = "http://13.126.220.1:9079/api/v1/ticket/layout";
+  url1 = "http://13.126.220.1:9079/api/v1/ticket/update";
   constructor(private http: HttpClient) {}
 
   getseatDetails(showId): Observable<Layout[]> {

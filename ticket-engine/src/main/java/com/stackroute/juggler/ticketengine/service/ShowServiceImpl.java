@@ -183,50 +183,52 @@ public class ShowServiceImpl implements ShowService {
 			Show local = getById(ticketDetails.getShowId());
 			List<Integer> middle = local.getBookedSeats();
 			List<Integer> mid = ticketDetails.getBookedSeats();
+			List<Integer> mid2 = local.getBlockedSeats();
 			for (int i = 0; i < mid.size(); i++) {
 				if (mid.get(i) < 100) {
 					middle.add(mid.get(i));
 				} else {
 				}
 			}
-			ticketDetails.getBookedSeats();
-			for (int j = 0; j < middle.size(); j++) {
-				for (int i = 0; i < mid.size(); i++) {
-					if (mid.get(i) < 100) {
-						if (mid.get(i) == middle.get(j)) {
-							middle.remove(mid.get(i));
-							System.out.println("hello");
-						} else {
-							System.out.println("bolo");
-						}
-					}
-				}
+			for (int j = 0; j < mid.size(); j++) {
+				// for (int i = 0; i < mid2.size(); i++) {
+				// if (mid2.get(i) < 100) {
+				// if (mid2.get(i) == mid.get(j)) {
+				// middle.remove(mid.get(i));
+				// System.out.println("hello");
+				// } else {
+				// System.out.println("bolo");
+				// }
+				// }
+				mid2.remove(mid2.indexOf(mid.get(j)));
 			}
-			showRepo.save(local);
+			local.setBlockedSeats(mid2);
 			local.setBookedSeats(middle);
 			showRepo.save(local);
 
-			System.out.println("Hai");
-		} else {
-			ticketDetails.getBookedSeats();
-			String showid = ticketDetails.getShowId();
-			Show local = getById(ticketDetails.getShowId());
-			List<Integer> middle = local.getBlockedSeats();
-			List<Integer> mid = ticketDetails.getBookedSeats();
-			for (int j = 0; j < middle.size(); j++) {
-				for (int i = 0; i < mid.size(); i++) {
-					if (mid.get(i) < 100) {
-						if (mid.get(i) == middle.get(j)) {
-							middle.remove(mid.get(i));
-							System.out.println("hello");
-						} else {
-							System.out.println("bolo");
-						}
-					}
-				}
-			}
-			showRepo.save(local);
-		}
+		} 
+//		else
+
+//		{
+//			// ticketDetails.getBookedSeats();
+//			String showid = ticketDetails.getShowId();
+//			Show local = getById(ticketDetails.getShowId());
+//			List<Integer> middle = local.getBlockedSeats();
+//			List<Integer> mid = ticketDetails.getBookedSeats();
+//			for (int j = 0; j < middle.size(); j++) {
+//				for (int i = 0; i < mid.size(); i++) {
+//					if (mid.get(i) < 100) {
+//						if (mid.get(i) == middle.get(j)) {
+//							middle.remove(mid.get(i));
+//							System.out.println("hello");
+//						} else {
+//							System.out.println("bolo");
+//						}
+//					}
+//				}
+//			}
+//			showRepo.save(local);
+//		}
 	}
 
 	@SuppressWarnings("deprecation")
