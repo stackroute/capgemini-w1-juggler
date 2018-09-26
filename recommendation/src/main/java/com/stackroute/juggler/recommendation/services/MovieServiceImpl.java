@@ -32,8 +32,6 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	@KafkaListener(groupId = "movie", topics = "screenings", containerFactory = "movieKafkaListenerContainerFactory")
 	public void getMovieNode(MovieSchedule movie) {
-		System.out.println(movie.getTheatreName());
-		System.out.println("hello");
 		System.out.println("1111111111111");
 		
 		Movie movieObj = new Movie();
@@ -41,37 +39,9 @@ public class MovieServiceImpl implements MovieService {
 		Theatre theater;
 		List<Theatre> theaters = new ArrayList<Theatre>();
 		String name=movie.getMovieName();
-		System.out.println(movieRepository.findByName(name));
-		if(movieRepository.findByName(name)!=null){
-			System.out.println("checking the same moviename");
-			//movies=movieRepository.findByName(name);
-			System.out.println(movieObj.getTheatres());
-			theaters=movieObj.getTheatres();
-			Iterator<Theatre> iterator = theaters.iterator();
-		
-			while (iterator.hasNext()) {
-				theater= iterator.next();
-				if (theater.getTheatreName().equals(movie.getTheatreName())) {
-					System.out.println("checking the same theater name");
-				} 
-			
-				else {
-					System.out.println("checking the different theaters");
-					Theatre theatreObj=new Theatre(movie.getTheatreId(),movie.getTheatreName(),movie.getTheatreLocation(),movie.getTheatreCity(),movie.getSeatLayout(),movie.getShowNumbers(),movie.getShowTimings(),movie.getWeekdays_Price(),movie.getWeekends_Price(),movie.getNumberOfSeats(),movie.getTypesOfSeats(),movie.getScreenedmovies(),movie.getRunningmovies());
-					theaters = new ArrayList<Theatre>();
-					theaters.add(theatreObj);
-					System.out.println(movieObj);
-					movieRepository.save(movieObj);
-				}
-				
-		}
-		}
-		else
-		{
-			System.out.println("checking the different movie name");
-			Theatre theatreObj=new Theatre(movie.getTheatreId(),movie.getTheatreName(),movie.getTheatreLocation(),movie.getTheatreCity(),movie.getSeatLayout(),movie.getShowNumbers(),movie.getShowTimings(),movie.getWeekdays_Price(),movie.getWeekends_Price(),movie.getNumberOfSeats(),movie.getTypesOfSeats(),movie.getScreenedmovies(),movie.getRunningmovies());
+		Theatre theatreObj=new Theatre(movie.getTheatreId(),movie.getTheatreName(),movie.getTheatreLocation(),movie.getTheatreCity(),movie.getSeatLayout(),movie.getShowNumbers(),movie.getShowTimings(),movie.getWeekdays_Price(),movie.getWeekends_Price(),movie.getNumberOfSeats(),movie.getTypesOfSeats(),movie.getScreenedmovies(),movie.getRunningmovies());
 			theaters.add(theatreObj);
-			System.out.println(theaters);
+			//System.out.println(theaters);
 			movieObj.setMovieId(movie.getId());
 			movieObj.setName(movie.getMovieName());
 			movieObj.setMoviePoster(movie.getMoviePoster());
@@ -96,7 +66,7 @@ public class MovieServiceImpl implements MovieService {
 			movieRepository.save(movieObj);
 			System.out.println("final");
 		}
-	}
+	
 
 	@Override
 	public List<Movie> getGenreBasedMoviesForUser(String emailId) {
