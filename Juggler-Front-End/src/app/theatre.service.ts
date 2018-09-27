@@ -7,7 +7,7 @@ import { Theatre } from "./theatre";
   providedIn: "root"
 })
 export class TheatreService {
-  private _url = "http://http://13.232.51.70:9071";
+  private _url = "http://13.232.51.70:9071";
   constructor(private http: HttpClient) {}
 
   saveTheatre(theatre: Theatre, email: string): Observable<Theatre> {
@@ -17,3 +17,6 @@ export class TheatreService {
     );
   }
 }
+
+
+
