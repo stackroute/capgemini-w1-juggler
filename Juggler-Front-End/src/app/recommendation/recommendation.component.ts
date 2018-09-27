@@ -11,6 +11,7 @@ import { MovieDetailsService } from "../moviedetails.service";
 export class RecommendationComponent implements OnInit {
   recommended_Movies: any;
   email;
+  role;
   genres = [];
   title;
   constructor(private recommendation: RecommendationService,private movieDetailsService:MovieDetailsService) {}
@@ -19,6 +20,7 @@ export class RecommendationComponent implements OnInit {
     if (localStorage.getItem("currentUserEmail") != null) {
       this.title = "Recommended Movies";
       this.email = localStorage.getItem("currentUserEmail");
+      this.role = localStorage.getItem("role");
       this.getGenreBasedMovies();
       this.getLanguageBased();
       this.getLanguageGenreBasedMovies();

@@ -22,6 +22,7 @@ export class AuthenticationService {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem( "currentUserEmail",email);
                     localStorage.setItem('currentUser', JSON.stringify(user));
+                    localStorage.setItem("role", 'user');
                 }
                 return user;
             }));
@@ -38,12 +39,14 @@ export class AuthenticationService {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem( "currentUserEmail",email);
                     localStorage.setItem('currentUser', JSON.stringify(user));
+                    localStorage.setItem('role',role);
                 }
                 return user;
             }));
     }
     logout() {
         // remove user from local storage to log user out
+        localStorage.removeItem('role');
         localStorage.removeItem('currentUser');
         localStorage.removeItem('currentUserEmail');
     } 
