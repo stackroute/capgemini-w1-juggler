@@ -256,14 +256,14 @@ services:
 
 #FRONT END
   juggler-front-end:
-   build: Juggler-Front-End
-   image: angular
-   restart: always
+   build: Juggler-Front-End/
+   image: juggler-front-end
    container_name: juggler-front-end
    network_mode: "host"
    hostname: localhost
    ports:
     - 4200:4200
+   restart: always
    healthcheck:
     test: "exit 0"
 

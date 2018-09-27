@@ -1,48 +1,11 @@
-# base image
-# FROM node:8.11.3 as builder
-# COPY . /juggler
-# WORKDIR /juggler
-# RUN npm install
-
-# #build angular application in prod mode
-# RUN $(npm bin)/ng build --prod
-
-# # start app on nginx web server
-# FROM nginx:stable-alpine
-# COPY --from=builder /juggler/dist/* /usr/share/nginx/html/
-# EXPOSE 8081
-
-# base image
-# FROM node:8.11.3 
-# RUN mkdir -p /usr/src/app
-
-# WORKDIR /usr/src/app
-# COPY package.json /usr/src/app
-# RUN npm cache verify
-# RUN npm install
-# COPY . /usr/src/app
-# start app
-# ENTRYPOINT ["npm","start","--","--host","0.0.0.0"]
-
-# EXPOSE 9090
-
-# base image
-# FROM node:8.11.3 
-# COPY /dist/Juggler-Front-End /usr/src/app
-# WORKDIR /usr/src/app
-# RUN npm install http-server -g
-
-# start app
-# ENTRYPOINT ["http-server","-o"]
-# EXPOSE 4200
-
-FROM node:8.11.3
-RUN mkdir -p /usr/src/Juggler-Front-End
-WORKDIR /usr/src/Juggler-Front-End
-COPY package.json /usr/src/Juggler-Front-End
+FROM node:latest
+RUN mkdir -p /juggler
+WORKDIR /juggler
+COPY package.json /juggler/
+RUN npm install --force
 RUN npm cache verify
-RUN npm install
-RUN npm audit fix
-COPY . /usr/src/Juggler-Front-End
-EXPOSE 4200
-CMD ["npm","start"]
+COPY . /juggler
+EXPOSE 4200/tcp
+CMD ["npm", "start", "--", "--host", "0.0.0.0", "--poll", "2000"]
+
+

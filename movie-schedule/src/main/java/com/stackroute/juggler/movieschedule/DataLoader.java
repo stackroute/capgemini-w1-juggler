@@ -64,7 +64,7 @@ public class DataLoader implements ApplicationRunner {
 		MovieSchedule local4 = new MovieSchedule("t28", "INOXMumbai", "theatre8@gmail.com",
 				"1-6-1,Sriram Nagar ColonyMain Road, ECIL,Mumbai-500045", "Mumbai", "Radhika123", "100", local,
 				typesOfSeats, noOfSeats, "m3", "Andhadhun", "https://static.toiimg.com/photo/64664105.cms",
-				"Akshay Kumar", "Radhika Apte", "Sriram Raghavan", "Drama",
+				"Akshay Kumar", "Radhika Apte", "Sriram Raghavan", "Thriller",
 				"A fictional retelling of an iconic moment in Indian history, the film revolves around the country's first Olympic gold win as an independent nation in 1948.",
 				"2D", "Hindi", "02:33:00", "05/10/2018", 3, "09:00,17:00,22:00", weekendsprice, weekdayprice);
 		movieScheduleService.addMovieSchedule(local4);
